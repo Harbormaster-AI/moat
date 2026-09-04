@@ -1,8 +1,8 @@
-# Why We Built Harbormaster
+# Why
 
-Harbormaster was designed to help organizations that manage large and growing technology environments create a larger, more valuable managed estate.
+Create a larger, more valuable managed estate for organizations that manage  large and growing technology environments 
 
-The premise is simple: much of the knowledge required to create, deploy and operate software systems is repeatedly recreated across projects and customers. Harbormaster captures that knowledge as reusable, executable production capability.
+The premise is simple: much of the knowledge required to create, deploy and operate software systems is repeatedly recreated across projects and customers. Capture that knowledge as reusable, executable production capability.
 
 SMEs encode application, architecture, infrastructure, cloud, automation and operational expertise in blueprints; Harbormaster compiles that knowledge into complete systems; and developers can begin innovating from Sprint 1 rather than repeatedly building the foundation from scratch.
 
@@ -13,13 +13,13 @@ For a Managed Hybrid Cloud Provider, the resulting opportunity extends beyond pr
 ![](./assets/msp.central.thesis.png "MSP/Harbormaster Central Thesis")
 
 
-## The Harbormaster MSP Moat
+## The MSP Moat
 
-> **The moat isn't any single Harbormaster capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
+> **The moatis the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
 >
 > Explore the moat to understand its hypotheses with evidence to serve as proof to its value as a transformational competitive edge.
 >
-> [Explore Harbormaster MSP Moat](./moat.md)
+> [Explore the MSP moat](./moat.md)
 
 ---
 

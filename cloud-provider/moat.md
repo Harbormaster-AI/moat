@@ -2,7 +2,7 @@
 
 # Central Vision
 
-> **Harbormaster enables a cloud provider to make software cheaper to produce, allowing its ecosystem to produce more software with the same resources—and converting that increased production into greater cloud resource consumption.**
+> **Enable a cloud provider to make software cheaper to produce, allowing its ecosystem to produce more software with the same resources—and converting that increased production into greater cloud resource consumption.**
 
 **The result:**
 
@@ -14,7 +14,7 @@
 
 *From Cloud Infrastructure Provider to Software-Production Intelligence Provider*
 
-> A set of hypotheses about how a cloud provider could use Harbormaster to turn accumulated technology, architectural, industry and operational knowledge into a continuously expanding software-production capability. Each hypothesis is intended to be examined against evidence.
+> A set of hypotheses about how a cloud provider could turn accumulated technology, architectural, industry and operational knowledge into a continuously expanding software-production capability. Each hypothesis is intended to be examined against evidence.
 
 ## The Four-Layer Moat
 

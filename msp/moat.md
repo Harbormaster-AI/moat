@@ -3,7 +3,7 @@
 
 # From Managed Services Provider to Software-Production and Operations Intelligence Company
 
-A set of hypotheses about how a Managed Hybrid Cloud Provider could use Harbormaster to transform accumulated application, architecture, infrastructure, cloud and operational knowledge into reusable, executable software-production capability—creating more economically viable systems, more managed workloads, and an increasingly intelligent managed environment. Each hypothesis is intended to be examined against evidence.
+A set of hypotheses about how a Managed Hybrid Cloud Provider could transform accumulated application, architecture, infrastructure, cloud and operational knowledge into reusable, executable software-production capability—creating more economically viable systems, more managed workloads, and an increasingly intelligent managed environment. Each hypothesis is intended to be examined against evidence.
 
 ## The Four-Layer Moat
 

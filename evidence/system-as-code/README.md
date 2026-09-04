@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Harbormaster is a declarative system that simplifies the process of creating a system. Hidden are the complexities of a technology blueprint, an industry domain model, and targets in the stack of technologies
+A declarative system simplifies the process of creating a system. Hidden are the complexities of a technology blueprint, an industry domain model, and targets in the stack of technologies
 
 ## Format
 
@@ -19,7 +19,7 @@ A command-line-interface using NodeJS, available on [npmjs.com](https://www.npmj
 ## Usage
 
 ### CLI
-Like docker-compose, simple commands issued from an OS prompt give full control over a system creation session. Commands include:
+Like docker-compose in form, simple commands issued from an OS prompt give full control over a system creation session. Commands include:
 
 Model Commands:
 > list [options] [hint] [category] [industry]  List available models. Use hint, category, and/or industry as filters.
@@ -39,8 +39,6 @@ System Commands:
 > delete [options] <id>           Delete a previously created system.  
 
 ### Programmatic 
-The CLI uses a separate NodeJS package which is an SDK to communicate with a Harbormaster Instance.  
-
-This allows you to programmatically integrate system integration as part of a larger workflow.
+The CLI uses a separate NodeJS package which serves as an SDK to communicate with the system creation platform. With this it is possible to programmatically integrate system creation as part of a larger software workflow.
 
 

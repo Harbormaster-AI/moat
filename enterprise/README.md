@@ -1,10 +1,10 @@
-# Why We Built Harbormaster
+# Why
 
-Harbormaster was designed to help large enterprises that manage substantial application portfolios increase the capacity, consistency and economics of software production and modernization.
+To increase the capacity, consistency and economics of software production and modernization of large enterprises that manage substantial application portfolios 
 
 The premise is simple: much of the knowledge required to create, modernize, deploy and operate enterprise systems is repeatedly recreated across applications, projects and teams. Architecture decisions, technology standards, security requirements, infrastructure patterns, integration approaches and industry knowledge often remain distributed across people, documents and existing systems.
 
-Harbormaster captures that knowledge as reusable, executable production capability.
+Captures that knowledge as reusable, executable production capability.
 
 Enterprise architects, application architects, infrastructure architects and domain SMEs encode application, architecture, infrastructure, cloud, security, governance and industry expertise in blueprints and models. Harbormaster uses that knowledge to produce complete systems and establish repeatable production patterns.
 
@@ -20,13 +20,13 @@ The resulting opportunity extends across the application portfolio:
 
 ---
 
-## The Harbormaster Enterprise Moat
+## The Enterprise Moat
 
-> **The moat isn't any single Harbormaster capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
+> **The moat isn't any single capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
 >
 > Explore the moat to understand its hypotheses with evidence to serve as proof to its value as a transformational competitive edge.
 > 
-> [Explore Harbormaster Enterprise Moat](./moat.md)
+> [Explore thr Enterprise Moat](./moat.md)
 
 ---
 
@@ -44,7 +44,7 @@ The four layers are not sequential benefits where one is inherently more valuabl
 
 Application, architecture, infrastructure, security and technology knowledge becomes executable through blueprints, models, configurations and system generation.
 
-Harbormaster allows defined classes of systems and system capabilities to be created and modernized with progressively less production effort.
+Allow defined classes of systems and system capabilities to be created and modernized with progressively less production effort.
 
 For the enterprise, this creates the first opportunity:
 
@@ -66,7 +66,7 @@ The objective is not simply to make an individual project cheaper.
 
 Large enterprises often manage hundreds or thousands of applications across multiple generations of technology, architectures and infrastructure environments.
 
-Harbormaster provides a mechanism for applying reusable production knowledge across that portfolio.
+Provide a mechanism for applying reusable production knowledge across that portfolio.
 
 Rather than approaching every application or modernization initiative as an independent engineering exercise, recurring patterns can become reusable production capability:
 
@@ -89,7 +89,7 @@ For the CIO and application portfolio owner, this can change the economics of mo
 
 Applications that previously competed for scarce engineering resources can become more economically viable to modernize, replace or extend.
 
-**Harbormaster can therefore increase not only production efficiency, but the enterprise's ability to act on its application portfolio.**
+**Increase not only production efficiency, but the enterprise's ability to act on its application portfolio.**
 
 ---
 
@@ -103,7 +103,7 @@ Enterprise systems do not simply consume engineering resources.
 
 The architecture, technology choices, configurations, implementation patterns and lessons associated with those systems can become reusable organizational knowledge.
 
-Harbormaster provides a mechanism for turning that knowledge into increasingly reusable production capability.
+Provide a mechanism for turning that knowledge into increasingly reusable production capability.
 
 Blueprints can capture:
 
@@ -144,7 +144,7 @@ For enterprise architecture, this also creates an important governance advantage
 
 The structured body of production knowledge becomes an increasingly valuable substrate for AI.
 
-Because Harbormaster represents production knowledge through models, blueprints, configurations, policies and generated systems, the enterprise can build a structured corpus describing how its software should be created and modernized.
+Representing production knowledge through models, blueprints, configurations, policies and generated systems, the enterprise can build a structured corpus describing how its software should be created and modernized.
 
 As that corpus grows, AI can increasingly assist with:
 
@@ -179,7 +179,7 @@ The long-term opportunity is therefore not simply a more efficient engineering o
 - A compounding organizational production advantage.
 - An increasingly intelligent software-production capability.
 
-**Harbormaster enables all four.**
+**Enable all four.**
 
 ---
 

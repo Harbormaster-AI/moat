@@ -1,4 +1,4 @@
-# GOperational and Economic Drivers
+# Operational and Economic Drivers
 
 | Metric                                   |    Year 1 |    Year 2 |     Year 3 |     Year 4 |     Year 5 | What Changes                                                               |
 | ---------------------------------------- | --------: | --------: | ---------: | ---------: | ---------: | -------------------------------------------------------------------------- |

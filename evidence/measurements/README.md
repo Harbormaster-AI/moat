@@ -1,8 +1,8 @@
-# Harbormaster Measurement Framework
+# Measurement Framework
 
-Harbormaster's measurement framework establishes a hierarchy of evidence for understanding the transformation from human knowledge and assumptions into production-ready systems and, ultimately, operational and economic outcomes.
+A system creation platform has a measurement framework that establishes a hierarchy of evidence for understanding the transformation from human knowledge and assumptions into production-ready systems and, ultimately, operational and economic outcomes.
 
-The objective is not simply to measure how much code Harbormaster generates. It is to measure how much software-production knowledge has been captured, how much production effort it replaces, how much of a system it can produce, how reliably it produces it, how often that knowledge is reused, and what operational and economic outcomes result.
+The objective is not simply to measure how much code is generated. It is to measure how much software-production knowledge has been captured, how much production effort it replaces, how much of a system it can produce, how reliably it produces it, how often that knowledge is reused, and what operational and economic outcomes result.
 
 ## Measurement Categories
 
@@ -10,7 +10,7 @@ The objective is not simply to measure how much code Harbormaster generates. It 
 
 | Category | What It Measures | Importance |
 |---|---|---|
-| **1. Production Volume** | What Harbormaster actually produces | Establishes the magnitude of production output |
+| **1. Production Volume** | What is actually produced | Establishes the magnitude of production output |
 | **2. Production Effort** | Human effort required to produce the system | Demonstrates productivity improvement and production leverage |
 | **3. Generated Asset Coverage** | Code, infrastructure, CI/CD, configuration, tests and other production artifacts generated | Shows how much of the system is produced automatically |
 | **4. Knowledge Coverage** | How much system knowledge is represented by blueprints and models | Measures the expanding production capability |
@@ -28,7 +28,7 @@ The objective is not simply to measure how much code Harbormaster generates. It 
 
 ## What It Measures
 
-Production volume measures the tangible software and technology artifacts produced by Harbormaster.
+Production volume measures the tangible software and technology artifacts produced by a system creation platform.
 
 The following table represents the production values for the [system generation sessions](../generated-systems/README.md) created for this thesis exercise. 
 
@@ -143,7 +143,7 @@ Production Coverage can be measured across application, infrastructure, deployme
 
 Knowledge coverage measures how much of the knowledge required to produce a system is represented in reusable, executable form.
 
-Harbormaster can represent knowledge through:
+Knowledge can be measured through:
 
 - Industry domain models
 - Technology blueprints
@@ -221,7 +221,7 @@ Examples include:
 - Transaction boundaries
 - Architectural patterns
 
-Harbormaster can represent these decisions explicitly through models, blueprints, configurations and policies.
+Represent these decisions explicitly through models, blueprints, configurations and policies.
 
 ## Possible Measurement
 
@@ -231,7 +231,7 @@ A project could measure:
 Traditional project
 ~1,200 implicit production decisions
 
-Harbormaster system
+System-as-Code Outcome
 860 encoded decisions
 340 remaining human decisions
 ```
@@ -338,11 +338,11 @@ Runtime validated                90
 
 Generation alone is insufficient.
 
-Validation establishes whether Harbormaster's production capability produces credible, deployable and operational systems.
+Validation establishes whether system production produces credible, deployable and operational systems.
 
 The objective is to establish:
 
-> **How reliably can Harbormaster produce a working system?**
+> **How reliably can a working system be produced?**
 
 ---
 
@@ -350,7 +350,7 @@ The objective is to establish:
 
 ## What It Measures
 
-Delivery performance translates Harbormaster's production capability into project-level outcomes.
+Delivery performance translates system creation into project-level outcomes.
 
 ### Time
 
@@ -399,7 +399,7 @@ This provides the bridge between technical production measurements and business 
 
 ## What It Measures
 
-Once Harbormaster produces more systems, those systems create operational workloads.
+Once more systems are produced, those systems create operational workloads.
 
 The production-to-operations chain can be measured as:
 
@@ -501,7 +501,7 @@ Managed operation
 
 ## Why It Matters
 
-Economic measurement establishes the business value created by Harbormaster.
+Economic measurement establishes the business value of system creation.
 
 It allows technical measurements to be connected to:
 
@@ -519,7 +519,7 @@ It allows technical measurements to be connected to:
 
 ## What It Measures
 
-Production intelligence measures the structured body of production knowledge available to Harbormaster and the degree to which that knowledge can support increasingly intelligent production.
+Production intelligence measures the structured body of production knowledge available forsystem creation and the degree to which that knowledge can support increasingly intelligent production.
 
 Possible measurements include:
 
@@ -574,7 +574,7 @@ Improved Production Knowledge
 
 ## Why It Matters
 
-Harbormaster is not simply accumulating files or generated code.
+A system creation platform is not simply accumulating files or generated code.
 
 It is accumulating relationships between:
 
@@ -679,7 +679,7 @@ A second dimension runs through the entire measurement framework:
 
 The resulting measurement objective is therefore not simply:
 
-> **How much code does Harbormaster generate?**
+> **How much code is generated?**
 
 It is:
 
@@ -689,7 +689,7 @@ It is:
 
 # The Strategic Measurement Model
 
-Harbormaster's measurements ultimately demonstrate a progression:
+These measurements ultimately demonstrate a progression:
 
 ```text
 OUTPUT
@@ -711,4 +711,4 @@ ECONOMIC VALUE
 
 The purpose of the measurement framework is to make this progression observable and measurable rather than dependent on qualitative claims.
 
-> **Harbormaster can progressively demonstrate the transformation of software-production knowledge into measurable production capability, reusable intellectual capital, operational impact and economic value.**
+> **A system creation platform can progressively demonstrate the transformation of software-production knowledge into measurable production capability, reusable intellectual capital, operational impact and economic value.**

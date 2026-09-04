@@ -1,5 +1,5 @@
-# Why We Built Harbormaster
-Harbormaster was designed from the beginning with the needs of a large software delivery organization in mind. The premise is to capture software expertise as reusable, executable knowledge, so that the organization can produce more software, faster, with progressively less dependence on large engineering teams. SMEs encode their expertise in blueprints; Harbormaster compiles that knowledge into complete systems; and developers begin innovating from Sprint 1 rather than building the foundation from scratch.
+# Why
+Capture software expertise as reusable, executable knowledge, so that a large driver organization can produce more software, faster, with progressively less dependence on large engineering teams. SMEs encode their expertise in blueprints that are compiled into complete systems; and developers begin innovating from Sprint 1 rather than building the foundation from scratch.
 
 ---
 
@@ -7,13 +7,13 @@ Harbormaster was designed from the beginning with the needs of a large software 
 
 ---
 
-## The Harbormaster GSI Moat
+## The GSI Moat
 
-> **The moat isn't any single Harbormaster capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
+> **The moat isn't any single capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
 >
 > Explore the moat to understand its hypotheses with evidence to serve as proof to its value as a transformational competitive edge.
 >
-> [Explore Harbormaster GSI Moat](./moat.md)
+> [Explore GSI Moat](./moat.md)
 
 ---
 
@@ -72,8 +72,6 @@ The structured body of production knowledge becomes an increasingly powerful sub
 - A compounding delivery advantage.
 - An increasingly AI-operable software-production capability.
 
-**Harbormaster enables all four.**
-
 ---
 
 ## How the Four Benefits Reinforce One Another
@@ -104,7 +102,7 @@ The four benefits are not independent. They reinforce each other:
 
 ---
 # Explore Operational and Economic Drivers
-Discover the full benefits of Harbormaster to a GSI ecosystem.
+Discover the full benefits of to a GSI ecosystem.
 
 [Explore Drivers](./drivers.md)
 

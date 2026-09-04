@@ -1,24 +1,24 @@
-# Why We Built Harbormaster
+# Why
 
-Harbormaster was designed with the needs of a major cloud provider in mind. The premise is to use the cloud provider's accumulated technology, architectural and industry expertise to make software production increasingly efficient, so that more software can be built, modernized and operated on its platform with fewer resources. Cloud experts encode their knowledge in blueprints; Harbormaster compiles that knowledge into complete systems; and developers begin innovating from Sprint 1 rather than building the foundation from scratch.
+Use a cloud provider's accumulated technology, architectural and industry expertise to make software production increasingly efficient, so that more software can be built, modernized and operated on its platform with fewer resources. Cloud experts encode their knowledge in blueprints which are compiled into complete systems; and developers begin innovating from Sprint 1 rather than building the foundation from scratch.
 
 
 ![](./assets/cloud.central.thesis.png "Cloud Provider/Harbormaster Central Thesis")
 
 ---
 
-## The Harbormaster Cloud Provider Moat
+## The Cloud Provider Moat
 
-> **The moat isn't any single Harbormaster capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
+> **The moat isn't any single capability. It is the reinforcing system created when production power, proprietary production IP, compounding production advantage, and AI production intelligence continuously strengthen one another.**
 >
 > Explore the moat to understand its hypotheses with evidence to serve as proof to its value as a transformational competitive edge.
 >
-> [Explore Harbormaster Cloud Provider Moat](./moat.md)
+> [Explore the Cloud Provider Moat](./moat.md)
 
 
 ## The Transformation Creates Four Transcendent Benefits
 
-The four layers are not sequential benefits where one is inherently more valuable than another. They represent four equally powerful ways the transformation can create strategic advantage.
+The four layers are not sequential benefits where one is inherently more valuable than another. They represent four equal ways the transformation can create strategic advantage.
 
 ---
 
@@ -71,8 +71,6 @@ The structured body of production knowledge becomes an increasingly powerful sub
 - Expand software production and the resulting consumption of cloud resources.
 - Create an increasingly AI-operable software-production capability.
 
-**Harbormaster enables all four.**
-
 ---
 
 ## How the Four Benefits Reinforce One Another
@@ -112,7 +110,7 @@ The four benefits are not independent. They reinforce each other:
 
 ---
 # Explore Operational and Economic Drivers
-Discover the full benefits of Harbormaster to a Cloud Provider ecosystem.
+Discover the full benefits to a Cloud Provider ecosystem.
 
 [Explore Drivers](./drivers.md)
 

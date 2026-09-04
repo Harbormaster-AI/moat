@@ -11,7 +11,7 @@ Instead of offering a deck with sales and marketing language, or an online demo,
 
 ---
 
-# Thesis Assumptions
+# Assumptions
 
 Harbormaster was preconceived based on a simple assumptions:
 
@@ -35,7 +35,7 @@ This content is meant to inform and be shared with senior leadership.  If the pl
 | 🖥️ Managed Service Provider             | Grow the managed estate by making more systems economically viable to create, modernize and operate. | Capture production and operational knowledge as reusable capability across managed workloads.                                      | Increase the number of applications that can be modernized, deployed and brought under ongoing management. | Identify a mechanism for expanding the addressable managed estate, increasing recurring revenue potential, and creating a compounding operational advantage. |
 ---
 
-# The Harbormaster Thesis
+# Thesis
 
 ## Software Is Still Produced One System at a Time
 
@@ -66,7 +66,7 @@ The objective is not simply to generate code.
 
 ---
 
-# Fully Utilize Software SMEs
+# SMEs
 
 Software SMEs traditionally create **static content**: 
 
@@ -104,7 +104,7 @@ The long-term vision is not AI replacing the blueprint system. **The blueprint s
 
 ---
 
-# One Technology. 5 Different Economic Outcomes.
+# One Technology. 5 Economic Outcomes.
 <!-- ![](./assets/software.value.chain.png) -->
 
 The same transformation can create different forms of value depending on the organization applying it.
