@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="notebook.title" [(ngModel)]="notebook.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>repository</mat-label>
+								<input matInput ngDefaultControl placeholder="repository" name="notebook.repository" [(ngModel)]="notebook.repository">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"   [compareWith]="compareFn"  [(ngModel)]="notebook.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="notebook.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple  [compareWith]="compareFn"  [(ngModel)]="notebook.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="notebook.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Experiments</mat-label>
+					<mat-select placeholder="Experiments" multiple  [compareWith]="compareFn"  [(ngModel)]="notebook.Experiments">
+						@for (experiment of experiments; track experiment.experimentId) {
+							<mat-option name="notebook.Experiments" ngDefaultControl
+							            [value]="experiment.experimentId">
+								{{experiment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Queries</mat-label>
+					<mat-select placeholder="Queries" multiple  [compareWith]="compareFn"  [(ngModel)]="notebook.Queries">
+						@for (bIQuery of bIQuerys; track bIQuery.bIQueryId) {
+							<mat-option name="notebook.Queries" ngDefaultControl
+							            [value]="bIQuery.bIQueryId">
+								{{bIQuery.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Language</mat-label>
+						<mat-select placeholder="Language" name="notebook.Language" [(ngModel)]="notebook.Language">
+							@for (NotebookLanguage of NotebookLanguages; track NotebookLanguage) {
+								<mat-option ngDefaultControl [value]="NotebookLanguage">
+									{{NotebookLanguage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateNotebook(notebook.title, notebook.repository, notebook.Workspace, notebook.Datasets, notebook.Experiments, notebook.Queries, notebook.Language)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

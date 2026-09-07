@@ -1,0 +1,78 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="leavePolicy.name" [(ngModel)]="leavePolicy.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>accrualRate</mat-label>
+								<input matInput ngDefaultControl placeholder="accrualRate" name="leavePolicy.accrualRate" [(ngModel)]="leavePolicy.accrualRate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="leavePolicy.carryoverAllowed" ngDefaultControl [(ngModel)]="leavePolicy.carryoverAllowed">carryoverAllowed</mat-checkbox>
+																																																								<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>maxBalance</mat-label>
+								<input matInput ngDefaultControl placeholder="maxBalance" name="leavePolicy.maxBalance" [(ngModel)]="leavePolicy.maxBalance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="leavePolicy.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="leavePolicy.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LeaveRequests</mat-label>
+					<mat-select placeholder="LeaveRequests" multiple [(ngModel)]="leavePolicy.LeaveRequests">
+						@for (leaveRequest of leaveRequests; track leaveRequest.leaveRequestId) {
+							<mat-option name="leavePolicy.LeaveRequests" ngDefaultControl
+							            [value]="leaveRequest.leaveRequestId">
+								{{leaveRequest.requestNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>LeaveCategory</mat-label>
+						<mat-select placeholder="LeaveCategory" name="leavePolicy.LeaveCategory" [(ngModel)]="leavePolicy.LeaveCategory">
+							@for (LeaveCategory of LeaveCategorys; track LeaveCategory) {
+								<mat-option ngDefaultControl [value]="LeaveCategory">
+									{{LeaveCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>AccrualUnit</mat-label>
+						<mat-select placeholder="AccrualUnit" name="leavePolicy.AccrualUnit" [(ngModel)]="leavePolicy.AccrualUnit">
+							@for (AccrualUnit of AccrualUnits; track AccrualUnit) {
+								<mat-option ngDefaultControl [value]="AccrualUnit">
+									{{AccrualUnit}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																																														 																										 																										 																							 																							 										<button
+				(click)="addLeavePolicy(leavePolicy.name, leavePolicy.accrualRate, leavePolicy.carryoverAllowed == true ? true : false, leavePolicy.maxBalance, leavePolicy.Organization, leavePolicy.LeaveRequests, leavePolicy.LeaveCategory, leavePolicy.AccrualUnit)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

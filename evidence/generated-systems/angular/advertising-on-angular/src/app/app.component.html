@@ -1,0 +1,341 @@
+<div class="app-header">advertising-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="AgencyMenu">Agency</button>
+								<button mat-menu-item [matMenuTriggerFor]="TeamMenu">Team</button>
+								<button mat-menu-item [matMenuTriggerFor]="UserMenu">User</button>
+								<button mat-menu-item [matMenuTriggerFor]="AdvertiserMenu">Advertiser</button>
+								<button mat-menu-item [matMenuTriggerFor]="BillingProfileMenu">BillingProfile</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentMethodMenu">PaymentMethod</button>
+								<button mat-menu-item [matMenuTriggerFor]="AdAccountMenu">AdAccount</button>
+								<button mat-menu-item [matMenuTriggerFor]="DSPMenu">DSP</button>
+								<button mat-menu-item [matMenuTriggerFor]="CampaignMenu">Campaign</button>
+								<button mat-menu-item [matMenuTriggerFor]="KPIMenu">KPI</button>
+								<button mat-menu-item [matMenuTriggerFor]="AudienceSegmentMenu">AudienceSegment</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataProviderMenu">DataProvider</button>
+								<button mat-menu-item [matMenuTriggerFor]="LineItemMenu">LineItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="TargetingProfileMenu">TargetingProfile</button>
+								<button mat-menu-item [matMenuTriggerFor]="DeviceCriterionMenu">DeviceCriterion</button>
+								<button mat-menu-item [matMenuTriggerFor]="BrandSafetyPolicyMenu">BrandSafetyPolicy</button>
+								<button mat-menu-item [matMenuTriggerFor]="ContentCategoryMenu">ContentCategory</button>
+								<button mat-menu-item [matMenuTriggerFor]="PublisherMenu">Publisher</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventorySourceMenu">InventorySource</button>
+								<button mat-menu-item [matMenuTriggerFor]="AdSlotMenu">AdSlot</button>
+								<button mat-menu-item [matMenuTriggerFor]="DealMenu">Deal</button>
+								<button mat-menu-item [matMenuTriggerFor]="PlacementMenu">Placement</button>
+								<button mat-menu-item [matMenuTriggerFor]="CreativeAssetMenu">CreativeAsset</button>
+								<button mat-menu-item [matMenuTriggerFor]="CreativeFileMenu">CreativeFile</button>
+								<button mat-menu-item [matMenuTriggerFor]="CreativeVariationMenu">CreativeVariation</button>
+								<button mat-menu-item [matMenuTriggerFor]="CreativeApprovalMenu">CreativeApproval</button>
+								<button mat-menu-item [matMenuTriggerFor]="TrackingPixelMenu">TrackingPixel</button>
+								<button mat-menu-item [matMenuTriggerFor]="ConversionEventMenu">ConversionEvent</button>
+								<button mat-menu-item [matMenuTriggerFor]="PerformanceMetricMenu">PerformanceMetric</button>
+								<button mat-menu-item [matMenuTriggerFor]="ReportMenu">Report</button>
+								<button mat-menu-item [matMenuTriggerFor]="InsertionOrderMenu">InsertionOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="RateCardMenu">RateCard</button>
+								<button mat-menu-item [matMenuTriggerFor]="RateMenu">Rate</button>
+								<button mat-menu-item [matMenuTriggerFor]="ExperimentMenu">Experiment</button>
+								<button mat-menu-item [matMenuTriggerFor]="ExperimentVariantMenu">ExperimentVariant</button>
+								<button mat-menu-item [matMenuTriggerFor]="GeoRegionMenu">GeoRegion</button>
+				
+						<mat-menu #AgencyMenu="matMenu">
+			<a routerLink="createAgency">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAgency">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TeamMenu="matMenu">
+			<a routerLink="createTeam">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTeam">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #UserMenu="matMenu">
+			<a routerLink="createUser">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexUser">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AdvertiserMenu="matMenu">
+			<a routerLink="createAdvertiser">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAdvertiser">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BillingProfileMenu="matMenu">
+			<a routerLink="createBillingProfile">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBillingProfile">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentMethodMenu="matMenu">
+			<a routerLink="createPaymentMethod">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPaymentMethod">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AdAccountMenu="matMenu">
+			<a routerLink="createAdAccount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAdAccount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DSPMenu="matMenu">
+			<a routerLink="createDSP">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDSP">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CampaignMenu="matMenu">
+			<a routerLink="createCampaign">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCampaign">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #KPIMenu="matMenu">
+			<a routerLink="createKPI">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexKPI">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AudienceSegmentMenu="matMenu">
+			<a routerLink="createAudienceSegment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAudienceSegment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataProviderMenu="matMenu">
+			<a routerLink="createDataProvider">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataProvider">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LineItemMenu="matMenu">
+			<a routerLink="createLineItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLineItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TargetingProfileMenu="matMenu">
+			<a routerLink="createTargetingProfile">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTargetingProfile">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DeviceCriterionMenu="matMenu">
+			<a routerLink="createDeviceCriterion">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDeviceCriterion">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BrandSafetyPolicyMenu="matMenu">
+			<a routerLink="createBrandSafetyPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBrandSafetyPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ContentCategoryMenu="matMenu">
+			<a routerLink="createContentCategory">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexContentCategory">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PublisherMenu="matMenu">
+			<a routerLink="createPublisher">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPublisher">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventorySourceMenu="matMenu">
+			<a routerLink="createInventorySource">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventorySource">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AdSlotMenu="matMenu">
+			<a routerLink="createAdSlot">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAdSlot">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DealMenu="matMenu">
+			<a routerLink="createDeal">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDeal">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PlacementMenu="matMenu">
+			<a routerLink="createPlacement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPlacement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CreativeAssetMenu="matMenu">
+			<a routerLink="createCreativeAsset">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCreativeAsset">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CreativeFileMenu="matMenu">
+			<a routerLink="createCreativeFile">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCreativeFile">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CreativeVariationMenu="matMenu">
+			<a routerLink="createCreativeVariation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCreativeVariation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CreativeApprovalMenu="matMenu">
+			<a routerLink="createCreativeApproval">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCreativeApproval">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TrackingPixelMenu="matMenu">
+			<a routerLink="createTrackingPixel">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTrackingPixel">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ConversionEventMenu="matMenu">
+			<a routerLink="createConversionEvent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexConversionEvent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PerformanceMetricMenu="matMenu">
+			<a routerLink="createPerformanceMetric">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPerformanceMetric">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ReportMenu="matMenu">
+			<a routerLink="createReport">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexReport">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InsertionOrderMenu="matMenu">
+			<a routerLink="createInsertionOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInsertionOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RateCardMenu="matMenu">
+			<a routerLink="createRateCard">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRateCard">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RateMenu="matMenu">
+			<a routerLink="createRate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ExperimentMenu="matMenu">
+			<a routerLink="createExperiment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexExperiment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ExperimentVariantMenu="matMenu">
+			<a routerLink="createExperimentVariant">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexExperimentVariant">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #GeoRegionMenu="matMenu">
+			<a routerLink="createGeoRegion">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexGeoRegion">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,147 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="clinicalOrder.orderNumber" [(ngModel)]="clinicalOrder.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="clinicalOrder.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="clinicalOrder.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"  [(ngModel)]="clinicalOrder.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="clinicalOrder.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>OrderingClinician</mat-label>
+					<mat-select placeholder="OrderingClinician"  [(ngModel)]="clinicalOrder.OrderingClinician">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="clinicalOrder.OrderingClinician" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>MedicationOrders</mat-label>
+					<mat-select placeholder="MedicationOrders" multiple [(ngModel)]="clinicalOrder.MedicationOrders">
+						@for (medicationOrder of medicationOrders; track medicationOrder.medicationOrderId) {
+							<mat-option name="clinicalOrder.MedicationOrders" ngDefaultControl
+							            [value]="medicationOrder.medicationOrderId">
+								{{medicationOrder.medicationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LaboratoryOrders</mat-label>
+					<mat-select placeholder="LaboratoryOrders" multiple [(ngModel)]="clinicalOrder.LaboratoryOrders">
+						@for (laboratoryOrder of laboratoryOrders; track laboratoryOrder.laboratoryOrderId) {
+							<mat-option name="clinicalOrder.LaboratoryOrders" ngDefaultControl
+							            [value]="laboratoryOrder.laboratoryOrderId">
+								{{laboratoryOrder.testCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ImagingOrders</mat-label>
+					<mat-select placeholder="ImagingOrders" multiple [(ngModel)]="clinicalOrder.ImagingOrders">
+						@for (imagingOrder of imagingOrders; track imagingOrder.imagingOrderId) {
+							<mat-option name="clinicalOrder.ImagingOrders" ngDefaultControl
+							            [value]="imagingOrder.imagingOrderId">
+								{{imagingOrder.bodySite}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProcedureOrders</mat-label>
+					<mat-select placeholder="ProcedureOrders" multiple [(ngModel)]="clinicalOrder.ProcedureOrders">
+						@for (procedureOrder of procedureOrders; track procedureOrder.procedureOrderId) {
+							<mat-option name="clinicalOrder.ProcedureOrders" ngDefaultControl
+							            [value]="procedureOrder.procedureOrderId">
+								{{procedureOrder.procedureCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Authorizations</mat-label>
+					<mat-select placeholder="Authorizations" multiple [(ngModel)]="clinicalOrder.Authorizations">
+						@for (authorization of authorizations; track authorization.authorizationId) {
+							<mat-option name="clinicalOrder.Authorizations" ngDefaultControl
+							            [value]="authorization.authorizationId">
+								{{authorization.authNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="clinicalOrder.Status" [(ngModel)]="clinicalOrder.Status">
+							@for (OrderStatus of OrderStatuss; track OrderStatus) {
+								<mat-option ngDefaultControl [value]="OrderStatus">
+									{{OrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>OrderType</mat-label>
+						<mat-select placeholder="OrderType" name="clinicalOrder.OrderType" [(ngModel)]="clinicalOrder.OrderType">
+							@for (ClinicalOrderType of ClinicalOrderTypes; track ClinicalOrderType) {
+								<mat-option ngDefaultControl [value]="ClinicalOrderType">
+									{{ClinicalOrderType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="clinicalOrder.Priority" [(ngModel)]="clinicalOrder.Priority">
+							@for (Priority of Prioritys; track Priority) {
+								<mat-option ngDefaultControl [value]="Priority">
+									{{Priority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																										 																										 																										 																										 																										 																										 																							 																							 																							 										<button
+				(click)="addClinicalOrder(clinicalOrder.orderNumber, clinicalOrder.Patient, clinicalOrder.Encounter, clinicalOrder.OrderingClinician, clinicalOrder.MedicationOrders, clinicalOrder.LaboratoryOrders, clinicalOrder.ImagingOrders, clinicalOrder.ProcedureOrders, clinicalOrder.Authorizations, clinicalOrder.Status, clinicalOrder.OrderType, clinicalOrder.Priority)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

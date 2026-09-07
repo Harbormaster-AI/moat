@@ -1,0 +1,47 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="subscriber.name" [(ngModel)]="subscriber.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="subscriber.address" [(ngModel)]="subscriber.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Alerts</mat-label>
+					<mat-select placeholder="Alerts" multiple  [compareWith]="compareFn"  [(ngModel)]="subscriber.Alerts">
+						@for (alert of alerts; track alert.alertId) {
+							<mat-option name="subscriber.Alerts" ngDefaultControl
+							            [value]="alert.alertId">
+								{{alert.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Channel</mat-label>
+						<mat-select placeholder="Channel" name="subscriber.Channel" [(ngModel)]="subscriber.Channel">
+							@for (NotificationChannel of NotificationChannels; track NotificationChannel) {
+								<mat-option ngDefaultControl [value]="NotificationChannel">
+									{{NotificationChannel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateSubscriber(subscriber.name, subscriber.address, subscriber.Alerts, subscriber.Channel)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Anomaly List</h5>
+
+    <a
+            [routerLink]="['/createAnomaly']"
+            class="btn btn-primary btn-sm">
+        Create Anomaly
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">occurredAt</th>
+                        <th scope="col">details</th>
+                        <th scope="col">AnomalyType</th>
+                        <th scope="col">Severity</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (anomaly of anomalys; track anomaly.anomalyId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ anomaly.occurredAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ anomaly.details }}
+                </td>
+                                <td class="align-middle">
+                    {{ anomaly.AnomalyType }}
+                </td>
+                                <td class="align-middle">
+                    {{ anomaly.Severity }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAnomaly', anomaly.anomalyId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAnomaly(anomaly.anomalyId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (anomalys?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No anomalys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

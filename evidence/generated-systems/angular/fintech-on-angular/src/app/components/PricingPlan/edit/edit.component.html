@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="pricingPlan.name" [(ngModel)]="pricingPlan.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>planCode</mat-label>
+								<input matInput ngDefaultControl placeholder="planCode" name="pricingPlan.planCode" [(ngModel)]="pricingPlan.planCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>baseCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="baseCurrency" name="pricingPlan.baseCurrency" [(ngModel)]="pricingPlan.baseCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ProductOffering</mat-label>
+					<mat-select placeholder="ProductOffering"   [compareWith]="compareFn"  [(ngModel)]="pricingPlan.ProductOffering">
+						@for (productOffering of productOfferings; track productOffering.productOfferingId) {
+							<mat-option name="pricingPlan.ProductOffering" ngDefaultControl
+							            [value]="productOffering.productOfferingId">
+								{{productOffering.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>FeeSchedules</mat-label>
+					<mat-select placeholder="FeeSchedules" multiple  [compareWith]="compareFn"  [(ngModel)]="pricingPlan.FeeSchedules">
+						@for (feeSchedule of feeSchedules; track feeSchedule.feeScheduleId) {
+							<mat-option name="pricingPlan.FeeSchedules" ngDefaultControl
+							            [value]="feeSchedule.feeScheduleId">
+								{{feeSchedule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Limits</mat-label>
+					<mat-select placeholder="Limits" multiple  [compareWith]="compareFn"  [(ngModel)]="pricingPlan.Limits">
+						@for (usageLimit of usageLimits; track usageLimit.usageLimitId) {
+							<mat-option name="pricingPlan.Limits" ngDefaultControl
+							            [value]="usageLimit.usageLimitId">
+								{{usageLimit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="pricingPlan.Status" [(ngModel)]="pricingPlan.Status">
+							@for (PlanStatus of PlanStatuss; track PlanStatus) {
+								<mat-option ngDefaultControl [value]="PlanStatus">
+									{{PlanStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updatePricingPlan(pricingPlan.name, pricingPlan.planCode, pricingPlan.baseCurrency, pricingPlan.ProductOffering, pricingPlan.FeeSchedules, pricingPlan.Limits, pricingPlan.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

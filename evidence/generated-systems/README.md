@@ -2,7 +2,7 @@
 
 Each of the directories contains all the files compiled by Harbormaster for:
 
-- The Spring 3.5 [blueprint](../blueprints/README.md) (others include: Golang, ASP.NET, Angular, React, etc...)
+Spring 3.5/Golang/Angular 22 [blueprints](../blueprints/README.md)
 - An [industry domain model](../domain-models/README.md)( 1 of the 240+ included with HM, or any custom well-formed model)
 - Dynamic features applied to the target blueprint (ex: AWS, Terraform, Docker) [see system-as-code YAML](../system-as-code/README.md)
 - System specific options (database engine, docker/git/terraform/kubernetes/aws params, etc...) [see system-as-code YAML](../system-as-code/README.md

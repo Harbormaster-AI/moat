@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="experiment.name" [(ngModel)]="experiment.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>objective</mat-label>
+								<input matInput ngDefaultControl placeholder="objective" name="experiment.objective" [(ngModel)]="experiment.objective">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"  [(ngModel)]="experiment.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="experiment.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>TrainingRuns</mat-label>
+					<mat-select placeholder="TrainingRuns" multiple [(ngModel)]="experiment.TrainingRuns">
+						@for (trainingRun of trainingRuns; track trainingRun.trainingRunId) {
+							<mat-option name="experiment.TrainingRuns" ngDefaultControl
+							            [value]="trainingRun.trainingRunId">
+								{{trainingRun.runLabel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Models</mat-label>
+					<mat-select placeholder="Models" multiple [(ngModel)]="experiment.Models">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="experiment.Models" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Notebooks</mat-label>
+					<mat-select placeholder="Notebooks" multiple [(ngModel)]="experiment.Notebooks">
+						@for (notebook of notebooks; track notebook.notebookId) {
+							<mat-option name="experiment.Notebooks" ngDefaultControl
+							            [value]="notebook.notebookId">
+								{{notebook.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="experiment.Status" [(ngModel)]="experiment.Status">
+							@for (ExperimentStatus of ExperimentStatuss; track ExperimentStatus) {
+								<mat-option ngDefaultControl [value]="ExperimentStatus">
+									{{ExperimentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addExperiment(experiment.name, experiment.objective, experiment.Workspace, experiment.TrainingRuns, experiment.Models, experiment.Notebooks, experiment.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

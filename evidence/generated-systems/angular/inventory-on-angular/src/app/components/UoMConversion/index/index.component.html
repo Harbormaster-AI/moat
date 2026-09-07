@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">UoMConversion List</h5>
+
+    <a
+            [routerLink]="['/createUoMConversion']"
+            class="btn btn-primary btn-sm">
+        Create UoMConversion
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">factor</th>
+                        <th scope="col">precision</th>
+                        <th scope="col">FromUnit</th>
+                        <th scope="col">ToUnit</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (uoMConversion of uoMConversions; track uoMConversion.uoMConversionId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ uoMConversion.factor }}
+                </td>
+                                <td class="align-middle">
+                    {{ uoMConversion.precision }}
+                </td>
+                                <td class="align-middle">
+                    {{ uoMConversion.FromUnit }}
+                </td>
+                                <td class="align-middle">
+                    {{ uoMConversion.ToUnit }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadUoMConversion', uoMConversion.uoMConversionId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteUoMConversion(uoMConversion.uoMConversionId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (uoMConversions?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No uoMConversions found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

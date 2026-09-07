@@ -1,0 +1,112 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>orderId</mat-label>
+								<input matInput ngDefaultControl placeholder="orderId" name="tradeOrder.orderId" [(ngModel)]="tradeOrder.orderId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="tradeOrder.quantity" [(ngModel)]="tradeOrder.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>limitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="limitPrice" name="tradeOrder.limitPrice" [(ngModel)]="tradeOrder.limitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="tradeOrder.placedAt" class="form-control" name="tradeOrder.placedAt" #tradeOrder.placedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Portfolio</mat-label>
+					<mat-select placeholder="Portfolio"   [compareWith]="compareFn"  [(ngModel)]="tradeOrder.Portfolio">
+						@for (investmentPortfolio of investmentPortfolios; track investmentPortfolio.investmentPortfolioId) {
+							<mat-option name="tradeOrder.Portfolio" ngDefaultControl
+							            [value]="investmentPortfolio.investmentPortfolioId">
+								{{investmentPortfolio.portfolioCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Security</mat-label>
+					<mat-select placeholder="Security"   [compareWith]="compareFn"  [(ngModel)]="tradeOrder.Security">
+						@for (security of securitys; track security.securityId) {
+							<mat-option name="tradeOrder.Security" ngDefaultControl
+							            [value]="security.securityId">
+								{{security.symbol}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Trades</mat-label>
+					<mat-select placeholder="Trades" multiple  [compareWith]="compareFn"  [(ngModel)]="tradeOrder.Trades">
+						@for (trade of trades; track trade.tradeId) {
+							<mat-option name="tradeOrder.Trades" ngDefaultControl
+							            [value]="trade.tradeId">
+								{{trade.executedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Side</mat-label>
+						<mat-select placeholder="Side" name="tradeOrder.Side" [(ngModel)]="tradeOrder.Side">
+							@for (OrderSide of OrderSides; track OrderSide) {
+								<mat-option ngDefaultControl [value]="OrderSide">
+									{{OrderSide}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Type</mat-label>
+						<mat-select placeholder="Type" name="tradeOrder.Type" [(ngModel)]="tradeOrder.Type">
+							@for (OrderType of OrderTypes; track OrderType) {
+								<mat-option ngDefaultControl [value]="OrderType">
+									{{OrderType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="tradeOrder.Status" [(ngModel)]="tradeOrder.Status">
+							@for (OrderStatus of OrderStatuss; track OrderStatus) {
+								<mat-option ngDefaultControl [value]="OrderStatus">
+									{{OrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>TimeInForce</mat-label>
+						<mat-select placeholder="TimeInForce" name="tradeOrder.TimeInForce" [(ngModel)]="tradeOrder.TimeInForce">
+							@for (TimeInForce of TimeInForces; track TimeInForce) {
+								<mat-option ngDefaultControl [value]="TimeInForce">
+									{{TimeInForce}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateTradeOrder(tradeOrder.orderId, tradeOrder.quantity, tradeOrder.limitPrice, tradeOrder.placedAt, tradeOrder.Portfolio, tradeOrder.Security, tradeOrder.Trades, tradeOrder.Side, tradeOrder.Type, tradeOrder.Status, tradeOrder.TimeInForce)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

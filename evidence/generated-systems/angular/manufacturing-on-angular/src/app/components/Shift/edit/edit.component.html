@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>shiftName</mat-label>
+								<input matInput ngDefaultControl placeholder="shiftName" name="shift.shiftName" [(ngModel)]="shift.shiftName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>startTime</mat-label>
+								<input matInput ngDefaultControl placeholder="startTime" name="shift.startTime" [(ngModel)]="shift.startTime">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endTime</mat-label>
+								<input matInput ngDefaultControl placeholder="endTime" name="shift.endTime" [(ngModel)]="shift.endTime">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"   [compareWith]="compareFn"  [(ngModel)]="shift.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="shift.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Assignments</mat-label>
+					<mat-select placeholder="Assignments" multiple  [compareWith]="compareFn"  [(ngModel)]="shift.Assignments">
+						@for (shiftAssignment of shiftAssignments; track shiftAssignment.shiftAssignmentId) {
+							<mat-option name="shift.Assignments" ngDefaultControl
+							            [value]="shiftAssignment.shiftAssignmentId">
+								{{shiftAssignment.assignmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ShiftType</mat-label>
+						<mat-select placeholder="ShiftType" name="shift.ShiftType" [(ngModel)]="shift.ShiftType">
+							@for (ShiftType of ShiftTypes; track ShiftType) {
+								<mat-option ngDefaultControl [value]="ShiftType">
+									{{ShiftType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateShift(shift.shiftName, shift.startTime, shift.endTime, shift.Plant, shift.Assignments, shift.ShiftType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

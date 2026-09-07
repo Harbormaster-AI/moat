@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">DirectDebitMandate List</h5>
+
+    <a
+            [routerLink]="['/createDirectDebitMandate']"
+            class="btn btn-primary btn-sm">
+        Create DirectDebitMandate
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">mandateId</th>
+                        <th scope="col">signedAt</th>
+                        <th scope="col">Scheme</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (directDebitMandate of directDebitMandates; track directDebitMandate.directDebitMandateId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ directDebitMandate.mandateId }}
+                </td>
+                                <td class="align-middle">
+                    {{ directDebitMandate.signedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ directDebitMandate.Scheme }}
+                </td>
+                                <td class="align-middle">
+                    {{ directDebitMandate.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadDirectDebitMandate', directDebitMandate.directDebitMandateId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteDirectDebitMandate(directDebitMandate.directDebitMandateId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (directDebitMandates?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No directDebitMandates found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

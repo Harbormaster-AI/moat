@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">BenefitEnrollment List</h5>
+
+    <a
+            [routerLink]="['/createBenefitEnrollment']"
+            class="btn btn-primary btn-sm">
+        Create BenefitEnrollment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">enrollmentId</th>
+                        <th scope="col">effectiveFrom</th>
+                        <th scope="col">effectiveTo</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">CoverageLevel</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (benefitEnrollment of benefitEnrollments; track benefitEnrollment.benefitEnrollmentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ benefitEnrollment.enrollmentId }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitEnrollment.effectiveFrom }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitEnrollment.effectiveTo }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitEnrollment.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitEnrollment.CoverageLevel }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadBenefitEnrollment', benefitEnrollment.benefitEnrollmentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteBenefitEnrollment(benefitEnrollment.benefitEnrollmentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (benefitEnrollments?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No benefitEnrollments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

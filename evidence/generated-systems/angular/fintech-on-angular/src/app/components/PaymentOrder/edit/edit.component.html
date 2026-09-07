@@ -1,0 +1,137 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>orderReference</mat-label>
+								<input matInput ngDefaultControl placeholder="orderReference" name="paymentOrder.orderReference" [(ngModel)]="paymentOrder.orderReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>requestedExecutionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="requestedExecutionDate" name="paymentOrder.requestedExecutionDate" [(ngModel)]="paymentOrder.requestedExecutionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>purpose</mat-label>
+								<input matInput ngDefaultControl placeholder="purpose" name="paymentOrder.purpose" [(ngModel)]="paymentOrder.purpose">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>SourceAccount</mat-label>
+					<mat-select placeholder="SourceAccount"   [compareWith]="compareFn"  [(ngModel)]="paymentOrder.SourceAccount">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="paymentOrder.SourceAccount" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>DestinationAccount</mat-label>
+					<mat-select placeholder="DestinationAccount"   [compareWith]="compareFn"  [(ngModel)]="paymentOrder.DestinationAccount">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="paymentOrder.DestinationAccount" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Beneficiary</mat-label>
+					<mat-select placeholder="Beneficiary"   [compareWith]="compareFn"  [(ngModel)]="paymentOrder.Beneficiary">
+						@for (beneficiary of beneficiarys; track beneficiary.beneficiaryId) {
+							<mat-option name="paymentOrder.Beneficiary" ngDefaultControl
+							            [value]="beneficiary.beneficiaryId">
+								{{beneficiary.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentOrder.Transactions">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="paymentOrder.Transactions" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>FxDeal</mat-label>
+					<mat-select placeholder="FxDeal"   [compareWith]="compareFn"  [(ngModel)]="paymentOrder.FxDeal">
+						@for (fXDeal of fXDeals; track fXDeal.fXDealId) {
+							<mat-option name="paymentOrder.FxDeal" ngDefaultControl
+							            [value]="fXDeal.fXDealId">
+								{{fXDeal.dealReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Fees</mat-label>
+					<mat-select placeholder="Fees" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentOrder.Fees">
+						@for (appliedFee of appliedFees; track appliedFee.appliedFeeId) {
+							<mat-option name="paymentOrder.Fees" ngDefaultControl
+							            [value]="appliedFee.appliedFeeId">
+								{{appliedFee.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PaymentMethod</mat-label>
+						<mat-select placeholder="PaymentMethod" name="paymentOrder.PaymentMethod" [(ngModel)]="paymentOrder.PaymentMethod">
+							@for (PaymentMethod of PaymentMethods; track PaymentMethod) {
+								<mat-option ngDefaultControl [value]="PaymentMethod">
+									{{PaymentMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="paymentOrder.Status" [(ngModel)]="paymentOrder.Status">
+							@for (PaymentOrderStatus of PaymentOrderStatuss; track PaymentOrderStatus) {
+								<mat-option ngDefaultControl [value]="PaymentOrderStatus">
+									{{PaymentOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="paymentOrder.Priority" [(ngModel)]="paymentOrder.Priority">
+							@for (PaymentPriority of PaymentPrioritys; track PaymentPriority) {
+								<mat-option ngDefaultControl [value]="PaymentPriority">
+									{{PaymentPriority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updatePaymentOrder(paymentOrder.orderReference, paymentOrder.requestedExecutionDate, paymentOrder.purpose, paymentOrder.SourceAccount, paymentOrder.DestinationAccount, paymentOrder.Beneficiary, paymentOrder.Transactions, paymentOrder.FxDeal, paymentOrder.Fees, paymentOrder.PaymentMethod, paymentOrder.Status, paymentOrder.Priority)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

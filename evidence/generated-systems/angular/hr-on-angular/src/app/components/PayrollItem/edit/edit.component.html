@@ -1,0 +1,55 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="payrollItem.amount" [(ngModel)]="payrollItem.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="payrollItem.taxable" ngDefaultControl [(ngModel)]="payrollItem.taxable">taxable</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PayrollRun</mat-label>
+					<mat-select placeholder="PayrollRun"   [compareWith]="compareFn"  [(ngModel)]="payrollItem.PayrollRun">
+						@for (payrollRun of payrollRuns; track payrollRun.payrollRunId) {
+							<mat-option name="payrollItem.PayrollRun" ngDefaultControl
+							            [value]="payrollRun.payrollRunId">
+								{{payrollRun.runNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="payrollItem.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="payrollItem.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ItemType</mat-label>
+						<mat-select placeholder="ItemType" name="payrollItem.ItemType" [(ngModel)]="payrollItem.ItemType">
+							@for (PayrollItemType of PayrollItemTypes; track PayrollItemType) {
+								<mat-option ngDefaultControl [value]="PayrollItemType">
+									{{PayrollItemType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 																										 						 																				 						 																	 						 										<button
+				(click)="updatePayrollItem(payrollItem.amount, payrollItem.taxable == true ? true : false, payrollItem.PayrollRun, payrollItem.Employee, payrollItem.ItemType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

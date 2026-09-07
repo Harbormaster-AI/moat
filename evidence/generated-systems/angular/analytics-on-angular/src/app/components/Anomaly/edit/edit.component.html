@@ -1,0 +1,84 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>occurredAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="occurredAt" name="anomaly.occurredAt" [(ngModel)]="anomaly.occurredAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>details</mat-label>
+								<input matInput ngDefaultControl placeholder="details" name="anomaly.details" [(ngModel)]="anomaly.details">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>TimeSeries</mat-label>
+					<mat-select placeholder="TimeSeries"   [compareWith]="compareFn"  [(ngModel)]="anomaly.TimeSeries">
+						@for (timeSeries of timeSeriess; track timeSeries.timeSeriesId) {
+							<mat-option name="anomaly.TimeSeries" ngDefaultControl
+							            [value]="timeSeries.timeSeriesId">
+								{{timeSeries.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Alert</mat-label>
+					<mat-select placeholder="Alert"   [compareWith]="compareFn"  [(ngModel)]="anomaly.Alert">
+						@for (alert of alerts; track alert.alertId) {
+							<mat-option name="anomaly.Alert" ngDefaultControl
+							            [value]="alert.alertId">
+								{{alert.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"   [compareWith]="compareFn"  [(ngModel)]="anomaly.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="anomaly.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AnomalyType</mat-label>
+						<mat-select placeholder="AnomalyType" name="anomaly.AnomalyType" [(ngModel)]="anomaly.AnomalyType">
+							@for (AnomalyType of AnomalyTypes; track AnomalyType) {
+								<mat-option ngDefaultControl [value]="AnomalyType">
+									{{AnomalyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="anomaly.Severity" [(ngModel)]="anomaly.Severity">
+							@for (AlertSeverity of AlertSeveritys; track AlertSeverity) {
+								<mat-option ngDefaultControl [value]="AlertSeverity">
+									{{AlertSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAnomaly(anomaly.occurredAt, anomaly.details, anomaly.TimeSeries, anomaly.Alert, anomaly.Dataset, anomaly.AnomalyType, anomaly.Severity)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

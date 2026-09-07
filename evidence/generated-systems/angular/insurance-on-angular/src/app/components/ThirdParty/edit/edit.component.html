@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="thirdParty.name" [(ngModel)]="thirdParty.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>taxId</mat-label>
+								<input matInput ngDefaultControl placeholder="taxId" name="thirdParty.taxId" [(ngModel)]="thirdParty.taxId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="thirdParty.address" [(ngModel)]="thirdParty.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Subrogations</mat-label>
+					<mat-select placeholder="Subrogations" multiple  [compareWith]="compareFn"  [(ngModel)]="thirdParty.Subrogations">
+						@for (subrogationRecovery of subrogationRecoverys; track subrogationRecovery.subrogationRecoveryId) {
+							<mat-option name="thirdParty.Subrogations" ngDefaultControl
+							            [value]="subrogationRecovery.subrogationRecoveryId">
+								{{subrogationRecovery.recoveryReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PartyType</mat-label>
+						<mat-select placeholder="PartyType" name="thirdParty.PartyType" [(ngModel)]="thirdParty.PartyType">
+							@for (ThirdPartyType of ThirdPartyTypes; track ThirdPartyType) {
+								<mat-option ngDefaultControl [value]="ThirdPartyType">
+									{{ThirdPartyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateThirdParty(thirdParty.name, thirdParty.taxId, thirdParty.address, thirdParty.Subrogations, thirdParty.PartyType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

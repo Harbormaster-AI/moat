@@ -1,0 +1,58 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<input matInput placeholder="lineNumber" name="salesOrderLine.lineNumber" [(ngModel)]="salesOrderLine.lineNumber">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="salesOrderLine.quantity" [(ngModel)]="salesOrderLine.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>unitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="unitPrice" name="salesOrderLine.unitPrice" [(ngModel)]="salesOrderLine.unitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="salesOrderLine.dueDate" [(ngModel)]="salesOrderLine.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>SalesOrder</mat-label>
+					<mat-select placeholder="SalesOrder"   [compareWith]="compareFn"  [(ngModel)]="salesOrderLine.SalesOrder">
+						@for (salesOrder of salesOrders; track salesOrder.salesOrderId) {
+							<mat-option name="salesOrderLine.SalesOrder" ngDefaultControl
+							            [value]="salesOrder.salesOrderId">
+								{{salesOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"   [compareWith]="compareFn"  [(ngModel)]="salesOrderLine.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="salesOrderLine.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateSalesOrderLine(salesOrderLine.lineNumber, salesOrderLine.quantity, salesOrderLine.unitPrice, salesOrderLine.dueDate, salesOrderLine.SalesOrder, salesOrderLine.Item)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

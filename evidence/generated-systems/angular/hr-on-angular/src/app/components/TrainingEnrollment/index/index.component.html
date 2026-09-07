@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">TrainingEnrollment List</h5>
+
+    <a
+            [routerLink]="['/createTrainingEnrollment']"
+            class="btn btn-primary btn-sm">
+        Create TrainingEnrollment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">enrollmentNumber</th>
+                        <th scope="col">completionDate</th>
+                        <th scope="col">score</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (trainingEnrollment of trainingEnrollments; track trainingEnrollment.trainingEnrollmentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ trainingEnrollment.enrollmentNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ trainingEnrollment.completionDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ trainingEnrollment.score }}
+                </td>
+                                <td class="align-middle">
+                    {{ trainingEnrollment.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadTrainingEnrollment', trainingEnrollment.trainingEnrollmentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteTrainingEnrollment(trainingEnrollment.trainingEnrollmentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (trainingEnrollments?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No trainingEnrollments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

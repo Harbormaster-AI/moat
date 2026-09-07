@@ -1,0 +1,216 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="patient.firstName" [(ngModel)]="patient.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="patient.lastName" [(ngModel)]="patient.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>mrn</mat-label>
+								<input matInput ngDefaultControl placeholder="mrn" name="patient.mrn" [(ngModel)]="patient.mrn">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dateOfBirth</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dateOfBirth" name="patient.dateOfBirth" [(ngModel)]="patient.dateOfBirth">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="patient.address" [(ngModel)]="patient.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>primaryLanguage</mat-label>
+								<input matInput ngDefaultControl placeholder="primaryLanguage" name="patient.primaryLanguage" [(ngModel)]="patient.primaryLanguage">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Appointments</mat-label>
+					<mat-select placeholder="Appointments" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Appointments">
+						@for (appointment of appointments; track appointment.appointmentId) {
+							<mat-option name="patient.Appointments" ngDefaultControl
+							            [value]="appointment.appointmentId">
+								{{appointment.appointmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounters</mat-label>
+					<mat-select placeholder="Encounters" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Encounters">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="patient.Encounters" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CarePlans</mat-label>
+					<mat-select placeholder="CarePlans" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.CarePlans">
+						@for (carePlan of carePlans; track carePlan.carePlanId) {
+							<mat-option name="patient.CarePlans" ngDefaultControl
+							            [value]="carePlan.carePlanId">
+								{{carePlan.planNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Allergies</mat-label>
+					<mat-select placeholder="Allergies" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Allergies">
+						@for (allergy of allergys; track allergy.allergyId) {
+							<mat-option name="patient.Allergies" ngDefaultControl
+							            [value]="allergy.allergyId">
+								{{allergy.substance}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Conditions</mat-label>
+					<mat-select placeholder="Conditions" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Conditions">
+						@for (condition of conditions; track condition.conditionId) {
+							<mat-option name="patient.Conditions" ngDefaultControl
+							            [value]="condition.conditionId">
+								{{condition.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>MedicationOrders</mat-label>
+					<mat-select placeholder="MedicationOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.MedicationOrders">
+						@for (medicationOrder of medicationOrders; track medicationOrder.medicationOrderId) {
+							<mat-option name="patient.MedicationOrders" ngDefaultControl
+							            [value]="medicationOrder.medicationOrderId">
+								{{medicationOrder.medicationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LabOrders</mat-label>
+					<mat-select placeholder="LabOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.LabOrders">
+						@for (laboratoryOrder of laboratoryOrders; track laboratoryOrder.laboratoryOrderId) {
+							<mat-option name="patient.LabOrders" ngDefaultControl
+							            [value]="laboratoryOrder.laboratoryOrderId">
+								{{laboratoryOrder.testCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ImagingOrders</mat-label>
+					<mat-select placeholder="ImagingOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.ImagingOrders">
+						@for (imagingOrder of imagingOrders; track imagingOrder.imagingOrderId) {
+							<mat-option name="patient.ImagingOrders" ngDefaultControl
+							            [value]="imagingOrder.imagingOrderId">
+								{{imagingOrder.bodySite}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Coverages</mat-label>
+					<mat-select placeholder="Coverages" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Coverages">
+						@for (coverage of coverages; track coverage.coverageId) {
+							<mat-option name="patient.Coverages" ngDefaultControl
+							            [value]="coverage.coverageId">
+								{{coverage.memberId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Claims</mat-label>
+					<mat-select placeholder="Claims" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Claims">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="patient.Claims" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Devices</mat-label>
+					<mat-select placeholder="Devices" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Devices">
+						@for (medicalDevice of medicalDevices; track medicalDevice.medicalDeviceId) {
+							<mat-option name="patient.Devices" ngDefaultControl
+							            [value]="medicalDevice.medicalDeviceId">
+								{{medicalDevice.udi}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Observations</mat-label>
+					<mat-select placeholder="Observations" multiple  [compareWith]="compareFn"  [(ngModel)]="patient.Observations">
+						@for (observation of observations; track observation.observationId) {
+							<mat-option name="patient.Observations" ngDefaultControl
+							            [value]="observation.observationId">
+								{{observation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>SexAtBirth</mat-label>
+						<mat-select placeholder="SexAtBirth" name="patient.SexAtBirth" [(ngModel)]="patient.SexAtBirth">
+							@for (AdministrativeSex of AdministrativeSexs; track AdministrativeSex) {
+								<mat-option ngDefaultControl [value]="AdministrativeSex">
+									{{AdministrativeSex}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>BloodType</mat-label>
+						<mat-select placeholder="BloodType" name="patient.BloodType" [(ngModel)]="patient.BloodType">
+							@for (BloodType of BloodTypes; track BloodType) {
+								<mat-option ngDefaultControl [value]="BloodType">
+									{{BloodType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updatePatient(patient.firstName, patient.lastName, patient.mrn, patient.dateOfBirth, patient.address, patient.primaryLanguage, patient.Appointments, patient.Encounters, patient.CarePlans, patient.Allergies, patient.Conditions, patient.MedicationOrders, patient.LabOrders, patient.ImagingOrders, patient.Coverages, patient.Claims, patient.Devices, patient.Observations, patient.SexAtBirth, patient.BloodType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

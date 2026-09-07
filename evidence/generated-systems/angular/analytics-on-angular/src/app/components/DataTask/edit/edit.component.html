@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="dataTask.name" [(ngModel)]="dataTask.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>command</mat-label>
+								<input matInput ngDefaultControl placeholder="command" name="dataTask.command" [(ngModel)]="dataTask.command">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="retries" name="dataTask.retries" [(ngModel)]="dataTask.retries">
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Pipeline</mat-label>
+					<mat-select placeholder="Pipeline"   [compareWith]="compareFn"  [(ngModel)]="dataTask.Pipeline">
+						@for (dataPipeline of dataPipelines; track dataPipeline.dataPipelineId) {
+							<mat-option name="dataTask.Pipeline" ngDefaultControl
+							            [value]="dataPipeline.dataPipelineId">
+								{{dataPipeline.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InputDatasets</mat-label>
+					<mat-select placeholder="InputDatasets" multiple  [compareWith]="compareFn"  [(ngModel)]="dataTask.InputDatasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="dataTask.InputDatasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>OutputDatasets</mat-label>
+					<mat-select placeholder="OutputDatasets" multiple  [compareWith]="compareFn"  [(ngModel)]="dataTask.OutputDatasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="dataTask.OutputDatasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>TaskType</mat-label>
+						<mat-select placeholder="TaskType" name="dataTask.TaskType" [(ngModel)]="dataTask.TaskType">
+							@for (DataTaskType of DataTaskTypes; track DataTaskType) {
+								<mat-option ngDefaultControl [value]="DataTaskType">
+									{{DataTaskType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateDataTask(dataTask.name, dataTask.command, dataTask.retries, dataTask.Pipeline, dataTask.InputDatasets, dataTask.OutputDatasets, dataTask.TaskType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

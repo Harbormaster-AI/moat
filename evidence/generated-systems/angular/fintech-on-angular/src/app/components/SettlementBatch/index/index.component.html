@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">SettlementBatch List</h5>
+
+    <a
+            [routerLink]="['/createSettlementBatch']"
+            class="btn btn-primary btn-sm">
+        Create SettlementBatch
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">batchId</th>
+                        <th scope="col">periodStart</th>
+                        <th scope="col">periodEnd</th>
+                        <th scope="col">totalVolume</th>
+                        <th scope="col">totalCount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (settlementBatch of settlementBatchs; track settlementBatch.settlementBatchId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ settlementBatch.batchId }}
+                </td>
+                                <td class="align-middle">
+                    {{ settlementBatch.periodStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ settlementBatch.periodEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ settlementBatch.totalVolume }}
+                </td>
+                                <td class="align-middle">
+                    {{ settlementBatch.totalCount }}
+                </td>
+                                <td class="align-middle">
+                    {{ settlementBatch.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadSettlementBatch', settlementBatch.settlementBatchId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteSettlementBatch(settlementBatch.settlementBatchId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (settlementBatchs?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No settlementBatchs found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

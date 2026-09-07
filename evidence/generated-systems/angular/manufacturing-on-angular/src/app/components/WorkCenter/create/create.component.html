@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="workCenter.name" [(ngModel)]="workCenter.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="workCenter.code" [(ngModel)]="workCenter.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="capacityPerHour" name="workCenter.capacityPerHour" [(ngModel)]="workCenter.capacityPerHour">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>oeeTarget</mat-label>
+								<input matInput ngDefaultControl placeholder="oeeTarget" name="workCenter.oeeTarget" [(ngModel)]="workCenter.oeeTarget">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ProductionLine</mat-label>
+					<mat-select placeholder="ProductionLine"  [(ngModel)]="workCenter.ProductionLine">
+						@for (productionLine of productionLines; track productionLine.productionLineId) {
+							<mat-option name="workCenter.ProductionLine" ngDefaultControl
+							            [value]="productionLine.productionLineId">
+								{{productionLine.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Assets</mat-label>
+					<mat-select placeholder="Assets" multiple [(ngModel)]="workCenter.Assets">
+						@for (asset of assets; track asset.assetId) {
+							<mat-option name="workCenter.Assets" ngDefaultControl
+							            [value]="asset.assetId">
+								{{asset.assetName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>MaintenanceOrders</mat-label>
+					<mat-select placeholder="MaintenanceOrders" multiple [(ngModel)]="workCenter.MaintenanceOrders">
+						@for (maintenanceOrder of maintenanceOrders; track maintenanceOrder.maintenanceOrderId) {
+							<mat-option name="workCenter.MaintenanceOrders" ngDefaultControl
+							            [value]="maintenanceOrder.maintenanceOrderId">
+								{{maintenanceOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>WorkCenterType</mat-label>
+						<mat-select placeholder="WorkCenterType" name="workCenter.WorkCenterType" [(ngModel)]="workCenter.WorkCenterType">
+							@for (WorkCenterType of WorkCenterTypes; track WorkCenterType) {
+								<mat-option ngDefaultControl [value]="WorkCenterType">
+									{{WorkCenterType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addWorkCenter(workCenter.name, workCenter.code, workCenter.capacityPerHour, workCenter.oeeTarget, workCenter.ProductionLine, workCenter.Assets, workCenter.MaintenanceOrders, workCenter.WorkCenterType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

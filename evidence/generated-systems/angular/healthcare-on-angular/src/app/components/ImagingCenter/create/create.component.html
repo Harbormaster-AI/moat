@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="imagingCenter.name" [(ngModel)]="imagingCenter.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"  [(ngModel)]="imagingCenter.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="imagingCenter.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ImagingOrders</mat-label>
+					<mat-select placeholder="ImagingOrders" multiple [(ngModel)]="imagingCenter.ImagingOrders">
+						@for (imagingOrder of imagingOrders; track imagingOrder.imagingOrderId) {
+							<mat-option name="imagingCenter.ImagingOrders" ngDefaultControl
+							            [value]="imagingOrder.imagingOrderId">
+								{{imagingOrder.bodySite}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ImagingReports</mat-label>
+					<mat-select placeholder="ImagingReports" multiple [(ngModel)]="imagingCenter.ImagingReports">
+						@for (imagingReport of imagingReports; track imagingReport.imagingReportId) {
+							<mat-option name="imagingCenter.ImagingReports" ngDefaultControl
+							            [value]="imagingReport.imagingReportId">
+								{{imagingReport.reportNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																										 																										 																										 										<button
+				(click)="addImagingCenter(imagingCenter.name, imagingCenter.Facility, imagingCenter.ImagingOrders, imagingCenter.ImagingReports)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

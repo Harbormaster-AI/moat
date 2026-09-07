@@ -1,0 +1,42 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="branch.name" [(ngModel)]="branch.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>branchCode</mat-label>
+								<input matInput ngDefaultControl placeholder="branchCode" name="branch.branchCode" [(ngModel)]="branch.branchCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="branch.address" [(ngModel)]="branch.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Institution</mat-label>
+					<mat-select placeholder="Institution"   [compareWith]="compareFn"  [(ngModel)]="branch.Institution">
+						@for (financialInstitution of financialInstitutions; track financialInstitution.financialInstitutionId) {
+							<mat-option name="branch.Institution" ngDefaultControl
+							            [value]="financialInstitution.financialInstitutionId">
+								{{financialInstitution.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 										<button
+				(click)="updateBranch(branch.name, branch.branchCode, branch.address, branch.Institution)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

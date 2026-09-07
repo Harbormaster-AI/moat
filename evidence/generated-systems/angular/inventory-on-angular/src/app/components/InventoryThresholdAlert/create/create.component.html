@@ -1,0 +1,102 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>alertNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="alertNumber" name="inventoryThresholdAlert.alertNumber" [(ngModel)]="inventoryThresholdAlert.alertNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>detectedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="detectedAt" name="inventoryThresholdAlert.detectedAt" [(ngModel)]="inventoryThresholdAlert.detectedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>message</mat-label>
+								<input matInput ngDefaultControl placeholder="message" name="inventoryThresholdAlert.message" [(ngModel)]="inventoryThresholdAlert.message">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="inventoryThresholdAlert.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="inventoryThresholdAlert.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="inventoryThresholdAlert.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="inventoryThresholdAlert.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="inventoryThresholdAlert.Location">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="inventoryThresholdAlert.Location" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>RelatedPolicy</mat-label>
+					<mat-select placeholder="RelatedPolicy"  [(ngModel)]="inventoryThresholdAlert.RelatedPolicy">
+						@for (replenishmentPolicy of replenishmentPolicys; track replenishmentPolicy.replenishmentPolicyId) {
+							<mat-option name="inventoryThresholdAlert.RelatedPolicy" ngDefaultControl
+							            [value]="replenishmentPolicy.replenishmentPolicyId">
+								{{replenishmentPolicy.minLevel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>AlertType</mat-label>
+						<mat-select placeholder="AlertType" name="inventoryThresholdAlert.AlertType" [(ngModel)]="inventoryThresholdAlert.AlertType">
+							@for (InventoryAlertType of InventoryAlertTypes; track InventoryAlertType) {
+								<mat-option ngDefaultControl [value]="InventoryAlertType">
+									{{InventoryAlertType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="inventoryThresholdAlert.Status" [(ngModel)]="inventoryThresholdAlert.Status">
+							@for (AlertStatus of AlertStatuss; track AlertStatus) {
+								<mat-option ngDefaultControl [value]="AlertStatus">
+									{{AlertStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addInventoryThresholdAlert(inventoryThresholdAlert.alertNumber, inventoryThresholdAlert.detectedAt, inventoryThresholdAlert.message, inventoryThresholdAlert.Sku, inventoryThresholdAlert.Warehouse, inventoryThresholdAlert.Location, inventoryThresholdAlert.RelatedPolicy, inventoryThresholdAlert.AlertType, inventoryThresholdAlert.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

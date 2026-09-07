@@ -1,0 +1,152 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="policy.title" [(ngModel)]="policy.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>versionLabel</mat-label>
+								<input matInput ngDefaultControl placeholder="versionLabel" name="policy.versionLabel" [(ngModel)]="policy.versionLabel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>approvalDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="approvalDate" name="policy.approvalDate" [(ngModel)]="policy.approvalDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>nextReviewDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="nextReviewDate" name="policy.nextReviewDate" [(ngModel)]="policy.nextReviewDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>documentUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="documentUrl" name="policy.documentUrl" [(ngModel)]="policy.documentUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="policy.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="policy.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Owners</mat-label>
+					<mat-select placeholder="Owners" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Owners">
+						@for (person of persons; track person.personId) {
+							<mat-option name="policy.Owners" ngDefaultControl
+							            [value]="person.personId">
+								{{person.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>RelatedRequirements</mat-label>
+					<mat-select placeholder="RelatedRequirements" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.RelatedRequirements">
+						@for (complianceRequirement of complianceRequirements; track complianceRequirement.complianceRequirementId) {
+							<mat-option name="policy.RelatedRequirements" ngDefaultControl
+							            [value]="complianceRequirement.complianceRequirementId">
+								{{complianceRequirement.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Controls</mat-label>
+					<mat-select placeholder="Controls" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Controls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="policy.Controls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Procedures</mat-label>
+					<mat-select placeholder="Procedures" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Procedures">
+						@for (procedure of procedures; track procedure.procedureId) {
+							<mat-option name="policy.Procedures" ngDefaultControl
+							            [value]="procedure.procedureId">
+								{{procedure.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Exceptions</mat-label>
+					<mat-select placeholder="Exceptions" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Exceptions">
+						@for (exception_ of exception_s; track exception_.exception_Id) {
+							<mat-option name="policy.Exceptions" ngDefaultControl
+							            [value]="exception_.exception_Id">
+								{{exception_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Attestations</mat-label>
+					<mat-select placeholder="Attestations" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Attestations">
+						@for (attestation of attestations; track attestation.attestationId) {
+							<mat-option name="policy.Attestations" ngDefaultControl
+							            [value]="attestation.attestationId">
+								{{attestation.statement}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PolicyType</mat-label>
+						<mat-select placeholder="PolicyType" name="policy.PolicyType" [(ngModel)]="policy.PolicyType">
+							@for (PolicyType of PolicyTypes; track PolicyType) {
+								<mat-option ngDefaultControl [value]="PolicyType">
+									{{PolicyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="policy.Status" [(ngModel)]="policy.Status">
+							@for (DocumentStatus of DocumentStatuss; track DocumentStatus) {
+								<mat-option ngDefaultControl [value]="DocumentStatus">
+									{{DocumentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updatePolicy(policy.title, policy.versionLabel, policy.approvalDate, policy.nextReviewDate, policy.documentUrl, policy.Organization, policy.Owners, policy.RelatedRequirements, policy.Controls, policy.Procedures, policy.Exceptions, policy.Attestations, policy.PolicyType, policy.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

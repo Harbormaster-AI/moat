@@ -1,0 +1,94 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="jobProfile.title" [(ngModel)]="jobProfile.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>jobCode</mat-label>
+								<input matInput ngDefaultControl placeholder="jobCode" name="jobProfile.jobCode" [(ngModel)]="jobProfile.jobCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>JobFamily</mat-label>
+					<mat-select placeholder="JobFamily"  [(ngModel)]="jobProfile.JobFamily">
+						@for (jobFamily of jobFamilys; track jobFamily.jobFamilyId) {
+							<mat-option name="jobProfile.JobFamily" ngDefaultControl
+							            [value]="jobFamily.jobFamilyId">
+								{{jobFamily.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Competencies</mat-label>
+					<mat-select placeholder="Competencies" multiple [(ngModel)]="jobProfile.Competencies">
+						@for (competency of competencys; track competency.competencyId) {
+							<mat-option name="jobProfile.Competencies" ngDefaultControl
+							            [value]="competency.competencyId">
+								{{competency.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>TrainingRecommendations</mat-label>
+					<mat-select placeholder="TrainingRecommendations" multiple [(ngModel)]="jobProfile.TrainingRecommendations">
+						@for (trainingCourse of trainingCourses; track trainingCourse.trainingCourseId) {
+							<mat-option name="jobProfile.TrainingRecommendations" ngDefaultControl
+							            [value]="trainingCourse.trainingCourseId">
+								{{trainingCourse.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Positions</mat-label>
+					<mat-select placeholder="Positions" multiple [(ngModel)]="jobProfile.Positions">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="jobProfile.Positions" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>JobLevel</mat-label>
+						<mat-select placeholder="JobLevel" name="jobProfile.JobLevel" [(ngModel)]="jobProfile.JobLevel">
+							@for (JobLevel of JobLevels; track JobLevel) {
+								<mat-option ngDefaultControl [value]="JobLevel">
+									{{JobLevel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ExemptStatus</mat-label>
+						<mat-select placeholder="ExemptStatus" name="jobProfile.ExemptStatus" [(ngModel)]="jobProfile.ExemptStatus">
+							@for (ExemptStatus of ExemptStatuss; track ExemptStatus) {
+								<mat-option ngDefaultControl [value]="ExemptStatus">
+									{{ExemptStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addJobProfile(jobProfile.title, jobProfile.jobCode, jobProfile.JobFamily, jobProfile.Competencies, jobProfile.TrainingRecommendations, jobProfile.Positions, jobProfile.JobLevel, jobProfile.ExemptStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

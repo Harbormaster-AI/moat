@@ -1,0 +1,173 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="contact.firstName" [(ngModel)]="contact.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="contact.lastName" [(ngModel)]="contact.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="contact.title" [(ngModel)]="contact.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="contact.email" [(ngModel)]="contact.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>phone</mat-label>
+								<input matInput ngDefaultControl placeholder="phone" name="contact.phone" [(ngModel)]="contact.phone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>mobile</mat-label>
+								<input matInput ngDefaultControl placeholder="mobile" name="contact.mobile" [(ngModel)]="contact.mobile">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>mailingAddress</mat-label>
+								<input matInput ngDefaultControl placeholder="mailingAddress" name="contact.mailingAddress" [(ngModel)]="contact.mailingAddress">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="contact.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="contact.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"  [(ngModel)]="contact.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="contact.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"  [(ngModel)]="contact.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="contact.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple [(ngModel)]="contact.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="contact.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Opportunities</mat-label>
+					<mat-select placeholder="Opportunities" multiple [(ngModel)]="contact.Opportunities">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="contact.Opportunities" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Cases</mat-label>
+					<mat-select placeholder="Cases" multiple [(ngModel)]="contact.Cases">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="contact.Cases" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple [(ngModel)]="contact.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="contact.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Notes</mat-label>
+					<mat-select placeholder="Notes" multiple [(ngModel)]="contact.Notes">
+						@for (note of notes; track note.noteId) {
+							<mat-option name="contact.Notes" ngDefaultControl
+							            [value]="note.noteId">
+								{{note.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>EmailMessages</mat-label>
+					<mat-select placeholder="EmailMessages" multiple [(ngModel)]="contact.EmailMessages">
+						@for (emailMessage of emailMessages; track emailMessage.emailMessageId) {
+							<mat-option name="contact.EmailMessages" ngDefaultControl
+							            [value]="emailMessage.emailMessageId">
+								{{emailMessage.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PreferredContactMethod</mat-label>
+						<mat-select placeholder="PreferredContactMethod" name="contact.PreferredContactMethod" [(ngModel)]="contact.PreferredContactMethod">
+							@for (ContactMethod of ContactMethods; track ContactMethod) {
+								<mat-option ngDefaultControl [value]="ContactMethod">
+									{{ContactMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addContact(contact.firstName, contact.lastName, contact.title, contact.email, contact.phone, contact.mobile, contact.mailingAddress, contact.Organization, contact.Account, contact.Owner, contact.Activities, contact.Opportunities, contact.Cases, contact.Campaigns, contact.Notes, contact.EmailMessages, contact.PreferredContactMethod)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

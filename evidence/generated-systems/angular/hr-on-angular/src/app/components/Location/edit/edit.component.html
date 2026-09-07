@@ -1,0 +1,78 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="location.name" [(ngModel)]="location.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="location.address" [(ngModel)]="location.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>timezone</mat-label>
+								<input matInput ngDefaultControl placeholder="timezone" name="location.timezone" [(ngModel)]="location.timezone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="location.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="location.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Departments</mat-label>
+					<mat-select placeholder="Departments" multiple  [compareWith]="compareFn"  [(ngModel)]="location.Departments">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="location.Departments" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Positions</mat-label>
+					<mat-select placeholder="Positions" multiple  [compareWith]="compareFn"  [(ngModel)]="location.Positions">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="location.Positions" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Employees</mat-label>
+					<mat-select placeholder="Employees" multiple  [compareWith]="compareFn"  [(ngModel)]="location.Employees">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="location.Employees" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateLocation(location.name, location.address, location.timezone, location.Organization, location.Departments, location.Positions, location.Employees)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

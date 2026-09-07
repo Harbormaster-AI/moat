@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="document.name" [(ngModel)]="document.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>fileUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="fileUrl" name="document.fileUrl" [(ngModel)]="document.fileUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>uploadedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="uploadedDate" name="document.uploadedDate" [(ngModel)]="document.uploadedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Candidate</mat-label>
+					<mat-select placeholder="Candidate"  [(ngModel)]="document.Candidate">
+						@for (candidate of candidates; track candidate.candidateId) {
+							<mat-option name="document.Candidate" ngDefaultControl
+							            [value]="candidate.candidateId">
+								{{candidate.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="document.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="document.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DocumentType</mat-label>
+						<mat-select placeholder="DocumentType" name="document.DocumentType" [(ngModel)]="document.DocumentType">
+							@for (DocumentType of DocumentTypes; track DocumentType) {
+								<mat-option ngDefaultControl [value]="DocumentType">
+									{{DocumentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addDocument(document.name, document.fileUrl, document.uploadedDate, document.Candidate, document.Employee, document.DocumentType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

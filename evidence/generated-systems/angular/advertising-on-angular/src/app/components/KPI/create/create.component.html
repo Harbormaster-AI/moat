@@ -1,0 +1,41 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>targetValue</mat-label>
+								<input matInput ngDefaultControl placeholder="targetValue" name="kPI.targetValue" [(ngModel)]="kPI.targetValue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"  [(ngModel)]="kPI.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="kPI.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>MetricType</mat-label>
+						<mat-select placeholder="MetricType" name="kPI.MetricType" [(ngModel)]="kPI.MetricType">
+							@for (MetricType of MetricTypes; track MetricType) {
+								<mat-option ngDefaultControl [value]="MetricType">
+									{{MetricType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																							 										<button
+				(click)="addKPI(kPI.targetValue, kPI.Campaign, kPI.MetricType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="department.name" [(ngModel)]="department.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"  [(ngModel)]="department.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="department.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CareTeams</mat-label>
+					<mat-select placeholder="CareTeams" multiple [(ngModel)]="department.CareTeams">
+						@for (careTeam of careTeams; track careTeam.careTeamId) {
+							<mat-option name="department.CareTeams" ngDefaultControl
+							            [value]="careTeam.careTeamId">
+								{{careTeam.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DepartmentType</mat-label>
+						<mat-select placeholder="DepartmentType" name="department.DepartmentType" [(ngModel)]="department.DepartmentType">
+							@for (DepartmentType of DepartmentTypes; track DepartmentType) {
+								<mat-option ngDefaultControl [value]="DepartmentType">
+									{{DepartmentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																							 										<button
+				(click)="addDepartment(department.name, department.Facility, department.CareTeams, department.DepartmentType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

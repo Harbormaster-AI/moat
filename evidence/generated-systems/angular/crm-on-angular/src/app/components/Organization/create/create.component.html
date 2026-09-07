@@ -1,0 +1,120 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="organization.name" [(ngModel)]="organization.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>defaultCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="defaultCurrency" name="organization.defaultCurrency" [(ngModel)]="organization.defaultCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>defaultLocale</mat-label>
+								<input matInput ngDefaultControl placeholder="defaultLocale" name="organization.defaultLocale" [(ngModel)]="organization.defaultLocale">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="organization.website" [(ngModel)]="organization.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Users</mat-label>
+					<mat-select placeholder="Users" multiple [(ngModel)]="organization.Users">
+						@for (user of users; track user.userId) {
+							<mat-option name="organization.Users" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Accounts</mat-label>
+					<mat-select placeholder="Accounts" multiple [(ngModel)]="organization.Accounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="organization.Accounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Teams</mat-label>
+					<mat-select placeholder="Teams" multiple [(ngModel)]="organization.Teams">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="organization.Teams" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Territories</mat-label>
+					<mat-select placeholder="Territories" multiple [(ngModel)]="organization.Territories">
+						@for (territory of territorys; track territory.territoryId) {
+							<mat-option name="organization.Territories" ngDefaultControl
+							            [value]="territory.territoryId">
+								{{territory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Products</mat-label>
+					<mat-select placeholder="Products" multiple [(ngModel)]="organization.Products">
+						@for (product of products; track product.productId) {
+							<mat-option name="organization.Products" ngDefaultControl
+							            [value]="product.productId">
+								{{product.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>PriceBooks</mat-label>
+					<mat-select placeholder="PriceBooks" multiple [(ngModel)]="organization.PriceBooks">
+						@for (priceBook of priceBooks; track priceBook.priceBookId) {
+							<mat-option name="organization.PriceBooks" ngDefaultControl
+							            [value]="priceBook.priceBookId">
+								{{priceBook.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple [(ngModel)]="organization.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="organization.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addOrganization(organization.name, organization.defaultCurrency, organization.defaultLocale, organization.website, organization.Users, organization.Accounts, organization.Teams, organization.Territories, organization.Products, organization.PriceBooks, organization.Campaigns)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

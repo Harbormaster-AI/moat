@@ -1,0 +1,42 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="creditor.name" [(ngModel)]="creditor.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bic</mat-label>
+								<input matInput ngDefaultControl placeholder="bic" name="creditor.bic" [(ngModel)]="creditor.bic">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="creditor.address" [(ngModel)]="creditor.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Mandates</mat-label>
+					<mat-select placeholder="Mandates" multiple  [compareWith]="compareFn"  [(ngModel)]="creditor.Mandates">
+						@for (directDebitMandate of directDebitMandates; track directDebitMandate.directDebitMandateId) {
+							<mat-option name="creditor.Mandates" ngDefaultControl
+							            [value]="directDebitMandate.directDebitMandateId">
+								{{directDebitMandate.mandateId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 										<button
+				(click)="updateCreditor(creditor.name, creditor.bic, creditor.address, creditor.Mandates)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

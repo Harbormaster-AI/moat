@@ -1,0 +1,24 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="contentCategory.code" [(ngModel)]="contentCategory.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="contentCategory.name" [(ngModel)]="contentCategory.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																						 																							 										<button
+				(click)="addContentCategory(contentCategory.code, contentCategory.name)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

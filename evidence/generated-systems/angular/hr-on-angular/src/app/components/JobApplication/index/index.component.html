@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">JobApplication List</h5>
+
+    <a
+            [routerLink]="['/createJobApplication']"
+            class="btn btn-primary btn-sm">
+        Create JobApplication
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">applicationNumber</th>
+                        <th scope="col">appliedDate</th>
+                        <th scope="col">resumeUrl</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (jobApplication of jobApplications; track jobApplication.jobApplicationId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ jobApplication.applicationNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ jobApplication.appliedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ jobApplication.resumeUrl }}
+                </td>
+                                <td class="align-middle">
+                    {{ jobApplication.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadJobApplication', jobApplication.jobApplicationId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteJobApplication(jobApplication.jobApplicationId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (jobApplications?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No jobApplications found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

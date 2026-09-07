@@ -1,0 +1,44 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>uri</mat-label>
+								<input matInput ngDefaultControl placeholder="uri" name="creativeFile.uri" [(ngModel)]="creativeFile.uri">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="fileSizeKB" name="creativeFile.fileSizeKB" [(ngModel)]="creativeFile.fileSizeKB">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>mimeType</mat-label>
+								<input matInput ngDefaultControl placeholder="mimeType" name="creativeFile.mimeType" [(ngModel)]="creativeFile.mimeType">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>checksum</mat-label>
+								<input matInput ngDefaultControl placeholder="checksum" name="creativeFile.checksum" [(ngModel)]="creativeFile.checksum">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CreativeAsset</mat-label>
+					<mat-select placeholder="CreativeAsset"  [(ngModel)]="creativeFile.CreativeAsset">
+						@for (creativeAsset of creativeAssets; track creativeAsset.creativeAssetId) {
+							<mat-option name="creativeFile.CreativeAsset" ngDefaultControl
+							            [value]="creativeAsset.creativeAssetId">
+								{{creativeAsset.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 										<button
+				(click)="addCreativeFile(creativeFile.uri, creativeFile.fileSizeKB, creativeFile.mimeType, creativeFile.checksum, creativeFile.CreativeAsset)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

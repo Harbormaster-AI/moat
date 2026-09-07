@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">APIClient List</h5>
+
+    <a
+            [routerLink]="['/createAPIClient']"
+            class="btn btn-primary btn-sm">
+        Create APIClient
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">clientId</th>
+                        <th scope="col">redirectUri</th>
+                        <th scope="col">ClientType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (aPIClient of aPIClients; track aPIClient.aPIClientId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ aPIClient.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ aPIClient.clientId }}
+                </td>
+                                <td class="align-middle">
+                    {{ aPIClient.redirectUri }}
+                </td>
+                                <td class="align-middle">
+                    {{ aPIClient.ClientType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAPIClient', aPIClient.aPIClientId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAPIClient(aPIClient.aPIClientId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (aPIClients?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No aPIClients found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

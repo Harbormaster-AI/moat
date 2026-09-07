@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">MRPRun List</h5>
+
+    <a
+            [routerLink]="['/createMRPRun']"
+            class="btn btn-primary btn-sm">
+        Create MRPRun
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">runNumber</th>
+                        <th scope="col">runDateTime</th>
+                        <th scope="col">planningHorizonDays</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (mRPRun of mRPRuns; track mRPRun.mRPRunId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ mRPRun.runNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ mRPRun.runDateTime }}
+                </td>
+                                <td class="align-middle">
+                    {{ mRPRun.planningHorizonDays }}
+                </td>
+                                <td class="align-middle">
+                    {{ mRPRun.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadMRPRun', mRPRun.mRPRunId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteMRPRun(mRPRun.mRPRunId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (mRPRuns?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No mRPRuns found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

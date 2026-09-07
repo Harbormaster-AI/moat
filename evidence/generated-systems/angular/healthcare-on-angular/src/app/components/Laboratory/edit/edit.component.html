@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="laboratory.name" [(ngModel)]="laboratory.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>cliaNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="cliaNumber" name="laboratory.cliaNumber" [(ngModel)]="laboratory.cliaNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="laboratory.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="laboratory.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LaboratoryOrders</mat-label>
+					<mat-select placeholder="LaboratoryOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="laboratory.LaboratoryOrders">
+						@for (laboratoryOrder of laboratoryOrders; track laboratoryOrder.laboratoryOrderId) {
+							<mat-option name="laboratory.LaboratoryOrders" ngDefaultControl
+							            [value]="laboratoryOrder.laboratoryOrderId">
+								{{laboratoryOrder.testCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LabResults</mat-label>
+					<mat-select placeholder="LabResults" multiple  [compareWith]="compareFn"  [(ngModel)]="laboratory.LabResults">
+						@for (labResult of labResults; track labResult.labResultId) {
+							<mat-option name="laboratory.LabResults" ngDefaultControl
+							            [value]="labResult.labResultId">
+								{{labResult.resultCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateLaboratory(laboratory.name, laboratory.cliaNumber, laboratory.Facility, laboratory.LaboratoryOrders, laboratory.LabResults)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

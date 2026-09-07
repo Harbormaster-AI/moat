@@ -1,0 +1,125 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="facility.name" [(ngModel)]="facility.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>facilityCode</mat-label>
+								<input matInput ngDefaultControl placeholder="facilityCode" name="facility.facilityCode" [(ngModel)]="facility.facilityCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="facility.address" [(ngModel)]="facility.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>HealthSystem</mat-label>
+					<mat-select placeholder="HealthSystem"   [compareWith]="compareFn"  [(ngModel)]="facility.HealthSystem">
+						@for (healthSystem of healthSystems; track healthSystem.healthSystemId) {
+							<mat-option name="facility.HealthSystem" ngDefaultControl
+							            [value]="healthSystem.healthSystemId">
+								{{healthSystem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Departments</mat-label>
+					<mat-select placeholder="Departments" multiple  [compareWith]="compareFn"  [(ngModel)]="facility.Departments">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="facility.Departments" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CareTeams</mat-label>
+					<mat-select placeholder="CareTeams" multiple  [compareWith]="compareFn"  [(ngModel)]="facility.CareTeams">
+						@for (careTeam of careTeams; track careTeam.careTeamId) {
+							<mat-option name="facility.CareTeams" ngDefaultControl
+							            [value]="careTeam.careTeamId">
+								{{careTeam.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Laboratories</mat-label>
+					<mat-select placeholder="Laboratories" multiple  [compareWith]="compareFn"  [(ngModel)]="facility.Laboratories">
+						@for (laboratory of laboratorys; track laboratory.laboratoryId) {
+							<mat-option name="facility.Laboratories" ngDefaultControl
+							            [value]="laboratory.laboratoryId">
+								{{laboratory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ImagingCenters</mat-label>
+					<mat-select placeholder="ImagingCenters" multiple  [compareWith]="compareFn"  [(ngModel)]="facility.ImagingCenters">
+						@for (imagingCenter of imagingCenters; track imagingCenter.imagingCenterId) {
+							<mat-option name="facility.ImagingCenters" ngDefaultControl
+							            [value]="imagingCenter.imagingCenterId">
+								{{imagingCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Pharmacies</mat-label>
+					<mat-select placeholder="Pharmacies" multiple  [compareWith]="compareFn"  [(ngModel)]="facility.Pharmacies">
+						@for (pharmacy of pharmacys; track pharmacy.pharmacyId) {
+							<mat-option name="facility.Pharmacies" ngDefaultControl
+							            [value]="pharmacy.pharmacyId">
+								{{pharmacy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple  [compareWith]="compareFn"  [(ngModel)]="facility.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="facility.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>FacilityType</mat-label>
+						<mat-select placeholder="FacilityType" name="facility.FacilityType" [(ngModel)]="facility.FacilityType">
+							@for (FacilityType of FacilityTypes; track FacilityType) {
+								<mat-option ngDefaultControl [value]="FacilityType">
+									{{FacilityType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateFacility(facility.name, facility.facilityCode, facility.address, facility.HealthSystem, facility.Departments, facility.CareTeams, facility.Laboratories, facility.ImagingCenters, facility.Pharmacies, facility.InventoryItems, facility.FacilityType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

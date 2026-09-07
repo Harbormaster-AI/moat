@@ -1,0 +1,88 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="supplier.name" [(ngModel)]="supplier.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>supplierCode</mat-label>
+								<input matInput ngDefaultControl placeholder="supplierCode" name="supplier.supplierCode" [(ngModel)]="supplier.supplierCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="supplier.address" [(ngModel)]="supplier.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Enterprises</mat-label>
+					<mat-select placeholder="Enterprises" multiple [(ngModel)]="supplier.Enterprises">
+						@for (enterprise of enterprises; track enterprise.enterpriseId) {
+							<mat-option name="supplier.Enterprises" ngDefaultControl
+							            [value]="enterprise.enterpriseId">
+								{{enterprise.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Items</mat-label>
+					<mat-select placeholder="Items" multiple [(ngModel)]="supplier.Items">
+						@for (item of items; track item.itemId) {
+							<mat-option name="supplier.Items" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>PurchaseOrders</mat-label>
+					<mat-select placeholder="PurchaseOrders" multiple [(ngModel)]="supplier.PurchaseOrders">
+						@for (purchaseOrder of purchaseOrders; track purchaseOrder.purchaseOrderId) {
+							<mat-option name="supplier.PurchaseOrders" ngDefaultControl
+							            [value]="purchaseOrder.purchaseOrderId">
+								{{purchaseOrder.poNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>SupplierTier</mat-label>
+						<mat-select placeholder="SupplierTier" name="supplier.SupplierTier" [(ngModel)]="supplier.SupplierTier">
+							@for (SupplierTier of SupplierTiers; track SupplierTier) {
+								<mat-option ngDefaultControl [value]="SupplierTier">
+									{{SupplierTier}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PaymentTerms</mat-label>
+						<mat-select placeholder="PaymentTerms" name="supplier.PaymentTerms" [(ngModel)]="supplier.PaymentTerms">
+							@for (PaymentTerms of PaymentTermss; track PaymentTerms) {
+								<mat-option ngDefaultControl [value]="PaymentTerms">
+									{{PaymentTerms}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 																							 										<button
+				(click)="addSupplier(supplier.name, supplier.supplierCode, supplier.address, supplier.Enterprises, supplier.Items, supplier.PurchaseOrders, supplier.SupplierTier, supplier.PaymentTerms)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

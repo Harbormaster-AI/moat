@@ -1,0 +1,82 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="inventorySource.name" [(ngModel)]="inventorySource.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>domain</mat-label>
+								<input matInput ngDefaultControl placeholder="domain" name="inventorySource.domain" [(ngModel)]="inventorySource.domain">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Publisher</mat-label>
+					<mat-select placeholder="Publisher"   [compareWith]="compareFn"  [(ngModel)]="inventorySource.Publisher">
+						@for (publisher of publishers; track publisher.publisherId) {
+							<mat-option name="inventorySource.Publisher" ngDefaultControl
+							            [value]="publisher.publisherId">
+								{{publisher.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>AdSlots</mat-label>
+					<mat-select placeholder="AdSlots" multiple  [compareWith]="compareFn"  [(ngModel)]="inventorySource.AdSlots">
+						@for (adSlot of adSlots; track adSlot.adSlotId) {
+							<mat-option name="inventorySource.AdSlots" ngDefaultControl
+							            [value]="adSlot.adSlotId">
+								{{adSlot.slotCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Deals</mat-label>
+					<mat-select placeholder="Deals" multiple  [compareWith]="compareFn"  [(ngModel)]="inventorySource.Deals">
+						@for (deal of deals; track deal.dealId) {
+							<mat-option name="inventorySource.Deals" ngDefaultControl
+							            [value]="deal.dealId">
+								{{deal.floorPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Channel</mat-label>
+						<mat-select placeholder="Channel" name="inventorySource.Channel" [(ngModel)]="inventorySource.Channel">
+							@for (ChannelType of ChannelTypes; track ChannelType) {
+								<mat-option ngDefaultControl [value]="ChannelType">
+									{{ChannelType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PrimaryFormat</mat-label>
+						<mat-select placeholder="PrimaryFormat" name="inventorySource.PrimaryFormat" [(ngModel)]="inventorySource.PrimaryFormat">
+							@for (AdFormat of AdFormats; track AdFormat) {
+								<mat-option ngDefaultControl [value]="AdFormat">
+									{{AdFormat}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateInventorySource(inventorySource.name, inventorySource.domain, inventorySource.Publisher, inventorySource.AdSlots, inventorySource.Deals, inventorySource.Channel, inventorySource.PrimaryFormat)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

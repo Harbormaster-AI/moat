@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Offer List</h5>
+
+    <a
+            [routerLink]="['/createOffer']"
+            class="btn btn-primary btn-sm">
+        Create Offer
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">offerNumber</th>
+                        <th scope="col">proposedStartDate</th>
+                        <th scope="col">baseSalary</th>
+                        <th scope="col">signOnBonus</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (offer of offers; track offer.offerId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ offer.offerNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ offer.proposedStartDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ offer.baseSalary }}
+                </td>
+                                <td class="align-middle">
+                    {{ offer.signOnBonus }}
+                </td>
+                                <td class="align-middle">
+                    {{ offer.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadOffer', offer.offerId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteOffer(offer.offerId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (offers?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No offers found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

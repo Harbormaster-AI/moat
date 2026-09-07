@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="claimReserve.amount" [(ngModel)]="claimReserve.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>setDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="setDate" name="claimReserve.setDate" [(ngModel)]="claimReserve.setDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"   [compareWith]="compareFn"  [(ngModel)]="claimReserve.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="claimReserve.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Exposure</mat-label>
+					<mat-select placeholder="Exposure"   [compareWith]="compareFn"  [(ngModel)]="claimReserve.Exposure">
+						@for (exposure of exposures; track exposure.exposureId) {
+							<mat-option name="claimReserve.Exposure" ngDefaultControl
+							            [value]="exposure.exposureId">
+								{{exposure.Claim}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ReserveType</mat-label>
+						<mat-select placeholder="ReserveType" name="claimReserve.ReserveType" [(ngModel)]="claimReserve.ReserveType">
+							@for (ReserveType of ReserveTypes; track ReserveType) {
+								<mat-option ngDefaultControl [value]="ReserveType">
+									{{ReserveType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="claimReserve.Status" [(ngModel)]="claimReserve.Status">
+							@for (ReserveStatus of ReserveStatuss; track ReserveStatus) {
+								<mat-option ngDefaultControl [value]="ReserveStatus">
+									{{ReserveStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateClaimReserve(claimReserve.amount, claimReserve.setDate, claimReserve.Claim, claimReserve.Exposure, claimReserve.ReserveType, claimReserve.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,132 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="risk.name" [(ngModel)]="risk.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="risk.description" [(ngModel)]="risk.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="inherentRiskScore" name="risk.inherentRiskScore" [(ngModel)]="risk.inherentRiskScore">
+																																																																	<p>
+																																																																																				<input matInput placeholder="residualRiskScore" name="risk.residualRiskScore" [(ngModel)]="risk.residualRiskScore">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="risk.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="risk.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Controls</mat-label>
+					<mat-select placeholder="Controls" multiple [(ngModel)]="risk.Controls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="risk.Controls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Assessments</mat-label>
+					<mat-select placeholder="Assessments" multiple [(ngModel)]="risk.Assessments">
+						@for (riskAssessment of riskAssessments; track riskAssessment.riskAssessmentId) {
+							<mat-option name="risk.Assessments" ngDefaultControl
+							            [value]="riskAssessment.riskAssessmentId">
+								{{riskAssessment.assessmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Issues</mat-label>
+					<mat-select placeholder="Issues" multiple [(ngModel)]="risk.Issues">
+						@for (issue of issues; track issue.issueId) {
+							<mat-option name="risk.Issues" ngDefaultControl
+							            [value]="issue.issueId">
+								{{issue.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Findings</mat-label>
+					<mat-select placeholder="Findings" multiple [(ngModel)]="risk.Findings">
+						@for (auditFinding of auditFindings; track auditFinding.auditFindingId) {
+							<mat-option name="risk.Findings" ngDefaultControl
+							            [value]="auditFinding.auditFindingId">
+								{{auditFinding.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Category</mat-label>
+						<mat-select placeholder="Category" name="risk.Category" [(ngModel)]="risk.Category">
+							@for (RiskCategory of RiskCategorys; track RiskCategory) {
+								<mat-option ngDefaultControl [value]="RiskCategory">
+									{{RiskCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Impact</mat-label>
+						<mat-select placeholder="Impact" name="risk.Impact" [(ngModel)]="risk.Impact">
+							@for (RiskImpact of RiskImpacts; track RiskImpact) {
+								<mat-option ngDefaultControl [value]="RiskImpact">
+									{{RiskImpact}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Likelihood</mat-label>
+						<mat-select placeholder="Likelihood" name="risk.Likelihood" [(ngModel)]="risk.Likelihood">
+							@for (RiskLikelihood of RiskLikelihoods; track RiskLikelihood) {
+								<mat-option ngDefaultControl [value]="RiskLikelihood">
+									{{RiskLikelihood}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="risk.Status" [(ngModel)]="risk.Status">
+							@for (RiskStatus of RiskStatuss; track RiskStatus) {
+								<mat-option ngDefaultControl [value]="RiskStatus">
+									{{RiskStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																							 																							 																							 																							 										<button
+				(click)="addRisk(risk.name, risk.description, risk.inherentRiskScore, risk.residualRiskScore, risk.Organization, risk.Controls, risk.Assessments, risk.Issues, risk.Findings, risk.Category, risk.Impact, risk.Likelihood, risk.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

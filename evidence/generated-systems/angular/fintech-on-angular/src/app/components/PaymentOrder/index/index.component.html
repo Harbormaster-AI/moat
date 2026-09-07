@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PaymentOrder List</h5>
+
+    <a
+            [routerLink]="['/createPaymentOrder']"
+            class="btn btn-primary btn-sm">
+        Create PaymentOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">orderReference</th>
+                        <th scope="col">requestedExecutionDate</th>
+                        <th scope="col">purpose</th>
+                        <th scope="col">PaymentMethod</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (paymentOrder of paymentOrders; track paymentOrder.paymentOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ paymentOrder.orderReference }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentOrder.requestedExecutionDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentOrder.purpose }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentOrder.PaymentMethod }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentOrder.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentOrder.Priority }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPaymentOrder', paymentOrder.paymentOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePaymentOrder(paymentOrder.paymentOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (paymentOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No paymentOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

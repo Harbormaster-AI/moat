@@ -1,0 +1,97 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>date</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="date" name="performanceMetric.date" [(ngModel)]="performanceMetric.date">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>value</mat-label>
+								<input matInput ngDefaultControl placeholder="value" name="performanceMetric.value" [(ngModel)]="performanceMetric.value">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AdAccount</mat-label>
+					<mat-select placeholder="AdAccount"  [(ngModel)]="performanceMetric.AdAccount">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="performanceMetric.AdAccount" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"  [(ngModel)]="performanceMetric.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="performanceMetric.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LineItem</mat-label>
+					<mat-select placeholder="LineItem"  [(ngModel)]="performanceMetric.LineItem">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="performanceMetric.LineItem" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Placement</mat-label>
+					<mat-select placeholder="Placement"  [(ngModel)]="performanceMetric.Placement">
+						@for (placement of placements; track placement.placementId) {
+							<mat-option name="performanceMetric.Placement" ngDefaultControl
+							            [value]="placement.placementId">
+								{{placement.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CreativeAsset</mat-label>
+					<mat-select placeholder="CreativeAsset"  [(ngModel)]="performanceMetric.CreativeAsset">
+						@for (creativeAsset of creativeAssets; track creativeAsset.creativeAssetId) {
+							<mat-option name="performanceMetric.CreativeAsset" ngDefaultControl
+							            [value]="creativeAsset.creativeAssetId">
+								{{creativeAsset.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>MetricType</mat-label>
+						<mat-select placeholder="MetricType" name="performanceMetric.MetricType" [(ngModel)]="performanceMetric.MetricType">
+							@for (MetricType of MetricTypes; track MetricType) {
+								<mat-option ngDefaultControl [value]="MetricType">
+									{{MetricType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addPerformanceMetric(performanceMetric.date, performanceMetric.value, performanceMetric.AdAccount, performanceMetric.Campaign, performanceMetric.LineItem, performanceMetric.Placement, performanceMetric.CreativeAsset, performanceMetric.MetricType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

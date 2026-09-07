@@ -1,0 +1,68 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="condition.code" [(ngModel)]="condition.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>onsetDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="onsetDate" name="condition.onsetDate" [(ngModel)]="condition.onsetDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>abatementDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="abatementDate" name="condition.abatementDate" [(ngModel)]="condition.abatementDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="condition.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="condition.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ClinicalStatus</mat-label>
+						<mat-select placeholder="ClinicalStatus" name="condition.ClinicalStatus" [(ngModel)]="condition.ClinicalStatus">
+							@for (ConditionStatus of ConditionStatuss; track ConditionStatus) {
+								<mat-option ngDefaultControl [value]="ConditionStatus">
+									{{ConditionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>VerificationStatus</mat-label>
+						<mat-select placeholder="VerificationStatus" name="condition.VerificationStatus" [(ngModel)]="condition.VerificationStatus">
+							@for (DiagnosisCertainty of DiagnosisCertaintys; track DiagnosisCertainty) {
+								<mat-option ngDefaultControl [value]="DiagnosisCertainty">
+									{{DiagnosisCertainty}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 																							 										<button
+				(click)="addCondition(condition.code, condition.onsetDate, condition.abatementDate, condition.Patient, condition.ClinicalStatus, condition.VerificationStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

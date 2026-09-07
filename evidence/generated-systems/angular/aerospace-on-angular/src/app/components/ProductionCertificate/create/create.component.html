@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>certificateNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="certificateNumber" name="productionCertificate.certificateNumber" [(ngModel)]="productionCertificate.certificateNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>authority</mat-label>
+								<input matInput ngDefaultControl placeholder="authority" name="productionCertificate.authority" [(ngModel)]="productionCertificate.authority">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Manufacturer</mat-label>
+					<mat-select placeholder="Manufacturer"  [(ngModel)]="productionCertificate.Manufacturer">
+						@for (aerospaceManufacturer of aerospaceManufacturers; track aerospaceManufacturer.aerospaceManufacturerId) {
+							<mat-option name="productionCertificate.Manufacturer" ngDefaultControl
+							            [value]="aerospaceManufacturer.aerospaceManufacturerId">
+								{{aerospaceManufacturer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																										 										<button
+				(click)="addProductionCertificate(productionCertificate.certificateNumber, productionCertificate.authority, productionCertificate.Manufacturer)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

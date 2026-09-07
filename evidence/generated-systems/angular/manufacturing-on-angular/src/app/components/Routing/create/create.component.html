@@ -1,0 +1,86 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>routingNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="routingNumber" name="routing.routingNumber" [(ngModel)]="routing.routingNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>revision</mat-label>
+								<input matInput ngDefaultControl placeholder="revision" name="routing.revision" [(ngModel)]="routing.revision">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>effectivityStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectivityStart" name="routing.effectivityStart" [(ngModel)]="routing.effectivityStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>effectivityEnd</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectivityEnd" name="routing.effectivityEnd" [(ngModel)]="routing.effectivityEnd">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"  [(ngModel)]="routing.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="routing.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Operations</mat-label>
+					<mat-select placeholder="Operations" multiple [(ngModel)]="routing.Operations">
+						@for (operation of operations; track operation.operationId) {
+							<mat-option name="routing.Operations" ngDefaultControl
+							            [value]="operation.operationId">
+								{{operation.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>RoutingType</mat-label>
+						<mat-select placeholder="RoutingType" name="routing.RoutingType" [(ngModel)]="routing.RoutingType">
+							@for (RoutingType of RoutingTypes; track RoutingType) {
+								<mat-option ngDefaultControl [value]="RoutingType">
+									{{RoutingType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="routing.Status" [(ngModel)]="routing.Status">
+							@for (RoutingStatus of RoutingStatuss; track RoutingStatus) {
+								<mat-option ngDefaultControl [value]="RoutingStatus">
+									{{RoutingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																							 																							 										<button
+				(click)="addRouting(routing.routingNumber, routing.revision, routing.effectivityStart, routing.effectivityEnd, routing.Item, routing.Operations, routing.RoutingType, routing.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

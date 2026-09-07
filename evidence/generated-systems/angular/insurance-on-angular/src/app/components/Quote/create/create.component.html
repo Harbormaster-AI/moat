@@ -1,0 +1,70 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>quoteNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="quoteNumber" name="quote.quoteNumber" [(ngModel)]="quote.quoteNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalPremium</mat-label>
+								<input matInput ngDefaultControl placeholder="totalPremium" name="quote.totalPremium" [(ngModel)]="quote.totalPremium">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>ratingDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="ratingDate" name="quote.ratingDate" [(ngModel)]="quote.ratingDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																													<mat-checkbox name="quote.asBound" ngDefaultControl [(ngModel)]="quote.asBound">asBound</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Application</mat-label>
+					<mat-select placeholder="Application"  [(ngModel)]="quote.Application">
+						@for (application of applications; track application.applicationId) {
+							<mat-option name="quote.Application" ngDefaultControl
+							            [value]="application.applicationId">
+								{{application.applicationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>UnderwritingDecisions</mat-label>
+					<mat-select placeholder="UnderwritingDecisions" multiple [(ngModel)]="quote.UnderwritingDecisions">
+						@for (underwritingDecision of underwritingDecisions; track underwritingDecision.underwritingDecisionId) {
+							<mat-option name="quote.UnderwritingDecisions" ngDefaultControl
+							            [value]="underwritingDecision.underwritingDecisionId">
+								{{underwritingDecision.notes}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"  [(ngModel)]="quote.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="quote.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																																																	 																										 																										 										<button
+				(click)="addQuote(quote.quoteNumber, quote.totalPremium, quote.ratingDate, quote.asBound == true ? true : false, quote.Application, quote.UnderwritingDecisions, quote.Policy)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

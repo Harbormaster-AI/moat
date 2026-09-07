@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="runParameter.name" [(ngModel)]="runParameter.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>value</mat-label>
+								<input matInput ngDefaultControl placeholder="value" name="runParameter.value" [(ngModel)]="runParameter.value">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>TrainingRun</mat-label>
+					<mat-select placeholder="TrainingRun"   [compareWith]="compareFn"  [(ngModel)]="runParameter.TrainingRun">
+						@for (trainingRun of trainingRuns; track trainingRun.trainingRunId) {
+							<mat-option name="runParameter.TrainingRun" ngDefaultControl
+							            [value]="trainingRun.trainingRunId">
+								{{trainingRun.runLabel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateRunParameter(runParameter.name, runParameter.value, runParameter.TrainingRun)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

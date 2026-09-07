@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">FXDeal List</h5>
+
+    <a
+            [routerLink]="['/createFXDeal']"
+            class="btn btn-primary btn-sm">
+        Create FXDeal
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">dealReference</th>
+                        <th scope="col">baseCurrency</th>
+                        <th scope="col">quoteCurrency</th>
+                        <th scope="col">rate</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">settlementDate</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (fXDeal of fXDeals; track fXDeal.fXDealId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ fXDeal.dealReference }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXDeal.baseCurrency }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXDeal.quoteCurrency }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXDeal.rate }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXDeal.amount }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXDeal.settlementDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXDeal.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadFXDeal', fXDeal.fXDealId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteFXDeal(fXDeal.fXDealId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (fXDeals?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No fXDeals found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

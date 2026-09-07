@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="distributor.name" [(ngModel)]="distributor.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>licenseNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="licenseNumber" name="distributor.licenseNumber" [(ngModel)]="distributor.licenseNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>region</mat-label>
+								<input matInput ngDefaultControl placeholder="region" name="distributor.region" [(ngModel)]="distributor.region">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Insurers</mat-label>
+					<mat-select placeholder="Insurers" multiple [(ngModel)]="distributor.Insurers">
+						@for (insurer of insurers; track insurer.insurerId) {
+							<mat-option name="distributor.Insurers" ngDefaultControl
+							            [value]="insurer.insurerId">
+								{{insurer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Agents</mat-label>
+					<mat-select placeholder="Agents" multiple [(ngModel)]="distributor.Agents">
+						@for (agent of agents; track agent.agentId) {
+							<mat-option name="distributor.Agents" ngDefaultControl
+							            [value]="agent.agentId">
+								{{agent.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple [(ngModel)]="distributor.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="distributor.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DistributorType</mat-label>
+						<mat-select placeholder="DistributorType" name="distributor.DistributorType" [(ngModel)]="distributor.DistributorType">
+							@for (DistributionChannelType of DistributionChannelTypes; track DistributionChannelType) {
+								<mat-option ngDefaultControl [value]="DistributionChannelType">
+									{{DistributionChannelType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addDistributor(distributor.name, distributor.licenseNumber, distributor.region, distributor.Insurers, distributor.Agents, distributor.Policies, distributor.DistributorType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">FeatureSet List</h5>
+
+    <a
+            [routerLink]="['/createFeatureSet']"
+            class="btn btn-primary btn-sm">
+        Create FeatureSet
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">refreshSchedule</th>
+                        <th scope="col">StoreType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (featureSet of featureSets; track featureSet.featureSetId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ featureSet.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ featureSet.refreshSchedule }}
+                </td>
+                                <td class="align-middle">
+                    {{ featureSet.StoreType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadFeatureSet', featureSet.featureSetId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteFeatureSet(featureSet.featureSetId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (featureSets?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No featureSets found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

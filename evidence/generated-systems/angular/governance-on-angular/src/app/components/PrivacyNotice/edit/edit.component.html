@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="privacyNotice.title" [(ngModel)]="privacyNotice.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>audience</mat-label>
+								<input matInput ngDefaultControl placeholder="audience" name="privacyNotice.audience" [(ngModel)]="privacyNotice.audience">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>versionLabel</mat-label>
+								<input matInput ngDefaultControl placeholder="versionLabel" name="privacyNotice.versionLabel" [(ngModel)]="privacyNotice.versionLabel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>publicationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="publicationDate" name="privacyNotice.publicationDate" [(ngModel)]="privacyNotice.publicationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>publicationUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="publicationUrl" name="privacyNotice.publicationUrl" [(ngModel)]="privacyNotice.publicationUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple  [compareWith]="compareFn"  [(ngModel)]="privacyNotice.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="privacyNotice.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="privacyNotice.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="privacyNotice.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Consents</mat-label>
+					<mat-select placeholder="Consents" multiple  [compareWith]="compareFn"  [(ngModel)]="privacyNotice.Consents">
+						@for (consent of consents; track consent.consentId) {
+							<mat-option name="privacyNotice.Consents" ngDefaultControl
+							            [value]="consent.consentId">
+								{{consent.subjectIdentifier}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="privacyNotice.Status" [(ngModel)]="privacyNotice.Status">
+							@for (DocumentStatus of DocumentStatuss; track DocumentStatus) {
+								<mat-option ngDefaultControl [value]="DocumentStatus">
+									{{DocumentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updatePrivacyNotice(privacyNotice.title, privacyNotice.audience, privacyNotice.versionLabel, privacyNotice.publicationDate, privacyNotice.publicationUrl, privacyNotice.ProcessingActivities, privacyNotice.Organization, privacyNotice.Consents, privacyNotice.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

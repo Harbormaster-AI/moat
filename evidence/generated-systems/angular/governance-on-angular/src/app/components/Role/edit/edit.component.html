@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="role.name" [(ngModel)]="role.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>responsibility</mat-label>
+								<input matInput ngDefaultControl placeholder="responsibility" name="role.responsibility" [(ngModel)]="role.responsibility">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Assignments</mat-label>
+					<mat-select placeholder="Assignments" multiple  [compareWith]="compareFn"  [(ngModel)]="role.Assignments">
+						@for (roleAssignment of roleAssignments; track roleAssignment.roleAssignmentId) {
+							<mat-option name="role.Assignments" ngDefaultControl
+							            [value]="roleAssignment.roleAssignmentId">
+								{{roleAssignment.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateRole(role.name, role.responsibility, role.Assignments)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

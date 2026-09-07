@@ -1,0 +1,377 @@
+<div class="app-header">aerospace-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="AerospaceManufacturerMenu">AerospaceManufacturer</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftProgramMenu">AircraftProgram</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftFamilyMenu">AircraftFamily</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftModelMenu">AircraftModel</button>
+								<button mat-menu-item [matMenuTriggerFor]="EngineTypeMenu">EngineType</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftVariantMenu">AircraftVariant</button>
+								<button mat-menu-item [matMenuTriggerFor]="AvionicsSuiteMenu">AvionicsSuite</button>
+								<button mat-menu-item [matMenuTriggerFor]="APUMenu">APU</button>
+								<button mat-menu-item [matMenuTriggerFor]="LandingGearMenu">LandingGear</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftOptionMenu">AircraftOption</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftPackageMenu">AircraftPackage</button>
+								<button mat-menu-item [matMenuTriggerFor]="SupplierMenu">Supplier</button>
+								<button mat-menu-item [matMenuTriggerFor]="Component_Menu">Component_</button>
+								<button mat-menu-item [matMenuTriggerFor]="PlantMenu">Plant</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductionLineMenu">ProductionLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="WorkCenterMenu">WorkCenter</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductionOrderMenu">ProductionOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="BuildScheduleMenu">BuildSchedule</button>
+								<button mat-menu-item [matMenuTriggerFor]="WarehouseMenu">Warehouse</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryItemMenu">InventoryItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="OperatorMenu">Operator</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftOrderMenu">AircraftOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="QuoteMenu">Quote</button>
+								<button mat-menu-item [matMenuTriggerFor]="PurchaseAgreementMenu">PurchaseAgreement</button>
+								<button mat-menu-item [matMenuTriggerFor]="AircraftMenu">Aircraft</button>
+								<button mat-menu-item [matMenuTriggerFor]="RegistrationMenu">Registration</button>
+								<button mat-menu-item [matMenuTriggerFor]="WarrantyMenu">Warranty</button>
+								<button mat-menu-item [matMenuTriggerFor]="CabinLayoutMenu">CabinLayout</button>
+								<button mat-menu-item [matMenuTriggerFor]="MROFacilityMenu">MROFacility</button>
+								<button mat-menu-item [matMenuTriggerFor]="MaintenanceAppointmentMenu">MaintenanceAppointment</button>
+								<button mat-menu-item [matMenuTriggerFor]="MaintenanceWorkOrderMenu">MaintenanceWorkOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="AirworthinessDirectiveMenu">AirworthinessDirective</button>
+								<button mat-menu-item [matMenuTriggerFor]="ServiceBulletinMenu">ServiceBulletin</button>
+								<button mat-menu-item [matMenuTriggerFor]="ConnectedAircraftMenu">ConnectedAircraft</button>
+								<button mat-menu-item [matMenuTriggerFor]="FlightHealthEventMenu">FlightHealthEvent</button>
+								<button mat-menu-item [matMenuTriggerFor]="SoftwareLoadMenu">SoftwareLoad</button>
+								<button mat-menu-item [matMenuTriggerFor]="TypeCertificateMenu">TypeCertificate</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductionCertificateMenu">ProductionCertificate</button>
+								<button mat-menu-item [matMenuTriggerFor]="SalesRegionMenu">SalesRegion</button>
+								<button mat-menu-item [matMenuTriggerFor]="SalesCampaignMenu">SalesCampaign</button>
+				
+						<mat-menu #AerospaceManufacturerMenu="matMenu">
+			<a routerLink="createAerospaceManufacturer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAerospaceManufacturer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftProgramMenu="matMenu">
+			<a routerLink="createAircraftProgram">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftProgram">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftFamilyMenu="matMenu">
+			<a routerLink="createAircraftFamily">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftFamily">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftModelMenu="matMenu">
+			<a routerLink="createAircraftModel">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftModel">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EngineTypeMenu="matMenu">
+			<a routerLink="createEngineType">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEngineType">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftVariantMenu="matMenu">
+			<a routerLink="createAircraftVariant">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftVariant">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AvionicsSuiteMenu="matMenu">
+			<a routerLink="createAvionicsSuite">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAvionicsSuite">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #APUMenu="matMenu">
+			<a routerLink="createAPU">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAPU">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LandingGearMenu="matMenu">
+			<a routerLink="createLandingGear">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLandingGear">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftOptionMenu="matMenu">
+			<a routerLink="createAircraftOption">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftOption">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftPackageMenu="matMenu">
+			<a routerLink="createAircraftPackage">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftPackage">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SupplierMenu="matMenu">
+			<a routerLink="createSupplier">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSupplier">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #Component_Menu="matMenu">
+			<a routerLink="createComponent_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexComponent_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PlantMenu="matMenu">
+			<a routerLink="createPlant">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPlant">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductionLineMenu="matMenu">
+			<a routerLink="createProductionLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProductionLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WorkCenterMenu="matMenu">
+			<a routerLink="createWorkCenter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWorkCenter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductionOrderMenu="matMenu">
+			<a routerLink="createProductionOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProductionOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BuildScheduleMenu="matMenu">
+			<a routerLink="createBuildSchedule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBuildSchedule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WarehouseMenu="matMenu">
+			<a routerLink="createWarehouse">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWarehouse">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryItemMenu="matMenu">
+			<a routerLink="createInventoryItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OperatorMenu="matMenu">
+			<a routerLink="createOperator">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOperator">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftOrderMenu="matMenu">
+			<a routerLink="createAircraftOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraftOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QuoteMenu="matMenu">
+			<a routerLink="createQuote">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQuote">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PurchaseAgreementMenu="matMenu">
+			<a routerLink="createPurchaseAgreement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPurchaseAgreement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AircraftMenu="matMenu">
+			<a routerLink="createAircraft">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAircraft">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RegistrationMenu="matMenu">
+			<a routerLink="createRegistration">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRegistration">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WarrantyMenu="matMenu">
+			<a routerLink="createWarranty">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWarranty">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CabinLayoutMenu="matMenu">
+			<a routerLink="createCabinLayout">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCabinLayout">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MROFacilityMenu="matMenu">
+			<a routerLink="createMROFacility">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMROFacility">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MaintenanceAppointmentMenu="matMenu">
+			<a routerLink="createMaintenanceAppointment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMaintenanceAppointment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MaintenanceWorkOrderMenu="matMenu">
+			<a routerLink="createMaintenanceWorkOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMaintenanceWorkOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AirworthinessDirectiveMenu="matMenu">
+			<a routerLink="createAirworthinessDirective">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAirworthinessDirective">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ServiceBulletinMenu="matMenu">
+			<a routerLink="createServiceBulletin">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexServiceBulletin">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ConnectedAircraftMenu="matMenu">
+			<a routerLink="createConnectedAircraft">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexConnectedAircraft">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FlightHealthEventMenu="matMenu">
+			<a routerLink="createFlightHealthEvent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFlightHealthEvent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SoftwareLoadMenu="matMenu">
+			<a routerLink="createSoftwareLoad">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSoftwareLoad">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TypeCertificateMenu="matMenu">
+			<a routerLink="createTypeCertificate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTypeCertificate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductionCertificateMenu="matMenu">
+			<a routerLink="createProductionCertificate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProductionCertificate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SalesRegionMenu="matMenu">
+			<a routerLink="createSalesRegion">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSalesRegion">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SalesCampaignMenu="matMenu">
+			<a routerLink="createSalesCampaign">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSalesCampaign">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,108 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="adAccount.name" [(ngModel)]="adAccount.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>accountCode</mat-label>
+								<input matInput ngDefaultControl placeholder="accountCode" name="adAccount.accountCode" [(ngModel)]="adAccount.accountCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>defaultCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="defaultCurrency" name="adAccount.defaultCurrency" [(ngModel)]="adAccount.defaultCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>defaultTimezone</mat-label>
+								<input matInput ngDefaultControl placeholder="defaultTimezone" name="adAccount.defaultTimezone" [(ngModel)]="adAccount.defaultTimezone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Advertiser</mat-label>
+					<mat-select placeholder="Advertiser"   [compareWith]="compareFn"  [(ngModel)]="adAccount.Advertiser">
+						@for (advertiser of advertisers; track advertiser.advertiserId) {
+							<mat-option name="adAccount.Advertiser" ngDefaultControl
+							            [value]="advertiser.advertiserId">
+								{{advertiser.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Users</mat-label>
+					<mat-select placeholder="Users" multiple  [compareWith]="compareFn"  [(ngModel)]="adAccount.Users">
+						@for (user of users; track user.userId) {
+							<mat-option name="adAccount.Users" ngDefaultControl
+							            [value]="user.userId">
+								{{user.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple  [compareWith]="compareFn"  [(ngModel)]="adAccount.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="adAccount.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>BillingProfile</mat-label>
+					<mat-select placeholder="BillingProfile"   [compareWith]="compareFn"  [(ngModel)]="adAccount.BillingProfile">
+						@for (billingProfile of billingProfiles; track billingProfile.billingProfileId) {
+							<mat-option name="adAccount.BillingProfile" ngDefaultControl
+							            [value]="billingProfile.billingProfileId">
+								{{billingProfile.billingName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Dsp</mat-label>
+					<mat-select placeholder="Dsp"   [compareWith]="compareFn"  [(ngModel)]="adAccount.Dsp">
+						@for (dSP of dSPs; track dSP.dSPId) {
+							<mat-option name="adAccount.Dsp" ngDefaultControl
+							            [value]="dSP.dSPId">
+								{{dSP.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PerformanceMetrics</mat-label>
+					<mat-select placeholder="PerformanceMetrics" multiple  [compareWith]="compareFn"  [(ngModel)]="adAccount.PerformanceMetrics">
+						@for (performanceMetric of performanceMetrics; track performanceMetric.performanceMetricId) {
+							<mat-option name="adAccount.PerformanceMetrics" ngDefaultControl
+							            [value]="performanceMetric.performanceMetricId">
+								{{performanceMetric.date}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateAdAccount(adAccount.name, adAccount.accountCode, adAccount.defaultCurrency, adAccount.defaultTimezone, adAccount.Advertiser, adAccount.Users, adAccount.Campaigns, adAccount.BillingProfile, adAccount.Dsp, adAccount.PerformanceMetrics)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PricingPlan List</h5>
+
+    <a
+            [routerLink]="['/createPricingPlan']"
+            class="btn btn-primary btn-sm">
+        Create PricingPlan
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">planCode</th>
+                        <th scope="col">baseCurrency</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (pricingPlan of pricingPlans; track pricingPlan.pricingPlanId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ pricingPlan.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ pricingPlan.planCode }}
+                </td>
+                                <td class="align-middle">
+                    {{ pricingPlan.baseCurrency }}
+                </td>
+                                <td class="align-middle">
+                    {{ pricingPlan.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPricingPlan', pricingPlan.pricingPlanId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePricingPlan(pricingPlan.pricingPlanId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (pricingPlans?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No pricingPlans found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

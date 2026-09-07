@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PurchaseOrder List</h5>
+
+    <a
+            [routerLink]="['/createPurchaseOrder']"
+            class="btn btn-primary btn-sm">
+        Create PurchaseOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">poNumber</th>
+                        <th scope="col">orderDate</th>
+                        <th scope="col">totalAmount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (purchaseOrder of purchaseOrders; track purchaseOrder.purchaseOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ purchaseOrder.poNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ purchaseOrder.orderDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ purchaseOrder.totalAmount }}
+                </td>
+                                <td class="align-middle">
+                    {{ purchaseOrder.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPurchaseOrder', purchaseOrder.purchaseOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePurchaseOrder(purchaseOrder.purchaseOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (purchaseOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No purchaseOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

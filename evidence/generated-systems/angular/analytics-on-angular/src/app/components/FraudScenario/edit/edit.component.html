@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="fraudScenario.name" [(ngModel)]="fraudScenario.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>riskAppetite</mat-label>
+								<input matInput ngDefaultControl placeholder="riskAppetite" name="fraudScenario.riskAppetite" [(ngModel)]="fraudScenario.riskAppetite">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Models</mat-label>
+					<mat-select placeholder="Models" multiple  [compareWith]="compareFn"  [(ngModel)]="fraudScenario.Models">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="fraudScenario.Models" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple  [compareWith]="compareFn"  [(ngModel)]="fraudScenario.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="fraudScenario.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Alerts</mat-label>
+					<mat-select placeholder="Alerts" multiple  [compareWith]="compareFn"  [(ngModel)]="fraudScenario.Alerts">
+						@for (alert of alerts; track alert.alertId) {
+							<mat-option name="fraudScenario.Alerts" ngDefaultControl
+							            [value]="alert.alertId">
+								{{alert.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Signals</mat-label>
+					<mat-select placeholder="Signals" multiple  [compareWith]="compareFn"  [(ngModel)]="fraudScenario.Signals">
+						@for (fraudSignal of fraudSignals; track fraudSignal.fraudSignalId) {
+							<mat-option name="fraudScenario.Signals" ngDefaultControl
+							            [value]="fraudSignal.fraudSignalId">
+								{{fraudSignal.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>DetectionType</mat-label>
+						<mat-select placeholder="DetectionType" name="fraudScenario.DetectionType" [(ngModel)]="fraudScenario.DetectionType">
+							@for (FraudDetectionType of FraudDetectionTypes; track FraudDetectionType) {
+								<mat-option ngDefaultControl [value]="FraudDetectionType">
+									{{FraudDetectionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateFraudScenario(fraudScenario.name, fraudScenario.riskAppetite, fraudScenario.Models, fraudScenario.Datasets, fraudScenario.Alerts, fraudScenario.Signals, fraudScenario.DetectionType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

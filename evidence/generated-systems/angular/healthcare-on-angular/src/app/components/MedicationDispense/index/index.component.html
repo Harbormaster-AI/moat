@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">MedicationDispense List</h5>
+
+    <a
+            [routerLink]="['/createMedicationDispense']"
+            class="btn btn-primary btn-sm">
+        Create MedicationDispense
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">dispenseNumber</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">whenPrepared</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (medicationDispense of medicationDispenses; track medicationDispense.medicationDispenseId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ medicationDispense.dispenseNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ medicationDispense.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ medicationDispense.whenPrepared }}
+                </td>
+                                <td class="align-middle">
+                    {{ medicationDispense.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadMedicationDispense', medicationDispense.medicationDispenseId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteMedicationDispense(medicationDispense.medicationDispenseId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (medicationDispenses?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No medicationDispenses found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

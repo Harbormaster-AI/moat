@@ -1,0 +1,92 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>disputeReference</mat-label>
+								<input matInput ngDefaultControl placeholder="disputeReference" name="dispute.disputeReference" [(ngModel)]="dispute.disputeReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="dispute.openedAt" class="form-control" name="dispute.openedAt" #dispute.openedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="dispute.closedAt" class="form-control" name="dispute.closedAt" #dispute.closedAt ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Transaction</mat-label>
+					<mat-select placeholder="Transaction"  [(ngModel)]="dispute.Transaction">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="dispute.Transaction" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Card</mat-label>
+					<mat-select placeholder="Card"  [(ngModel)]="dispute.Card">
+						@for (paymentCard of paymentCards; track paymentCard.paymentCardId) {
+							<mat-option name="dispute.Card" ngDefaultControl
+							            [value]="paymentCard.paymentCardId">
+								{{paymentCard.cardholderName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"  [(ngModel)]="dispute.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="dispute.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Chargebacks</mat-label>
+					<mat-select placeholder="Chargebacks" multiple [(ngModel)]="dispute.Chargebacks">
+						@for (chargeback of chargebacks; track chargeback.chargebackId) {
+							<mat-option name="dispute.Chargebacks" ngDefaultControl
+							            [value]="chargeback.chargebackId">
+								{{chargeback.chargebackReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Reason</mat-label>
+						<mat-select placeholder="Reason" name="dispute.Reason" [(ngModel)]="dispute.Reason">
+							@for (DisputeReason of DisputeReasons; track DisputeReason) {
+								<mat-option ngDefaultControl [value]="DisputeReason">
+									{{DisputeReason}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="dispute.Status" [(ngModel)]="dispute.Status">
+							@for (DisputeStatus of DisputeStatuss; track DisputeStatus) {
+								<mat-option ngDefaultControl [value]="DisputeStatus">
+									{{DisputeStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addDispute(dispute.disputeReference, dispute.openedAt, dispute.closedAt, dispute.Transaction, dispute.Card, dispute.Merchant, dispute.Chargebacks, dispute.Reason, dispute.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,57 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>forecastNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="forecastNumber" name="forecast.forecastNumber" [(ngModel)]="forecast.forecastNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>forecastHorizonStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="forecastHorizonStart" name="forecast.forecastHorizonStart" [(ngModel)]="forecast.forecastHorizonStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>forecastHorizonEnd</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="forecastHorizonEnd" name="forecast.forecastHorizonEnd" [(ngModel)]="forecast.forecastHorizonEnd">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple [(ngModel)]="forecast.Lines">
+						@for (forecastLine of forecastLines; track forecastLine.forecastLineId) {
+							<mat-option name="forecast.Lines" ngDefaultControl
+							            [value]="forecastLine.forecastLineId">
+								{{forecastLine.period}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Method</mat-label>
+						<mat-select placeholder="Method" name="forecast.Method" [(ngModel)]="forecast.Method">
+							@for (ForecastMethod of ForecastMethods; track ForecastMethod) {
+								<mat-option ngDefaultControl [value]="ForecastMethod">
+									{{ForecastMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 										<button
+				(click)="addForecast(forecast.forecastNumber, forecast.forecastHorizonStart, forecast.forecastHorizonEnd, forecast.Lines, forecast.Method)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

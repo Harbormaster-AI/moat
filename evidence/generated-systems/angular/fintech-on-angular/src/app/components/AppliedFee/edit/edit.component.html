@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="appliedFee.amount" [(ngModel)]="appliedFee.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="appliedFee.description" [(ngModel)]="appliedFee.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PaymentOrder</mat-label>
+					<mat-select placeholder="PaymentOrder"   [compareWith]="compareFn"  [(ngModel)]="appliedFee.PaymentOrder">
+						@for (paymentOrder of paymentOrders; track paymentOrder.paymentOrderId) {
+							<mat-option name="appliedFee.PaymentOrder" ngDefaultControl
+							            [value]="paymentOrder.paymentOrderId">
+								{{paymentOrder.orderReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Transaction</mat-label>
+					<mat-select placeholder="Transaction"   [compareWith]="compareFn"  [(ngModel)]="appliedFee.Transaction">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="appliedFee.Transaction" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>FeeType</mat-label>
+						<mat-select placeholder="FeeType" name="appliedFee.FeeType" [(ngModel)]="appliedFee.FeeType">
+							@for (FeeType of FeeTypes; track FeeType) {
+								<mat-option ngDefaultControl [value]="FeeType">
+									{{FeeType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAppliedFee(appliedFee.amount, appliedFee.description, appliedFee.PaymentOrder, appliedFee.Transaction, appliedFee.FeeType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

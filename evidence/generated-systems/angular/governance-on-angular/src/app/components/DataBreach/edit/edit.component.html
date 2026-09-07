@@ -1,0 +1,112 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>incidentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="incidentDate" name="dataBreach.incidentDate" [(ngModel)]="dataBreach.incidentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="dataBreach.description" [(ngModel)]="dataBreach.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="recordsAffected" name="dataBreach.recordsAffected" [(ngModel)]="dataBreach.recordsAffected">
+																																																																	<p>
+					 																																																																								<mat-checkbox name="dataBreach.notificationRequired" ngDefaultControl [(ngModel)]="dataBreach.notificationRequired">notificationRequired</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="dataBreach.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="dataBreach.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple  [compareWith]="compareFn"  [(ngModel)]="dataBreach.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="dataBreach.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>DataCategories</mat-label>
+					<mat-select placeholder="DataCategories" multiple  [compareWith]="compareFn"  [(ngModel)]="dataBreach.DataCategories">
+						@for (dataCategory of dataCategorys; track dataCategory.dataCategoryId) {
+							<mat-option name="dataBreach.DataCategories" ngDefaultControl
+							            [value]="dataCategory.dataCategoryId">
+								{{dataCategory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ThirdParties</mat-label>
+					<mat-select placeholder="ThirdParties" multiple  [compareWith]="compareFn"  [(ngModel)]="dataBreach.ThirdParties">
+						@for (thirdParty of thirdPartys; track thirdParty.thirdPartyId) {
+							<mat-option name="dataBreach.ThirdParties" ngDefaultControl
+							            [value]="thirdParty.thirdPartyId">
+								{{thirdParty.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Matter</mat-label>
+					<mat-select placeholder="Matter"   [compareWith]="compareFn"  [(ngModel)]="dataBreach.Matter">
+						@for (matter of matters; track matter.matterId) {
+							<mat-option name="dataBreach.Matter" ngDefaultControl
+							            [value]="matter.matterId">
+								{{matter.matterName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="dataBreach.Severity" [(ngModel)]="dataBreach.Severity">
+							@for (BreachSeverity of BreachSeveritys; track BreachSeverity) {
+								<mat-option ngDefaultControl [value]="BreachSeverity">
+									{{BreachSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="dataBreach.Status" [(ngModel)]="dataBreach.Status">
+							@for (IncidentStatus of IncidentStatuss; track IncidentStatus) {
+								<mat-option ngDefaultControl [value]="IncidentStatus">
+									{{IncidentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 																										 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateDataBreach(dataBreach.incidentDate, dataBreach.description, dataBreach.recordsAffected, dataBreach.notificationRequired == true ? true : false, dataBreach.Organization, dataBreach.ProcessingActivities, dataBreach.DataCategories, dataBreach.ThirdParties, dataBreach.Matter, dataBreach.Severity, dataBreach.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

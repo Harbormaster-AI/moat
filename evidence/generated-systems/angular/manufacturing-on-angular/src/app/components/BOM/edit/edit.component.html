@@ -1,0 +1,75 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bomNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="bomNumber" name="bOM.bomNumber" [(ngModel)]="bOM.bomNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>revision</mat-label>
+								<input matInput ngDefaultControl placeholder="revision" name="bOM.revision" [(ngModel)]="bOM.revision">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectivityStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectivityStart" name="bOM.effectivityStart" [(ngModel)]="bOM.effectivityStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectivityEnd</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectivityEnd" name="bOM.effectivityEnd" [(ngModel)]="bOM.effectivityEnd">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ParentItem</mat-label>
+					<mat-select placeholder="ParentItem"   [compareWith]="compareFn"  [(ngModel)]="bOM.ParentItem">
+						@for (item of items; track item.itemId) {
+							<mat-option name="bOM.ParentItem" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>BomItems</mat-label>
+					<mat-select placeholder="BomItems" multiple  [compareWith]="compareFn"  [(ngModel)]="bOM.BomItems">
+						@for (bOMItem of bOMItems; track bOMItem.bOMItemId) {
+							<mat-option name="bOM.BomItems" ngDefaultControl
+							            [value]="bOMItem.bOMItemId">
+								{{bOMItem.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="bOM.Status" [(ngModel)]="bOM.Status">
+							@for (BOMStatus of BOMStatuss; track BOMStatus) {
+								<mat-option ngDefaultControl [value]="BOMStatus">
+									{{BOMStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBOM(bOM.bomNumber, bOM.revision, bOM.effectivityStart, bOM.effectivityEnd, bOM.ParentItem, bOM.BomItems, bOM.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

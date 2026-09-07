@@ -1,0 +1,109 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>contractNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="contractNumber" name="contract.contractNumber" [(ngModel)]="contract.contractNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="contract.startDate" [(ngModel)]="contract.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="contract.endDate" [(ngModel)]="contract.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<input matInput placeholder="renewalTermMonths" name="contract.renewalTermMonths" [(ngModel)]="contract.renewalTermMonths">
+																																																																	<p>
+					 																																																																								<mat-checkbox name="contract.autoRenew" ngDefaultControl [(ngModel)]="contract.autoRenew">autoRenew</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="contract.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="contract.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="contract.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="contract.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"   [compareWith]="compareFn"  [(ngModel)]="contract.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="contract.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple  [compareWith]="compareFn"  [(ngModel)]="contract.Orders">
+						@for (order of orders; track order.orderId) {
+							<mat-option name="contract.Orders" ngDefaultControl
+							            [value]="order.orderId">
+								{{order.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Cases</mat-label>
+					<mat-select placeholder="Cases" multiple  [compareWith]="compareFn"  [(ngModel)]="contract.Cases">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="contract.Cases" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="contract.Status" [(ngModel)]="contract.Status">
+							@for (ContractStatus of ContractStatuss; track ContractStatus) {
+								<mat-option ngDefaultControl [value]="ContractStatus">
+									{{ContractStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 																										 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateContract(contract.contractNumber, contract.startDate, contract.endDate, contract.renewalTermMonths, contract.autoRenew == true ? true : false, contract.Organization, contract.Account, contract.Owner, contract.Orders, contract.Cases, contract.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

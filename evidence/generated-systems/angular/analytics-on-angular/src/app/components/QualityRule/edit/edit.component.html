@@ -1,0 +1,76 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="qualityRule.name" [(ngModel)]="qualityRule.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>threshold</mat-label>
+								<input matInput ngDefaultControl placeholder="threshold" name="qualityRule.threshold" [(ngModel)]="qualityRule.threshold">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>targetField</mat-label>
+								<input matInput ngDefaultControl placeholder="targetField" name="qualityRule.targetField" [(ngModel)]="qualityRule.targetField">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"   [compareWith]="compareFn"  [(ngModel)]="qualityRule.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="qualityRule.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Checks</mat-label>
+					<mat-select placeholder="Checks" multiple  [compareWith]="compareFn"  [(ngModel)]="qualityRule.Checks">
+						@for (qualityCheck of qualityChecks; track qualityCheck.qualityCheckId) {
+							<mat-option name="qualityRule.Checks" ngDefaultControl
+							            [value]="qualityCheck.qualityCheckId">
+								{{qualityCheck.checkedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Dimension</mat-label>
+						<mat-select placeholder="Dimension" name="qualityRule.Dimension" [(ngModel)]="qualityRule.Dimension">
+							@for (QualityDimension of QualityDimensions; track QualityDimension) {
+								<mat-option ngDefaultControl [value]="QualityDimension">
+									{{QualityDimension}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Operator</mat-label>
+						<mat-select placeholder="Operator" name="qualityRule.Operator" [(ngModel)]="qualityRule.Operator">
+							@for (ComparisonOperator of ComparisonOperators; track ComparisonOperator) {
+								<mat-option ngDefaultControl [value]="ComparisonOperator">
+									{{ComparisonOperator}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateQualityRule(qualityRule.name, qualityRule.threshold, qualityRule.targetField, qualityRule.Dataset, qualityRule.Checks, qualityRule.Dimension, qualityRule.Operator)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

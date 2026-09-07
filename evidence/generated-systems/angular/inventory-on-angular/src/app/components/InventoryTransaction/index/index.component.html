@@ -1,0 +1,91 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">InventoryTransaction List</h5>
+
+    <a
+            [routerLink]="['/createInventoryTransaction']"
+            class="btn btn-primary btn-sm">
+        Create InventoryTransaction
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">transactionNumber</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">unitCost</th>
+                        <th scope="col">transactionDate</th>
+                        <th scope="col">reasonCode</th>
+                        <th scope="col">TransactionType</th>
+                        <th scope="col">UnitOfMeasure</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (inventoryTransaction of inventoryTransactions; track inventoryTransaction.inventoryTransactionId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ inventoryTransaction.transactionNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.unitCost }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.transactionDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.reasonCode }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.TransactionType }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.UnitOfMeasure }}
+                </td>
+                                <td class="align-middle">
+                    {{ inventoryTransaction.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadInventoryTransaction', inventoryTransaction.inventoryTransactionId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteInventoryTransaction(inventoryTransaction.inventoryTransactionId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (inventoryTransactions?.length === 0) {
+            <tr>
+                <td
+                        colspan="10"
+                        class="text-center">
+                    No inventoryTransactions found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

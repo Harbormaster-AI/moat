@@ -1,0 +1,60 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { CollateralService } from '../../../services/Collateral.service';
+import { SubBaseComponent } from '../../Collateral/sub.base.component';
+
+
+@Component({
+    selector: 'app-edit-collateral',
+    standalone: false,
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.css']
+})
+export class EditCollateralComponent extends SubBaseComponent implements OnInit {
+
+    title = 'Edit Collateral';
+
+    collateralForm: FormGroup;
+    collateral: any;
+
+    constructor( http: HttpClient,
+        private route: ActivatedRoute,
+        private router: Router,
+        private service: CollateralService,
+        private fb: FormBuilder
+) {
+        super(http);
+        this.collateralForm = this.createForm();
+    }
+
+    createForm(): FormGroup {
+        return this.fb.group({
+                  description: ['', Validators.required],
+      value: ['', Validators.required],
+      Loan: ['', ],
+      CollateralType: ['', ]
+        });
+    }
+
+    
+    updateCollateral(description, value, Loan, CollateralType): void {
+        this.route.params.subscribe((params) => {
+
+                        this.service.updateCollateral(description, value, Loan, CollateralType, params['id'])
+                            .subscribe(() => {
+                    this.router.navigate(['/indexCollateral']);
+                });
+        });
+    }
+
+    ngOnInit(): void {
+        this.route.params.subscribe((params) => {
+            this.service.getCollateral(params['id']).subscribe(res => {
+                this.collateral = res;
+            });
+        });
+    }
+}

@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="person.firstName" [(ngModel)]="person.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="person.lastName" [(ngModel)]="person.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="person.email" [(ngModel)]="person.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>department</mat-label>
+								<input matInput ngDefaultControl placeholder="department" name="person.department" [(ngModel)]="person.department">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RoleAssignments</mat-label>
+					<mat-select placeholder="RoleAssignments" multiple [(ngModel)]="person.RoleAssignments">
+						@for (roleAssignment of roleAssignments; track roleAssignment.roleAssignmentId) {
+							<mat-option name="person.RoleAssignments" ngDefaultControl
+							            [value]="roleAssignment.roleAssignmentId">
+								{{roleAssignment.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>OwnedPolicies</mat-label>
+					<mat-select placeholder="OwnedPolicies" multiple [(ngModel)]="person.OwnedPolicies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="person.OwnedPolicies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CorrectiveActions</mat-label>
+					<mat-select placeholder="CorrectiveActions" multiple [(ngModel)]="person.CorrectiveActions">
+						@for (correctiveAction of correctiveActions; track correctiveAction.correctiveActionId) {
+							<mat-option name="person.CorrectiveActions" ngDefaultControl
+							            [value]="correctiveAction.correctiveActionId">
+								{{correctiveAction.actionTitle}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 																										 										<button
+				(click)="addPerson(person.firstName, person.lastName, person.email, person.department, person.RoleAssignments, person.OwnedPolicies, person.CorrectiveActions)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

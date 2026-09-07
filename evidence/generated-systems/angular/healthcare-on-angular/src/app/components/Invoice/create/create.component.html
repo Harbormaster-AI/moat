@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>invoiceNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="invoiceNumber" name="invoice.invoiceNumber" [(ngModel)]="invoice.invoiceNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="invoice.totalAmount" [(ngModel)]="invoice.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="invoice.dueDate" [(ngModel)]="invoice.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="invoice.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="invoice.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"  [(ngModel)]="invoice.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="invoice.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Payments</mat-label>
+					<mat-select placeholder="Payments" multiple [(ngModel)]="invoice.Payments">
+						@for (payment of payments; track payment.paymentId) {
+							<mat-option name="invoice.Payments" ngDefaultControl
+							            [value]="payment.paymentId">
+								{{payment.paymentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="invoice.Status" [(ngModel)]="invoice.Status">
+							@for (InvoiceStatus of InvoiceStatuss; track InvoiceStatus) {
+								<mat-option ngDefaultControl [value]="InvoiceStatus">
+									{{InvoiceStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addInvoice(invoice.invoiceNumber, invoice.totalAmount, invoice.dueDate, invoice.Patient, invoice.Claim, invoice.Payments, invoice.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

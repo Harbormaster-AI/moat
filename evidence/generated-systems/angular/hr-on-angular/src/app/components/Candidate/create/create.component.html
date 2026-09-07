@@ -1,0 +1,89 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="candidate.name" [(ngModel)]="candidate.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="candidate.email" [(ngModel)]="candidate.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>phone</mat-label>
+								<input matInput ngDefaultControl placeholder="phone" name="candidate.phone" [(ngModel)]="candidate.phone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Applications</mat-label>
+					<mat-select placeholder="Applications" multiple [(ngModel)]="candidate.Applications">
+						@for (jobApplication of jobApplications; track jobApplication.jobApplicationId) {
+							<mat-option name="candidate.Applications" ngDefaultControl
+							            [value]="jobApplication.jobApplicationId">
+								{{jobApplication.applicationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Interviews</mat-label>
+					<mat-select placeholder="Interviews" multiple [(ngModel)]="candidate.Interviews">
+						@for (interview of interviews; track interview.interviewId) {
+							<mat-option name="candidate.Interviews" ngDefaultControl
+							            [value]="interview.interviewId">
+								{{interview.interviewDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Offers</mat-label>
+					<mat-select placeholder="Offers" multiple [(ngModel)]="candidate.Offers">
+						@for (offer of offers; track offer.offerId) {
+							<mat-option name="candidate.Offers" ngDefaultControl
+							            [value]="offer.offerId">
+								{{offer.offerNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Documents</mat-label>
+					<mat-select placeholder="Documents" multiple [(ngModel)]="candidate.Documents">
+						@for (document of documents; track document.documentId) {
+							<mat-option name="candidate.Documents" ngDefaultControl
+							            [value]="document.documentId">
+								{{document.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Source</mat-label>
+						<mat-select placeholder="Source" name="candidate.Source" [(ngModel)]="candidate.Source">
+							@for (CandidateSource of CandidateSources; track CandidateSource) {
+								<mat-option ngDefaultControl [value]="CandidateSource">
+									{{CandidateSource}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addCandidate(candidate.name, candidate.email, candidate.phone, candidate.Applications, candidate.Interviews, candidate.Offers, candidate.Documents, candidate.Source)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

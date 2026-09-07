@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>last4</mat-label>
+								<input matInput ngDefaultControl placeholder="last4" name="paymentMethod.last4" [(ngModel)]="paymentMethod.last4">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>cardholderName</mat-label>
+								<input matInput ngDefaultControl placeholder="cardholderName" name="paymentMethod.cardholderName" [(ngModel)]="paymentMethod.cardholderName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>billingAddress</mat-label>
+								<input matInput ngDefaultControl placeholder="billingAddress" name="paymentMethod.billingAddress" [(ngModel)]="paymentMethod.billingAddress">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>BillingProfile</mat-label>
+					<mat-select placeholder="BillingProfile"   [compareWith]="compareFn"  [(ngModel)]="paymentMethod.BillingProfile">
+						@for (billingProfile of billingProfiles; track billingProfile.billingProfileId) {
+							<mat-option name="paymentMethod.BillingProfile" ngDefaultControl
+							            [value]="billingProfile.billingProfileId">
+								{{billingProfile.billingName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>MethodType</mat-label>
+						<mat-select placeholder="MethodType" name="paymentMethod.MethodType" [(ngModel)]="paymentMethod.MethodType">
+							@for (PaymentMethodType of PaymentMethodTypes; track PaymentMethodType) {
+								<mat-option ngDefaultControl [value]="PaymentMethodType">
+									{{PaymentMethodType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																	 						 										<button
+				(click)="updatePaymentMethod(paymentMethod.last4, paymentMethod.cardholderName, paymentMethod.billingAddress, paymentMethod.BillingProfile, paymentMethod.MethodType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

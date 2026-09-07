@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="agent.firstName" [(ngModel)]="agent.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="agent.lastName" [(ngModel)]="agent.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>licenseId</mat-label>
+								<input matInput ngDefaultControl placeholder="licenseId" name="agent.licenseId" [(ngModel)]="agent.licenseId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Distributor</mat-label>
+					<mat-select placeholder="Distributor"   [compareWith]="compareFn"  [(ngModel)]="agent.Distributor">
+						@for (distributor of distributors; track distributor.distributorId) {
+							<mat-option name="agent.Distributor" ngDefaultControl
+							            [value]="distributor.distributorId">
+								{{distributor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple  [compareWith]="compareFn"  [(ngModel)]="agent.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="agent.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Customers</mat-label>
+					<mat-select placeholder="Customers" multiple  [compareWith]="compareFn"  [(ngModel)]="agent.Customers">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="agent.Customers" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="agent.Status" [(ngModel)]="agent.Status">
+							@for (ProducerStatus of ProducerStatuss; track ProducerStatus) {
+								<mat-option ngDefaultControl [value]="ProducerStatus">
+									{{ProducerStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAgent(agent.firstName, agent.lastName, agent.licenseId, agent.Distributor, agent.Policies, agent.Customers, agent.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

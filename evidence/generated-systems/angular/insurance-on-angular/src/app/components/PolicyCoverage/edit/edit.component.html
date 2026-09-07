@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>limit</mat-label>
+								<input matInput ngDefaultControl placeholder="limit" name="policyCoverage.limit" [(ngModel)]="policyCoverage.limit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>deductible</mat-label>
+								<input matInput ngDefaultControl placeholder="deductible" name="policyCoverage.deductible" [(ngModel)]="policyCoverage.deductible">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>premium</mat-label>
+								<input matInput ngDefaultControl placeholder="premium" name="policyCoverage.premium" [(ngModel)]="policyCoverage.premium">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="policyCoverage.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="policyCoverage.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InsuredObjects</mat-label>
+					<mat-select placeholder="InsuredObjects" multiple  [compareWith]="compareFn"  [(ngModel)]="policyCoverage.InsuredObjects">
+						@for (insuredObject of insuredObjects; track insuredObject.insuredObjectId) {
+							<mat-option name="policyCoverage.InsuredObjects" ngDefaultControl
+							            [value]="insuredObject.insuredObjectId">
+								{{insuredObject.description}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>CoverageType</mat-label>
+						<mat-select placeholder="CoverageType" name="policyCoverage.CoverageType" [(ngModel)]="policyCoverage.CoverageType">
+							@for (CoverageType of CoverageTypes; track CoverageType) {
+								<mat-option ngDefaultControl [value]="CoverageType">
+									{{CoverageType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updatePolicyCoverage(policyCoverage.limit, policyCoverage.deductible, policyCoverage.premium, policyCoverage.Policy, policyCoverage.InsuredObjects, policyCoverage.CoverageType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

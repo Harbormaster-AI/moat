@@ -1,0 +1,98 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>lotNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="lotNumber" name="inspectionLot.lotNumber" [(ngModel)]="inspectionLot.lotNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="inspectionLot.quantity" [(ngModel)]="inspectionLot.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="sampleSize" name="inspectionLot.sampleSize" [(ngModel)]="inspectionLot.sampleSize">
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="inspectionLot.createdOn" class="form-control" name="inspectionLot.createdOn" #inspectionLot.createdOn ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"  [(ngModel)]="inspectionLot.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="inspectionLot.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkOrder</mat-label>
+					<mat-select placeholder="WorkOrder"  [(ngModel)]="inspectionLot.WorkOrder">
+						@for (workOrder of workOrders; track workOrder.workOrderId) {
+							<mat-option name="inspectionLot.WorkOrder" ngDefaultControl
+							            [value]="workOrder.workOrderId">
+								{{workOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>GoodsReceipt</mat-label>
+					<mat-select placeholder="GoodsReceipt"  [(ngModel)]="inspectionLot.GoodsReceipt">
+						@for (goodsReceipt of goodsReceipts; track goodsReceipt.goodsReceiptId) {
+							<mat-option name="inspectionLot.GoodsReceipt" ngDefaultControl
+							            [value]="goodsReceipt.goodsReceiptId">
+								{{goodsReceipt.receiptNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Results</mat-label>
+					<mat-select placeholder="Results" multiple [(ngModel)]="inspectionLot.Results">
+						@for (inspectionResult of inspectionResults; track inspectionResult.inspectionResultId) {
+							<mat-option name="inspectionLot.Results" ngDefaultControl
+							            [value]="inspectionResult.inspectionResultId">
+								{{inspectionResult.resultValue}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>InspectionType</mat-label>
+						<mat-select placeholder="InspectionType" name="inspectionLot.InspectionType" [(ngModel)]="inspectionLot.InspectionType">
+							@for (InspectionType of InspectionTypes; track InspectionType) {
+								<mat-option ngDefaultControl [value]="InspectionType">
+									{{InspectionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="inspectionLot.Status" [(ngModel)]="inspectionLot.Status">
+							@for (InspectionStatus of InspectionStatuss; track InspectionStatus) {
+								<mat-option ngDefaultControl [value]="InspectionStatus">
+									{{InspectionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addInspectionLot(inspectionLot.lotNumber, inspectionLot.quantity, inspectionLot.sampleSize, inspectionLot.createdOn, inspectionLot.Item, inspectionLot.WorkOrder, inspectionLot.GoodsReceipt, inspectionLot.Results, inspectionLot.InspectionType, inspectionLot.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,104 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>cardToken</mat-label>
+								<input matInput ngDefaultControl placeholder="cardToken" name="paymentCard.cardToken" [(ngModel)]="paymentCard.cardToken">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>maskedPan</mat-label>
+								<input matInput ngDefaultControl placeholder="maskedPan" name="paymentCard.maskedPan" [(ngModel)]="paymentCard.maskedPan">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="expiryMonth" name="paymentCard.expiryMonth" [(ngModel)]="paymentCard.expiryMonth">
+																																																																	<p>
+					 																																																																															<input matInput placeholder="expiryYear" name="paymentCard.expiryYear" [(ngModel)]="paymentCard.expiryYear">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>cardholderName</mat-label>
+								<input matInput ngDefaultControl placeholder="cardholderName" name="paymentCard.cardholderName" [(ngModel)]="paymentCard.cardholderName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="paymentCard.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="paymentCard.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="paymentCard.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="paymentCard.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Tokenizations</mat-label>
+					<mat-select placeholder="Tokenizations" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentCard.Tokenizations">
+						@for (cardTokenization of cardTokenizations; track cardTokenization.cardTokenizationId) {
+							<mat-option name="paymentCard.Tokenizations" ngDefaultControl
+							            [value]="cardTokenization.cardTokenizationId">
+								{{cardTokenization.tokenReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Disputes</mat-label>
+					<mat-select placeholder="Disputes" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentCard.Disputes">
+						@for (dispute of disputes; track dispute.disputeId) {
+							<mat-option name="paymentCard.Disputes" ngDefaultControl
+							            [value]="dispute.disputeId">
+								{{dispute.disputeReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Scheme</mat-label>
+						<mat-select placeholder="Scheme" name="paymentCard.Scheme" [(ngModel)]="paymentCard.Scheme">
+							@for (CardScheme of CardSchemes; track CardScheme) {
+								<mat-option ngDefaultControl [value]="CardScheme">
+									{{CardScheme}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="paymentCard.Status" [(ngModel)]="paymentCard.Status">
+							@for (CardStatus of CardStatuss; track CardStatus) {
+								<mat-option ngDefaultControl [value]="CardStatus">
+									{{CardStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updatePaymentCard(paymentCard.cardToken, paymentCard.maskedPan, paymentCard.expiryMonth, paymentCard.expiryYear, paymentCard.cardholderName, paymentCard.Customer, paymentCard.Account, paymentCard.Tokenizations, paymentCard.Disputes, paymentCard.Scheme, paymentCard.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

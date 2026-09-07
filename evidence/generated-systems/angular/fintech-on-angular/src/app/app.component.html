@@ -1,0 +1,476 @@
+<div class="app-header">fintech-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="FinancialInstitutionMenu">FinancialInstitution</button>
+								<button mat-menu-item [matMenuTriggerFor]="BranchMenu">Branch</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductOfferingMenu">ProductOffering</button>
+								<button mat-menu-item [matMenuTriggerFor]="PricingPlanMenu">PricingPlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="FeeScheduleMenu">FeeSchedule</button>
+								<button mat-menu-item [matMenuTriggerFor]="UsageLimitMenu">UsageLimit</button>
+								<button mat-menu-item [matMenuTriggerFor]="CustomerMenu">Customer</button>
+								<button mat-menu-item [matMenuTriggerFor]="KYCProfileMenu">KYCProfile</button>
+								<button mat-menu-item [matMenuTriggerFor]="KYCDocumentMenu">KYCDocument</button>
+								<button mat-menu-item [matMenuTriggerFor]="ScreeningMenu">Screening</button>
+								<button mat-menu-item [matMenuTriggerFor]="VerifiedAddressMenu">VerifiedAddress</button>
+								<button mat-menu-item [matMenuTriggerFor]="CompliancePolicyMenu">CompliancePolicy</button>
+								<button mat-menu-item [matMenuTriggerFor]="ComplianceAlertMenu">ComplianceAlert</button>
+								<button mat-menu-item [matMenuTriggerFor]="ConsentMenu">Consent</button>
+								<button mat-menu-item [matMenuTriggerFor]="APIClientMenu">APIClient</button>
+								<button mat-menu-item [matMenuTriggerFor]="AgreementMenu">Agreement</button>
+								<button mat-menu-item [matMenuTriggerFor]="AccountMenu">Account</button>
+								<button mat-menu-item [matMenuTriggerFor]="WalletMenu">Wallet</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentCardMenu">PaymentCard</button>
+								<button mat-menu-item [matMenuTriggerFor]="CardTokenizationMenu">CardTokenization</button>
+								<button mat-menu-item [matMenuTriggerFor]="MerchantMenu">Merchant</button>
+								<button mat-menu-item [matMenuTriggerFor]="TerminalMenu">Terminal</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentContractMenu">PaymentContract</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentProcessorMenu">PaymentProcessor</button>
+								<button mat-menu-item [matMenuTriggerFor]="TransactionMenu">Transaction</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentOrderMenu">PaymentOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="BeneficiaryMenu">Beneficiary</button>
+								<button mat-menu-item [matMenuTriggerFor]="AppliedFeeMenu">AppliedFee</button>
+								<button mat-menu-item [matMenuTriggerFor]="FXQuoteMenu">FXQuote</button>
+								<button mat-menu-item [matMenuTriggerFor]="FXDealMenu">FXDeal</button>
+								<button mat-menu-item [matMenuTriggerFor]="SettlementBatchMenu">SettlementBatch</button>
+								<button mat-menu-item [matMenuTriggerFor]="PayoutMenu">Payout</button>
+								<button mat-menu-item [matMenuTriggerFor]="DisputeMenu">Dispute</button>
+								<button mat-menu-item [matMenuTriggerFor]="ChargebackMenu">Chargeback</button>
+								<button mat-menu-item [matMenuTriggerFor]="InvoiceMenu">Invoice</button>
+								<button mat-menu-item [matMenuTriggerFor]="AccountStatementMenu">AccountStatement</button>
+								<button mat-menu-item [matMenuTriggerFor]="DirectDebitMandateMenu">DirectDebitMandate</button>
+								<button mat-menu-item [matMenuTriggerFor]="CreditorMenu">Creditor</button>
+								<button mat-menu-item [matMenuTriggerFor]="LoanApplicationMenu">LoanApplication</button>
+								<button mat-menu-item [matMenuTriggerFor]="RiskAssessmentMenu">RiskAssessment</button>
+								<button mat-menu-item [matMenuTriggerFor]="LoanMenu">Loan</button>
+								<button mat-menu-item [matMenuTriggerFor]="RepaymentScheduleMenu">RepaymentSchedule</button>
+								<button mat-menu-item [matMenuTriggerFor]="CollateralMenu">Collateral</button>
+								<button mat-menu-item [matMenuTriggerFor]="LoanTransactionMenu">LoanTransaction</button>
+								<button mat-menu-item [matMenuTriggerFor]="InvestmentPortfolioMenu">InvestmentPortfolio</button>
+								<button mat-menu-item [matMenuTriggerFor]="InvestmentAccountMenu">InvestmentAccount</button>
+								<button mat-menu-item [matMenuTriggerFor]="SecurityMenu">Security</button>
+								<button mat-menu-item [matMenuTriggerFor]="PositionMenu">Position</button>
+								<button mat-menu-item [matMenuTriggerFor]="TradeOrderMenu">TradeOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="TradeMenu">Trade</button>
+								<button mat-menu-item [matMenuTriggerFor]="ExchangeRateMenu">ExchangeRate</button>
+				
+						<mat-menu #FinancialInstitutionMenu="matMenu">
+			<a routerLink="createFinancialInstitution">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFinancialInstitution">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BranchMenu="matMenu">
+			<a routerLink="createBranch">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBranch">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductOfferingMenu="matMenu">
+			<a routerLink="createProductOffering">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProductOffering">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PricingPlanMenu="matMenu">
+			<a routerLink="createPricingPlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPricingPlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FeeScheduleMenu="matMenu">
+			<a routerLink="createFeeSchedule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFeeSchedule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #UsageLimitMenu="matMenu">
+			<a routerLink="createUsageLimit">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexUsageLimit">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CustomerMenu="matMenu">
+			<a routerLink="createCustomer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCustomer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #KYCProfileMenu="matMenu">
+			<a routerLink="createKYCProfile">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexKYCProfile">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #KYCDocumentMenu="matMenu">
+			<a routerLink="createKYCDocument">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexKYCDocument">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ScreeningMenu="matMenu">
+			<a routerLink="createScreening">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexScreening">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #VerifiedAddressMenu="matMenu">
+			<a routerLink="createVerifiedAddress">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexVerifiedAddress">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CompliancePolicyMenu="matMenu">
+			<a routerLink="createCompliancePolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCompliancePolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ComplianceAlertMenu="matMenu">
+			<a routerLink="createComplianceAlert">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexComplianceAlert">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ConsentMenu="matMenu">
+			<a routerLink="createConsent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexConsent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #APIClientMenu="matMenu">
+			<a routerLink="createAPIClient">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAPIClient">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AgreementMenu="matMenu">
+			<a routerLink="createAgreement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAgreement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AccountMenu="matMenu">
+			<a routerLink="createAccount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAccount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WalletMenu="matMenu">
+			<a routerLink="createWallet">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWallet">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentCardMenu="matMenu">
+			<a routerLink="createPaymentCard">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPaymentCard">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CardTokenizationMenu="matMenu">
+			<a routerLink="createCardTokenization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCardTokenization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MerchantMenu="matMenu">
+			<a routerLink="createMerchant">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMerchant">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TerminalMenu="matMenu">
+			<a routerLink="createTerminal">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTerminal">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentContractMenu="matMenu">
+			<a routerLink="createPaymentContract">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPaymentContract">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentProcessorMenu="matMenu">
+			<a routerLink="createPaymentProcessor">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPaymentProcessor">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TransactionMenu="matMenu">
+			<a routerLink="createTransaction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTransaction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentOrderMenu="matMenu">
+			<a routerLink="createPaymentOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPaymentOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BeneficiaryMenu="matMenu">
+			<a routerLink="createBeneficiary">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBeneficiary">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AppliedFeeMenu="matMenu">
+			<a routerLink="createAppliedFee">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAppliedFee">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FXQuoteMenu="matMenu">
+			<a routerLink="createFXQuote">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFXQuote">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FXDealMenu="matMenu">
+			<a routerLink="createFXDeal">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFXDeal">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SettlementBatchMenu="matMenu">
+			<a routerLink="createSettlementBatch">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSettlementBatch">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PayoutMenu="matMenu">
+			<a routerLink="createPayout">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPayout">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DisputeMenu="matMenu">
+			<a routerLink="createDispute">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDispute">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ChargebackMenu="matMenu">
+			<a routerLink="createChargeback">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexChargeback">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InvoiceMenu="matMenu">
+			<a routerLink="createInvoice">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInvoice">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AccountStatementMenu="matMenu">
+			<a routerLink="createAccountStatement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAccountStatement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DirectDebitMandateMenu="matMenu">
+			<a routerLink="createDirectDebitMandate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDirectDebitMandate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CreditorMenu="matMenu">
+			<a routerLink="createCreditor">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCreditor">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LoanApplicationMenu="matMenu">
+			<a routerLink="createLoanApplication">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLoanApplication">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RiskAssessmentMenu="matMenu">
+			<a routerLink="createRiskAssessment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRiskAssessment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LoanMenu="matMenu">
+			<a routerLink="createLoan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLoan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RepaymentScheduleMenu="matMenu">
+			<a routerLink="createRepaymentSchedule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRepaymentSchedule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CollateralMenu="matMenu">
+			<a routerLink="createCollateral">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCollateral">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LoanTransactionMenu="matMenu">
+			<a routerLink="createLoanTransaction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLoanTransaction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InvestmentPortfolioMenu="matMenu">
+			<a routerLink="createInvestmentPortfolio">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInvestmentPortfolio">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InvestmentAccountMenu="matMenu">
+			<a routerLink="createInvestmentAccount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInvestmentAccount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SecurityMenu="matMenu">
+			<a routerLink="createSecurity">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSecurity">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PositionMenu="matMenu">
+			<a routerLink="createPosition">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPosition">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TradeOrderMenu="matMenu">
+			<a routerLink="createTradeOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTradeOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TradeMenu="matMenu">
+			<a routerLink="createTrade">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTrade">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ExchangeRateMenu="matMenu">
+			<a routerLink="createExchangeRate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexExchangeRate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

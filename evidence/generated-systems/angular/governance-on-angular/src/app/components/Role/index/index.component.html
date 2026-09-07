@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Role List</h5>
+
+    <a
+            [routerLink]="['/createRole']"
+            class="btn btn-primary btn-sm">
+        Create Role
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">responsibility</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (role of roles; track role.roleId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ role.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ role.responsibility }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadRole', role.roleId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteRole(role.roleId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (roles?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No roles found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

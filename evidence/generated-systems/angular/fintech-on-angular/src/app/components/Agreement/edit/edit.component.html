@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>agreementNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="agreementNumber" name="agreement.agreementNumber" [(ngModel)]="agreement.agreementNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="agreement.effectiveDate" [(ngModel)]="agreement.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="agreement.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="agreement.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ProductOffering</mat-label>
+					<mat-select placeholder="ProductOffering"   [compareWith]="compareFn"  [(ngModel)]="agreement.ProductOffering">
+						@for (productOffering of productOfferings; track productOffering.productOfferingId) {
+							<mat-option name="agreement.ProductOffering" ngDefaultControl
+							            [value]="productOffering.productOfferingId">
+								{{productOffering.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AgreementType</mat-label>
+						<mat-select placeholder="AgreementType" name="agreement.AgreementType" [(ngModel)]="agreement.AgreementType">
+							@for (AgreementType of AgreementTypes; track AgreementType) {
+								<mat-option ngDefaultControl [value]="AgreementType">
+									{{AgreementType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="agreement.Status" [(ngModel)]="agreement.Status">
+							@for (AgreementStatus of AgreementStatuss; track AgreementStatus) {
+								<mat-option ngDefaultControl [value]="AgreementStatus">
+									{{AgreementStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAgreement(agreement.agreementNumber, agreement.effectiveDate, agreement.Customer, agreement.ProductOffering, agreement.AgreementType, agreement.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

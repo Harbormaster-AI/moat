@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>contractNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="contractNumber" name="paymentContract.contractNumber" [(ngModel)]="paymentContract.contractNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>pricingPlanCode</mat-label>
+								<input matInput ngDefaultControl placeholder="pricingPlanCode" name="paymentContract.pricingPlanCode" [(ngModel)]="paymentContract.pricingPlanCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"  [(ngModel)]="paymentContract.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="paymentContract.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Acquirer</mat-label>
+					<mat-select placeholder="Acquirer"  [(ngModel)]="paymentContract.Acquirer">
+						@for (paymentProcessor of paymentProcessors; track paymentProcessor.paymentProcessorId) {
+							<mat-option name="paymentContract.Acquirer" ngDefaultControl
+							            [value]="paymentProcessor.paymentProcessorId">
+								{{paymentProcessor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="paymentContract.Status" [(ngModel)]="paymentContract.Status">
+							@for (ContractStatus of ContractStatuss; track ContractStatus) {
+								<mat-option ngDefaultControl [value]="ContractStatus">
+									{{ContractStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addPaymentContract(paymentContract.contractNumber, paymentContract.pricingPlanCode, paymentContract.Merchant, paymentContract.Acquirer, paymentContract.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

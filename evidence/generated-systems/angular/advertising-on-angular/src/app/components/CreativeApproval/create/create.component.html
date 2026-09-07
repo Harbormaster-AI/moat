@@ -1,0 +1,61 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>reviewer</mat-label>
+								<input matInput ngDefaultControl placeholder="reviewer" name="creativeApproval.reviewer" [(ngModel)]="creativeApproval.reviewer">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>reviewedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="reviewedAt" name="creativeApproval.reviewedAt" [(ngModel)]="creativeApproval.reviewedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CreativeAsset</mat-label>
+					<mat-select placeholder="CreativeAsset"  [(ngModel)]="creativeApproval.CreativeAsset">
+						@for (creativeAsset of creativeAssets; track creativeAsset.creativeAssetId) {
+							<mat-option name="creativeApproval.CreativeAsset" ngDefaultControl
+							            [value]="creativeAsset.creativeAssetId">
+								{{creativeAsset.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Publisher</mat-label>
+					<mat-select placeholder="Publisher"  [(ngModel)]="creativeApproval.Publisher">
+						@for (publisher of publishers; track publisher.publisherId) {
+							<mat-option name="creativeApproval.Publisher" ngDefaultControl
+							            [value]="publisher.publisherId">
+								{{publisher.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="creativeApproval.Status" [(ngModel)]="creativeApproval.Status">
+							@for (CreativeApprovalStatus of CreativeApprovalStatuss; track CreativeApprovalStatus) {
+								<mat-option ngDefaultControl [value]="CreativeApprovalStatus">
+									{{CreativeApprovalStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addCreativeApproval(creativeApproval.reviewer, creativeApproval.reviewedAt, creativeApproval.CreativeAsset, creativeApproval.Publisher, creativeApproval.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

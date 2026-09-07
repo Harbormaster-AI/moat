@@ -1,0 +1,95 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="model_.name" [(ngModel)]="model_.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>taskDescription</mat-label>
+								<input matInput ngDefaultControl placeholder="taskDescription" name="model_.taskDescription" [(ngModel)]="model_.taskDescription">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"  [(ngModel)]="model_.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="model_.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Versions</mat-label>
+					<mat-select placeholder="Versions" multiple [(ngModel)]="model_.Versions">
+						@for (modelVersion of modelVersions; track modelVersion.modelVersionId) {
+							<mat-option name="model_.Versions" ngDefaultControl
+							            [value]="modelVersion.modelVersionId">
+								{{modelVersion.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>FeatureSets</mat-label>
+					<mat-select placeholder="FeatureSets" multiple [(ngModel)]="model_.FeatureSets">
+						@for (featureSet of featureSets; track featureSet.featureSetId) {
+							<mat-option name="model_.FeatureSets" ngDefaultControl
+							            [value]="featureSet.featureSetId">
+								{{featureSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Experiments</mat-label>
+					<mat-select placeholder="Experiments" multiple [(ngModel)]="model_.Experiments">
+						@for (experiment of experiments; track experiment.experimentId) {
+							<mat-option name="model_.Experiments" ngDefaultControl
+							            [value]="experiment.experimentId">
+								{{experiment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Tags</mat-label>
+					<mat-select placeholder="Tags" multiple [(ngModel)]="model_.Tags">
+						@for (tag of tags; track tag.tagId) {
+							<mat-option name="model_.Tags" ngDefaultControl
+							            [value]="tag.tagId">
+								{{tag.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ModelType</mat-label>
+						<mat-select placeholder="ModelType" name="model_.ModelType" [(ngModel)]="model_.ModelType">
+							@for (ModelType of ModelTypes; track ModelType) {
+								<mat-option ngDefaultControl [value]="ModelType">
+									{{ModelType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addModel_(model_.name, model_.taskDescription, model_.Workspace, model_.Versions, model_.FeatureSets, model_.Experiments, model_.Tags, model_.ModelType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

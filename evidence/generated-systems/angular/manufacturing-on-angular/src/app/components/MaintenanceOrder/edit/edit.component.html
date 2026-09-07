@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="maintenanceOrder.orderNumber" [(ngModel)]="maintenanceOrder.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="priority" name="maintenanceOrder.priority" [(ngModel)]="maintenanceOrder.priority">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>requestedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="requestedDate" name="maintenanceOrder.requestedDate" [(ngModel)]="maintenanceOrder.requestedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>completionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="completionDate" name="maintenanceOrder.completionDate" [(ngModel)]="maintenanceOrder.completionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Asset</mat-label>
+					<mat-select placeholder="Asset"   [compareWith]="compareFn"  [(ngModel)]="maintenanceOrder.Asset">
+						@for (asset of assets; track asset.assetId) {
+							<mat-option name="maintenanceOrder.Asset" ngDefaultControl
+							            [value]="asset.assetId">
+								{{asset.assetName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Plan</mat-label>
+					<mat-select placeholder="Plan"   [compareWith]="compareFn"  [(ngModel)]="maintenanceOrder.Plan">
+						@for (maintenancePlan of maintenancePlans; track maintenancePlan.maintenancePlanId) {
+							<mat-option name="maintenanceOrder.Plan" ngDefaultControl
+							            [value]="maintenancePlan.maintenancePlanId">
+								{{maintenancePlan.planNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkCenter</mat-label>
+					<mat-select placeholder="WorkCenter"   [compareWith]="compareFn"  [(ngModel)]="maintenanceOrder.WorkCenter">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="maintenanceOrder.WorkCenter" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="maintenanceOrder.Status" [(ngModel)]="maintenanceOrder.Status">
+							@for (MaintenanceOrderStatus of MaintenanceOrderStatuss; track MaintenanceOrderStatus) {
+								<mat-option ngDefaultControl [value]="MaintenanceOrderStatus">
+									{{MaintenanceOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateMaintenanceOrder(maintenanceOrder.orderNumber, maintenanceOrder.priority, maintenanceOrder.requestedDate, maintenanceOrder.completionDate, maintenanceOrder.Asset, maintenanceOrder.Plan, maintenanceOrder.WorkCenter, maintenanceOrder.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

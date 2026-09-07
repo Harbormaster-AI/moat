@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="experimentVariant.name" [(ngModel)]="experimentVariant.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>allocation</mat-label>
+								<input matInput ngDefaultControl placeholder="allocation" name="experimentVariant.allocation" [(ngModel)]="experimentVariant.allocation">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Experiment</mat-label>
+					<mat-select placeholder="Experiment"  [(ngModel)]="experimentVariant.Experiment">
+						@for (experiment of experiments; track experiment.experimentId) {
+							<mat-option name="experimentVariant.Experiment" ngDefaultControl
+							            [value]="experiment.experimentId">
+								{{experiment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CreativeVariation</mat-label>
+					<mat-select placeholder="CreativeVariation"  [(ngModel)]="experimentVariant.CreativeVariation">
+						@for (creativeVariation of creativeVariations; track creativeVariation.creativeVariationId) {
+							<mat-option name="experimentVariant.CreativeVariation" ngDefaultControl
+							            [value]="creativeVariation.creativeVariationId">
+								{{creativeVariation.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LineItem</mat-label>
+					<mat-select placeholder="LineItem"  [(ngModel)]="experimentVariant.LineItem">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="experimentVariant.LineItem" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																										 																										 																										 										<button
+				(click)="addExperimentVariant(experimentVariant.name, experimentVariant.allocation, experimentVariant.Experiment, experimentVariant.CreativeVariation, experimentVariant.LineItem)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

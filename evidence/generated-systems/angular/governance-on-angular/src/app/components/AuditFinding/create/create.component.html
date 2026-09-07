@@ -1,0 +1,126 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="auditFinding.title" [(ngModel)]="auditFinding.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="auditFinding.description" [(ngModel)]="auditFinding.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="auditFinding.dueDate" [(ngModel)]="auditFinding.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Engagement</mat-label>
+					<mat-select placeholder="Engagement"  [(ngModel)]="auditFinding.Engagement">
+						@for (auditEngagement of auditEngagements; track auditEngagement.auditEngagementId) {
+							<mat-option name="auditFinding.Engagement" ngDefaultControl
+							            [value]="auditEngagement.auditEngagementId">
+								{{auditEngagement.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workpaper</mat-label>
+					<mat-select placeholder="Workpaper"  [(ngModel)]="auditFinding.Workpaper">
+						@for (auditWorkpaper of auditWorkpapers; track auditWorkpaper.auditWorkpaperId) {
+							<mat-option name="auditFinding.Workpaper" ngDefaultControl
+							            [value]="auditWorkpaper.auditWorkpaperId">
+								{{auditWorkpaper.workpaperRef}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CorrectiveActions</mat-label>
+					<mat-select placeholder="CorrectiveActions" multiple [(ngModel)]="auditFinding.CorrectiveActions">
+						@for (correctiveAction of correctiveActions; track correctiveAction.correctiveActionId) {
+							<mat-option name="auditFinding.CorrectiveActions" ngDefaultControl
+							            [value]="correctiveAction.correctiveActionId">
+								{{correctiveAction.actionTitle}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RelatedRisks</mat-label>
+					<mat-select placeholder="RelatedRisks" multiple [(ngModel)]="auditFinding.RelatedRisks">
+						@for (risk of risks; track risk.riskId) {
+							<mat-option name="auditFinding.RelatedRisks" ngDefaultControl
+							            [value]="risk.riskId">
+								{{risk.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RelatedControls</mat-label>
+					<mat-select placeholder="RelatedControls" multiple [(ngModel)]="auditFinding.RelatedControls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="auditFinding.RelatedControls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Issues</mat-label>
+					<mat-select placeholder="Issues" multiple [(ngModel)]="auditFinding.Issues">
+						@for (issue of issues; track issue.issueId) {
+							<mat-option name="auditFinding.Issues" ngDefaultControl
+							            [value]="issue.issueId">
+								{{issue.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="auditFinding.Severity" [(ngModel)]="auditFinding.Severity">
+							@for (FindingSeverity of FindingSeveritys; track FindingSeverity) {
+								<mat-option ngDefaultControl [value]="FindingSeverity">
+									{{FindingSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="auditFinding.Status" [(ngModel)]="auditFinding.Status">
+							@for (FindingStatus of FindingStatuss; track FindingStatus) {
+								<mat-option ngDefaultControl [value]="FindingStatus">
+									{{FindingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addAuditFinding(auditFinding.title, auditFinding.description, auditFinding.dueDate, auditFinding.Engagement, auditFinding.Workpaper, auditFinding.CorrectiveActions, auditFinding.RelatedRisks, auditFinding.RelatedControls, auditFinding.Issues, auditFinding.Severity, auditFinding.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

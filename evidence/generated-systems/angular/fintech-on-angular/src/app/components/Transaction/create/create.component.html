@@ -1,0 +1,146 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="transaction.amount" [(ngModel)]="transaction.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>fee</mat-label>
+								<input matInput ngDefaultControl placeholder="fee" name="transaction.fee" [(ngModel)]="transaction.fee">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>exchangeRate</mat-label>
+								<input matInput ngDefaultControl placeholder="exchangeRate" name="transaction.exchangeRate" [(ngModel)]="transaction.exchangeRate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="transaction.createdAt" class="form-control" name="transaction.createdAt" #transaction.createdAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="transaction.completedAt" class="form-control" name="transaction.completedAt" #transaction.completedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>narrative</mat-label>
+								<input matInput ngDefaultControl placeholder="narrative" name="transaction.narrative" [(ngModel)]="transaction.narrative">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"  [(ngModel)]="transaction.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="transaction.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Wallet</mat-label>
+					<mat-select placeholder="Wallet"  [(ngModel)]="transaction.Wallet">
+						@for (wallet of wallets; track wallet.walletId) {
+							<mat-option name="transaction.Wallet" ngDefaultControl
+							            [value]="wallet.walletId">
+								{{wallet.currency}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>PaymentOrder</mat-label>
+					<mat-select placeholder="PaymentOrder"  [(ngModel)]="transaction.PaymentOrder">
+						@for (paymentOrder of paymentOrders; track paymentOrder.paymentOrderId) {
+							<mat-option name="transaction.PaymentOrder" ngDefaultControl
+							            [value]="paymentOrder.paymentOrderId">
+								{{paymentOrder.orderReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"  [(ngModel)]="transaction.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="transaction.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Card</mat-label>
+					<mat-select placeholder="Card"  [(ngModel)]="transaction.Card">
+						@for (paymentCard of paymentCards; track paymentCard.paymentCardId) {
+							<mat-option name="transaction.Card" ngDefaultControl
+							            [value]="paymentCard.paymentCardId">
+								{{paymentCard.cardholderName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RelatedTransactions</mat-label>
+					<mat-select placeholder="RelatedTransactions" multiple [(ngModel)]="transaction.RelatedTransactions">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="transaction.RelatedTransactions" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Alerts</mat-label>
+					<mat-select placeholder="Alerts" multiple [(ngModel)]="transaction.Alerts">
+						@for (complianceAlert of complianceAlerts; track complianceAlert.complianceAlertId) {
+							<mat-option name="transaction.Alerts" ngDefaultControl
+							            [value]="complianceAlert.complianceAlertId">
+								{{complianceAlert.alertCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>TransactionType</mat-label>
+						<mat-select placeholder="TransactionType" name="transaction.TransactionType" [(ngModel)]="transaction.TransactionType">
+							@for (TransactionType of TransactionTypes; track TransactionType) {
+								<mat-option ngDefaultControl [value]="TransactionType">
+									{{TransactionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="transaction.Status" [(ngModel)]="transaction.Status">
+							@for (TransactionStatus of TransactionStatuss; track TransactionStatus) {
+								<mat-option ngDefaultControl [value]="TransactionStatus">
+									{{TransactionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addTransaction(transaction.amount, transaction.fee, transaction.exchangeRate, transaction.createdAt, transaction.completedAt, transaction.narrative, transaction.Account, transaction.Wallet, transaction.PaymentOrder, transaction.Merchant, transaction.Card, transaction.RelatedTransactions, transaction.Alerts, transaction.TransactionType, transaction.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

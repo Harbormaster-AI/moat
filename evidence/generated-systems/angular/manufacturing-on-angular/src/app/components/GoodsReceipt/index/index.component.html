@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">GoodsReceipt List</h5>
+
+    <a
+            [routerLink]="['/createGoodsReceipt']"
+            class="btn btn-primary btn-sm">
+        Create GoodsReceipt
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">receiptNumber</th>
+                        <th scope="col">receiptDate</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (goodsReceipt of goodsReceipts; track goodsReceipt.goodsReceiptId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ goodsReceipt.receiptNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ goodsReceipt.receiptDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ goodsReceipt.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadGoodsReceipt', goodsReceipt.goodsReceiptId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteGoodsReceipt(goodsReceipt.goodsReceiptId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (goodsReceipts?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No goodsReceipts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

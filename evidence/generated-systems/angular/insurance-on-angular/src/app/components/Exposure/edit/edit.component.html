@@ -1,0 +1,94 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"   [compareWith]="compareFn"  [(ngModel)]="exposure.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="exposure.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PolicyCoverage</mat-label>
+					<mat-select placeholder="PolicyCoverage"   [compareWith]="compareFn"  [(ngModel)]="exposure.PolicyCoverage">
+						@for (policyCoverage of policyCoverages; track policyCoverage.policyCoverageId) {
+							<mat-option name="exposure.PolicyCoverage" ngDefaultControl
+							            [value]="policyCoverage.policyCoverageId">
+								{{policyCoverage.limit}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>InsuredObject</mat-label>
+					<mat-select placeholder="InsuredObject"   [compareWith]="compareFn"  [(ngModel)]="exposure.InsuredObject">
+						@for (insuredObject of insuredObjects; track insuredObject.insuredObjectId) {
+							<mat-option name="exposure.InsuredObject" ngDefaultControl
+							            [value]="insuredObject.insuredObjectId">
+								{{insuredObject.description}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Reserves</mat-label>
+					<mat-select placeholder="Reserves" multiple  [compareWith]="compareFn"  [(ngModel)]="exposure.Reserves">
+						@for (claimReserve of claimReserves; track claimReserve.claimReserveId) {
+							<mat-option name="exposure.Reserves" ngDefaultControl
+							            [value]="claimReserve.claimReserveId">
+								{{claimReserve.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Payments</mat-label>
+					<mat-select placeholder="Payments" multiple  [compareWith]="compareFn"  [(ngModel)]="exposure.Payments">
+						@for (claimPayment of claimPayments; track claimPayment.claimPaymentId) {
+							<mat-option name="exposure.Payments" ngDefaultControl
+							            [value]="claimPayment.claimPaymentId">
+								{{claimPayment.paymentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ExposureType</mat-label>
+						<mat-select placeholder="ExposureType" name="exposure.ExposureType" [(ngModel)]="exposure.ExposureType">
+							@for (ExposureType of ExposureTypes; track ExposureType) {
+								<mat-option ngDefaultControl [value]="ExposureType">
+									{{ExposureType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="exposure.Status" [(ngModel)]="exposure.Status">
+							@for (ExposureStatus of ExposureStatuss; track ExposureStatus) {
+								<mat-option ngDefaultControl [value]="ExposureStatus">
+									{{ExposureStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																			 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateExposure(exposure.Claim, exposure.PolicyCoverage, exposure.InsuredObject, exposure.Reserves, exposure.Payments, exposure.ExposureType, exposure.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bodySite</mat-label>
+								<input matInput ngDefaultControl placeholder="bodySite" name="imagingOrder.bodySite" [(ngModel)]="imagingOrder.bodySite">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="imagingOrder.contrast" ngDefaultControl [(ngModel)]="imagingOrder.contrast">contrast</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"   [compareWith]="compareFn"  [(ngModel)]="imagingOrder.Order">
+						@for (clinicalOrder of clinicalOrders; track clinicalOrder.clinicalOrderId) {
+							<mat-option name="imagingOrder.Order" ngDefaultControl
+							            [value]="clinicalOrder.clinicalOrderId">
+								{{clinicalOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ImagingCenter</mat-label>
+					<mat-select placeholder="ImagingCenter"   [compareWith]="compareFn"  [(ngModel)]="imagingOrder.ImagingCenter">
+						@for (imagingCenter of imagingCenters; track imagingCenter.imagingCenterId) {
+							<mat-option name="imagingOrder.ImagingCenter" ngDefaultControl
+							            [value]="imagingCenter.imagingCenterId">
+								{{imagingCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Reports</mat-label>
+					<mat-select placeholder="Reports" multiple  [compareWith]="compareFn"  [(ngModel)]="imagingOrder.Reports">
+						@for (imagingReport of imagingReports; track imagingReport.imagingReportId) {
+							<mat-option name="imagingOrder.Reports" ngDefaultControl
+							            [value]="imagingReport.imagingReportId">
+								{{imagingReport.reportNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Modality</mat-label>
+						<mat-select placeholder="Modality" name="imagingOrder.Modality" [(ngModel)]="imagingOrder.Modality">
+							@for (ImagingModality of ImagingModalitys; track ImagingModality) {
+								<mat-option ngDefaultControl [value]="ImagingModality">
+									{{ImagingModality}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 																										 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateImagingOrder(imagingOrder.bodySite, imagingOrder.contrast == true ? true : false, imagingOrder.Order, imagingOrder.ImagingCenter, imagingOrder.Reports, imagingOrder.Modality)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

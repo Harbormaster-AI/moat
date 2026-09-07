@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="pharmacy.name" [(ngModel)]="pharmacy.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="pharmacy.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="pharmacy.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>MedicationDispenses</mat-label>
+					<mat-select placeholder="MedicationDispenses" multiple  [compareWith]="compareFn"  [(ngModel)]="pharmacy.MedicationDispenses">
+						@for (medicationDispense of medicationDispenses; track medicationDispense.medicationDispenseId) {
+							<mat-option name="pharmacy.MedicationDispenses" ngDefaultControl
+							            [value]="medicationDispense.medicationDispenseId">
+								{{medicationDispense.dispenseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>MedicationOrders</mat-label>
+					<mat-select placeholder="MedicationOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="pharmacy.MedicationOrders">
+						@for (medicationOrder of medicationOrders; track medicationOrder.medicationOrderId) {
+							<mat-option name="pharmacy.MedicationOrders" ngDefaultControl
+							            [value]="medicationOrder.medicationOrderId">
+								{{medicationOrder.medicationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																				 						 																				 						 																				 						 										<button
+				(click)="updatePharmacy(pharmacy.name, pharmacy.Facility, pharmacy.MedicationDispenses, pharmacy.MedicationOrders)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

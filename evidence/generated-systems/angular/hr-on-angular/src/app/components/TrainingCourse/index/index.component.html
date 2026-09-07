@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">TrainingCourse List</h5>
+
+    <a
+            [routerLink]="['/createTrainingCourse']"
+            class="btn btn-primary btn-sm">
+        Create TrainingCourse
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">code</th>
+                        <th scope="col">title</th>
+                        <th scope="col">durationHours</th>
+                        <th scope="col">DeliveryMethod</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (trainingCourse of trainingCourses; track trainingCourse.trainingCourseId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ trainingCourse.code }}
+                </td>
+                                <td class="align-middle">
+                    {{ trainingCourse.title }}
+                </td>
+                                <td class="align-middle">
+                    {{ trainingCourse.durationHours }}
+                </td>
+                                <td class="align-middle">
+                    {{ trainingCourse.DeliveryMethod }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadTrainingCourse', trainingCourse.trainingCourseId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteTrainingCourse(trainingCourse.trainingCourseId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (trainingCourses?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No trainingCourses found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

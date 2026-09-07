@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quoteNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="quoteNumber" name="quote.quoteNumber" [(ngModel)]="quote.quoteNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="quote.totalAmount" [(ngModel)]="quote.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>AircraftOrder</mat-label>
+					<mat-select placeholder="AircraftOrder"   [compareWith]="compareFn"  [(ngModel)]="quote.AircraftOrder">
+						@for (aircraftOrder of aircraftOrders; track aircraftOrder.aircraftOrderId) {
+							<mat-option name="quote.AircraftOrder" ngDefaultControl
+							            [value]="aircraftOrder.aircraftOrderId">
+								{{aircraftOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateQuote(quote.quoteNumber, quote.totalAmount, quote.AircraftOrder)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

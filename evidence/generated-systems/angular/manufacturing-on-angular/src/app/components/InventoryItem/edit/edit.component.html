@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantityOnHand</mat-label>
+								<input matInput ngDefaultControl placeholder="quantityOnHand" name="inventoryItem.quantityOnHand" [(ngModel)]="inventoryItem.quantityOnHand">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantityReserved</mat-label>
+								<input matInput ngDefaultControl placeholder="quantityReserved" name="inventoryItem.quantityReserved" [(ngModel)]="inventoryItem.quantityReserved">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lotNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="lotNumber" name="inventoryItem.lotNumber" [(ngModel)]="inventoryItem.lotNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>serialNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="serialNumber" name="inventoryItem.serialNumber" [(ngModel)]="inventoryItem.serialNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"   [compareWith]="compareFn"  [(ngModel)]="inventoryItem.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="inventoryItem.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"   [compareWith]="compareFn"  [(ngModel)]="inventoryItem.Location">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="inventoryItem.Location" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.locationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateInventoryItem(inventoryItem.quantityOnHand, inventoryItem.quantityReserved, inventoryItem.lotNumber, inventoryItem.serialNumber, inventoryItem.Item, inventoryItem.Location)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

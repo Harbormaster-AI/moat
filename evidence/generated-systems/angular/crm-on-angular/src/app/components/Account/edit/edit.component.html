@@ -1,0 +1,258 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="account.name" [(ngModel)]="account.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>accountNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="accountNumber" name="account.accountNumber" [(ngModel)]="account.accountNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>industry</mat-label>
+								<input matInput ngDefaultControl placeholder="industry" name="account.industry" [(ngModel)]="account.industry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>billingAddress</mat-label>
+								<input matInput ngDefaultControl placeholder="billingAddress" name="account.billingAddress" [(ngModel)]="account.billingAddress">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>shippingAddress</mat-label>
+								<input matInput ngDefaultControl placeholder="shippingAddress" name="account.shippingAddress" [(ngModel)]="account.shippingAddress">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="account.website" [(ngModel)]="account.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>phone</mat-label>
+								<input matInput ngDefaultControl placeholder="phone" name="account.phone" [(ngModel)]="account.phone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="account.asActive" ngDefaultControl [(ngModel)]="account.asActive">asActive</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="account.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="account.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ParentAccount</mat-label>
+					<mat-select placeholder="ParentAccount"   [compareWith]="compareFn"  [(ngModel)]="account.ParentAccount">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="account.ParentAccount" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ChildAccounts</mat-label>
+					<mat-select placeholder="ChildAccounts" multiple  [compareWith]="compareFn"  [(ngModel)]="account.ChildAccounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="account.ChildAccounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Contacts</mat-label>
+					<mat-select placeholder="Contacts" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Contacts">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="account.Contacts" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Opportunities</mat-label>
+					<mat-select placeholder="Opportunities" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Opportunities">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="account.Opportunities" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Cases</mat-label>
+					<mat-select placeholder="Cases" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Cases">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="account.Cases" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"   [compareWith]="compareFn"  [(ngModel)]="account.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="account.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Territory</mat-label>
+					<mat-select placeholder="Territory"   [compareWith]="compareFn"  [(ngModel)]="account.Territory">
+						@for (territory of territorys; track territory.territoryId) {
+							<mat-option name="account.Territory" ngDefaultControl
+							            [value]="territory.territoryId">
+								{{territory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="account.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="account.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Quotes</mat-label>
+					<mat-select placeholder="Quotes" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Quotes">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="account.Quotes" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Orders">
+						@for (order of orders; track order.orderId) {
+							<mat-option name="account.Orders" ngDefaultControl
+							            [value]="order.orderId">
+								{{order.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Contracts">
+						@for (contract of contracts; track contract.contractId) {
+							<mat-option name="account.Contracts" ngDefaultControl
+							            [value]="contract.contractId">
+								{{contract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Notes</mat-label>
+					<mat-select placeholder="Notes" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Notes">
+						@for (note of notes; track note.noteId) {
+							<mat-option name="account.Notes" ngDefaultControl
+							            [value]="note.noteId">
+								{{note.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>EmailMessages</mat-label>
+					<mat-select placeholder="EmailMessages" multiple  [compareWith]="compareFn"  [(ngModel)]="account.EmailMessages">
+						@for (emailMessage of emailMessages; track emailMessage.emailMessageId) {
+							<mat-option name="account.EmailMessages" ngDefaultControl
+							            [value]="emailMessage.emailMessageId">
+								{{emailMessage.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AccountType</mat-label>
+						<mat-select placeholder="AccountType" name="account.AccountType" [(ngModel)]="account.AccountType">
+							@for (AccountType of AccountTypes; track AccountType) {
+								<mat-option ngDefaultControl [value]="AccountType">
+									{{AccountType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>LifecycleStage</mat-label>
+						<mat-select placeholder="LifecycleStage" name="account.LifecycleStage" [(ngModel)]="account.LifecycleStage">
+							@for (AccountLifecycleStage of AccountLifecycleStages; track AccountLifecycleStage) {
+								<mat-option ngDefaultControl [value]="AccountLifecycleStage">
+									{{AccountLifecycleStage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																	 						 																	 						 																	 																										 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAccount(account.name, account.accountNumber, account.industry, account.billingAddress, account.shippingAddress, account.website, account.phone, account.asActive == true ? true : false, account.Organization, account.ParentAccount, account.ChildAccounts, account.Contacts, account.Opportunities, account.Cases, account.Owner, account.Territory, account.Activities, account.Campaigns, account.Quotes, account.Orders, account.Contracts, account.Notes, account.EmailMessages, account.AccountType, account.LifecycleStage)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,57 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>baseCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="baseCurrency" name="fXQuote.baseCurrency" [(ngModel)]="fXQuote.baseCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quoteCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="quoteCurrency" name="fXQuote.quoteCurrency" [(ngModel)]="fXQuote.quoteCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>rate</mat-label>
+								<input matInput ngDefaultControl placeholder="rate" name="fXQuote.rate" [(ngModel)]="fXQuote.rate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="fXQuote.quotedAt" class="form-control" name="fXQuote.quotedAt" #fXQuote.quotedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="fXQuote.expiresAt" class="form-control" name="fXQuote.expiresAt" #fXQuote.expiresAt ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>RequestedBy</mat-label>
+					<mat-select placeholder="RequestedBy"  [(ngModel)]="fXQuote.RequestedBy">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="fXQuote.RequestedBy" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PriceType</mat-label>
+						<mat-select placeholder="PriceType" name="fXQuote.PriceType" [(ngModel)]="fXQuote.PriceType">
+							@for (FXPriceType of FXPriceTypes; track FXPriceType) {
+								<mat-option ngDefaultControl [value]="FXPriceType">
+									{{FXPriceType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																							 										<button
+				(click)="addFXQuote(fXQuote.baseCurrency, fXQuote.quoteCurrency, fXQuote.rate, fXQuote.quotedAt, fXQuote.expiresAt, fXQuote.RequestedBy, fXQuote.PriceType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

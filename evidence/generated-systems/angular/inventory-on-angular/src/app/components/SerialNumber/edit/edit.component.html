@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>serial</mat-label>
+								<input matInput ngDefaultControl placeholder="serial" name="serialNumber.serial" [(ngModel)]="serialNumber.serial">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>activationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="activationDate" name="serialNumber.activationDate" [(ngModel)]="serialNumber.activationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"   [compareWith]="compareFn"  [(ngModel)]="serialNumber.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="serialNumber.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CurrentInventoryItem</mat-label>
+					<mat-select placeholder="CurrentInventoryItem"   [compareWith]="compareFn"  [(ngModel)]="serialNumber.CurrentInventoryItem">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="serialNumber.CurrentInventoryItem" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"   [compareWith]="compareFn"  [(ngModel)]="serialNumber.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="serialNumber.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="serialNumber.Status" [(ngModel)]="serialNumber.Status">
+							@for (SerialStatus of SerialStatuss; track SerialStatus) {
+								<mat-option ngDefaultControl [value]="SerialStatus">
+									{{SerialStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateSerialNumber(serialNumber.serial, serialNumber.activationDate, serialNumber.Sku, serialNumber.CurrentInventoryItem, serialNumber.Lot, serialNumber.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

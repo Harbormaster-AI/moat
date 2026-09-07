@@ -1,0 +1,57 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>runNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="runNumber" name="mRPRun.runNumber" [(ngModel)]="mRPRun.runNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="mRPRun.runDateTime" class="form-control" name="mRPRun.runDateTime" #mRPRun.runDateTime ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<input matInput placeholder="planningHorizonDays" name="mRPRun.planningHorizonDays" [(ngModel)]="mRPRun.planningHorizonDays">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"  [(ngModel)]="mRPRun.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="mRPRun.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>PlannedOrders</mat-label>
+					<mat-select placeholder="PlannedOrders" multiple [(ngModel)]="mRPRun.PlannedOrders">
+						@for (plannedOrder of plannedOrders; track plannedOrder.plannedOrderId) {
+							<mat-option name="mRPRun.PlannedOrders" ngDefaultControl
+							            [value]="plannedOrder.plannedOrderId">
+								{{plannedOrder.plannedOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="mRPRun.Status" [(ngModel)]="mRPRun.Status">
+							@for (MRPRunStatus of MRPRunStatuss; track MRPRunStatus) {
+								<mat-option ngDefaultControl [value]="MRPRunStatus">
+									{{MRPRunStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addMRPRun(mRPRun.runNumber, mRPRun.runDateTime, mRPRun.planningHorizonDays, mRPRun.Plant, mRPRun.PlannedOrders, mRPRun.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

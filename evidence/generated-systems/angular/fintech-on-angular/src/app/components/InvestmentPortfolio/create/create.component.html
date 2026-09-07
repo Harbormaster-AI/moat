@@ -1,0 +1,85 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>portfolioCode</mat-label>
+								<input matInput ngDefaultControl placeholder="portfolioCode" name="investmentPortfolio.portfolioCode" [(ngModel)]="investmentPortfolio.portfolioCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>baseCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="baseCurrency" name="investmentPortfolio.baseCurrency" [(ngModel)]="investmentPortfolio.baseCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="investmentPortfolio.createdAt" class="form-control" name="investmentPortfolio.createdAt" #investmentPortfolio.createdAt ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="investmentPortfolio.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="investmentPortfolio.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Accounts</mat-label>
+					<mat-select placeholder="Accounts" multiple [(ngModel)]="investmentPortfolio.Accounts">
+						@for (investmentAccount of investmentAccounts; track investmentAccount.investmentAccountId) {
+							<mat-option name="investmentPortfolio.Accounts" ngDefaultControl
+							            [value]="investmentAccount.investmentAccountId">
+								{{investmentAccount.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple [(ngModel)]="investmentPortfolio.Orders">
+						@for (tradeOrder of tradeOrders; track tradeOrder.tradeOrderId) {
+							<mat-option name="investmentPortfolio.Orders" ngDefaultControl
+							            [value]="tradeOrder.tradeOrderId">
+								{{tradeOrder.orderId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Holdings</mat-label>
+					<mat-select placeholder="Holdings" multiple [(ngModel)]="investmentPortfolio.Holdings">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="investmentPortfolio.Holdings" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="investmentPortfolio.Status" [(ngModel)]="investmentPortfolio.Status">
+							@for (PortfolioStatus of PortfolioStatuss; track PortfolioStatus) {
+								<mat-option ngDefaultControl [value]="PortfolioStatus">
+									{{PortfolioStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addInvestmentPortfolio(investmentPortfolio.portfolioCode, investmentPortfolio.baseCurrency, investmentPortfolio.createdAt, investmentPortfolio.Customer, investmentPortfolio.Accounts, investmentPortfolio.Orders, investmentPortfolio.Holdings, investmentPortfolio.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,69 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>batchNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="batchNumber" name="lot.batchNumber" [(ngModel)]="lot.batchNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>manufactureDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="manufactureDate" name="lot.manufactureDate" [(ngModel)]="lot.manufactureDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>expirationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="expirationDate" name="lot.expirationDate" [(ngModel)]="lot.expirationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="lot.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="lot.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple [(ngModel)]="lot.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="lot.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>LotStatus</mat-label>
+						<mat-select placeholder="LotStatus" name="lot.LotStatus" [(ngModel)]="lot.LotStatus">
+							@for (LotStatus of LotStatuss; track LotStatus) {
+								<mat-option ngDefaultControl [value]="LotStatus">
+									{{LotStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addLot(lot.batchNumber, lot.manufactureDate, lot.expirationDate, lot.Sku, lot.InventoryItems, lot.LotStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,115 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="issue.title" [(ngModel)]="issue.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>openedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="openedDate" name="issue.openedDate" [(ngModel)]="issue.openedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>closedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="closedDate" name="issue.closedDate" [(ngModel)]="issue.closedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Risk</mat-label>
+					<mat-select placeholder="Risk"   [compareWith]="compareFn"  [(ngModel)]="issue.Risk">
+						@for (risk of risks; track risk.riskId) {
+							<mat-option name="issue.Risk" ngDefaultControl
+							            [value]="risk.riskId">
+								{{risk.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Finding</mat-label>
+					<mat-select placeholder="Finding"   [compareWith]="compareFn"  [(ngModel)]="issue.Finding">
+						@for (auditFinding of auditFindings; track auditFinding.auditFindingId) {
+							<mat-option name="issue.Finding" ngDefaultControl
+							            [value]="auditFinding.auditFindingId">
+								{{auditFinding.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CorrectiveActions</mat-label>
+					<mat-select placeholder="CorrectiveActions" multiple  [compareWith]="compareFn"  [(ngModel)]="issue.CorrectiveActions">
+						@for (correctiveAction of correctiveActions; track correctiveAction.correctiveActionId) {
+							<mat-option name="issue.CorrectiveActions" ngDefaultControl
+							            [value]="correctiveAction.correctiveActionId">
+								{{correctiveAction.actionTitle}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Control</mat-label>
+					<mat-select placeholder="Control"   [compareWith]="compareFn"  [(ngModel)]="issue.Control">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="issue.Control" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>IssueType</mat-label>
+						<mat-select placeholder="IssueType" name="issue.IssueType" [(ngModel)]="issue.IssueType">
+							@for (IssueType of IssueTypes; track IssueType) {
+								<mat-option ngDefaultControl [value]="IssueType">
+									{{IssueType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="issue.Priority" [(ngModel)]="issue.Priority">
+							@for (Priority of Prioritys; track Priority) {
+								<mat-option ngDefaultControl [value]="Priority">
+									{{Priority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="issue.Status" [(ngModel)]="issue.Status">
+							@for (IssueStatus of IssueStatuss; track IssueStatus) {
+								<mat-option ngDefaultControl [value]="IssueStatus">
+									{{IssueStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateIssue(issue.title, issue.openedDate, issue.closedDate, issue.Risk, issue.Finding, issue.CorrectiveActions, issue.Control, issue.IssueType, issue.Priority, issue.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

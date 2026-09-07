@@ -1,0 +1,91 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Case_ List</h5>
+
+    <a
+            [routerLink]="['/createCase_']"
+            class="btn btn-primary btn-sm">
+        Create Case_
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">caseNumber</th>
+                        <th scope="col">subject</th>
+                        <th scope="col">description</th>
+                        <th scope="col">slaDue</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Severity</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (case_ of case_s; track case_.case_Id) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ case_.caseNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.subject }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.description }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.slaDue }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.Priority }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.Origin }}
+                </td>
+                                <td class="align-middle">
+                    {{ case_.Severity }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCase_', case_.case_Id]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCase_(case_.case_Id)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (case_s?.length === 0) {
+            <tr>
+                <td
+                        colspan="10"
+                        class="text-center">
+                    No case_s found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

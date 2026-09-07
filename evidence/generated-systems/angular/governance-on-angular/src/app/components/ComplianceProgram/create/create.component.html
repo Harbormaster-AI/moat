@@ -1,0 +1,95 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="complianceProgram.name" [(ngModel)]="complianceProgram.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>framework</mat-label>
+								<input matInput ngDefaultControl placeholder="framework" name="complianceProgram.framework" [(ngModel)]="complianceProgram.framework">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="complianceProgram.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="complianceProgram.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Requirements</mat-label>
+					<mat-select placeholder="Requirements" multiple [(ngModel)]="complianceProgram.Requirements">
+						@for (complianceRequirement of complianceRequirements; track complianceRequirement.complianceRequirementId) {
+							<mat-option name="complianceProgram.Requirements" ngDefaultControl
+							            [value]="complianceRequirement.complianceRequirementId">
+								{{complianceRequirement.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Controls</mat-label>
+					<mat-select placeholder="Controls" multiple [(ngModel)]="complianceProgram.Controls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="complianceProgram.Controls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Attestations</mat-label>
+					<mat-select placeholder="Attestations" multiple [(ngModel)]="complianceProgram.Attestations">
+						@for (attestation of attestations; track attestation.attestationId) {
+							<mat-option name="complianceProgram.Attestations" ngDefaultControl
+							            [value]="attestation.attestationId">
+								{{attestation.statement}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Regulations</mat-label>
+					<mat-select placeholder="Regulations" multiple [(ngModel)]="complianceProgram.Regulations">
+						@for (regulation of regulations; track regulation.regulationId) {
+							<mat-option name="complianceProgram.Regulations" ngDefaultControl
+							            [value]="regulation.regulationId">
+								{{regulation.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="complianceProgram.Status" [(ngModel)]="complianceProgram.Status">
+							@for (ComplianceStatus of ComplianceStatuss; track ComplianceStatus) {
+								<mat-option ngDefaultControl [value]="ComplianceStatus">
+									{{ComplianceStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addComplianceProgram(complianceProgram.name, complianceProgram.framework, complianceProgram.Organization, complianceProgram.Requirements, complianceProgram.Controls, complianceProgram.Attestations, complianceProgram.Regulations, complianceProgram.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

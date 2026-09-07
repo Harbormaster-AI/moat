@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ComplianceProgram List</h5>
+
+    <a
+            [routerLink]="['/createComplianceProgram']"
+            class="btn btn-primary btn-sm">
+        Create ComplianceProgram
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">framework</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (complianceProgram of compliancePrograms; track complianceProgram.complianceProgramId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ complianceProgram.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ complianceProgram.framework }}
+                </td>
+                                <td class="align-middle">
+                    {{ complianceProgram.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadComplianceProgram', complianceProgram.complianceProgramId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteComplianceProgram(complianceProgram.complianceProgramId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (compliancePrograms?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No compliancePrograms found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

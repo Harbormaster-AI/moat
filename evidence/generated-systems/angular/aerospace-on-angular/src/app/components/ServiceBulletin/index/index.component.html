@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ServiceBulletin List</h5>
+
+    <a
+            [routerLink]="['/createServiceBulletin']"
+            class="btn btn-primary btn-sm">
+        Create ServiceBulletin
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">bulletinNumber</th>
+                        <th scope="col">Category</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (serviceBulletin of serviceBulletins; track serviceBulletin.serviceBulletinId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ serviceBulletin.bulletinNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ serviceBulletin.Category }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadServiceBulletin', serviceBulletin.serviceBulletinId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteServiceBulletin(serviceBulletin.serviceBulletinId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (serviceBulletins?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No serviceBulletins found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

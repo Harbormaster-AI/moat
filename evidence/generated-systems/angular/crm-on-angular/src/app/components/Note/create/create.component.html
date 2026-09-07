@@ -1,0 +1,112 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="note.title" [(ngModel)]="note.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>content</mat-label>
+								<input matInput ngDefaultControl placeholder="content" name="note.content" [(ngModel)]="note.content">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="note.createdAt" class="form-control" name="note.createdAt" #note.createdAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="note.updatedAt" class="form-control" name="note.updatedAt" #note.updatedAt ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="note.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="note.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"  [(ngModel)]="note.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="note.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"  [(ngModel)]="note.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="note.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Contact</mat-label>
+					<mat-select placeholder="Contact"  [(ngModel)]="note.Contact">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="note.Contact" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Opportunity</mat-label>
+					<mat-select placeholder="Opportunity"  [(ngModel)]="note.Opportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="note.Opportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Case</mat-label>
+					<mat-select placeholder="Case"  [(ngModel)]="note.Case">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="note.Case" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Lead</mat-label>
+					<mat-select placeholder="Lead"  [(ngModel)]="note.Lead">
+						@for (lead of leads; track lead.leadId) {
+							<mat-option name="note.Lead" ngDefaultControl
+							            [value]="lead.leadId">
+								{{lead.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addNote(note.title, note.content, note.createdAt, note.updatedAt, note.Organization, note.Owner, note.Account, note.Contact, note.Opportunity, note.Case, note.Lead)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

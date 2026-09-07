@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>engineModelCode</mat-label>
+								<input matInput ngDefaultControl placeholder="engineModelCode" name="engineType.engineModelCode" [(ngModel)]="engineType.engineModelCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>maxThrustKn</mat-label>
+								<input matInput ngDefaultControl placeholder="maxThrustKn" name="engineType.maxThrustKn" [(ngModel)]="engineType.maxThrustKn">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"  [(ngModel)]="engineType.Supplier">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="engineType.Supplier" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CompatibleModels</mat-label>
+					<mat-select placeholder="CompatibleModels" multiple [(ngModel)]="engineType.CompatibleModels">
+						@for (aircraftModel of aircraftModels; track aircraftModel.aircraftModelId) {
+							<mat-option name="engineType.CompatibleModels" ngDefaultControl
+							            [value]="aircraftModel.aircraftModelId">
+								{{aircraftModel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Category</mat-label>
+						<mat-select placeholder="Category" name="engineType.Category" [(ngModel)]="engineType.Category">
+							@for (EngineCategory of EngineCategorys; track EngineCategory) {
+								<mat-option ngDefaultControl [value]="EngineCategory">
+									{{EngineCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addEngineType(engineType.engineModelCode, engineType.maxThrustKn, engineType.Supplier, engineType.CompatibleModels, engineType.Category)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

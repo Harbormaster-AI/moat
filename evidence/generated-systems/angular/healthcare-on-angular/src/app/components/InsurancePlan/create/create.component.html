@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="insurancePlan.name" [(ngModel)]="insurancePlan.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>planCode</mat-label>
+								<input matInput ngDefaultControl placeholder="planCode" name="insurancePlan.planCode" [(ngModel)]="insurancePlan.planCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Payer</mat-label>
+					<mat-select placeholder="Payer"  [(ngModel)]="insurancePlan.Payer">
+						@for (insurancePayer of insurancePayers; track insurancePayer.insurancePayerId) {
+							<mat-option name="insurancePlan.Payer" ngDefaultControl
+							            [value]="insurancePayer.insurancePayerId">
+								{{insurancePayer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Coverages</mat-label>
+					<mat-select placeholder="Coverages" multiple [(ngModel)]="insurancePlan.Coverages">
+						@for (coverage of coverages; track coverage.coverageId) {
+							<mat-option name="insurancePlan.Coverages" ngDefaultControl
+							            [value]="coverage.coverageId">
+								{{coverage.memberId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PlanType</mat-label>
+						<mat-select placeholder="PlanType" name="insurancePlan.PlanType" [(ngModel)]="insurancePlan.PlanType">
+							@for (InsurancePlanType of InsurancePlanTypes; track InsurancePlanType) {
+								<mat-option ngDefaultControl [value]="InsurancePlanType">
+									{{InsurancePlanType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addInsurancePlan(insurancePlan.name, insurancePlan.planCode, insurancePlan.Payer, insurancePlan.Coverages, insurancePlan.PlanType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

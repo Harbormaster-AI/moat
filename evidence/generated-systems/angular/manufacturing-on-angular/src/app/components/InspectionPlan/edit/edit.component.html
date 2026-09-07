@@ -1,0 +1,70 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>planNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="planNumber" name="inspectionPlan.planNumber" [(ngModel)]="inspectionPlan.planNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>revision</mat-label>
+								<input matInput ngDefaultControl placeholder="revision" name="inspectionPlan.revision" [(ngModel)]="inspectionPlan.revision">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"   [compareWith]="compareFn"  [(ngModel)]="inspectionPlan.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="inspectionPlan.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Characteristics</mat-label>
+					<mat-select placeholder="Characteristics" multiple  [compareWith]="compareFn"  [(ngModel)]="inspectionPlan.Characteristics">
+						@for (inspectionCharacteristic of inspectionCharacteristics; track inspectionCharacteristic.inspectionCharacteristicId) {
+							<mat-option name="inspectionPlan.Characteristics" ngDefaultControl
+							            [value]="inspectionCharacteristic.inspectionCharacteristicId">
+								{{inspectionCharacteristic.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>SamplingPlan</mat-label>
+						<mat-select placeholder="SamplingPlan" name="inspectionPlan.SamplingPlan" [(ngModel)]="inspectionPlan.SamplingPlan">
+							@for (SamplingPlanType of SamplingPlanTypes; track SamplingPlanType) {
+								<mat-option ngDefaultControl [value]="SamplingPlanType">
+									{{SamplingPlanType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="inspectionPlan.Status" [(ngModel)]="inspectionPlan.Status">
+							@for (QualityPlanStatus of QualityPlanStatuss; track QualityPlanStatus) {
+								<mat-option ngDefaultControl [value]="QualityPlanStatus">
+									{{QualityPlanStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateInspectionPlan(inspectionPlan.planNumber, inspectionPlan.revision, inspectionPlan.Item, inspectionPlan.Characteristics, inspectionPlan.SamplingPlan, inspectionPlan.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

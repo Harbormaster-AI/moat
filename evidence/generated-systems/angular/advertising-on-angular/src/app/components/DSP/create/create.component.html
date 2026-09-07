@@ -1,0 +1,42 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="dSP.name" [(ngModel)]="dSP.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="dSP.website" [(ngModel)]="dSP.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>region</mat-label>
+								<input matInput ngDefaultControl placeholder="region" name="dSP.region" [(ngModel)]="dSP.region">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>AdAccounts</mat-label>
+					<mat-select placeholder="AdAccounts" multiple [(ngModel)]="dSP.AdAccounts">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="dSP.AdAccounts" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 										<button
+				(click)="addDSP(dSP.name, dSP.website, dSP.region, dSP.AdAccounts)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

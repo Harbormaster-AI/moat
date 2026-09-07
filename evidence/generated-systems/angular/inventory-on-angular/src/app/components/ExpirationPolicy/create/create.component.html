@@ -1,0 +1,51 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<input matInput placeholder="rejectIfDaysToExpireLessThan" name="expirationPolicy.rejectIfDaysToExpireLessThan" [(ngModel)]="expirationPolicy.rejectIfDaysToExpireLessThan">
+																																																																	<p>
+																																																																																				<input matInput placeholder="autoQuarantineDaysToExpire" name="expirationPolicy.autoQuarantineDaysToExpire" [(ngModel)]="expirationPolicy.autoQuarantineDaysToExpire">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="expirationPolicy.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="expirationPolicy.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="expirationPolicy.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="expirationPolicy.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>RotationMethod</mat-label>
+						<mat-select placeholder="RotationMethod" name="expirationPolicy.RotationMethod" [(ngModel)]="expirationPolicy.RotationMethod">
+							@for (RotationMethod of RotationMethods; track RotationMethod) {
+								<mat-option ngDefaultControl [value]="RotationMethod">
+									{{RotationMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addExpirationPolicy(expirationPolicy.rejectIfDaysToExpireLessThan, expirationPolicy.autoQuarantineDaysToExpire, expirationPolicy.Sku, expirationPolicy.Warehouse, expirationPolicy.RotationMethod)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">BIQuery List</h5>
+
+    <a
+            [routerLink]="['/createBIQuery']"
+            class="btn btn-primary btn-sm">
+        Create BIQuery
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">text</th>
+                        <th scope="col">Dialect</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (bIQuery of bIQuerys; track bIQuery.bIQueryId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ bIQuery.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ bIQuery.text }}
+                </td>
+                                <td class="align-middle">
+                    {{ bIQuery.Dialect }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadBIQuery', bIQuery.bIQueryId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteBIQuery(bIQuery.bIQueryId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (bIQuerys?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No bIQuerys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

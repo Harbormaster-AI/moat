@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="geoRegion.code" [(ngModel)]="geoRegion.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="geoRegion.name" [(ngModel)]="geoRegion.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Parent</mat-label>
+					<mat-select placeholder="Parent"   [compareWith]="compareFn"  [(ngModel)]="geoRegion.Parent">
+						@for (geoRegion of geoRegions; track geoRegion.geoRegionId) {
+							<mat-option name="geoRegion.Parent" ngDefaultControl
+							            [value]="geoRegion.geoRegionId">
+								{{geoRegion.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Children</mat-label>
+					<mat-select placeholder="Children" multiple  [compareWith]="compareFn"  [(ngModel)]="geoRegion.Children">
+						@for (geoRegion of geoRegions; track geoRegion.geoRegionId) {
+							<mat-option name="geoRegion.Children" ngDefaultControl
+							            [value]="geoRegion.geoRegionId">
+								{{geoRegion.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>RegionType</mat-label>
+						<mat-select placeholder="RegionType" name="geoRegion.RegionType" [(ngModel)]="geoRegion.RegionType">
+							@for (GeoRegionType of GeoRegionTypes; track GeoRegionType) {
+								<mat-option ngDefaultControl [value]="GeoRegionType">
+									{{GeoRegionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateGeoRegion(geoRegion.code, geoRegion.name, geoRegion.Parent, geoRegion.Children, geoRegion.RegionType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

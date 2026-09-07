@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">InboundShipment List</h5>
+
+    <a
+            [routerLink]="['/createInboundShipment']"
+            class="btn btn-primary btn-sm">
+        Create InboundShipment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">shipmentNumber</th>
+                        <th scope="col">expectedArrivalDate</th>
+                        <th scope="col">arrivalDate</th>
+                        <th scope="col">carrierName</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (inboundShipment of inboundShipments; track inboundShipment.inboundShipmentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ inboundShipment.shipmentNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ inboundShipment.expectedArrivalDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ inboundShipment.arrivalDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ inboundShipment.carrierName }}
+                </td>
+                                <td class="align-middle">
+                    {{ inboundShipment.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadInboundShipment', inboundShipment.inboundShipmentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteInboundShipment(inboundShipment.inboundShipmentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (inboundShipments?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No inboundShipments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

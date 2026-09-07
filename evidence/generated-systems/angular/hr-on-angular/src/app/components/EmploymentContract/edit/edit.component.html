@@ -1,0 +1,133 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>contractNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="contractNumber" name="employmentContract.contractNumber" [(ngModel)]="employmentContract.contractNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="employmentContract.startDate" [(ngModel)]="employmentContract.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="employmentContract.endDate" [(ngModel)]="employmentContract.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>workHoursPerWeek</mat-label>
+								<input matInput ngDefaultControl placeholder="workHoursPerWeek" name="employmentContract.workHoursPerWeek" [(ngModel)]="employmentContract.workHoursPerWeek">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="employmentContract.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="employmentContract.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CompensationPackage</mat-label>
+					<mat-select placeholder="CompensationPackage"   [compareWith]="compareFn"  [(ngModel)]="employmentContract.CompensationPackage">
+						@for (compensationPackage of compensationPackages; track compensationPackage.compensationPackageId) {
+							<mat-option name="employmentContract.CompensationPackage" ngDefaultControl
+							            [value]="compensationPackage.compensationPackageId">
+								{{compensationPackage.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkSchedule</mat-label>
+					<mat-select placeholder="WorkSchedule"   [compareWith]="compareFn"  [(ngModel)]="employmentContract.WorkSchedule">
+						@for (workSchedule of workSchedules; track workSchedule.workScheduleId) {
+							<mat-option name="employmentContract.WorkSchedule" ngDefaultControl
+							            [value]="workSchedule.workScheduleId">
+								{{workSchedule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"   [compareWith]="compareFn"  [(ngModel)]="employmentContract.Location">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="employmentContract.Location" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PayrollCalendar</mat-label>
+					<mat-select placeholder="PayrollCalendar"   [compareWith]="compareFn"  [(ngModel)]="employmentContract.PayrollCalendar">
+						@for (payrollCalendar of payrollCalendars; track payrollCalendar.payrollCalendarId) {
+							<mat-option name="employmentContract.PayrollCalendar" ngDefaultControl
+							            [value]="payrollCalendar.payrollCalendarId">
+								{{payrollCalendar.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>EmploymentType</mat-label>
+						<mat-select placeholder="EmploymentType" name="employmentContract.EmploymentType" [(ngModel)]="employmentContract.EmploymentType">
+							@for (EmploymentType of EmploymentTypes; track EmploymentType) {
+								<mat-option ngDefaultControl [value]="EmploymentType">
+									{{EmploymentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="employmentContract.Status" [(ngModel)]="employmentContract.Status">
+							@for (ContractStatus of ContractStatuss; track ContractStatus) {
+								<mat-option ngDefaultControl [value]="ContractStatus">
+									{{ContractStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PayFrequency</mat-label>
+						<mat-select placeholder="PayFrequency" name="employmentContract.PayFrequency" [(ngModel)]="employmentContract.PayFrequency">
+							@for (PayFrequency of PayFrequencys; track PayFrequency) {
+								<mat-option ngDefaultControl [value]="PayFrequency">
+									{{PayFrequency}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateEmploymentContract(employmentContract.contractNumber, employmentContract.startDate, employmentContract.endDate, employmentContract.workHoursPerWeek, employmentContract.Employee, employmentContract.CompensationPackage, employmentContract.WorkSchedule, employmentContract.Location, employmentContract.PayrollCalendar, employmentContract.EmploymentType, employmentContract.Status, employmentContract.PayFrequency)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

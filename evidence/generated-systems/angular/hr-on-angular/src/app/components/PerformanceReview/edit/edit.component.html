@@ -1,0 +1,114 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reviewNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="reviewNumber" name="performanceReview.reviewNumber" [(ngModel)]="performanceReview.reviewNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reviewDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="reviewDate" name="performanceReview.reviewDate" [(ngModel)]="performanceReview.reviewDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reviewerComments</mat-label>
+								<input matInput ngDefaultControl placeholder="reviewerComments" name="performanceReview.reviewerComments" [(ngModel)]="performanceReview.reviewerComments">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="performanceReview.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="performanceReview.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Reviewer</mat-label>
+					<mat-select placeholder="Reviewer"   [compareWith]="compareFn"  [(ngModel)]="performanceReview.Reviewer">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="performanceReview.Reviewer" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Cycle</mat-label>
+					<mat-select placeholder="Cycle"   [compareWith]="compareFn"  [(ngModel)]="performanceReview.Cycle">
+						@for (performanceCycle of performanceCycles; track performanceCycle.performanceCycleId) {
+							<mat-option name="performanceReview.Cycle" ngDefaultControl
+							            [value]="performanceCycle.performanceCycleId">
+								{{performanceCycle.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CompetencyRatings</mat-label>
+					<mat-select placeholder="CompetencyRatings" multiple  [compareWith]="compareFn"  [(ngModel)]="performanceReview.CompetencyRatings">
+						@for (competencyRating of competencyRatings; track competencyRating.competencyRatingId) {
+							<mat-option name="performanceReview.CompetencyRatings" ngDefaultControl
+							            [value]="competencyRating.competencyRatingId">
+								{{competencyRating.comment}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Goals</mat-label>
+					<mat-select placeholder="Goals" multiple  [compareWith]="compareFn"  [(ngModel)]="performanceReview.Goals">
+						@for (goal of goals; track goal.goalId) {
+							<mat-option name="performanceReview.Goals" ngDefaultControl
+							            [value]="goal.goalId">
+								{{goal.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Rating</mat-label>
+						<mat-select placeholder="Rating" name="performanceReview.Rating" [(ngModel)]="performanceReview.Rating">
+							@for (PerformanceRating of PerformanceRatings; track PerformanceRating) {
+								<mat-option ngDefaultControl [value]="PerformanceRating">
+									{{PerformanceRating}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="performanceReview.Status" [(ngModel)]="performanceReview.Status">
+							@for (ReviewStatus of ReviewStatuss; track ReviewStatus) {
+								<mat-option ngDefaultControl [value]="ReviewStatus">
+									{{ReviewStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updatePerformanceReview(performanceReview.reviewNumber, performanceReview.reviewDate, performanceReview.reviewerComments, performanceReview.Employee, performanceReview.Reviewer, performanceReview.Cycle, performanceReview.CompetencyRatings, performanceReview.Goals, performanceReview.Rating, performanceReview.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

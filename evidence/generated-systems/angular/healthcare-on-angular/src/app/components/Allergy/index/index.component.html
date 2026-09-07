@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Allergy List</h5>
+
+    <a
+            [routerLink]="['/createAllergy']"
+            class="btn btn-primary btn-sm">
+        Create Allergy
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">substance</th>
+                        <th scope="col">reaction</th>
+                        <th scope="col">Severity</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (allergy of allergys; track allergy.allergyId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ allergy.substance }}
+                </td>
+                                <td class="align-middle">
+                    {{ allergy.reaction }}
+                </td>
+                                <td class="align-middle">
+                    {{ allergy.Severity }}
+                </td>
+                                <td class="align-middle">
+                    {{ allergy.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAllergy', allergy.allergyId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAllergy(allergy.allergyId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (allergys?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No allergys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>assessmentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="assessmentDate" name="riskAssessment.assessmentDate" [(ngModel)]="riskAssessment.assessmentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>assessor</mat-label>
+								<input matInput ngDefaultControl placeholder="assessor" name="riskAssessment.assessor" [(ngModel)]="riskAssessment.assessor">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>summary</mat-label>
+								<input matInput ngDefaultControl placeholder="summary" name="riskAssessment.summary" [(ngModel)]="riskAssessment.summary">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Risk</mat-label>
+					<mat-select placeholder="Risk"   [compareWith]="compareFn"  [(ngModel)]="riskAssessment.Risk">
+						@for (risk of risks; track risk.riskId) {
+							<mat-option name="riskAssessment.Risk" ngDefaultControl
+							            [value]="risk.riskId">
+								{{risk.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AssessmentType</mat-label>
+						<mat-select placeholder="AssessmentType" name="riskAssessment.AssessmentType" [(ngModel)]="riskAssessment.AssessmentType">
+							@for (AssessmentType of AssessmentTypes; track AssessmentType) {
+								<mat-option ngDefaultControl [value]="AssessmentType">
+									{{AssessmentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateRiskAssessment(riskAssessment.assessmentDate, riskAssessment.assessor, riskAssessment.summary, riskAssessment.Risk, riskAssessment.AssessmentType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

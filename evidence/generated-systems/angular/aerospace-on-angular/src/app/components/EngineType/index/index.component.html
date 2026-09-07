@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">EngineType List</h5>
+
+    <a
+            [routerLink]="['/createEngineType']"
+            class="btn btn-primary btn-sm">
+        Create EngineType
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">engineModelCode</th>
+                        <th scope="col">maxThrustKn</th>
+                        <th scope="col">Category</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (engineType of engineTypes; track engineType.engineTypeId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ engineType.engineModelCode }}
+                </td>
+                                <td class="align-middle">
+                    {{ engineType.maxThrustKn }}
+                </td>
+                                <td class="align-middle">
+                    {{ engineType.Category }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEngineType', engineType.engineTypeId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEngineType(engineType.engineTypeId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (engineTypes?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No engineTypes found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

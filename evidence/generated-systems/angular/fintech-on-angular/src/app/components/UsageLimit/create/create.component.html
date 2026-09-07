@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="usageLimit.name" [(ngModel)]="usageLimit.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="usageLimit.amount" [(ngModel)]="usageLimit.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="count" name="usageLimit.count" [(ngModel)]="usageLimit.count">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>PricingPlan</mat-label>
+					<mat-select placeholder="PricingPlan"  [(ngModel)]="usageLimit.PricingPlan">
+						@for (pricingPlan of pricingPlans; track pricingPlan.pricingPlanId) {
+							<mat-option name="usageLimit.PricingPlan" ngDefaultControl
+							            [value]="pricingPlan.pricingPlanId">
+								{{pricingPlan.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Scope</mat-label>
+						<mat-select placeholder="Scope" name="usageLimit.Scope" [(ngModel)]="usageLimit.Scope">
+							@for (LimitScope of LimitScopes; track LimitScope) {
+								<mat-option ngDefaultControl [value]="LimitScope">
+									{{LimitScope}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Period</mat-label>
+						<mat-select placeholder="Period" name="usageLimit.Period" [(ngModel)]="usageLimit.Period">
+							@for (LimitPeriod of LimitPeriods; track LimitPeriod) {
+								<mat-option ngDefaultControl [value]="LimitPeriod">
+									{{LimitPeriod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 																							 										<button
+				(click)="addUsageLimit(usageLimit.name, usageLimit.amount, usageLimit.count, usageLimit.PricingPlan, usageLimit.Scope, usageLimit.Period)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

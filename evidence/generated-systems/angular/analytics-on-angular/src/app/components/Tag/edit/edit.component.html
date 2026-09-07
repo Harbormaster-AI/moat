@@ -1,0 +1,113 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="tag.name" [(ngModel)]="tag.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="tag.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Models</mat-label>
+					<mat-select placeholder="Models" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.Models">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="tag.Models" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ModelVersions</mat-label>
+					<mat-select placeholder="ModelVersions" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.ModelVersions">
+						@for (modelVersion of modelVersions; track modelVersion.modelVersionId) {
+							<mat-option name="tag.ModelVersions" ngDefaultControl
+							            [value]="modelVersion.modelVersionId">
+								{{modelVersion.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Dashboards</mat-label>
+					<mat-select placeholder="Dashboards" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.Dashboards">
+						@for (dashboard of dashboards; track dashboard.dashboardId) {
+							<mat-option name="tag.Dashboards" ngDefaultControl
+							            [value]="dashboard.dashboardId">
+								{{dashboard.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Reports</mat-label>
+					<mat-select placeholder="Reports" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.Reports">
+						@for (report of reports; track report.reportId) {
+							<mat-option name="tag.Reports" ngDefaultControl
+							            [value]="report.reportId">
+								{{report.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>FeatureSets</mat-label>
+					<mat-select placeholder="FeatureSets" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.FeatureSets">
+						@for (featureSet of featureSets; track featureSet.featureSetId) {
+							<mat-option name="tag.FeatureSets" ngDefaultControl
+							            [value]="featureSet.featureSetId">
+								{{featureSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Metrics</mat-label>
+					<mat-select placeholder="Metrics" multiple  [compareWith]="compareFn"  [(ngModel)]="tag.Metrics">
+						@for (metric of metrics; track metric.metricId) {
+							<mat-option name="tag.Metrics" ngDefaultControl
+							            [value]="metric.metricId">
+								{{metric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Category</mat-label>
+						<mat-select placeholder="Category" name="tag.Category" [(ngModel)]="tag.Category">
+							@for (TagCategory of TagCategorys; track TagCategory) {
+								<mat-option ngDefaultControl [value]="TagCategory">
+									{{TagCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateTag(tag.name, tag.Datasets, tag.Models, tag.ModelVersions, tag.Dashboards, tag.Reports, tag.FeatureSets, tag.Metrics, tag.Category)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

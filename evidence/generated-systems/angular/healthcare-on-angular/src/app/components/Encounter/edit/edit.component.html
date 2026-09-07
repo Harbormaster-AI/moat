@@ -1,0 +1,164 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>encounterNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="encounterNumber" name="encounter.encounterNumber" [(ngModel)]="encounter.encounterNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="encounter.startDateTime" class="form-control" name="encounter.startDateTime" #encounter.startDateTime ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="encounter.endDateTime" class="form-control" name="encounter.endDateTime" #encounter.endDateTime ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"   [compareWith]="compareFn"  [(ngModel)]="encounter.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="encounter.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Clinician</mat-label>
+					<mat-select placeholder="Clinician"   [compareWith]="compareFn"  [(ngModel)]="encounter.Clinician">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="encounter.Clinician" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="encounter.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="encounter.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Appointment</mat-label>
+					<mat-select placeholder="Appointment"   [compareWith]="compareFn"  [(ngModel)]="encounter.Appointment">
+						@for (appointment of appointments; track appointment.appointmentId) {
+							<mat-option name="encounter.Appointment" ngDefaultControl
+							            [value]="appointment.appointmentId">
+								{{appointment.appointmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Diagnoses</mat-label>
+					<mat-select placeholder="Diagnoses" multiple  [compareWith]="compareFn"  [(ngModel)]="encounter.Diagnoses">
+						@for (diagnosis of diagnosiss; track diagnosis.diagnosisId) {
+							<mat-option name="encounter.Diagnoses" ngDefaultControl
+							            [value]="diagnosis.diagnosisId">
+								{{diagnosis.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Procedures</mat-label>
+					<mat-select placeholder="Procedures" multiple  [compareWith]="compareFn"  [(ngModel)]="encounter.Procedures">
+						@for (procedure of procedures; track procedure.procedureId) {
+							<mat-option name="encounter.Procedures" ngDefaultControl
+							            [value]="procedure.procedureId">
+								{{procedure.procedureCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Observations</mat-label>
+					<mat-select placeholder="Observations" multiple  [compareWith]="compareFn"  [(ngModel)]="encounter.Observations">
+						@for (observation of observations; track observation.observationId) {
+							<mat-option name="encounter.Observations" ngDefaultControl
+							            [value]="observation.observationId">
+								{{observation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple  [compareWith]="compareFn"  [(ngModel)]="encounter.Orders">
+						@for (clinicalOrder of clinicalOrders; track clinicalOrder.clinicalOrderId) {
+							<mat-option name="encounter.Orders" ngDefaultControl
+							            [value]="clinicalOrder.clinicalOrderId">
+								{{clinicalOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Admission</mat-label>
+					<mat-select placeholder="Admission"   [compareWith]="compareFn"  [(ngModel)]="encounter.Admission">
+						@for (admission of admissions; track admission.admissionId) {
+							<mat-option name="encounter.Admission" ngDefaultControl
+							            [value]="admission.admissionId">
+								{{admission.admitDateTime}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Discharge</mat-label>
+					<mat-select placeholder="Discharge"   [compareWith]="compareFn"  [(ngModel)]="encounter.Discharge">
+						@for (discharge of discharges; track discharge.dischargeId) {
+							<mat-option name="encounter.Discharge" ngDefaultControl
+							            [value]="discharge.dischargeId">
+								{{discharge.dischargeDateTime}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="encounter.Status" [(ngModel)]="encounter.Status">
+							@for (EncounterStatus of EncounterStatuss; track EncounterStatus) {
+								<mat-option ngDefaultControl [value]="EncounterStatus">
+									{{EncounterStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>EncounterType</mat-label>
+						<mat-select placeholder="EncounterType" name="encounter.EncounterType" [(ngModel)]="encounter.EncounterType">
+							@for (EncounterType of EncounterTypes; track EncounterType) {
+								<mat-option ngDefaultControl [value]="EncounterType">
+									{{EncounterType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateEncounter(encounter.encounterNumber, encounter.startDateTime, encounter.endDateTime, encounter.Patient, encounter.Clinician, encounter.Facility, encounter.Appointment, encounter.Diagnoses, encounter.Procedures, encounter.Observations, encounter.Orders, encounter.Admission, encounter.Discharge, encounter.Status, encounter.EncounterType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

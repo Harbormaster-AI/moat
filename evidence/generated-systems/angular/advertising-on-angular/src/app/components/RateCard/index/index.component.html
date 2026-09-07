@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">RateCard List</h5>
+
+    <a
+            [routerLink]="['/createRateCard']"
+            class="btn btn-primary btn-sm">
+        Create RateCard
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">effectiveDate</th>
+                        <th scope="col">currency</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (rateCard of rateCards; track rateCard.rateCardId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ rateCard.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ rateCard.effectiveDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ rateCard.currency }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadRateCard', rateCard.rateCardId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteRateCard(rateCard.rateCardId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (rateCards?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No rateCards found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

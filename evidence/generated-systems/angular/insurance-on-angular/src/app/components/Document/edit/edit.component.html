@@ -1,0 +1,85 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>fileName</mat-label>
+								<input matInput ngDefaultControl placeholder="fileName" name="document.fileName" [(ngModel)]="document.fileName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>uploadedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="uploadedDate" name="document.uploadedDate" [(ngModel)]="document.uploadedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="document.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="document.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"   [compareWith]="compareFn"  [(ngModel)]="document.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="document.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Application</mat-label>
+					<mat-select placeholder="Application"   [compareWith]="compareFn"  [(ngModel)]="document.Application">
+						@for (application of applications; track application.applicationId) {
+							<mat-option name="document.Application" ngDefaultControl
+							            [value]="application.applicationId">
+								{{application.applicationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="document.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="document.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>DocumentType</mat-label>
+						<mat-select placeholder="DocumentType" name="document.DocumentType" [(ngModel)]="document.DocumentType">
+							@for (DocumentType of DocumentTypes; track DocumentType) {
+								<mat-option ngDefaultControl [value]="DocumentType">
+									{{DocumentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateDocument(document.fileName, document.uploadedDate, document.Policy, document.Claim, document.Application, document.Customer, document.DocumentType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

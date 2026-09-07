@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>workOrderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="workOrderNumber" name="maintenanceWorkOrder.workOrderNumber" [(ngModel)]="maintenanceWorkOrder.workOrderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Aircraft</mat-label>
+					<mat-select placeholder="Aircraft"   [compareWith]="compareFn"  [(ngModel)]="maintenanceWorkOrder.Aircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="maintenanceWorkOrder.Aircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>AirworthinessDirective</mat-label>
+					<mat-select placeholder="AirworthinessDirective"   [compareWith]="compareFn"  [(ngModel)]="maintenanceWorkOrder.AirworthinessDirective">
+						@for (airworthinessDirective of airworthinessDirectives; track airworthinessDirective.airworthinessDirectiveId) {
+							<mat-option name="maintenanceWorkOrder.AirworthinessDirective" ngDefaultControl
+							            [value]="airworthinessDirective.airworthinessDirectiveId">
+								{{airworthinessDirective.directiveNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ServiceBulletin</mat-label>
+					<mat-select placeholder="ServiceBulletin"   [compareWith]="compareFn"  [(ngModel)]="maintenanceWorkOrder.ServiceBulletin">
+						@for (serviceBulletin of serviceBulletins; track serviceBulletin.serviceBulletinId) {
+							<mat-option name="maintenanceWorkOrder.ServiceBulletin" ngDefaultControl
+							            [value]="serviceBulletin.serviceBulletinId">
+								{{serviceBulletin.bulletinNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="maintenanceWorkOrder.Status" [(ngModel)]="maintenanceWorkOrder.Status">
+							@for (WorkOrderStatus of WorkOrderStatuss; track WorkOrderStatus) {
+								<mat-option ngDefaultControl [value]="WorkOrderStatus">
+									{{WorkOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateMaintenanceWorkOrder(maintenanceWorkOrder.workOrderNumber, maintenanceWorkOrder.Aircraft, maintenanceWorkOrder.AirworthinessDirective, maintenanceWorkOrder.ServiceBulletin, maintenanceWorkOrder.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

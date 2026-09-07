@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="aircraftOrder.orderNumber" [(ngModel)]="aircraftOrder.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="aircraftOrder.totalAmount" [(ngModel)]="aircraftOrder.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Operator</mat-label>
+					<mat-select placeholder="Operator"  [(ngModel)]="aircraftOrder.Operator">
+						@for (operator of operators; track operator.operatorId) {
+							<mat-option name="aircraftOrder.Operator" ngDefaultControl
+							            [value]="operator.operatorId">
+								{{operator.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Variant</mat-label>
+					<mat-select placeholder="Variant"  [(ngModel)]="aircraftOrder.Variant">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="aircraftOrder.Variant" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Quote</mat-label>
+					<mat-select placeholder="Quote"  [(ngModel)]="aircraftOrder.Quote">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="aircraftOrder.Quote" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>PurchaseAgreement</mat-label>
+					<mat-select placeholder="PurchaseAgreement"  [(ngModel)]="aircraftOrder.PurchaseAgreement">
+						@for (purchaseAgreement of purchaseAgreements; track purchaseAgreement.purchaseAgreementId) {
+							<mat-option name="aircraftOrder.PurchaseAgreement" ngDefaultControl
+							            [value]="purchaseAgreement.purchaseAgreementId">
+								{{purchaseAgreement.agreementNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="aircraftOrder.Status" [(ngModel)]="aircraftOrder.Status">
+							@for (AircraftOrderStatus of AircraftOrderStatuss; track AircraftOrderStatus) {
+								<mat-option ngDefaultControl [value]="AircraftOrderStatus">
+									{{AircraftOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addAircraftOrder(aircraftOrder.orderNumber, aircraftOrder.totalAmount, aircraftOrder.Operator, aircraftOrder.Variant, aircraftOrder.Quote, aircraftOrder.PurchaseAgreement, aircraftOrder.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

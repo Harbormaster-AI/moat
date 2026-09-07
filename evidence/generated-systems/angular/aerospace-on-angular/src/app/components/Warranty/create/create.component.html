@@ -1,0 +1,37 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<input matInput placeholder="coverageMonths" name="warranty.coverageMonths" [(ngModel)]="warranty.coverageMonths">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Aircraft</mat-label>
+					<mat-select placeholder="Aircraft"  [(ngModel)]="warranty.Aircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="warranty.Aircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>WarrantyType</mat-label>
+						<mat-select placeholder="WarrantyType" name="warranty.WarrantyType" [(ngModel)]="warranty.WarrantyType">
+							@for (WarrantyType of WarrantyTypes; track WarrantyType) {
+								<mat-option ngDefaultControl [value]="WarrantyType">
+									{{WarrantyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																							 										<button
+				(click)="addWarranty(warranty.coverageMonths, warranty.Aircraft, warranty.WarrantyType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

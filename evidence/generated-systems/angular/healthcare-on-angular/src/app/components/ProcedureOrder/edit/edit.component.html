@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>procedureCode</mat-label>
+								<input matInput ngDefaultControl placeholder="procedureCode" name="procedureOrder.procedureCode" [(ngModel)]="procedureOrder.procedureCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="procedureOrder.consentObtained" ngDefaultControl [(ngModel)]="procedureOrder.consentObtained">consentObtained</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"   [compareWith]="compareFn"  [(ngModel)]="procedureOrder.Order">
+						@for (clinicalOrder of clinicalOrders; track clinicalOrder.clinicalOrderId) {
+							<mat-option name="procedureOrder.Order" ngDefaultControl
+							            [value]="clinicalOrder.clinicalOrderId">
+								{{clinicalOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="procedureOrder.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="procedureOrder.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Procedure</mat-label>
+					<mat-select placeholder="Procedure"   [compareWith]="compareFn"  [(ngModel)]="procedureOrder.Procedure">
+						@for (procedure of procedures; track procedure.procedureId) {
+							<mat-option name="procedureOrder.Procedure" ngDefaultControl
+							            [value]="procedure.procedureId">
+								{{procedure.procedureCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AnesthesiaType</mat-label>
+						<mat-select placeholder="AnesthesiaType" name="procedureOrder.AnesthesiaType" [(ngModel)]="procedureOrder.AnesthesiaType">
+							@for (AnesthesiaType of AnesthesiaTypes; track AnesthesiaType) {
+								<mat-option ngDefaultControl [value]="AnesthesiaType">
+									{{AnesthesiaType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 																										 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateProcedureOrder(procedureOrder.procedureCode, procedureOrder.consentObtained == true ? true : false, procedureOrder.Order, procedureOrder.Facility, procedureOrder.Procedure, procedureOrder.AnesthesiaType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

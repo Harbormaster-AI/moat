@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>enrollmentNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="enrollmentNumber" name="trainingEnrollment.enrollmentNumber" [(ngModel)]="trainingEnrollment.enrollmentNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>completionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="completionDate" name="trainingEnrollment.completionDate" [(ngModel)]="trainingEnrollment.completionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>score</mat-label>
+								<input matInput ngDefaultControl placeholder="score" name="trainingEnrollment.score" [(ngModel)]="trainingEnrollment.score">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Course</mat-label>
+					<mat-select placeholder="Course"   [compareWith]="compareFn"  [(ngModel)]="trainingEnrollment.Course">
+						@for (trainingCourse of trainingCourses; track trainingCourse.trainingCourseId) {
+							<mat-option name="trainingEnrollment.Course" ngDefaultControl
+							            [value]="trainingCourse.trainingCourseId">
+								{{trainingCourse.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="trainingEnrollment.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="trainingEnrollment.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Instructor</mat-label>
+					<mat-select placeholder="Instructor"   [compareWith]="compareFn"  [(ngModel)]="trainingEnrollment.Instructor">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="trainingEnrollment.Instructor" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="trainingEnrollment.Status" [(ngModel)]="trainingEnrollment.Status">
+							@for (TrainingStatus of TrainingStatuss; track TrainingStatus) {
+								<mat-option ngDefaultControl [value]="TrainingStatus">
+									{{TrainingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateTrainingEnrollment(trainingEnrollment.enrollmentNumber, trainingEnrollment.completionDate, trainingEnrollment.score, trainingEnrollment.Course, trainingEnrollment.Employee, trainingEnrollment.Instructor, trainingEnrollment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

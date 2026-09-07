@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Record_ List</h5>
+
+    <a
+            [routerLink]="['/createRecord_']"
+            class="btn btn-primary btn-sm">
+        Create Record_
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">title</th>
+                        <th scope="col">creationDate</th>
+                        <th scope="col">RecordType</th>
+                        <th scope="col">Classification</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (record_ of record_s; track record_.record_Id) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ record_.title }}
+                </td>
+                                <td class="align-middle">
+                    {{ record_.creationDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ record_.RecordType }}
+                </td>
+                                <td class="align-middle">
+                    {{ record_.Classification }}
+                </td>
+                                <td class="align-middle">
+                    {{ record_.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadRecord_', record_.record_Id]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteRecord_(record_.record_Id)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (record_s?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No record_s found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

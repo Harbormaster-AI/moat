@@ -1,0 +1,120 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="alert.title" [(ngModel)]="alert.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>createdAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="createdAt" name="alert.createdAt" [(ngModel)]="alert.createdAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Metric</mat-label>
+					<mat-select placeholder="Metric"  [(ngModel)]="alert.Metric">
+						@for (metric of metrics; track metric.metricId) {
+							<mat-option name="alert.Metric" ngDefaultControl
+							            [value]="metric.metricId">
+								{{metric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Dashboard</mat-label>
+					<mat-select placeholder="Dashboard"  [(ngModel)]="alert.Dashboard">
+						@for (dashboard of dashboards; track dashboard.dashboardId) {
+							<mat-option name="alert.Dashboard" ngDefaultControl
+							            [value]="dashboard.dashboardId">
+								{{dashboard.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"  [(ngModel)]="alert.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="alert.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Rule</mat-label>
+					<mat-select placeholder="Rule"  [(ngModel)]="alert.Rule">
+						@for (qualityRule of qualityRules; track qualityRule.qualityRuleId) {
+							<mat-option name="alert.Rule" ngDefaultControl
+							            [value]="qualityRule.qualityRuleId">
+								{{qualityRule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Anomalies</mat-label>
+					<mat-select placeholder="Anomalies" multiple [(ngModel)]="alert.Anomalies">
+						@for (anomaly of anomalys; track anomaly.anomalyId) {
+							<mat-option name="alert.Anomalies" ngDefaultControl
+							            [value]="anomaly.anomalyId">
+								{{anomaly.occurredAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Subscribers</mat-label>
+					<mat-select placeholder="Subscribers" multiple [(ngModel)]="alert.Subscribers">
+						@for (subscriber of subscribers; track subscriber.subscriberId) {
+							<mat-option name="alert.Subscribers" ngDefaultControl
+							            [value]="subscriber.subscriberId">
+								{{subscriber.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="alert.Severity" [(ngModel)]="alert.Severity">
+							@for (AlertSeverity of AlertSeveritys; track AlertSeverity) {
+								<mat-option ngDefaultControl [value]="AlertSeverity">
+									{{AlertSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="alert.Status" [(ngModel)]="alert.Status">
+							@for (AlertStatus of AlertStatuss; track AlertStatus) {
+								<mat-option ngDefaultControl [value]="AlertStatus">
+									{{AlertStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addAlert(alert.title, alert.createdAt, alert.Metric, alert.Dashboard, alert.Dataset, alert.Rule, alert.Anomalies, alert.Subscribers, alert.Severity, alert.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

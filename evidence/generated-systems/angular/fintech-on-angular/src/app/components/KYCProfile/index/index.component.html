@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">KYCProfile List</h5>
+
+    <a
+            [routerLink]="['/createKYCProfile']"
+            class="btn btn-primary btn-sm">
+        Create KYCProfile
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">profileId</th>
+                        <th scope="col">createdAt</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">VerificationLevel</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (kYCProfile of kYCProfiles; track kYCProfile.kYCProfileId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ kYCProfile.profileId }}
+                </td>
+                                <td class="align-middle">
+                    {{ kYCProfile.createdAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ kYCProfile.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ kYCProfile.VerificationLevel }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadKYCProfile', kYCProfile.kYCProfileId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteKYCProfile(kYCProfile.kYCProfileId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (kYCProfiles?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No kYCProfiles found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

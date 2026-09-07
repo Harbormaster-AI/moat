@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reviewDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="reviewDate" name="dispositionReview.reviewDate" [(ngModel)]="dispositionReview.reviewDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reviewer</mat-label>
+								<input matInput ngDefaultControl placeholder="reviewer" name="dispositionReview.reviewer" [(ngModel)]="dispositionReview.reviewer">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>notes</mat-label>
+								<input matInput ngDefaultControl placeholder="notes" name="dispositionReview.notes" [(ngModel)]="dispositionReview.notes">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Record</mat-label>
+					<mat-select placeholder="Record"   [compareWith]="compareFn"  [(ngModel)]="dispositionReview.Record">
+						@for (record_ of record_s; track record_.record_Id) {
+							<mat-option name="dispositionReview.Record" ngDefaultControl
+							            [value]="record_.record_Id">
+								{{record_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>RetentionSchedule</mat-label>
+					<mat-select placeholder="RetentionSchedule"   [compareWith]="compareFn"  [(ngModel)]="dispositionReview.RetentionSchedule">
+						@for (retentionSchedule of retentionSchedules; track retentionSchedule.retentionScheduleId) {
+							<mat-option name="dispositionReview.RetentionSchedule" ngDefaultControl
+							            [value]="retentionSchedule.retentionScheduleId">
+								{{retentionSchedule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Outcome</mat-label>
+						<mat-select placeholder="Outcome" name="dispositionReview.Outcome" [(ngModel)]="dispositionReview.Outcome">
+							@for (DispositionOutcome of DispositionOutcomes; track DispositionOutcome) {
+								<mat-option ngDefaultControl [value]="DispositionOutcome">
+									{{DispositionOutcome}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateDispositionReview(dispositionReview.reviewDate, dispositionReview.reviewer, dispositionReview.notes, dispositionReview.Record, dispositionReview.RetentionSchedule, dispositionReview.Outcome)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

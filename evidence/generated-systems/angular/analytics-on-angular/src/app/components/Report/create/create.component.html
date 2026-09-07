@@ -1,0 +1,107 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="report.title" [(ngModel)]="report.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>audience</mat-label>
+								<input matInput ngDefaultControl placeholder="audience" name="report.audience" [(ngModel)]="report.audience">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"  [(ngModel)]="report.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="report.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Visualizations</mat-label>
+					<mat-select placeholder="Visualizations" multiple [(ngModel)]="report.Visualizations">
+						@for (visualization of visualizations; track visualization.visualizationId) {
+							<mat-option name="report.Visualizations" ngDefaultControl
+							            [value]="visualization.visualizationId">
+								{{visualization.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple [(ngModel)]="report.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="report.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SemanticModels</mat-label>
+					<mat-select placeholder="SemanticModels" multiple [(ngModel)]="report.SemanticModels">
+						@for (semanticModel of semanticModels; track semanticModel.semanticModelId) {
+							<mat-option name="report.SemanticModels" ngDefaultControl
+							            [value]="semanticModel.semanticModelId">
+								{{semanticModel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Queries</mat-label>
+					<mat-select placeholder="Queries" multiple [(ngModel)]="report.Queries">
+						@for (bIQuery of bIQuerys; track bIQuery.bIQueryId) {
+							<mat-option name="report.Queries" ngDefaultControl
+							            [value]="bIQuery.bIQueryId">
+								{{bIQuery.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Tags</mat-label>
+					<mat-select placeholder="Tags" multiple [(ngModel)]="report.Tags">
+						@for (tag of tags; track tag.tagId) {
+							<mat-option name="report.Tags" ngDefaultControl
+							            [value]="tag.tagId">
+								{{tag.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="report.Status" [(ngModel)]="report.Status">
+							@for (ReportStatus of ReportStatuss; track ReportStatus) {
+								<mat-option ngDefaultControl [value]="ReportStatus">
+									{{ReportStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addReport(report.title, report.audience, report.Workspace, report.Visualizations, report.Datasets, report.SemanticModels, report.Queries, report.Tags, report.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

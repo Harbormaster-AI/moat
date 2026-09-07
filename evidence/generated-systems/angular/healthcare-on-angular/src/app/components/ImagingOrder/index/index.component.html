@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ImagingOrder List</h5>
+
+    <a
+            [routerLink]="['/createImagingOrder']"
+            class="btn btn-primary btn-sm">
+        Create ImagingOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">bodySite</th>
+                        <th scope="col">contrast</th>
+                        <th scope="col">Modality</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (imagingOrder of imagingOrders; track imagingOrder.imagingOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ imagingOrder.bodySite }}
+                </td>
+                                <td class="align-middle">
+                    {{ imagingOrder.contrast }}
+                </td>
+                                <td class="align-middle">
+                    {{ imagingOrder.Modality }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadImagingOrder', imagingOrder.imagingOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteImagingOrder(imagingOrder.imagingOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (imagingOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No imagingOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

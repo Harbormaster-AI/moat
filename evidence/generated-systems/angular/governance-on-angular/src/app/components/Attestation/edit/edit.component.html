@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>statement</mat-label>
+								<input matInput ngDefaultControl placeholder="statement" name="attestation.statement" [(ngModel)]="attestation.statement">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>attestor</mat-label>
+								<input matInput ngDefaultControl placeholder="attestor" name="attestation.attestor" [(ngModel)]="attestation.attestor">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dateSigned</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dateSigned" name="attestation.dateSigned" [(ngModel)]="attestation.dateSigned">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Control</mat-label>
+					<mat-select placeholder="Control"   [compareWith]="compareFn"  [(ngModel)]="attestation.Control">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="attestation.Control" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="attestation.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="attestation.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ComplianceProgram</mat-label>
+					<mat-select placeholder="ComplianceProgram"   [compareWith]="compareFn"  [(ngModel)]="attestation.ComplianceProgram">
+						@for (complianceProgram of compliancePrograms; track complianceProgram.complianceProgramId) {
+							<mat-option name="attestation.ComplianceProgram" ngDefaultControl
+							            [value]="complianceProgram.complianceProgramId">
+								{{complianceProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Result</mat-label>
+						<mat-select placeholder="Result" name="attestation.Result" [(ngModel)]="attestation.Result">
+							@for (AttestationResult of AttestationResults; track AttestationResult) {
+								<mat-option ngDefaultControl [value]="AttestationResult">
+									{{AttestationResult}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAttestation(attestation.statement, attestation.attestor, attestation.dateSigned, attestation.Control, attestation.Policy, attestation.ComplianceProgram, attestation.Result)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

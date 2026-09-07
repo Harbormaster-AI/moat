@@ -1,0 +1,114 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="merchant.name" [(ngModel)]="merchant.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>mcc</mat-label>
+								<input matInput ngDefaultControl placeholder="mcc" name="merchant.mcc" [(ngModel)]="merchant.mcc">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>url</mat-label>
+								<input matInput ngDefaultControl placeholder="url" name="merchant.url" [(ngModel)]="merchant.url">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>country</mat-label>
+								<input matInput ngDefaultControl placeholder="country" name="merchant.country" [(ngModel)]="merchant.country">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>settlementCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="settlementCurrency" name="merchant.settlementCurrency" [(ngModel)]="merchant.settlementCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Terminals</mat-label>
+					<mat-select placeholder="Terminals" multiple [(ngModel)]="merchant.Terminals">
+						@for (terminal of terminals; track terminal.terminalId) {
+							<mat-option name="merchant.Terminals" ngDefaultControl
+							            [value]="terminal.terminalId">
+								{{terminal.location}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>PaymentContracts</mat-label>
+					<mat-select placeholder="PaymentContracts" multiple [(ngModel)]="merchant.PaymentContracts">
+						@for (paymentContract of paymentContracts; track paymentContract.paymentContractId) {
+							<mat-option name="merchant.PaymentContracts" ngDefaultControl
+							            [value]="paymentContract.paymentContractId">
+								{{paymentContract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Payouts</mat-label>
+					<mat-select placeholder="Payouts" multiple [(ngModel)]="merchant.Payouts">
+						@for (payout of payouts; track payout.payoutId) {
+							<mat-option name="merchant.Payouts" ngDefaultControl
+							            [value]="payout.payoutId">
+								{{payout.payoutReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Settlements</mat-label>
+					<mat-select placeholder="Settlements" multiple [(ngModel)]="merchant.Settlements">
+						@for (settlementBatch of settlementBatchs; track settlementBatch.settlementBatchId) {
+							<mat-option name="merchant.Settlements" ngDefaultControl
+							            [value]="settlementBatch.settlementBatchId">
+								{{settlementBatch.batchId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Disputes</mat-label>
+					<mat-select placeholder="Disputes" multiple [(ngModel)]="merchant.Disputes">
+						@for (dispute of disputes; track dispute.disputeId) {
+							<mat-option name="merchant.Disputes" ngDefaultControl
+							            [value]="dispute.disputeId">
+								{{dispute.disputeReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Invoices</mat-label>
+					<mat-select placeholder="Invoices" multiple [(ngModel)]="merchant.Invoices">
+						@for (invoice of invoices; track invoice.invoiceId) {
+							<mat-option name="merchant.Invoices" ngDefaultControl
+							            [value]="invoice.invoiceId">
+								{{invoice.invoiceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addMerchant(merchant.name, merchant.mcc, merchant.url, merchant.country, merchant.settlementCurrency, merchant.Terminals, merchant.PaymentContracts, merchant.Payouts, merchant.Settlements, merchant.Disputes, merchant.Invoices)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

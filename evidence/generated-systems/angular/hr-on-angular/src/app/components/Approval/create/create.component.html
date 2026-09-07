@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>approverComment</mat-label>
+								<input matInput ngDefaultControl placeholder="approverComment" name="approval.approverComment" [(ngModel)]="approval.approverComment">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>actionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="actionDate" name="approval.actionDate" [(ngModel)]="approval.actionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Approver</mat-label>
+					<mat-select placeholder="Approver"  [(ngModel)]="approval.Approver">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="approval.Approver" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Timesheet</mat-label>
+					<mat-select placeholder="Timesheet"  [(ngModel)]="approval.Timesheet">
+						@for (timesheet of timesheets; track timesheet.timesheetId) {
+							<mat-option name="approval.Timesheet" ngDefaultControl
+							            [value]="timesheet.timesheetId">
+								{{timesheet.periodStart}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LeaveRequest</mat-label>
+					<mat-select placeholder="LeaveRequest"  [(ngModel)]="approval.LeaveRequest">
+						@for (leaveRequest of leaveRequests; track leaveRequest.leaveRequestId) {
+							<mat-option name="approval.LeaveRequest" ngDefaultControl
+							            [value]="leaveRequest.leaveRequestId">
+								{{leaveRequest.requestNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="approval.Status" [(ngModel)]="approval.Status">
+							@for (ApprovalStatus of ApprovalStatuss; track ApprovalStatus) {
+								<mat-option ngDefaultControl [value]="ApprovalStatus">
+									{{ApprovalStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 										<button
+				(click)="addApproval(approval.approverComment, approval.actionDate, approval.Approver, approval.Timesheet, approval.LeaveRequest, approval.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

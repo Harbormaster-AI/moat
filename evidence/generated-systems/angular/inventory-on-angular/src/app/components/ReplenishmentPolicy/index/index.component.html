@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ReplenishmentPolicy List</h5>
+
+    <a
+            [routerLink]="['/createReplenishmentPolicy']"
+            class="btn btn-primary btn-sm">
+        Create ReplenishmentPolicy
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">minLevel</th>
+                        <th scope="col">maxLevel</th>
+                        <th scope="col">reorderPoint</th>
+                        <th scope="col">reorderQuantity</th>
+                        <th scope="col">leadTimeDays</th>
+                        <th scope="col">reviewPeriodDays</th>
+                        <th scope="col">PolicyType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (replenishmentPolicy of replenishmentPolicys; track replenishmentPolicy.replenishmentPolicyId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.minLevel }}
+                </td>
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.maxLevel }}
+                </td>
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.reorderPoint }}
+                </td>
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.reorderQuantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.leadTimeDays }}
+                </td>
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.reviewPeriodDays }}
+                </td>
+                                <td class="align-middle">
+                    {{ replenishmentPolicy.PolicyType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadReplenishmentPolicy', replenishmentPolicy.replenishmentPolicyId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteReplenishmentPolicy(replenishmentPolicy.replenishmentPolicyId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (replenishmentPolicys?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No replenishmentPolicys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

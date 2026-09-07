@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>characteristicCode</mat-label>
+								<input matInput ngDefaultControl placeholder="characteristicCode" name="inspectionCharacteristic.characteristicCode" [(ngModel)]="inspectionCharacteristic.characteristicCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="inspectionCharacteristic.name" [(ngModel)]="inspectionCharacteristic.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lowerSpecLimit</mat-label>
+								<input matInput ngDefaultControl placeholder="lowerSpecLimit" name="inspectionCharacteristic.lowerSpecLimit" [(ngModel)]="inspectionCharacteristic.lowerSpecLimit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>upperSpecLimit</mat-label>
+								<input matInput ngDefaultControl placeholder="upperSpecLimit" name="inspectionCharacteristic.upperSpecLimit" [(ngModel)]="inspectionCharacteristic.upperSpecLimit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>target</mat-label>
+								<input matInput ngDefaultControl placeholder="target" name="inspectionCharacteristic.target" [(ngModel)]="inspectionCharacteristic.target">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>InspectionPlan</mat-label>
+					<mat-select placeholder="InspectionPlan"  [(ngModel)]="inspectionCharacteristic.InspectionPlan">
+						@for (inspectionPlan of inspectionPlans; track inspectionPlan.inspectionPlanId) {
+							<mat-option name="inspectionCharacteristic.InspectionPlan" ngDefaultControl
+							            [value]="inspectionPlan.inspectionPlanId">
+								{{inspectionPlan.planNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>MeasurementType</mat-label>
+						<mat-select placeholder="MeasurementType" name="inspectionCharacteristic.MeasurementType" [(ngModel)]="inspectionCharacteristic.MeasurementType">
+							@for (MeasurementType of MeasurementTypes; track MeasurementType) {
+								<mat-option ngDefaultControl [value]="MeasurementType">
+									{{MeasurementType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																							 										<button
+				(click)="addInspectionCharacteristic(inspectionCharacteristic.characteristicCode, inspectionCharacteristic.name, inspectionCharacteristic.lowerSpecLimit, inspectionCharacteristic.upperSpecLimit, inspectionCharacteristic.target, inspectionCharacteristic.InspectionPlan, inspectionCharacteristic.MeasurementType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

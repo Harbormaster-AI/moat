@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="warehouse.name" [(ngModel)]="warehouse.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>warehouseCode</mat-label>
+								<input matInput ngDefaultControl placeholder="warehouseCode" name="warehouse.warehouseCode" [(ngModel)]="warehouse.warehouseCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="warehouse.address" [(ngModel)]="warehouse.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"  [(ngModel)]="warehouse.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="warehouse.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Locations</mat-label>
+					<mat-select placeholder="Locations" multiple [(ngModel)]="warehouse.Locations">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="warehouse.Locations" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.locationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple [(ngModel)]="warehouse.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="warehouse.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>WarehouseType</mat-label>
+						<mat-select placeholder="WarehouseType" name="warehouse.WarehouseType" [(ngModel)]="warehouse.WarehouseType">
+							@for (WarehouseType of WarehouseTypes; track WarehouseType) {
+								<mat-option ngDefaultControl [value]="WarehouseType">
+									{{WarehouseType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addWarehouse(warehouse.name, warehouse.warehouseCode, warehouse.address, warehouse.Plant, warehouse.Locations, warehouse.InventoryItems, warehouse.WarehouseType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

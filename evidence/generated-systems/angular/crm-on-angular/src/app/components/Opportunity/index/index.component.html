@@ -1,0 +1,91 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Opportunity List</h5>
+
+    <a
+            [routerLink]="['/createOpportunity']"
+            class="btn btn-primary btn-sm">
+        Create Opportunity
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">closeDate</th>
+                        <th scope="col">probability</th>
+                        <th scope="col">description</th>
+                        <th scope="col">Stage</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">ForecastCategory</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (opportunity of opportunitys; track opportunity.opportunityId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ opportunity.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.amount }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.closeDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.probability }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.description }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.Stage }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.Type }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunity.ForecastCategory }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadOpportunity', opportunity.opportunityId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteOpportunity(opportunity.opportunityId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (opportunitys?.length === 0) {
+            <tr>
+                <td
+                        colspan="10"
+                        class="text-center">
+                    No opportunitys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

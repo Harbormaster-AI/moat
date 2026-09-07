@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>supplierPartNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="supplierPartNumber" name="landingGear.supplierPartNumber" [(ngModel)]="landingGear.supplierPartNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"   [compareWith]="compareFn"  [(ngModel)]="landingGear.Supplier">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="landingGear.Supplier" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple  [compareWith]="compareFn"  [(ngModel)]="landingGear.Variants">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="landingGear.Variants" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>GearType</mat-label>
+						<mat-select placeholder="GearType" name="landingGear.GearType" [(ngModel)]="landingGear.GearType">
+							@for (LandingGearType of LandingGearTypes; track LandingGearType) {
+								<mat-option ngDefaultControl [value]="LandingGearType">
+									{{LandingGearType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateLandingGear(landingGear.supplierPartNumber, landingGear.Supplier, landingGear.Variants, landingGear.GearType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

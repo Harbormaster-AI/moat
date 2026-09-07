@@ -1,0 +1,55 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>score</mat-label>
+								<input matInput ngDefaultControl placeholder="score" name="riskAssessment.score" [(ngModel)]="riskAssessment.score">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="riskAssessment.assessedAt" class="form-control" name="riskAssessment.assessedAt" #riskAssessment.assessedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>modelVersion</mat-label>
+								<input matInput ngDefaultControl placeholder="modelVersion" name="riskAssessment.modelVersion" [(ngModel)]="riskAssessment.modelVersion">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>notes</mat-label>
+								<input matInput ngDefaultControl placeholder="notes" name="riskAssessment.notes" [(ngModel)]="riskAssessment.notes">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Application</mat-label>
+					<mat-select placeholder="Application"   [compareWith]="compareFn"  [(ngModel)]="riskAssessment.Application">
+						@for (loanApplication of loanApplications; track loanApplication.loanApplicationId) {
+							<mat-option name="riskAssessment.Application" ngDefaultControl
+							            [value]="loanApplication.loanApplicationId">
+								{{loanApplication.applicationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Decision</mat-label>
+						<mat-select placeholder="Decision" name="riskAssessment.Decision" [(ngModel)]="riskAssessment.Decision">
+							@for (DecisionOutcome of DecisionOutcomes; track DecisionOutcome) {
+								<mat-option ngDefaultControl [value]="DecisionOutcome">
+									{{DecisionOutcome}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateRiskAssessment(riskAssessment.score, riskAssessment.assessedAt, riskAssessment.modelVersion, riskAssessment.notes, riskAssessment.Application, riskAssessment.Decision)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

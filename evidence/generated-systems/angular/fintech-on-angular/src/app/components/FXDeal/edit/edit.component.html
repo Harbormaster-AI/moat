@@ -1,0 +1,85 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dealReference</mat-label>
+								<input matInput ngDefaultControl placeholder="dealReference" name="fXDeal.dealReference" [(ngModel)]="fXDeal.dealReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>baseCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="baseCurrency" name="fXDeal.baseCurrency" [(ngModel)]="fXDeal.baseCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quoteCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="quoteCurrency" name="fXDeal.quoteCurrency" [(ngModel)]="fXDeal.quoteCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>rate</mat-label>
+								<input matInput ngDefaultControl placeholder="rate" name="fXDeal.rate" [(ngModel)]="fXDeal.rate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="fXDeal.amount" [(ngModel)]="fXDeal.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>settlementDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="settlementDate" name="fXDeal.settlementDate" [(ngModel)]="fXDeal.settlementDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Quote</mat-label>
+					<mat-select placeholder="Quote"   [compareWith]="compareFn"  [(ngModel)]="fXDeal.Quote">
+						@for (fXQuote of fXQuotes; track fXQuote.fXQuoteId) {
+							<mat-option name="fXDeal.Quote" ngDefaultControl
+							            [value]="fXQuote.fXQuoteId">
+								{{fXQuote.baseCurrency}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PaymentOrders</mat-label>
+					<mat-select placeholder="PaymentOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="fXDeal.PaymentOrders">
+						@for (paymentOrder of paymentOrders; track paymentOrder.paymentOrderId) {
+							<mat-option name="fXDeal.PaymentOrders" ngDefaultControl
+							            [value]="paymentOrder.paymentOrderId">
+								{{paymentOrder.orderReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="fXDeal.Status" [(ngModel)]="fXDeal.Status">
+							@for (FXDealStatus of FXDealStatuss; track FXDealStatus) {
+								<mat-option ngDefaultControl [value]="FXDealStatus">
+									{{FXDealStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateFXDeal(fXDeal.dealReference, fXDeal.baseCurrency, fXDeal.quoteCurrency, fXDeal.rate, fXDeal.amount, fXDeal.settlementDate, fXDeal.Quote, fXDeal.PaymentOrders, fXDeal.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

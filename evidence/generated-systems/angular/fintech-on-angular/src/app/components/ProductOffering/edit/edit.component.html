@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="productOffering.name" [(ngModel)]="productOffering.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>productCode</mat-label>
+								<input matInput ngDefaultControl placeholder="productCode" name="productOffering.productCode" [(ngModel)]="productOffering.productCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Institution</mat-label>
+					<mat-select placeholder="Institution"   [compareWith]="compareFn"  [(ngModel)]="productOffering.Institution">
+						@for (financialInstitution of financialInstitutions; track financialInstitution.financialInstitutionId) {
+							<mat-option name="productOffering.Institution" ngDefaultControl
+							            [value]="financialInstitution.financialInstitutionId">
+								{{financialInstitution.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PricingPlans</mat-label>
+					<mat-select placeholder="PricingPlans" multiple  [compareWith]="compareFn"  [(ngModel)]="productOffering.PricingPlans">
+						@for (pricingPlan of pricingPlans; track pricingPlan.pricingPlanId) {
+							<mat-option name="productOffering.PricingPlans" ngDefaultControl
+							            [value]="pricingPlan.pricingPlanId">
+								{{pricingPlan.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Category</mat-label>
+						<mat-select placeholder="Category" name="productOffering.Category" [(ngModel)]="productOffering.Category">
+							@for (ProductCategory of ProductCategorys; track ProductCategory) {
+								<mat-option ngDefaultControl [value]="ProductCategory">
+									{{ProductCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateProductOffering(productOffering.name, productOffering.productCode, productOffering.Institution, productOffering.PricingPlans, productOffering.Category)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

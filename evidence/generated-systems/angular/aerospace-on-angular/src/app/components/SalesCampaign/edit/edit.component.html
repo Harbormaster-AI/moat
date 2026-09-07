@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>campaignCode</mat-label>
+								<input matInput ngDefaultControl placeholder="campaignCode" name="salesCampaign.campaignCode" [(ngModel)]="salesCampaign.campaignCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Region</mat-label>
+					<mat-select placeholder="Region"   [compareWith]="compareFn"  [(ngModel)]="salesCampaign.Region">
+						@for (salesRegion of salesRegions; track salesRegion.salesRegionId) {
+							<mat-option name="salesCampaign.Region" ngDefaultControl
+							            [value]="salesRegion.salesRegionId">
+								{{salesRegion.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Operator</mat-label>
+					<mat-select placeholder="Operator"   [compareWith]="compareFn"  [(ngModel)]="salesCampaign.Operator">
+						@for (operator of operators; track operator.operatorId) {
+							<mat-option name="salesCampaign.Operator" ngDefaultControl
+							            [value]="operator.operatorId">
+								{{operator.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Quotes</mat-label>
+					<mat-select placeholder="Quotes" multiple  [compareWith]="compareFn"  [(ngModel)]="salesCampaign.Quotes">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="salesCampaign.Quotes" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="salesCampaign.Status" [(ngModel)]="salesCampaign.Status">
+							@for (SalesCampaignStatus of SalesCampaignStatuss; track SalesCampaignStatus) {
+								<mat-option ngDefaultControl [value]="SalesCampaignStatus">
+									{{SalesCampaignStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateSalesCampaign(salesCampaign.campaignCode, salesCampaign.Region, salesCampaign.Operator, salesCampaign.Quotes, salesCampaign.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,76 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<ngb-timepicker [(ngModel)]="trade.executedAt" class="form-control" name="trade.executedAt" #trade.executedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="trade.quantity" [(ngModel)]="trade.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>price</mat-label>
+								<input matInput ngDefaultControl placeholder="price" name="trade.price" [(ngModel)]="trade.price">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>fees</mat-label>
+								<input matInput ngDefaultControl placeholder="fees" name="trade.fees" [(ngModel)]="trade.fees">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>settlementDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="settlementDate" name="trade.settlementDate" [(ngModel)]="trade.settlementDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"  [(ngModel)]="trade.Order">
+						@for (tradeOrder of tradeOrders; track tradeOrder.tradeOrderId) {
+							<mat-option name="trade.Order" ngDefaultControl
+							            [value]="tradeOrder.tradeOrderId">
+								{{tradeOrder.orderId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Security</mat-label>
+					<mat-select placeholder="Security"  [(ngModel)]="trade.Security">
+						@for (security of securitys; track security.securityId) {
+							<mat-option name="trade.Security" ngDefaultControl
+							            [value]="security.securityId">
+								{{security.symbol}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>InvestmentAccount</mat-label>
+					<mat-select placeholder="InvestmentAccount"  [(ngModel)]="trade.InvestmentAccount">
+						@for (investmentAccount of investmentAccounts; track investmentAccount.investmentAccountId) {
+							<mat-option name="trade.InvestmentAccount" ngDefaultControl
+							            [value]="investmentAccount.investmentAccountId">
+								{{investmentAccount.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 										<button
+				(click)="addTrade(trade.executedAt, trade.quantity, trade.price, trade.fees, trade.settlementDate, trade.Order, trade.Security, trade.InvestmentAccount)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

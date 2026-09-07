@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>plannedOrderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="plannedOrderNumber" name="plannedOrder.plannedOrderNumber" [(ngModel)]="plannedOrder.plannedOrderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="plannedOrder.quantity" [(ngModel)]="plannedOrder.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="plannedOrder.dueDate" [(ngModel)]="plannedOrder.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>MrpRun</mat-label>
+					<mat-select placeholder="MrpRun"  [(ngModel)]="plannedOrder.MrpRun">
+						@for (mRPRun of mRPRuns; track mRPRun.mRPRunId) {
+							<mat-option name="plannedOrder.MrpRun" ngDefaultControl
+							            [value]="mRPRun.mRPRunId">
+								{{mRPRun.runNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"  [(ngModel)]="plannedOrder.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="plannedOrder.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"  [(ngModel)]="plannedOrder.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="plannedOrder.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>OrderType</mat-label>
+						<mat-select placeholder="OrderType" name="plannedOrder.OrderType" [(ngModel)]="plannedOrder.OrderType">
+							@for (PlannedOrderType of PlannedOrderTypes; track PlannedOrderType) {
+								<mat-option ngDefaultControl [value]="PlannedOrderType">
+									{{PlannedOrderType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="plannedOrder.Status" [(ngModel)]="plannedOrder.Status">
+							@for (PlannedOrderStatus of PlannedOrderStatuss; track PlannedOrderStatus) {
+								<mat-option ngDefaultControl [value]="PlannedOrderStatus">
+									{{PlannedOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 																							 										<button
+				(click)="addPlannedOrder(plannedOrder.plannedOrderNumber, plannedOrder.quantity, plannedOrder.dueDate, plannedOrder.MrpRun, plannedOrder.Item, plannedOrder.Plant, plannedOrder.OrderType, plannedOrder.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>communicationsProvider</mat-label>
+								<input matInput ngDefaultControl placeholder="communicationsProvider" name="connectedAircraft.communicationsProvider" [(ngModel)]="connectedAircraft.communicationsProvider">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Aircraft</mat-label>
+					<mat-select placeholder="Aircraft"  [(ngModel)]="connectedAircraft.Aircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="connectedAircraft.Aircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>FlightHealthEvents</mat-label>
+					<mat-select placeholder="FlightHealthEvents" multiple [(ngModel)]="connectedAircraft.FlightHealthEvents">
+						@for (flightHealthEvent of flightHealthEvents; track flightHealthEvent.flightHealthEventId) {
+							<mat-option name="connectedAircraft.FlightHealthEvents" ngDefaultControl
+							            [value]="flightHealthEvent.flightHealthEventId">
+								{{flightHealthEvent.eventCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SoftwareLoads</mat-label>
+					<mat-select placeholder="SoftwareLoads" multiple [(ngModel)]="connectedAircraft.SoftwareLoads">
+						@for (softwareLoad of softwareLoads; track softwareLoad.softwareLoadId) {
+							<mat-option name="connectedAircraft.SoftwareLoads" ngDefaultControl
+							            [value]="softwareLoad.softwareLoadId">
+								{{softwareLoad.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ConnectivityStatus</mat-label>
+						<mat-select placeholder="ConnectivityStatus" name="connectedAircraft.ConnectivityStatus" [(ngModel)]="connectedAircraft.ConnectivityStatus">
+							@for (ConnectivityStatus of ConnectivityStatuss; track ConnectivityStatus) {
+								<mat-option ngDefaultControl [value]="ConnectivityStatus">
+									{{ConnectivityStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																										 																							 										<button
+				(click)="addConnectedAircraft(connectedAircraft.communicationsProvider, connectedAircraft.Aircraft, connectedAircraft.FlightHealthEvents, connectedAircraft.SoftwareLoads, connectedAircraft.ConnectivityStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

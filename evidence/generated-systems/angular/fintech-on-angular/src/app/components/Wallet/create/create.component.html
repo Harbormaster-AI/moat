@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="wallet.currency" [(ngModel)]="wallet.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>balance</mat-label>
+								<input matInput ngDefaultControl placeholder="balance" name="wallet.balance" [(ngModel)]="wallet.balance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="wallet.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="wallet.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple [(ngModel)]="wallet.Transactions">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="wallet.Transactions" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="wallet.Status" [(ngModel)]="wallet.Status">
+							@for (WalletStatus of WalletStatuss; track WalletStatus) {
+								<mat-option ngDefaultControl [value]="WalletStatus">
+									{{WalletStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addWallet(wallet.currency, wallet.balance, wallet.Customer, wallet.Transactions, wallet.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

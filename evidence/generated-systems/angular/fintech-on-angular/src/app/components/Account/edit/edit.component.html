@@ -1,0 +1,150 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>accountNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="accountNumber" name="account.accountNumber" [(ngModel)]="account.accountNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>iban</mat-label>
+								<input matInput ngDefaultControl placeholder="iban" name="account.iban" [(ngModel)]="account.iban">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bic</mat-label>
+								<input matInput ngDefaultControl placeholder="bic" name="account.bic" [(ngModel)]="account.bic">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>openedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="openedDate" name="account.openedDate" [(ngModel)]="account.openedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="account.currency" [(ngModel)]="account.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>balance</mat-label>
+								<input matInput ngDefaultControl placeholder="balance" name="account.balance" [(ngModel)]="account.balance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>availableBalance</mat-label>
+								<input matInput ngDefaultControl placeholder="availableBalance" name="account.availableBalance" [(ngModel)]="account.availableBalance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="account.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="account.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Institution</mat-label>
+					<mat-select placeholder="Institution"   [compareWith]="compareFn"  [(ngModel)]="account.Institution">
+						@for (financialInstitution of financialInstitutions; track financialInstitution.financialInstitutionId) {
+							<mat-option name="account.Institution" ngDefaultControl
+							            [value]="financialInstitution.financialInstitutionId">
+								{{financialInstitution.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Transactions">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="account.Transactions" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Cards</mat-label>
+					<mat-select placeholder="Cards" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Cards">
+						@for (paymentCard of paymentCards; track paymentCard.paymentCardId) {
+							<mat-option name="account.Cards" ngDefaultControl
+							            [value]="paymentCard.paymentCardId">
+								{{paymentCard.cardholderName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Statements</mat-label>
+					<mat-select placeholder="Statements" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Statements">
+						@for (accountStatement of accountStatements; track accountStatement.accountStatementId) {
+							<mat-option name="account.Statements" ngDefaultControl
+							            [value]="accountStatement.accountStatementId">
+								{{accountStatement.statementNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Mandates</mat-label>
+					<mat-select placeholder="Mandates" multiple  [compareWith]="compareFn"  [(ngModel)]="account.Mandates">
+						@for (directDebitMandate of directDebitMandates; track directDebitMandate.directDebitMandateId) {
+							<mat-option name="account.Mandates" ngDefaultControl
+							            [value]="directDebitMandate.directDebitMandateId">
+								{{directDebitMandate.mandateId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AccountType</mat-label>
+						<mat-select placeholder="AccountType" name="account.AccountType" [(ngModel)]="account.AccountType">
+							@for (AccountType of AccountTypes; track AccountType) {
+								<mat-option ngDefaultControl [value]="AccountType">
+									{{AccountType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="account.Status" [(ngModel)]="account.Status">
+							@for (AccountStatus of AccountStatuss; track AccountStatus) {
+								<mat-option ngDefaultControl [value]="AccountStatus">
+									{{AccountStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAccount(account.accountNumber, account.iban, account.bic, account.openedDate, account.currency, account.balance, account.availableBalance, account.Customer, account.Institution, account.Transactions, account.Cards, account.Statements, account.Mandates, account.AccountType, account.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

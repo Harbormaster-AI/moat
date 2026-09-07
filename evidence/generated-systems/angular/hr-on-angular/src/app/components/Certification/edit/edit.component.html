@@ -1,0 +1,70 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="certification.name" [(ngModel)]="certification.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>issuer</mat-label>
+								<input matInput ngDefaultControl placeholder="issuer" name="certification.issuer" [(ngModel)]="certification.issuer">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>validFrom</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="validFrom" name="certification.validFrom" [(ngModel)]="certification.validFrom">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>validTo</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="validTo" name="certification.validTo" [(ngModel)]="certification.validTo">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>credentialId</mat-label>
+								<input matInput ngDefaultControl placeholder="credentialId" name="certification.credentialId" [(ngModel)]="certification.credentialId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="certification.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="certification.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Course</mat-label>
+					<mat-select placeholder="Course"   [compareWith]="compareFn"  [(ngModel)]="certification.Course">
+						@for (trainingCourse of trainingCourses; track trainingCourse.trainingCourseId) {
+							<mat-option name="certification.Course" ngDefaultControl
+							            [value]="trainingCourse.trainingCourseId">
+								{{trainingCourse.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateCertification(certification.name, certification.issuer, certification.validFrom, certification.validTo, certification.credentialId, certification.Employee, certification.Course)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

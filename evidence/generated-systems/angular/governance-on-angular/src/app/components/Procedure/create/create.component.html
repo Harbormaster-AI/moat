@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="procedure.title" [(ngModel)]="procedure.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>versionLabel</mat-label>
+								<input matInput ngDefaultControl placeholder="versionLabel" name="procedure.versionLabel" [(ngModel)]="procedure.versionLabel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"  [(ngModel)]="procedure.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="procedure.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Controls</mat-label>
+					<mat-select placeholder="Controls" multiple [(ngModel)]="procedure.Controls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="procedure.Controls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="procedure.Status" [(ngModel)]="procedure.Status">
+							@for (DocumentStatus of DocumentStatuss; track DocumentStatus) {
+								<mat-option ngDefaultControl [value]="DocumentStatus">
+									{{DocumentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addProcedure(procedure.title, procedure.versionLabel, procedure.Policy, procedure.Controls, procedure.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

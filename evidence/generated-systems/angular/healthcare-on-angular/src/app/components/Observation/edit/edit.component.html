@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="observation.code" [(ngModel)]="observation.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>value</mat-label>
+								<input matInput ngDefaultControl placeholder="value" name="observation.value" [(ngModel)]="observation.value">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>unit</mat-label>
+								<input matInput ngDefaultControl placeholder="unit" name="observation.unit" [(ngModel)]="observation.unit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="observation.effectiveDateTime" class="form-control" name="observation.effectiveDateTime" #observation.effectiveDateTime ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"   [compareWith]="compareFn"  [(ngModel)]="observation.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="observation.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"   [compareWith]="compareFn"  [(ngModel)]="observation.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="observation.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Device</mat-label>
+					<mat-select placeholder="Device"   [compareWith]="compareFn"  [(ngModel)]="observation.Device">
+						@for (medicalDevice of medicalDevices; track medicalDevice.medicalDeviceId) {
+							<mat-option name="observation.Device" ngDefaultControl
+							            [value]="medicalDevice.medicalDeviceId">
+								{{medicalDevice.udi}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>LabResult</mat-label>
+					<mat-select placeholder="LabResult"   [compareWith]="compareFn"  [(ngModel)]="observation.LabResult">
+						@for (labResult of labResults; track labResult.labResultId) {
+							<mat-option name="observation.LabResult" ngDefaultControl
+							            [value]="labResult.labResultId">
+								{{labResult.resultCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Interpretation</mat-label>
+						<mat-select placeholder="Interpretation" name="observation.Interpretation" [(ngModel)]="observation.Interpretation">
+							@for (ObservationInterpretation of ObservationInterpretations; track ObservationInterpretation) {
+								<mat-option ngDefaultControl [value]="ObservationInterpretation">
+									{{ObservationInterpretation}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateObservation(observation.code, observation.value, observation.unit, observation.effectiveDateTime, observation.Encounter, observation.Patient, observation.Device, observation.LabResult, observation.Interpretation)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,122 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>variantCode</mat-label>
+								<input matInput ngDefaultControl placeholder="variantCode" name="aircraftVariant.variantCode" [(ngModel)]="aircraftVariant.variantCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="rangeNm" name="aircraftVariant.rangeNm" [(ngModel)]="aircraftVariant.rangeNm">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>maxTakeoffWeightKg</mat-label>
+								<input matInput ngDefaultControl placeholder="maxTakeoffWeightKg" name="aircraftVariant.maxTakeoffWeightKg" [(ngModel)]="aircraftVariant.maxTakeoffWeightKg">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Model_</mat-label>
+					<mat-select placeholder="Model_"  [(ngModel)]="aircraftVariant.Model_">
+						@for (aircraftModel of aircraftModels; track aircraftModel.aircraftModelId) {
+							<mat-option name="aircraftVariant.Model_" ngDefaultControl
+							            [value]="aircraftModel.aircraftModelId">
+								{{aircraftModel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>EngineType</mat-label>
+					<mat-select placeholder="EngineType"  [(ngModel)]="aircraftVariant.EngineType">
+						@for (engineType of engineTypes; track engineType.engineTypeId) {
+							<mat-option name="aircraftVariant.EngineType" ngDefaultControl
+							            [value]="engineType.engineTypeId">
+								{{engineType.engineModelCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AvionicsSuite</mat-label>
+					<mat-select placeholder="AvionicsSuite"  [(ngModel)]="aircraftVariant.AvionicsSuite">
+						@for (avionicsSuite of avionicsSuites; track avionicsSuite.avionicsSuiteId) {
+							<mat-option name="aircraftVariant.AvionicsSuite" ngDefaultControl
+							            [value]="avionicsSuite.avionicsSuiteId">
+								{{avionicsSuite.suiteName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Apu</mat-label>
+					<mat-select placeholder="Apu"  [(ngModel)]="aircraftVariant.Apu">
+						@for (aPU of aPUs; track aPU.aPUId) {
+							<mat-option name="aircraftVariant.Apu" ngDefaultControl
+							            [value]="aPU.aPUId">
+								{{aPU.model_}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LandingGear</mat-label>
+					<mat-select placeholder="LandingGear"  [(ngModel)]="aircraftVariant.LandingGear">
+						@for (landingGear of landingGears; track landingGear.landingGearId) {
+							<mat-option name="aircraftVariant.LandingGear" ngDefaultControl
+							            [value]="landingGear.landingGearId">
+								{{landingGear.supplierPartNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CabinLayouts</mat-label>
+					<mat-select placeholder="CabinLayouts" multiple [(ngModel)]="aircraftVariant.CabinLayouts">
+						@for (cabinLayout of cabinLayouts; track cabinLayout.cabinLayoutId) {
+							<mat-option name="aircraftVariant.CabinLayouts" ngDefaultControl
+							            [value]="cabinLayout.cabinLayoutId">
+								{{cabinLayout.layoutCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Options</mat-label>
+					<mat-select placeholder="Options" multiple [(ngModel)]="aircraftVariant.Options">
+						@for (aircraftOption of aircraftOptions; track aircraftOption.aircraftOptionId) {
+							<mat-option name="aircraftVariant.Options" ngDefaultControl
+							            [value]="aircraftOption.aircraftOptionId">
+								{{aircraftOption.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Packages</mat-label>
+					<mat-select placeholder="Packages" multiple [(ngModel)]="aircraftVariant.Packages">
+						@for (aircraftPackage of aircraftPackages; track aircraftPackage.aircraftPackageId) {
+							<mat-option name="aircraftVariant.Packages" ngDefaultControl
+							            [value]="aircraftPackage.aircraftPackageId">
+								{{aircraftPackage.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addAircraftVariant(aircraftVariant.variantCode, aircraftVariant.rangeNm, aircraftVariant.maxTakeoffWeightKg, aircraftVariant.Model_, aircraftVariant.EngineType, aircraftVariant.AvionicsSuite, aircraftVariant.Apu, aircraftVariant.LandingGear, aircraftVariant.CabinLayouts, aircraftVariant.Options, aircraftVariant.Packages)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

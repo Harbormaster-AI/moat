@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="recommendationScenario.name" [(ngModel)]="recommendationScenario.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>objective</mat-label>
+								<input matInput ngDefaultControl placeholder="objective" name="recommendationScenario.objective" [(ngModel)]="recommendationScenario.objective">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Models</mat-label>
+					<mat-select placeholder="Models" multiple  [compareWith]="compareFn"  [(ngModel)]="recommendationScenario.Models">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="recommendationScenario.Models" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple  [compareWith]="compareFn"  [(ngModel)]="recommendationScenario.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="recommendationScenario.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Experiments</mat-label>
+					<mat-select placeholder="Experiments" multiple  [compareWith]="compareFn"  [(ngModel)]="recommendationScenario.Experiments">
+						@for (experiment of experiments; track experiment.experimentId) {
+							<mat-option name="recommendationScenario.Experiments" ngDefaultControl
+							            [value]="experiment.experimentId">
+								{{experiment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Alerts</mat-label>
+					<mat-select placeholder="Alerts" multiple  [compareWith]="compareFn"  [(ngModel)]="recommendationScenario.Alerts">
+						@for (alert of alerts; track alert.alertId) {
+							<mat-option name="recommendationScenario.Alerts" ngDefaultControl
+							            [value]="alert.alertId">
+								{{alert.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>RecommendationType</mat-label>
+						<mat-select placeholder="RecommendationType" name="recommendationScenario.RecommendationType" [(ngModel)]="recommendationScenario.RecommendationType">
+							@for (RecommendationType of RecommendationTypes; track RecommendationType) {
+								<mat-option ngDefaultControl [value]="RecommendationType">
+									{{RecommendationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateRecommendationScenario(recommendationScenario.name, recommendationScenario.objective, recommendationScenario.Models, recommendationScenario.Datasets, recommendationScenario.Experiments, recommendationScenario.Alerts, recommendationScenario.RecommendationType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

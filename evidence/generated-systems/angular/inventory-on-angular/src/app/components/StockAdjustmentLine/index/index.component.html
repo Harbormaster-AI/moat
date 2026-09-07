@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">StockAdjustmentLine List</h5>
+
+    <a
+            [routerLink]="['/createStockAdjustmentLine']"
+            class="btn btn-primary btn-sm">
+        Create StockAdjustmentLine
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">lineNumber</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">UnitOfMeasure</th>
+                        <th scope="col">StockStatus</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (stockAdjustmentLine of stockAdjustmentLines; track stockAdjustmentLine.stockAdjustmentLineId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ stockAdjustmentLine.lineNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockAdjustmentLine.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockAdjustmentLine.UnitOfMeasure }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockAdjustmentLine.StockStatus }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadStockAdjustmentLine', stockAdjustmentLine.stockAdjustmentLineId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteStockAdjustmentLine(stockAdjustmentLine.stockAdjustmentLineId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (stockAdjustmentLines?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No stockAdjustmentLines found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

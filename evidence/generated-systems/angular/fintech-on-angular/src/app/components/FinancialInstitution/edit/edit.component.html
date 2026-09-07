@@ -1,0 +1,102 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="financialInstitution.name" [(ngModel)]="financialInstitution.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="financialInstitution.legalName" [(ngModel)]="financialInstitution.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>countryOfIncorporation</mat-label>
+								<input matInput ngDefaultControl placeholder="countryOfIncorporation" name="financialInstitution.countryOfIncorporation" [(ngModel)]="financialInstitution.countryOfIncorporation">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bic</mat-label>
+								<input matInput ngDefaultControl placeholder="bic" name="financialInstitution.bic" [(ngModel)]="financialInstitution.bic">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="financialInstitution.website" [(ngModel)]="financialInstitution.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Branches</mat-label>
+					<mat-select placeholder="Branches" multiple  [compareWith]="compareFn"  [(ngModel)]="financialInstitution.Branches">
+						@for (branch of branchs; track branch.branchId) {
+							<mat-option name="financialInstitution.Branches" ngDefaultControl
+							            [value]="branch.branchId">
+								{{branch.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Customers</mat-label>
+					<mat-select placeholder="Customers" multiple  [compareWith]="compareFn"  [(ngModel)]="financialInstitution.Customers">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="financialInstitution.Customers" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ProductOfferings</mat-label>
+					<mat-select placeholder="ProductOfferings" multiple  [compareWith]="compareFn"  [(ngModel)]="financialInstitution.ProductOfferings">
+						@for (productOffering of productOfferings; track productOffering.productOfferingId) {
+							<mat-option name="financialInstitution.ProductOfferings" ngDefaultControl
+							            [value]="productOffering.productOfferingId">
+								{{productOffering.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PaymentProcessors</mat-label>
+					<mat-select placeholder="PaymentProcessors" multiple  [compareWith]="compareFn"  [(ngModel)]="financialInstitution.PaymentProcessors">
+						@for (paymentProcessor of paymentProcessors; track paymentProcessor.paymentProcessorId) {
+							<mat-option name="financialInstitution.PaymentProcessors" ngDefaultControl
+							            [value]="paymentProcessor.paymentProcessorId">
+								{{paymentProcessor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CompliancePolicies</mat-label>
+					<mat-select placeholder="CompliancePolicies" multiple  [compareWith]="compareFn"  [(ngModel)]="financialInstitution.CompliancePolicies">
+						@for (compliancePolicy of compliancePolicys; track compliancePolicy.compliancePolicyId) {
+							<mat-option name="financialInstitution.CompliancePolicies" ngDefaultControl
+							            [value]="compliancePolicy.compliancePolicyId">
+								{{compliancePolicy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateFinancialInstitution(financialInstitution.name, financialInstitution.legalName, financialInstitution.countryOfIncorporation, financialInstitution.bic, financialInstitution.website, financialInstitution.Branches, financialInstitution.Customers, financialInstitution.ProductOfferings, financialInstitution.PaymentProcessors, financialInstitution.CompliancePolicies)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

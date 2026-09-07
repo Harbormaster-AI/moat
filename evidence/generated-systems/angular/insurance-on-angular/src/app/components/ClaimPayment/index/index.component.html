@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ClaimPayment List</h5>
+
+    <a
+            [routerLink]="['/createClaimPayment']"
+            class="btn btn-primary btn-sm">
+        Create ClaimPayment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">paymentNumber</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">paymentDate</th>
+                        <th scope="col">PayeeType</th>
+                        <th scope="col">Method</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (claimPayment of claimPayments; track claimPayment.claimPaymentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ claimPayment.paymentNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ claimPayment.amount }}
+                </td>
+                                <td class="align-middle">
+                    {{ claimPayment.paymentDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ claimPayment.PayeeType }}
+                </td>
+                                <td class="align-middle">
+                    {{ claimPayment.Method }}
+                </td>
+                                <td class="align-middle">
+                    {{ claimPayment.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadClaimPayment', claimPayment.claimPaymentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteClaimPayment(claimPayment.claimPaymentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (claimPayments?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No claimPayments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

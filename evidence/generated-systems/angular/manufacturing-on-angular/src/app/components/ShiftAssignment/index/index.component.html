@@ -1,0 +1,63 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ShiftAssignment List</h5>
+
+    <a
+            [routerLink]="['/createShiftAssignment']"
+            class="btn btn-primary btn-sm">
+        Create ShiftAssignment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">assignmentDate</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (shiftAssignment of shiftAssignments; track shiftAssignment.shiftAssignmentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ shiftAssignment.assignmentDate }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadShiftAssignment', shiftAssignment.shiftAssignmentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteShiftAssignment(shiftAssignment.shiftAssignmentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (shiftAssignments?.length === 0) {
+            <tr>
+                <td
+                        colspan="3"
+                        class="text-center">
+                    No shiftAssignments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,70 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="auditProgram.name" [(ngModel)]="auditProgram.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>scope</mat-label>
+								<input matInput ngDefaultControl placeholder="scope" name="auditProgram.scope" [(ngModel)]="auditProgram.scope">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="auditProgram.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="auditProgram.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Engagements</mat-label>
+					<mat-select placeholder="Engagements" multiple  [compareWith]="compareFn"  [(ngModel)]="auditProgram.Engagements">
+						@for (auditEngagement of auditEngagements; track auditEngagement.auditEngagementId) {
+							<mat-option name="auditProgram.Engagements" ngDefaultControl
+							            [value]="auditEngagement.auditEngagementId">
+								{{auditEngagement.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Cycle</mat-label>
+						<mat-select placeholder="Cycle" name="auditProgram.Cycle" [(ngModel)]="auditProgram.Cycle">
+							@for (AuditCycle of AuditCycles; track AuditCycle) {
+								<mat-option ngDefaultControl [value]="AuditCycle">
+									{{AuditCycle}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="auditProgram.Status" [(ngModel)]="auditProgram.Status">
+							@for (AuditStatus of AuditStatuss; track AuditStatus) {
+								<mat-option ngDefaultControl [value]="AuditStatus">
+									{{AuditStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAuditProgram(auditProgram.name, auditProgram.scope, auditProgram.Organization, auditProgram.Engagements, auditProgram.Cycle, auditProgram.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

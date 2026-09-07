@@ -1,0 +1,88 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="employmentAssignment.startDate" [(ngModel)]="employmentAssignment.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="employmentAssignment.endDate" [(ngModel)]="employmentAssignment.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																								<mat-checkbox name="employmentAssignment.primary" ngDefaultControl [(ngModel)]="employmentAssignment.primary">primary</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="employmentAssignment.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="employmentAssignment.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Position</mat-label>
+					<mat-select placeholder="Position"   [compareWith]="compareFn"  [(ngModel)]="employmentAssignment.Position">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="employmentAssignment.Position" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supervisor</mat-label>
+					<mat-select placeholder="Supervisor"   [compareWith]="compareFn"  [(ngModel)]="employmentAssignment.Supervisor">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="employmentAssignment.Supervisor" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AssignmentType</mat-label>
+						<mat-select placeholder="AssignmentType" name="employmentAssignment.AssignmentType" [(ngModel)]="employmentAssignment.AssignmentType">
+							@for (AssignmentType of AssignmentTypes; track AssignmentType) {
+								<mat-option ngDefaultControl [value]="AssignmentType">
+									{{AssignmentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="employmentAssignment.Status" [(ngModel)]="employmentAssignment.Status">
+							@for (AssignmentStatus of AssignmentStatuss; track AssignmentStatus) {
+								<mat-option ngDefaultControl [value]="AssignmentStatus">
+									{{AssignmentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 																										 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateEmploymentAssignment(employmentAssignment.startDate, employmentAssignment.endDate, employmentAssignment.primary == true ? true : false, employmentAssignment.Employee, employmentAssignment.Position, employmentAssignment.Supervisor, employmentAssignment.AssignmentType, employmentAssignment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

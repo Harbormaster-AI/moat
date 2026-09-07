@@ -1,0 +1,78 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<ngb-timepicker [(ngModel)]="conversionEvent.timestamp" class="form-control" name="conversionEvent.timestamp" #conversionEvent.timestamp ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>value</mat-label>
+								<input matInput ngDefaultControl placeholder="value" name="conversionEvent.value" [(ngModel)]="conversionEvent.value">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"   [compareWith]="compareFn"  [(ngModel)]="conversionEvent.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="conversionEvent.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>LineItem</mat-label>
+					<mat-select placeholder="LineItem"   [compareWith]="compareFn"  [(ngModel)]="conversionEvent.LineItem">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="conversionEvent.LineItem" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>TrackingPixel</mat-label>
+					<mat-select placeholder="TrackingPixel"   [compareWith]="compareFn"  [(ngModel)]="conversionEvent.TrackingPixel">
+						@for (trackingPixel of trackingPixels; track trackingPixel.trackingPixelId) {
+							<mat-option name="conversionEvent.TrackingPixel" ngDefaultControl
+							            [value]="trackingPixel.trackingPixelId">
+								{{trackingPixel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>EventType</mat-label>
+						<mat-select placeholder="EventType" name="conversionEvent.EventType" [(ngModel)]="conversionEvent.EventType">
+							@for (ConversionEventType of ConversionEventTypes; track ConversionEventType) {
+								<mat-option ngDefaultControl [value]="ConversionEventType">
+									{{ConversionEventType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AttributionModel</mat-label>
+						<mat-select placeholder="AttributionModel" name="conversionEvent.AttributionModel" [(ngModel)]="conversionEvent.AttributionModel">
+							@for (AttributionModel of AttributionModels; track AttributionModel) {
+								<mat-option ngDefaultControl [value]="AttributionModel">
+									{{AttributionModel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateConversionEvent(conversionEvent.timestamp, conversionEvent.value, conversionEvent.Campaign, conversionEvent.LineItem, conversionEvent.TrackingPixel, conversionEvent.EventType, conversionEvent.AttributionModel)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

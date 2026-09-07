@@ -1,0 +1,57 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																				<mat-form-field appearance="outline">
+					<mat-label>TargetingProfile</mat-label>
+					<mat-select placeholder="TargetingProfile"  [(ngModel)]="deviceCriterion.TargetingProfile">
+						@for (targetingProfile of targetingProfiles; track targetingProfile.targetingProfileId) {
+							<mat-option name="deviceCriterion.TargetingProfile" ngDefaultControl
+							            [value]="targetingProfile.targetingProfileId">
+								{{targetingProfile.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DeviceType</mat-label>
+						<mat-select placeholder="DeviceType" name="deviceCriterion.DeviceType" [(ngModel)]="deviceCriterion.DeviceType">
+							@for (DeviceType of DeviceTypes; track DeviceType) {
+								<mat-option ngDefaultControl [value]="DeviceType">
+									{{DeviceType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PlatformType</mat-label>
+						<mat-select placeholder="PlatformType" name="deviceCriterion.PlatformType" [(ngModel)]="deviceCriterion.PlatformType">
+							@for (PlatformType of PlatformTypes; track PlatformType) {
+								<mat-option ngDefaultControl [value]="PlatformType">
+									{{PlatformType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Operator</mat-label>
+						<mat-select placeholder="Operator" name="deviceCriterion.Operator" [(ngModel)]="deviceCriterion.Operator">
+							@for (TargetingOperator of TargetingOperators; track TargetingOperator) {
+								<mat-option ngDefaultControl [value]="TargetingOperator">
+									{{TargetingOperator}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																									 																							 																							 																							 										<button
+				(click)="addDeviceCriterion(deviceCriterion.TargetingProfile, deviceCriterion.DeviceType, deviceCriterion.PlatformType, deviceCriterion.Operator)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

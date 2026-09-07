@@ -1,0 +1,95 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="bIQuery.name" [(ngModel)]="bIQuery.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>text</mat-label>
+								<input matInput ngDefaultControl placeholder="text" name="bIQuery.text" [(ngModel)]="bIQuery.text">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"  [(ngModel)]="bIQuery.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="bIQuery.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple [(ngModel)]="bIQuery.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="bIQuery.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Reports</mat-label>
+					<mat-select placeholder="Reports" multiple [(ngModel)]="bIQuery.Reports">
+						@for (report of reports; track report.reportId) {
+							<mat-option name="bIQuery.Reports" ngDefaultControl
+							            [value]="report.reportId">
+								{{report.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Dashboards</mat-label>
+					<mat-select placeholder="Dashboards" multiple [(ngModel)]="bIQuery.Dashboards">
+						@for (dashboard of dashboards; track dashboard.dashboardId) {
+							<mat-option name="bIQuery.Dashboards" ngDefaultControl
+							            [value]="dashboard.dashboardId">
+								{{dashboard.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Notebooks</mat-label>
+					<mat-select placeholder="Notebooks" multiple [(ngModel)]="bIQuery.Notebooks">
+						@for (notebook of notebooks; track notebook.notebookId) {
+							<mat-option name="bIQuery.Notebooks" ngDefaultControl
+							            [value]="notebook.notebookId">
+								{{notebook.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Dialect</mat-label>
+						<mat-select placeholder="Dialect" name="bIQuery.Dialect" [(ngModel)]="bIQuery.Dialect">
+							@for (SQLDialect of SQLDialects; track SQLDialect) {
+								<mat-option ngDefaultControl [value]="SQLDialect">
+									{{SQLDialect}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addBIQuery(bIQuery.name, bIQuery.text, bIQuery.Workspace, bIQuery.Datasets, bIQuery.Reports, bIQuery.Dashboards, bIQuery.Notebooks, bIQuery.Dialect)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

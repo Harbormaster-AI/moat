@@ -1,0 +1,94 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>matterName</mat-label>
+								<input matInput ngDefaultControl placeholder="matterName" name="matter.matterName" [(ngModel)]="matter.matterName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>leadCounsel</mat-label>
+								<input matInput ngDefaultControl placeholder="leadCounsel" name="matter.leadCounsel" [(ngModel)]="matter.leadCounsel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LegalHolds</mat-label>
+					<mat-select placeholder="LegalHolds" multiple [(ngModel)]="matter.LegalHolds">
+						@for (legalHold of legalHolds; track legalHold.legalHoldId) {
+							<mat-option name="matter.LegalHolds" ngDefaultControl
+							            [value]="legalHold.legalHoldId">
+								{{legalHold.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="matter.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="matter.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DataBreaches</mat-label>
+					<mat-select placeholder="DataBreaches" multiple [(ngModel)]="matter.DataBreaches">
+						@for (dataBreach of dataBreachs; track dataBreach.dataBreachId) {
+							<mat-option name="matter.DataBreaches" ngDefaultControl
+							            [value]="dataBreach.dataBreachId">
+								{{dataBreach.incidentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple [(ngModel)]="matter.Contracts">
+						@for (contract of contracts; track contract.contractId) {
+							<mat-option name="matter.Contracts" ngDefaultControl
+							            [value]="contract.contractId">
+								{{contract.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>MatterType</mat-label>
+						<mat-select placeholder="MatterType" name="matter.MatterType" [(ngModel)]="matter.MatterType">
+							@for (MatterType of MatterTypes; track MatterType) {
+								<mat-option ngDefaultControl [value]="MatterType">
+									{{MatterType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="matter.Status" [(ngModel)]="matter.Status">
+							@for (MatterStatus of MatterStatuss; track MatterStatus) {
+								<mat-option ngDefaultControl [value]="MatterStatus">
+									{{MatterStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addMatter(matter.matterName, matter.leadCounsel, matter.LegalHolds, matter.Organization, matter.DataBreaches, matter.Contracts, matter.MatterType, matter.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

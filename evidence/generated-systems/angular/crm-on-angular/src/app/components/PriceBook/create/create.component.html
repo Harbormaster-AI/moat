@@ -1,0 +1,74 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="priceBook.name" [(ngModel)]="priceBook.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="priceBook.asActive" ngDefaultControl [(ngModel)]="priceBook.asActive">asActive</mat-checkbox>
+																																																								<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="priceBook.description" [(ngModel)]="priceBook.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="priceBook.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="priceBook.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Entries</mat-label>
+					<mat-select placeholder="Entries" multiple [(ngModel)]="priceBook.Entries">
+						@for (priceBookEntry of priceBookEntrys; track priceBookEntry.priceBookEntryId) {
+							<mat-option name="priceBook.Entries" ngDefaultControl
+							            [value]="priceBookEntry.priceBookEntryId">
+								{{priceBookEntry.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Quotes</mat-label>
+					<mat-select placeholder="Quotes" multiple [(ngModel)]="priceBook.Quotes">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="priceBook.Quotes" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple [(ngModel)]="priceBook.Orders">
+						@for (order of orders; track order.orderId) {
+							<mat-option name="priceBook.Orders" ngDefaultControl
+							            [value]="order.orderId">
+								{{order.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																																														 																										 																										 																										 																										 										<button
+				(click)="addPriceBook(priceBook.name, priceBook.asActive == true ? true : false, priceBook.description, priceBook.Organization, priceBook.Entries, priceBook.Quotes, priceBook.Orders)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="beneficiary.name" [(ngModel)]="beneficiary.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>share</mat-label>
+								<input matInput ngDefaultControl placeholder="share" name="beneficiary.share" [(ngModel)]="beneficiary.share">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="beneficiary.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="beneficiary.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="beneficiary.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="beneficiary.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Relationship</mat-label>
+						<mat-select placeholder="Relationship" name="beneficiary.Relationship" [(ngModel)]="beneficiary.Relationship">
+							@for (RelationshipType of RelationshipTypes; track RelationshipType) {
+								<mat-option ngDefaultControl [value]="RelationshipType">
+									{{RelationshipType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBeneficiary(beneficiary.name, beneficiary.share, beneficiary.Policy, beneficiary.Customer, beneficiary.Relationship)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

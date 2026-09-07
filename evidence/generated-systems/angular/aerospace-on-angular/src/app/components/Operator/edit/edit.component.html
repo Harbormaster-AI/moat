@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="operator.name" [(ngModel)]="operator.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>icaoDesignator</mat-label>
+								<input matInput ngDefaultControl placeholder="icaoDesignator" name="operator.icaoDesignator" [(ngModel)]="operator.icaoDesignator">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>AircraftOrders</mat-label>
+					<mat-select placeholder="AircraftOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="operator.AircraftOrders">
+						@for (aircraftOrder of aircraftOrders; track aircraftOrder.aircraftOrderId) {
+							<mat-option name="operator.AircraftOrders" ngDefaultControl
+							            [value]="aircraftOrder.aircraftOrderId">
+								{{aircraftOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>OperatedAircraft</mat-label>
+					<mat-select placeholder="OperatedAircraft" multiple  [compareWith]="compareFn"  [(ngModel)]="operator.OperatedAircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="operator.OperatedAircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>SalesRegion</mat-label>
+					<mat-select placeholder="SalesRegion"   [compareWith]="compareFn"  [(ngModel)]="operator.SalesRegion">
+						@for (salesRegion of salesRegions; track salesRegion.salesRegionId) {
+							<mat-option name="operator.SalesRegion" ngDefaultControl
+							            [value]="salesRegion.salesRegionId">
+								{{salesRegion.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>OperatorType</mat-label>
+						<mat-select placeholder="OperatorType" name="operator.OperatorType" [(ngModel)]="operator.OperatorType">
+							@for (OperatorType of OperatorTypes; track OperatorType) {
+								<mat-option ngDefaultControl [value]="OperatorType">
+									{{OperatorType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateOperator(operator.name, operator.icaoDesignator, operator.AircraftOrders, operator.OperatedAircraft, operator.SalesRegion, operator.OperatorType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

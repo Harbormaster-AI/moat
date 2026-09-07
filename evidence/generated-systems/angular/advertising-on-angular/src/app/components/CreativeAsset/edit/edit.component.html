@@ -1,0 +1,106 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="creativeAsset.name" [(ngModel)]="creativeAsset.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>clickUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="clickUrl" name="creativeAsset.clickUrl" [(ngModel)]="creativeAsset.clickUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>landingPage</mat-label>
+								<input matInput ngDefaultControl placeholder="landingPage" name="creativeAsset.landingPage" [(ngModel)]="creativeAsset.landingPage">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="width" name="creativeAsset.width" [(ngModel)]="creativeAsset.width">
+																																																																	<p>
+					 																																																																															<input matInput placeholder="height" name="creativeAsset.height" [(ngModel)]="creativeAsset.height">
+																																																																	<p>
+					 																																																																															<input matInput placeholder="durationSeconds" name="creativeAsset.durationSeconds" [(ngModel)]="creativeAsset.durationSeconds">
+																																																																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Files</mat-label>
+					<mat-select placeholder="Files" multiple  [compareWith]="compareFn"  [(ngModel)]="creativeAsset.Files">
+						@for (creativeFile of creativeFiles; track creativeFile.creativeFileId) {
+							<mat-option name="creativeAsset.Files" ngDefaultControl
+							            [value]="creativeFile.creativeFileId">
+								{{creativeFile.uri}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Approvals</mat-label>
+					<mat-select placeholder="Approvals" multiple  [compareWith]="compareFn"  [(ngModel)]="creativeAsset.Approvals">
+						@for (creativeApproval of creativeApprovals; track creativeApproval.creativeApprovalId) {
+							<mat-option name="creativeAsset.Approvals" ngDefaultControl
+							            [value]="creativeApproval.creativeApprovalId">
+								{{creativeApproval.reviewer}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Variations</mat-label>
+					<mat-select placeholder="Variations" multiple  [compareWith]="compareFn"  [(ngModel)]="creativeAsset.Variations">
+						@for (creativeVariation of creativeVariations; track creativeVariation.creativeVariationId) {
+							<mat-option name="creativeAsset.Variations" ngDefaultControl
+							            [value]="creativeVariation.creativeVariationId">
+								{{creativeVariation.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LineItems</mat-label>
+					<mat-select placeholder="LineItems" multiple  [compareWith]="compareFn"  [(ngModel)]="creativeAsset.LineItems">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="creativeAsset.LineItems" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>CreativeType</mat-label>
+						<mat-select placeholder="CreativeType" name="creativeAsset.CreativeType" [(ngModel)]="creativeAsset.CreativeType">
+							@for (CreativeType of CreativeTypes; track CreativeType) {
+								<mat-option ngDefaultControl [value]="CreativeType">
+									{{CreativeType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AdFormat</mat-label>
+						<mat-select placeholder="AdFormat" name="creativeAsset.AdFormat" [(ngModel)]="creativeAsset.AdFormat">
+							@for (AdFormat of AdFormats; track AdFormat) {
+								<mat-option ngDefaultControl [value]="AdFormat">
+									{{AdFormat}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateCreativeAsset(creativeAsset.name, creativeAsset.clickUrl, creativeAsset.landingPage, creativeAsset.width, creativeAsset.height, creativeAsset.durationSeconds, creativeAsset.Files, creativeAsset.Approvals, creativeAsset.Variations, creativeAsset.LineItems, creativeAsset.CreativeType, creativeAsset.AdFormat)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

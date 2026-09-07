@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="system_.name" [(ngModel)]="system_.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>ownerDepartment</mat-label>
+								<input matInput ngDefaultControl placeholder="ownerDepartment" name="system_.ownerDepartment" [(ngModel)]="system_.ownerDepartment">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple  [compareWith]="compareFn"  [(ngModel)]="system_.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="system_.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>RecordsRepositories</mat-label>
+					<mat-select placeholder="RecordsRepositories" multiple  [compareWith]="compareFn"  [(ngModel)]="system_.RecordsRepositories">
+						@for (recordsRepository of recordsRepositorys; track recordsRepository.recordsRepositoryId) {
+							<mat-option name="system_.RecordsRepositories" ngDefaultControl
+							            [value]="recordsRepository.recordsRepositoryId">
+								{{recordsRepository.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>SystemType</mat-label>
+						<mat-select placeholder="SystemType" name="system_.SystemType" [(ngModel)]="system_.SystemType">
+							@for (SystemType of SystemTypes; track SystemType) {
+								<mat-option ngDefaultControl [value]="SystemType">
+									{{SystemType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateSystem_(system_.name, system_.ownerDepartment, system_.ProcessingActivities, system_.RecordsRepositories, system_.SystemType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

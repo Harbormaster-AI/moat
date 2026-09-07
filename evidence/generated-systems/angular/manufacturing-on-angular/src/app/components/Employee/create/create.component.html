@@ -1,0 +1,82 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="employee.firstName" [(ngModel)]="employee.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="employee.lastName" [(ngModel)]="employee.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkCenter</mat-label>
+					<mat-select placeholder="WorkCenter"  [(ngModel)]="employee.WorkCenter">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="employee.WorkCenter" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ShiftAssignments</mat-label>
+					<mat-select placeholder="ShiftAssignments" multiple [(ngModel)]="employee.ShiftAssignments">
+						@for (shiftAssignment of shiftAssignments; track shiftAssignment.shiftAssignmentId) {
+							<mat-option name="employee.ShiftAssignments" ngDefaultControl
+							            [value]="shiftAssignment.shiftAssignmentId">
+								{{shiftAssignment.assignmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CorrectiveActions</mat-label>
+					<mat-select placeholder="CorrectiveActions" multiple [(ngModel)]="employee.CorrectiveActions">
+						@for (correctiveAction of correctiveActions; track correctiveAction.correctiveActionId) {
+							<mat-option name="employee.CorrectiveActions" ngDefaultControl
+							            [value]="correctiveAction.correctiveActionId">
+								{{correctiveAction.capaNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Role</mat-label>
+						<mat-select placeholder="Role" name="employee.Role" [(ngModel)]="employee.Role">
+							@for (EmployeeRole of EmployeeRoles; track EmployeeRole) {
+								<mat-option ngDefaultControl [value]="EmployeeRole">
+									{{EmployeeRole}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>SkillLevel</mat-label>
+						<mat-select placeholder="SkillLevel" name="employee.SkillLevel" [(ngModel)]="employee.SkillLevel">
+							@for (SkillLevel of SkillLevels; track SkillLevel) {
+								<mat-option ngDefaultControl [value]="SkillLevel">
+									{{SkillLevel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 																							 										<button
+				(click)="addEmployee(employee.firstName, employee.lastName, employee.WorkCenter, employee.ShiftAssignments, employee.CorrectiveActions, employee.Role, employee.SkillLevel)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

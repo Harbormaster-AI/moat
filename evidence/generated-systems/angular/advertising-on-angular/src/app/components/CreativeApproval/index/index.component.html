@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">CreativeApproval List</h5>
+
+    <a
+            [routerLink]="['/createCreativeApproval']"
+            class="btn btn-primary btn-sm">
+        Create CreativeApproval
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">reviewer</th>
+                        <th scope="col">reviewedAt</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (creativeApproval of creativeApprovals; track creativeApproval.creativeApprovalId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ creativeApproval.reviewer }}
+                </td>
+                                <td class="align-middle">
+                    {{ creativeApproval.reviewedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ creativeApproval.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCreativeApproval', creativeApproval.creativeApprovalId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCreativeApproval(creativeApproval.creativeApprovalId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (creativeApprovals?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No creativeApprovals found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

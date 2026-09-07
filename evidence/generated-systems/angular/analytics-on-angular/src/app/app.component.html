@@ -1,0 +1,368 @@
+<div class="app-header">analytics-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="AnalyticsWorkspaceMenu">AnalyticsWorkspace</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataSourceMenu">DataSource</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataSetMenu">DataSet</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataPipelineMenu">DataPipeline</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataTaskMenu">DataTask</button>
+								<button mat-menu-item [matMenuTriggerFor]="SemanticModelMenu">SemanticModel</button>
+								<button mat-menu-item [matMenuTriggerFor]="DimensionMenu">Dimension</button>
+								<button mat-menu-item [matMenuTriggerFor]="MeasureMenu">Measure</button>
+								<button mat-menu-item [matMenuTriggerFor]="MetricMenu">Metric</button>
+								<button mat-menu-item [matMenuTriggerFor]="ReportMenu">Report</button>
+								<button mat-menu-item [matMenuTriggerFor]="DashboardMenu">Dashboard</button>
+								<button mat-menu-item [matMenuTriggerFor]="VisualizationMenu">Visualization</button>
+								<button mat-menu-item [matMenuTriggerFor]="NotebookMenu">Notebook</button>
+								<button mat-menu-item [matMenuTriggerFor]="BIQueryMenu">BIQuery</button>
+								<button mat-menu-item [matMenuTriggerFor]="ExperimentMenu">Experiment</button>
+								<button mat-menu-item [matMenuTriggerFor]="TrainingRunMenu">TrainingRun</button>
+								<button mat-menu-item [matMenuTriggerFor]="RunMetricMenu">RunMetric</button>
+								<button mat-menu-item [matMenuTriggerFor]="RunParameterMenu">RunParameter</button>
+								<button mat-menu-item [matMenuTriggerFor]="Model_Menu">Model_</button>
+								<button mat-menu-item [matMenuTriggerFor]="ModelVersionMenu">ModelVersion</button>
+								<button mat-menu-item [matMenuTriggerFor]="EvaluationMetricMenu">EvaluationMetric</button>
+								<button mat-menu-item [matMenuTriggerFor]="FeatureSetMenu">FeatureSet</button>
+								<button mat-menu-item [matMenuTriggerFor]="FeatureMenu">Feature</button>
+								<button mat-menu-item [matMenuTriggerFor]="InferenceEndpointMenu">InferenceEndpoint</button>
+								<button mat-menu-item [matMenuTriggerFor]="PredictionMenu">Prediction</button>
+								<button mat-menu-item [matMenuTriggerFor]="ForecastMenu">Forecast</button>
+								<button mat-menu-item [matMenuTriggerFor]="TimeSeriesMenu">TimeSeries</button>
+								<button mat-menu-item [matMenuTriggerFor]="AnomalyMenu">Anomaly</button>
+								<button mat-menu-item [matMenuTriggerFor]="QualityRuleMenu">QualityRule</button>
+								<button mat-menu-item [matMenuTriggerFor]="QualityCheckMenu">QualityCheck</button>
+								<button mat-menu-item [matMenuTriggerFor]="LineageNodeMenu">LineageNode</button>
+								<button mat-menu-item [matMenuTriggerFor]="TagMenu">Tag</button>
+								<button mat-menu-item [matMenuTriggerFor]="AccessPolicyMenu">AccessPolicy</button>
+								<button mat-menu-item [matMenuTriggerFor]="AlertMenu">Alert</button>
+								<button mat-menu-item [matMenuTriggerFor]="SubscriberMenu">Subscriber</button>
+								<button mat-menu-item [matMenuTriggerFor]="BusinessGlossaryTermMenu">BusinessGlossaryTerm</button>
+								<button mat-menu-item [matMenuTriggerFor]="RecommendationScenarioMenu">RecommendationScenario</button>
+								<button mat-menu-item [matMenuTriggerFor]="FraudScenarioMenu">FraudScenario</button>
+								<button mat-menu-item [matMenuTriggerFor]="FraudSignalMenu">FraudSignal</button>
+				
+						<mat-menu #AnalyticsWorkspaceMenu="matMenu">
+			<a routerLink="createAnalyticsWorkspace">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAnalyticsWorkspace">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataSourceMenu="matMenu">
+			<a routerLink="createDataSource">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataSource">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataSetMenu="matMenu">
+			<a routerLink="createDataSet">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataSet">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataPipelineMenu="matMenu">
+			<a routerLink="createDataPipeline">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataPipeline">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataTaskMenu="matMenu">
+			<a routerLink="createDataTask">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataTask">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SemanticModelMenu="matMenu">
+			<a routerLink="createSemanticModel">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSemanticModel">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DimensionMenu="matMenu">
+			<a routerLink="createDimension">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDimension">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MeasureMenu="matMenu">
+			<a routerLink="createMeasure">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMeasure">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MetricMenu="matMenu">
+			<a routerLink="createMetric">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMetric">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ReportMenu="matMenu">
+			<a routerLink="createReport">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexReport">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DashboardMenu="matMenu">
+			<a routerLink="createDashboard">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDashboard">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #VisualizationMenu="matMenu">
+			<a routerLink="createVisualization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexVisualization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #NotebookMenu="matMenu">
+			<a routerLink="createNotebook">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexNotebook">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BIQueryMenu="matMenu">
+			<a routerLink="createBIQuery">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBIQuery">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ExperimentMenu="matMenu">
+			<a routerLink="createExperiment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexExperiment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TrainingRunMenu="matMenu">
+			<a routerLink="createTrainingRun">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTrainingRun">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RunMetricMenu="matMenu">
+			<a routerLink="createRunMetric">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRunMetric">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RunParameterMenu="matMenu">
+			<a routerLink="createRunParameter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRunParameter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #Model_Menu="matMenu">
+			<a routerLink="createModel_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexModel_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ModelVersionMenu="matMenu">
+			<a routerLink="createModelVersion">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexModelVersion">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EvaluationMetricMenu="matMenu">
+			<a routerLink="createEvaluationMetric">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEvaluationMetric">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FeatureSetMenu="matMenu">
+			<a routerLink="createFeatureSet">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFeatureSet">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FeatureMenu="matMenu">
+			<a routerLink="createFeature">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFeature">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InferenceEndpointMenu="matMenu">
+			<a routerLink="createInferenceEndpoint">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInferenceEndpoint">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PredictionMenu="matMenu">
+			<a routerLink="createPrediction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPrediction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ForecastMenu="matMenu">
+			<a routerLink="createForecast">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexForecast">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TimeSeriesMenu="matMenu">
+			<a routerLink="createTimeSeries">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTimeSeries">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AnomalyMenu="matMenu">
+			<a routerLink="createAnomaly">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAnomaly">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QualityRuleMenu="matMenu">
+			<a routerLink="createQualityRule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQualityRule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QualityCheckMenu="matMenu">
+			<a routerLink="createQualityCheck">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQualityCheck">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LineageNodeMenu="matMenu">
+			<a routerLink="createLineageNode">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLineageNode">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TagMenu="matMenu">
+			<a routerLink="createTag">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTag">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AccessPolicyMenu="matMenu">
+			<a routerLink="createAccessPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAccessPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AlertMenu="matMenu">
+			<a routerLink="createAlert">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAlert">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SubscriberMenu="matMenu">
+			<a routerLink="createSubscriber">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSubscriber">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BusinessGlossaryTermMenu="matMenu">
+			<a routerLink="createBusinessGlossaryTerm">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBusinessGlossaryTerm">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RecommendationScenarioMenu="matMenu">
+			<a routerLink="createRecommendationScenario">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRecommendationScenario">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FraudScenarioMenu="matMenu">
+			<a routerLink="createFraudScenario">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFraudScenario">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FraudSignalMenu="matMenu">
+			<a routerLink="createFraudSignal">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFraudSignal">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

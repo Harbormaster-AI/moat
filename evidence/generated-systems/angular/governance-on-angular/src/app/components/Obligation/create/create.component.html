@@ -1,0 +1,94 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>referenceNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="referenceNumber" name="obligation.referenceNumber" [(ngModel)]="obligation.referenceNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>descriptionText</mat-label>
+								<input matInput ngDefaultControl placeholder="descriptionText" name="obligation.descriptionText" [(ngModel)]="obligation.descriptionText">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Regulation</mat-label>
+					<mat-select placeholder="Regulation"  [(ngModel)]="obligation.Regulation">
+						@for (regulation of regulations; track regulation.regulationId) {
+							<mat-option name="obligation.Regulation" ngDefaultControl
+							            [value]="regulation.regulationId">
+								{{regulation.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Controls</mat-label>
+					<mat-select placeholder="Controls" multiple [(ngModel)]="obligation.Controls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="obligation.Controls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple [(ngModel)]="obligation.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="obligation.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple [(ngModel)]="obligation.Contracts">
+						@for (contract of contracts; track contract.contractId) {
+							<mat-option name="obligation.Contracts" ngDefaultControl
+							            [value]="contract.contractId">
+								{{contract.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ObligationType</mat-label>
+						<mat-select placeholder="ObligationType" name="obligation.ObligationType" [(ngModel)]="obligation.ObligationType">
+							@for (ObligationType of ObligationTypes; track ObligationType) {
+								<mat-option ngDefaultControl [value]="ObligationType">
+									{{ObligationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ReviewFrequency</mat-label>
+						<mat-select placeholder="ReviewFrequency" name="obligation.ReviewFrequency" [(ngModel)]="obligation.ReviewFrequency">
+							@for (ControlFrequency of ControlFrequencys; track ControlFrequency) {
+								<mat-option ngDefaultControl [value]="ControlFrequency">
+									{{ControlFrequency}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addObligation(obligation.referenceNumber, obligation.descriptionText, obligation.Regulation, obligation.Controls, obligation.Policies, obligation.Contracts, obligation.ObligationType, obligation.ReviewFrequency)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

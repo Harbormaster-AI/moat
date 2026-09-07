@@ -1,0 +1,49 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="screening.name" [(ngModel)]="screening.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>completedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="completedDate" name="screening.completedDate" [(ngModel)]="screening.completedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Application</mat-label>
+					<mat-select placeholder="Application"  [(ngModel)]="screening.Application">
+						@for (jobApplication of jobApplications; track jobApplication.jobApplicationId) {
+							<mat-option name="screening.Application" ngDefaultControl
+							            [value]="jobApplication.jobApplicationId">
+								{{jobApplication.applicationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="screening.Status" [(ngModel)]="screening.Status">
+							@for (BackgroundCheckStatus of BackgroundCheckStatuss; track BackgroundCheckStatus) {
+								<mat-option ngDefaultControl [value]="BackgroundCheckStatus">
+									{{BackgroundCheckStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																							 										<button
+				(click)="addScreening(screening.name, screening.completedDate, screening.Application, screening.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

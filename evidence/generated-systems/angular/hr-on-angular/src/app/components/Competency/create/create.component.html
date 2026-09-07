@@ -1,0 +1,48 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="competency.name" [(ngModel)]="competency.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>category</mat-label>
+								<input matInput ngDefaultControl placeholder="category" name="competency.category" [(ngModel)]="competency.category">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>JobProfiles</mat-label>
+					<mat-select placeholder="JobProfiles" multiple [(ngModel)]="competency.JobProfiles">
+						@for (jobProfile of jobProfiles; track jobProfile.jobProfileId) {
+							<mat-option name="competency.JobProfiles" ngDefaultControl
+							            [value]="jobProfile.jobProfileId">
+								{{jobProfile.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CompetencyRatings</mat-label>
+					<mat-select placeholder="CompetencyRatings" multiple [(ngModel)]="competency.CompetencyRatings">
+						@for (competencyRating of competencyRatings; track competencyRating.competencyRatingId) {
+							<mat-option name="competency.CompetencyRatings" ngDefaultControl
+							            [value]="competencyRating.competencyRatingId">
+								{{competencyRating.comment}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																										 																										 										<button
+				(click)="addCompetency(competency.name, competency.category, competency.JobProfiles, competency.CompetencyRatings)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,52 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>location</mat-label>
+								<input matInput ngDefaultControl placeholder="location" name="terminal.location" [(ngModel)]="terminal.location">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"   [compareWith]="compareFn"  [(ngModel)]="terminal.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="terminal.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Type</mat-label>
+						<mat-select placeholder="Type" name="terminal.Type" [(ngModel)]="terminal.Type">
+							@for (TerminalType of TerminalTypes; track TerminalType) {
+								<mat-option ngDefaultControl [value]="TerminalType">
+									{{TerminalType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="terminal.Status" [(ngModel)]="terminal.Status">
+							@for (TerminalStatus of TerminalStatuss; track TerminalStatus) {
+								<mat-option ngDefaultControl [value]="TerminalStatus">
+									{{TerminalStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateTerminal(terminal.location, terminal.Merchant, terminal.Type, terminal.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,91 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">TradeOrder List</h5>
+
+    <a
+            [routerLink]="['/createTradeOrder']"
+            class="btn btn-primary btn-sm">
+        Create TradeOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">orderId</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">limitPrice</th>
+                        <th scope="col">placedAt</th>
+                        <th scope="col">Side</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">TimeInForce</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (tradeOrder of tradeOrders; track tradeOrder.tradeOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ tradeOrder.orderId }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.limitPrice }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.placedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.Side }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.Type }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ tradeOrder.TimeInForce }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadTradeOrder', tradeOrder.tradeOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteTradeOrder(tradeOrder.tradeOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (tradeOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="10"
+                        class="text-center">
+                    No tradeOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

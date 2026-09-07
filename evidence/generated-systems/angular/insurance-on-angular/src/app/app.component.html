@@ -1,0 +1,278 @@
+<div class="app-header">insurance-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="InsurerMenu">Insurer</button>
+								<button mat-menu-item [matMenuTriggerFor]="InsuranceProductMenu">InsuranceProduct</button>
+								<button mat-menu-item [matMenuTriggerFor]="CoverageDefinitionMenu">CoverageDefinition</button>
+								<button mat-menu-item [matMenuTriggerFor]="DistributorMenu">Distributor</button>
+								<button mat-menu-item [matMenuTriggerFor]="AgentMenu">Agent</button>
+								<button mat-menu-item [matMenuTriggerFor]="CustomerMenu">Customer</button>
+								<button mat-menu-item [matMenuTriggerFor]="ApplicationMenu">Application</button>
+								<button mat-menu-item [matMenuTriggerFor]="QuoteMenu">Quote</button>
+								<button mat-menu-item [matMenuTriggerFor]="UnderwritingDecisionMenu">UnderwritingDecision</button>
+								<button mat-menu-item [matMenuTriggerFor]="UnderwriterMenu">Underwriter</button>
+								<button mat-menu-item [matMenuTriggerFor]="PolicyMenu">Policy</button>
+								<button mat-menu-item [matMenuTriggerFor]="EndorsementMenu">Endorsement</button>
+								<button mat-menu-item [matMenuTriggerFor]="PolicyCoverageMenu">PolicyCoverage</button>
+								<button mat-menu-item [matMenuTriggerFor]="InsuredObjectMenu">InsuredObject</button>
+								<button mat-menu-item [matMenuTriggerFor]="BeneficiaryMenu">Beneficiary</button>
+								<button mat-menu-item [matMenuTriggerFor]="BillingAccountMenu">BillingAccount</button>
+								<button mat-menu-item [matMenuTriggerFor]="InvoiceMenu">Invoice</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentMenu">Payment</button>
+								<button mat-menu-item [matMenuTriggerFor]="ClaimMenu">Claim</button>
+								<button mat-menu-item [matMenuTriggerFor]="IncidentMenu">Incident</button>
+								<button mat-menu-item [matMenuTriggerFor]="ExposureMenu">Exposure</button>
+								<button mat-menu-item [matMenuTriggerFor]="AdjusterMenu">Adjuster</button>
+								<button mat-menu-item [matMenuTriggerFor]="ClaimReserveMenu">ClaimReserve</button>
+								<button mat-menu-item [matMenuTriggerFor]="ClaimPaymentMenu">ClaimPayment</button>
+								<button mat-menu-item [matMenuTriggerFor]="ServiceProviderMenu">ServiceProvider</button>
+								<button mat-menu-item [matMenuTriggerFor]="ReinsuranceAgreementMenu">ReinsuranceAgreement</button>
+								<button mat-menu-item [matMenuTriggerFor]="SubrogationRecoveryMenu">SubrogationRecovery</button>
+								<button mat-menu-item [matMenuTriggerFor]="ThirdPartyMenu">ThirdParty</button>
+								<button mat-menu-item [matMenuTriggerFor]="DocumentMenu">Document</button>
+				
+						<mat-menu #InsurerMenu="matMenu">
+			<a routerLink="createInsurer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInsurer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InsuranceProductMenu="matMenu">
+			<a routerLink="createInsuranceProduct">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInsuranceProduct">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CoverageDefinitionMenu="matMenu">
+			<a routerLink="createCoverageDefinition">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCoverageDefinition">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DistributorMenu="matMenu">
+			<a routerLink="createDistributor">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDistributor">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AgentMenu="matMenu">
+			<a routerLink="createAgent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAgent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CustomerMenu="matMenu">
+			<a routerLink="createCustomer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCustomer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ApplicationMenu="matMenu">
+			<a routerLink="createApplication">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexApplication">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QuoteMenu="matMenu">
+			<a routerLink="createQuote">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQuote">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #UnderwritingDecisionMenu="matMenu">
+			<a routerLink="createUnderwritingDecision">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexUnderwritingDecision">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #UnderwriterMenu="matMenu">
+			<a routerLink="createUnderwriter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexUnderwriter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PolicyMenu="matMenu">
+			<a routerLink="createPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EndorsementMenu="matMenu">
+			<a routerLink="createEndorsement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEndorsement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PolicyCoverageMenu="matMenu">
+			<a routerLink="createPolicyCoverage">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPolicyCoverage">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InsuredObjectMenu="matMenu">
+			<a routerLink="createInsuredObject">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInsuredObject">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BeneficiaryMenu="matMenu">
+			<a routerLink="createBeneficiary">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBeneficiary">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BillingAccountMenu="matMenu">
+			<a routerLink="createBillingAccount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBillingAccount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InvoiceMenu="matMenu">
+			<a routerLink="createInvoice">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInvoice">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentMenu="matMenu">
+			<a routerLink="createPayment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPayment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ClaimMenu="matMenu">
+			<a routerLink="createClaim">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexClaim">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #IncidentMenu="matMenu">
+			<a routerLink="createIncident">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexIncident">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ExposureMenu="matMenu">
+			<a routerLink="createExposure">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexExposure">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AdjusterMenu="matMenu">
+			<a routerLink="createAdjuster">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAdjuster">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ClaimReserveMenu="matMenu">
+			<a routerLink="createClaimReserve">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexClaimReserve">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ClaimPaymentMenu="matMenu">
+			<a routerLink="createClaimPayment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexClaimPayment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ServiceProviderMenu="matMenu">
+			<a routerLink="createServiceProvider">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexServiceProvider">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ReinsuranceAgreementMenu="matMenu">
+			<a routerLink="createReinsuranceAgreement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexReinsuranceAgreement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SubrogationRecoveryMenu="matMenu">
+			<a routerLink="createSubrogationRecovery">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSubrogationRecovery">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ThirdPartyMenu="matMenu">
+			<a routerLink="createThirdParty">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexThirdParty">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DocumentMenu="matMenu">
+			<a routerLink="createDocument">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDocument">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="customer.name" [(ngModel)]="customer.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>customerCode</mat-label>
+								<input matInput ngDefaultControl placeholder="customerCode" name="customer.customerCode" [(ngModel)]="customer.customerCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="customer.address" [(ngModel)]="customer.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Enterprises</mat-label>
+					<mat-select placeholder="Enterprises" multiple [(ngModel)]="customer.Enterprises">
+						@for (enterprise of enterprises; track enterprise.enterpriseId) {
+							<mat-option name="customer.Enterprises" ngDefaultControl
+							            [value]="enterprise.enterpriseId">
+								{{enterprise.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SalesOrders</mat-label>
+					<mat-select placeholder="SalesOrders" multiple [(ngModel)]="customer.SalesOrders">
+						@for (salesOrder of salesOrders; track salesOrder.salesOrderId) {
+							<mat-option name="customer.SalesOrders" ngDefaultControl
+							            [value]="salesOrder.salesOrderId">
+								{{salesOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>CustomerType</mat-label>
+						<mat-select placeholder="CustomerType" name="customer.CustomerType" [(ngModel)]="customer.CustomerType">
+							@for (CustomerType of CustomerTypes; track CustomerType) {
+								<mat-option ngDefaultControl [value]="CustomerType">
+									{{CustomerType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addCustomer(customer.name, customer.customerCode, customer.address, customer.Enterprises, customer.SalesOrders, customer.CustomerType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

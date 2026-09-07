@@ -1,0 +1,78 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="orderItem.quantity" [(ngModel)]="orderItem.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>unitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="unitPrice" name="orderItem.unitPrice" [(ngModel)]="orderItem.unitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>discountAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="discountAmount" name="orderItem.discountAmount" [(ngModel)]="orderItem.discountAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>taxAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="taxAmount" name="orderItem.taxAmount" [(ngModel)]="orderItem.taxAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="orderItem.totalAmount" [(ngModel)]="orderItem.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"   [compareWith]="compareFn"  [(ngModel)]="orderItem.Order">
+						@for (order of orders; track order.orderId) {
+							<mat-option name="orderItem.Order" ngDefaultControl
+							            [value]="order.orderId">
+								{{order.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"   [compareWith]="compareFn"  [(ngModel)]="orderItem.Product">
+						@for (product of products; track product.productId) {
+							<mat-option name="orderItem.Product" ngDefaultControl
+							            [value]="product.productId">
+								{{product.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PriceBookEntry</mat-label>
+					<mat-select placeholder="PriceBookEntry"   [compareWith]="compareFn"  [(ngModel)]="orderItem.PriceBookEntry">
+						@for (priceBookEntry of priceBookEntrys; track priceBookEntry.priceBookEntryId) {
+							<mat-option name="orderItem.PriceBookEntry" ngDefaultControl
+							            [value]="priceBookEntry.priceBookEntryId">
+								{{priceBookEntry.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateOrderItem(orderItem.quantity, orderItem.unitPrice, orderItem.discountAmount, orderItem.taxAmount, orderItem.totalAmount, orderItem.Order, orderItem.Product, orderItem.PriceBookEntry)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>reportName</mat-label>
+								<input matInput ngDefaultControl placeholder="reportName" name="report.reportName" [(ngModel)]="report.reportName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="report.generatedAt" class="form-control" name="report.generatedAt" #report.generatedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>fileUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="fileUrl" name="report.fileUrl" [(ngModel)]="report.fileUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AdAccount</mat-label>
+					<mat-select placeholder="AdAccount"  [(ngModel)]="report.AdAccount">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="report.AdAccount" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"  [(ngModel)]="report.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="report.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LineItem</mat-label>
+					<mat-select placeholder="LineItem"  [(ngModel)]="report.LineItem">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="report.LineItem" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ReportType</mat-label>
+						<mat-select placeholder="ReportType" name="report.ReportType" [(ngModel)]="report.ReportType">
+							@for (ReportType of ReportTypes; track ReportType) {
+								<mat-option ngDefaultControl [value]="ReportType">
+									{{ReportType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addReport(report.reportName, report.generatedAt, report.fileUrl, report.AdAccount, report.Campaign, report.LineItem, report.ReportType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,41 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<ngb-timepicker [(ngModel)]="workShift.startTime" class="form-control" name="workShift.startTime" #workShift.startTime ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="workShift.endTime" class="form-control" name="workShift.endTime" #workShift.endTime ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<input matInput placeholder="breakMinutes" name="workShift.breakMinutes" [(ngModel)]="workShift.breakMinutes">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkSchedule</mat-label>
+					<mat-select placeholder="WorkSchedule"  [(ngModel)]="workShift.WorkSchedule">
+						@for (workSchedule of workSchedules; track workSchedule.workScheduleId) {
+							<mat-option name="workShift.WorkSchedule" ngDefaultControl
+							            [value]="workSchedule.workScheduleId">
+								{{workSchedule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DayOfWeek</mat-label>
+						<mat-select placeholder="DayOfWeek" name="workShift.DayOfWeek" [(ngModel)]="workShift.DayOfWeek">
+							@for (DayOfWeek of DayOfWeeks; track DayOfWeek) {
+								<mat-option ngDefaultControl [value]="DayOfWeek">
+									{{DayOfWeek}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 										<button
+				(click)="addWorkShift(workShift.startTime, workShift.endTime, workShift.breakMinutes, workShift.WorkSchedule, workShift.DayOfWeek)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>operationNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="operationNumber" name="operation.operationNumber" [(ngModel)]="operation.operationNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="operation.name" [(ngModel)]="operation.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>setupTime</mat-label>
+								<input matInput ngDefaultControl placeholder="setupTime" name="operation.setupTime" [(ngModel)]="operation.setupTime">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>standardCycleTime</mat-label>
+								<input matInput ngDefaultControl placeholder="standardCycleTime" name="operation.standardCycleTime" [(ngModel)]="operation.standardCycleTime">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Routing</mat-label>
+					<mat-select placeholder="Routing"  [(ngModel)]="operation.Routing">
+						@for (routing of routings; track routing.routingId) {
+							<mat-option name="operation.Routing" ngDefaultControl
+							            [value]="routing.routingId">
+								{{routing.routingNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkCenter</mat-label>
+					<mat-select placeholder="WorkCenter"  [(ngModel)]="operation.WorkCenter">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="operation.WorkCenter" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>InspectionPlan</mat-label>
+					<mat-select placeholder="InspectionPlan"  [(ngModel)]="operation.InspectionPlan">
+						@for (inspectionPlan of inspectionPlans; track inspectionPlan.inspectionPlanId) {
+							<mat-option name="operation.InspectionPlan" ngDefaultControl
+							            [value]="inspectionPlan.inspectionPlanId">
+								{{inspectionPlan.planNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>OperationType</mat-label>
+						<mat-select placeholder="OperationType" name="operation.OperationType" [(ngModel)]="operation.OperationType">
+							@for (OperationType of OperationTypes; track OperationType) {
+								<mat-option ngDefaultControl [value]="OperationType">
+									{{OperationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addOperation(operation.operationNumber, operation.name, operation.setupTime, operation.standardCycleTime, operation.Routing, operation.WorkCenter, operation.InspectionPlan, operation.OperationType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

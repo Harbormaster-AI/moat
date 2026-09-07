@@ -1,0 +1,56 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="rateCard.name" [(ngModel)]="rateCard.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="rateCard.effectiveDate" [(ngModel)]="rateCard.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="rateCard.currency" [(ngModel)]="rateCard.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Publisher</mat-label>
+					<mat-select placeholder="Publisher"  [(ngModel)]="rateCard.Publisher">
+						@for (publisher of publishers; track publisher.publisherId) {
+							<mat-option name="rateCard.Publisher" ngDefaultControl
+							            [value]="publisher.publisherId">
+								{{publisher.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Rates</mat-label>
+					<mat-select placeholder="Rates" multiple [(ngModel)]="rateCard.Rates">
+						@for (rate of rates; track rate.rateId) {
+							<mat-option name="rateCard.Rates" ngDefaultControl
+							            [value]="rate.rateId">
+								{{rate.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 										<button
+				(click)="addRateCard(rateCard.name, rateCard.effectiveDate, rateCard.currency, rateCard.Publisher, rateCard.Rates)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,101 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="team.name" [(ngModel)]="team.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="team.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="team.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Users</mat-label>
+					<mat-select placeholder="Users" multiple  [compareWith]="compareFn"  [(ngModel)]="team.Users">
+						@for (user of users; track user.userId) {
+							<mat-option name="team.Users" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Accounts</mat-label>
+					<mat-select placeholder="Accounts" multiple  [compareWith]="compareFn"  [(ngModel)]="team.Accounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="team.Accounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Opportunities</mat-label>
+					<mat-select placeholder="Opportunities" multiple  [compareWith]="compareFn"  [(ngModel)]="team.Opportunities">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="team.Opportunities" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Cases</mat-label>
+					<mat-select placeholder="Cases" multiple  [compareWith]="compareFn"  [(ngModel)]="team.Cases">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="team.Cases" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple  [compareWith]="compareFn"  [(ngModel)]="team.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="team.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>TeamType</mat-label>
+						<mat-select placeholder="TeamType" name="team.TeamType" [(ngModel)]="team.TeamType">
+							@for (TeamType of TeamTypes; track TeamType) {
+								<mat-option ngDefaultControl [value]="TeamType">
+									{{TeamType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateTeam(team.name, team.Organization, team.Users, team.Accounts, team.Opportunities, team.Cases, team.Campaigns, team.TeamType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

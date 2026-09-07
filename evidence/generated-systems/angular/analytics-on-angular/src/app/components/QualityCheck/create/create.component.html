@@ -1,0 +1,63 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>checkedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="checkedAt" name="qualityCheck.checkedAt" [(ngModel)]="qualityCheck.checkedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>observedValue</mat-label>
+								<input matInput ngDefaultControl placeholder="observedValue" name="qualityCheck.observedValue" [(ngModel)]="qualityCheck.observedValue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="sampleSize" name="qualityCheck.sampleSize" [(ngModel)]="qualityCheck.sampleSize">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Rule</mat-label>
+					<mat-select placeholder="Rule"  [(ngModel)]="qualityCheck.Rule">
+						@for (qualityRule of qualityRules; track qualityRule.qualityRuleId) {
+							<mat-option name="qualityCheck.Rule" ngDefaultControl
+							            [value]="qualityRule.qualityRuleId">
+								{{qualityRule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"  [(ngModel)]="qualityCheck.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="qualityCheck.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="qualityCheck.Status" [(ngModel)]="qualityCheck.Status">
+							@for (QualityStatus of QualityStatuss; track QualityStatus) {
+								<mat-option ngDefaultControl [value]="QualityStatus">
+									{{QualityStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addQualityCheck(qualityCheck.checkedAt, qualityCheck.observedValue, qualityCheck.sampleSize, qualityCheck.Rule, qualityCheck.Dataset, qualityCheck.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

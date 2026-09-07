@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="dataCategory.name" [(ngModel)]="dataCategory.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="dataCategory.description" [(ngModel)]="dataCategory.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple [(ngModel)]="dataCategory.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="dataCategory.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Records</mat-label>
+					<mat-select placeholder="Records" multiple [(ngModel)]="dataCategory.Records">
+						@for (record_ of record_s; track record_.record_Id) {
+							<mat-option name="dataCategory.Records" ngDefaultControl
+							            [value]="record_.record_Id">
+								{{record_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DataBreaches</mat-label>
+					<mat-select placeholder="DataBreaches" multiple [(ngModel)]="dataCategory.DataBreaches">
+						@for (dataBreach of dataBreachs; track dataBreach.dataBreachId) {
+							<mat-option name="dataCategory.DataBreaches" ngDefaultControl
+							            [value]="dataBreach.dataBreachId">
+								{{dataBreach.incidentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Classification</mat-label>
+						<mat-select placeholder="Classification" name="dataCategory.Classification" [(ngModel)]="dataCategory.Classification">
+							@for (DataClassificationLevel of DataClassificationLevels; track DataClassificationLevel) {
+								<mat-option ngDefaultControl [value]="DataClassificationLevel">
+									{{DataClassificationLevel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 										<button
+				(click)="addDataCategory(dataCategory.name, dataCategory.description, dataCategory.ProcessingActivities, dataCategory.Records, dataCategory.DataBreaches, dataCategory.Classification)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

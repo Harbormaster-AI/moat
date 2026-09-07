@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>billingName</mat-label>
+								<input matInput ngDefaultControl placeholder="billingName" name="billingProfile.billingName" [(ngModel)]="billingProfile.billingName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>taxId</mat-label>
+								<input matInput ngDefaultControl placeholder="taxId" name="billingProfile.taxId" [(ngModel)]="billingProfile.taxId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>billingAddress</mat-label>
+								<input matInput ngDefaultControl placeholder="billingAddress" name="billingProfile.billingAddress" [(ngModel)]="billingProfile.billingAddress">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Advertiser</mat-label>
+					<mat-select placeholder="Advertiser"   [compareWith]="compareFn"  [(ngModel)]="billingProfile.Advertiser">
+						@for (advertiser of advertisers; track advertiser.advertiserId) {
+							<mat-option name="billingProfile.Advertiser" ngDefaultControl
+							            [value]="advertiser.advertiserId">
+								{{advertiser.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PaymentMethods</mat-label>
+					<mat-select placeholder="PaymentMethods" multiple  [compareWith]="compareFn"  [(ngModel)]="billingProfile.PaymentMethods">
+						@for (paymentMethod of paymentMethods; track paymentMethod.paymentMethodId) {
+							<mat-option name="billingProfile.PaymentMethods" ngDefaultControl
+							            [value]="paymentMethod.paymentMethodId">
+								{{paymentMethod.cardholderName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>AdAccounts</mat-label>
+					<mat-select placeholder="AdAccounts" multiple  [compareWith]="compareFn"  [(ngModel)]="billingProfile.AdAccounts">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="billingProfile.AdAccounts" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PaymentTerms</mat-label>
+						<mat-select placeholder="PaymentTerms" name="billingProfile.PaymentTerms" [(ngModel)]="billingProfile.PaymentTerms">
+							@for (PaymentTerms of PaymentTermss; track PaymentTerms) {
+								<mat-option ngDefaultControl [value]="PaymentTerms">
+									{{PaymentTerms}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBillingProfile(billingProfile.billingName, billingProfile.taxId, billingProfile.billingAddress, billingProfile.Advertiser, billingProfile.PaymentMethods, billingProfile.AdAccounts, billingProfile.PaymentTerms)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

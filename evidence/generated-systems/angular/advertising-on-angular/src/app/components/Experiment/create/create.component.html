@@ -1,0 +1,75 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="experiment.name" [(ngModel)]="experiment.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>hypothesis</mat-label>
+								<input matInput ngDefaultControl placeholder="hypothesis" name="experiment.hypothesis" [(ngModel)]="experiment.hypothesis">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="experiment.startDate" [(ngModel)]="experiment.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="experiment.endDate" [(ngModel)]="experiment.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"  [(ngModel)]="experiment.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="experiment.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple [(ngModel)]="experiment.Variants">
+						@for (experimentVariant of experimentVariants; track experimentVariant.experimentVariantId) {
+							<mat-option name="experiment.Variants" ngDefaultControl
+							            [value]="experimentVariant.experimentVariantId">
+								{{experimentVariant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="experiment.Status" [(ngModel)]="experiment.Status">
+							@for (ExperimentStatus of ExperimentStatuss; track ExperimentStatus) {
+								<mat-option ngDefaultControl [value]="ExperimentStatus">
+									{{ExperimentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																							 										<button
+				(click)="addExperiment(experiment.name, experiment.hypothesis, experiment.startDate, experiment.endDate, experiment.Campaign, experiment.Variants, experiment.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

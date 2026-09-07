@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="feature.name" [(ngModel)]="feature.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="feature.description" [(ngModel)]="feature.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>FeatureSet</mat-label>
+					<mat-select placeholder="FeatureSet"  [(ngModel)]="feature.FeatureSet">
+						@for (featureSet of featureSets; track featureSet.featureSetId) {
+							<mat-option name="feature.FeatureSet" ngDefaultControl
+							            [value]="featureSet.featureSetId">
+								{{featureSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SourceDatasets</mat-label>
+					<mat-select placeholder="SourceDatasets" multiple [(ngModel)]="feature.SourceDatasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="feature.SourceDatasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Models</mat-label>
+					<mat-select placeholder="Models" multiple [(ngModel)]="feature.Models">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="feature.Models" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>TrainingRuns</mat-label>
+					<mat-select placeholder="TrainingRuns" multiple [(ngModel)]="feature.TrainingRuns">
+						@for (trainingRun of trainingRuns; track trainingRun.trainingRunId) {
+							<mat-option name="feature.TrainingRuns" ngDefaultControl
+							            [value]="trainingRun.trainingRunId">
+								{{trainingRun.runLabel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DataType</mat-label>
+						<mat-select placeholder="DataType" name="feature.DataType" [(ngModel)]="feature.DataType">
+							@for (DataType of DataTypes; track DataType) {
+								<mat-option ngDefaultControl [value]="DataType">
+									{{DataType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addFeature(feature.name, feature.description, feature.FeatureSet, feature.SourceDatasets, feature.Models, feature.TrainingRuns, feature.DataType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

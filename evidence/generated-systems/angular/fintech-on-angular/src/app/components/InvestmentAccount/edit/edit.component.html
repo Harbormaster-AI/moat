@@ -1,0 +1,88 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>accountNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="accountNumber" name="investmentAccount.accountNumber" [(ngModel)]="investmentAccount.accountNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>baseCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="baseCurrency" name="investmentAccount.baseCurrency" [(ngModel)]="investmentAccount.baseCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>balance</mat-label>
+								<input matInput ngDefaultControl placeholder="balance" name="investmentAccount.balance" [(ngModel)]="investmentAccount.balance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Portfolio</mat-label>
+					<mat-select placeholder="Portfolio"   [compareWith]="compareFn"  [(ngModel)]="investmentAccount.Portfolio">
+						@for (investmentPortfolio of investmentPortfolios; track investmentPortfolio.investmentPortfolioId) {
+							<mat-option name="investmentAccount.Portfolio" ngDefaultControl
+							            [value]="investmentPortfolio.investmentPortfolioId">
+								{{investmentPortfolio.portfolioCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Trades</mat-label>
+					<mat-select placeholder="Trades" multiple  [compareWith]="compareFn"  [(ngModel)]="investmentAccount.Trades">
+						@for (trade of trades; track trade.tradeId) {
+							<mat-option name="investmentAccount.Trades" ngDefaultControl
+							            [value]="trade.tradeId">
+								{{trade.executedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple  [compareWith]="compareFn"  [(ngModel)]="investmentAccount.Orders">
+						@for (tradeOrder of tradeOrders; track tradeOrder.tradeOrderId) {
+							<mat-option name="investmentAccount.Orders" ngDefaultControl
+							            [value]="tradeOrder.tradeOrderId">
+								{{tradeOrder.orderId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AccountType</mat-label>
+						<mat-select placeholder="AccountType" name="investmentAccount.AccountType" [(ngModel)]="investmentAccount.AccountType">
+							@for (InvestmentAccountType of InvestmentAccountTypes; track InvestmentAccountType) {
+								<mat-option ngDefaultControl [value]="InvestmentAccountType">
+									{{InvestmentAccountType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="investmentAccount.Status" [(ngModel)]="investmentAccount.Status">
+							@for (AccountStatus of AccountStatuss; track AccountStatus) {
+								<mat-option ngDefaultControl [value]="AccountStatus">
+									{{AccountStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateInvestmentAccount(investmentAccount.accountNumber, investmentAccount.baseCurrency, investmentAccount.balance, investmentAccount.Portfolio, investmentAccount.Trades, investmentAccount.Orders, investmentAccount.AccountType, investmentAccount.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

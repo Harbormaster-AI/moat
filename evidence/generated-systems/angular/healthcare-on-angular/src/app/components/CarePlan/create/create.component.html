@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>planNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="planNumber" name="carePlan.planNumber" [(ngModel)]="carePlan.planNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>goalSummary</mat-label>
+								<input matInput ngDefaultControl placeholder="goalSummary" name="carePlan.goalSummary" [(ngModel)]="carePlan.goalSummary">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="carePlan.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="carePlan.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Encounters</mat-label>
+					<mat-select placeholder="Encounters" multiple [(ngModel)]="carePlan.Encounters">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="carePlan.Encounters" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Tasks</mat-label>
+					<mat-select placeholder="Tasks" multiple [(ngModel)]="carePlan.Tasks">
+						@for (careTask of careTasks; track careTask.careTaskId) {
+							<mat-option name="carePlan.Tasks" ngDefaultControl
+							            [value]="careTask.careTaskId">
+								{{careTask.description}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CareTeam</mat-label>
+					<mat-select placeholder="CareTeam"  [(ngModel)]="carePlan.CareTeam">
+						@for (careTeam of careTeams; track careTeam.careTeamId) {
+							<mat-option name="carePlan.CareTeam" ngDefaultControl
+							            [value]="careTeam.careTeamId">
+								{{careTeam.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="carePlan.Status" [(ngModel)]="carePlan.Status">
+							@for (CarePlanStatus of CarePlanStatuss; track CarePlanStatus) {
+								<mat-option ngDefaultControl [value]="CarePlanStatus">
+									{{CarePlanStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addCarePlan(carePlan.planNumber, carePlan.goalSummary, carePlan.Patient, carePlan.Encounters, carePlan.Tasks, carePlan.CareTeam, carePlan.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="bonusPlan.name" [(ngModel)]="bonusPlan.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>targetPercentage</mat-label>
+								<input matInput ngDefaultControl placeholder="targetPercentage" name="bonusPlan.targetPercentage" [(ngModel)]="bonusPlan.targetPercentage">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CompensationPackages</mat-label>
+					<mat-select placeholder="CompensationPackages" multiple  [compareWith]="compareFn"  [(ngModel)]="bonusPlan.CompensationPackages">
+						@for (compensationPackage of compensationPackages; track compensationPackage.compensationPackageId) {
+							<mat-option name="bonusPlan.CompensationPackages" ngDefaultControl
+							            [value]="compensationPackage.compensationPackageId">
+								{{compensationPackage.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateBonusPlan(bonusPlan.name, bonusPlan.targetPercentage, bonusPlan.CompensationPackages)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

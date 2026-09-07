@@ -1,0 +1,81 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>invoiceNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="invoiceNumber" name="invoice.invoiceNumber" [(ngModel)]="invoice.invoiceNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>issueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="issueDate" name="invoice.issueDate" [(ngModel)]="invoice.issueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="invoice.dueDate" [(ngModel)]="invoice.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>total</mat-label>
+								<input matInput ngDefaultControl placeholder="total" name="invoice.total" [(ngModel)]="invoice.total">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="invoice.currency" [(ngModel)]="invoice.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"   [compareWith]="compareFn"  [(ngModel)]="invoice.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="invoice.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Payments</mat-label>
+					<mat-select placeholder="Payments" multiple  [compareWith]="compareFn"  [(ngModel)]="invoice.Payments">
+						@for (paymentOrder of paymentOrders; track paymentOrder.paymentOrderId) {
+							<mat-option name="invoice.Payments" ngDefaultControl
+							            [value]="paymentOrder.paymentOrderId">
+								{{paymentOrder.orderReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="invoice.Status" [(ngModel)]="invoice.Status">
+							@for (InvoiceStatus of InvoiceStatuss; track InvoiceStatus) {
+								<mat-option ngDefaultControl [value]="InvoiceStatus">
+									{{InvoiceStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateInvoice(invoice.invoiceNumber, invoice.issueDate, invoice.dueDate, invoice.total, invoice.currency, invoice.Merchant, invoice.Payments, invoice.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

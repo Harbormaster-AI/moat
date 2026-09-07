@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="user.firstName" [(ngModel)]="user.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="user.lastName" [(ngModel)]="user.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="user.email" [(ngModel)]="user.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Agency</mat-label>
+					<mat-select placeholder="Agency"  [(ngModel)]="user.Agency">
+						@for (agency of agencys; track agency.agencyId) {
+							<mat-option name="user.Agency" ngDefaultControl
+							            [value]="agency.agencyId">
+								{{agency.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Teams</mat-label>
+					<mat-select placeholder="Teams" multiple [(ngModel)]="user.Teams">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="user.Teams" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>AdAccounts</mat-label>
+					<mat-select placeholder="AdAccounts" multiple [(ngModel)]="user.AdAccounts">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="user.AdAccounts" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Role</mat-label>
+						<mat-select placeholder="Role" name="user.Role" [(ngModel)]="user.Role">
+							@for (AccountRole of AccountRoles; track AccountRole) {
+								<mat-option ngDefaultControl [value]="AccountRole">
+									{{AccountRole}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addUser(user.firstName, user.lastName, user.email, user.Agency, user.Teams, user.AdAccounts, user.Role)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

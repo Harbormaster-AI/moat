@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Appointment List</h5>
+
+    <a
+            [routerLink]="['/createAppointment']"
+            class="btn btn-primary btn-sm">
+        Create Appointment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">appointmentDate</th>
+                        <th scope="col">reason</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (appointment of appointments; track appointment.appointmentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ appointment.appointmentDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ appointment.reason }}
+                </td>
+                                <td class="align-middle">
+                    {{ appointment.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ appointment.Priority }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAppointment', appointment.appointmentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAppointment(appointment.appointmentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (appointments?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No appointments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

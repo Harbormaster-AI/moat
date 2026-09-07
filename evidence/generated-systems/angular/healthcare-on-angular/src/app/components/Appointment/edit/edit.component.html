@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<ngb-timepicker [(ngModel)]="appointment.appointmentDate" class="form-control" name="appointment.appointmentDate" #appointment.appointmentDate ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reason</mat-label>
+								<input matInput ngDefaultControl placeholder="reason" name="appointment.reason" [(ngModel)]="appointment.reason">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"   [compareWith]="compareFn"  [(ngModel)]="appointment.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="appointment.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Clinician</mat-label>
+					<mat-select placeholder="Clinician"   [compareWith]="compareFn"  [(ngModel)]="appointment.Clinician">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="appointment.Clinician" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="appointment.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="appointment.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"   [compareWith]="compareFn"  [(ngModel)]="appointment.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="appointment.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="appointment.Status" [(ngModel)]="appointment.Status">
+							@for (AppointmentStatus of AppointmentStatuss; track AppointmentStatus) {
+								<mat-option ngDefaultControl [value]="AppointmentStatus">
+									{{AppointmentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="appointment.Priority" [(ngModel)]="appointment.Priority">
+							@for (Priority of Prioritys; track Priority) {
+								<mat-option ngDefaultControl [value]="Priority">
+									{{Priority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAppointment(appointment.appointmentDate, appointment.reason, appointment.Patient, appointment.Clinician, appointment.Facility, appointment.Encounter, appointment.Status, appointment.Priority)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Evidence List</h5>
+
+    <a
+            [routerLink]="['/createEvidence']"
+            class="btn btn-primary btn-sm">
+        Create Evidence
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">title</th>
+                        <th scope="col">locationUrl</th>
+                        <th scope="col">receivedDate</th>
+                        <th scope="col">EvidenceType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (evidence of evidences; track evidence.evidenceId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ evidence.title }}
+                </td>
+                                <td class="align-middle">
+                    {{ evidence.locationUrl }}
+                </td>
+                                <td class="align-middle">
+                    {{ evidence.receivedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ evidence.EvidenceType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEvidence', evidence.evidenceId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEvidence(evidence.evidenceId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (evidences?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No evidences found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

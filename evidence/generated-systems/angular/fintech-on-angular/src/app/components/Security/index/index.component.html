@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Security List</h5>
+
+    <a
+            [routerLink]="['/createSecurity']"
+            class="btn btn-primary btn-sm">
+        Create Security
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">symbol</th>
+                        <th scope="col">isin</th>
+                        <th scope="col">cusip</th>
+                        <th scope="col">currency</th>
+                        <th scope="col">SecurityType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (security of securitys; track security.securityId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ security.symbol }}
+                </td>
+                                <td class="align-middle">
+                    {{ security.isin }}
+                </td>
+                                <td class="align-middle">
+                    {{ security.cusip }}
+                </td>
+                                <td class="align-middle">
+                    {{ security.currency }}
+                </td>
+                                <td class="align-middle">
+                    {{ security.SecurityType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadSecurity', security.securityId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteSecurity(security.securityId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (securitys?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No securitys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

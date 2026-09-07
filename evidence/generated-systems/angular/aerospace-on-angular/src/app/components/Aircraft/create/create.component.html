@@ -1,0 +1,110 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>msn</mat-label>
+								<input matInput ngDefaultControl placeholder="msn" name="aircraft.msn" [(ngModel)]="aircraft.msn">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>deliveryDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="deliveryDate" name="aircraft.deliveryDate" [(ngModel)]="aircraft.deliveryDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Variant</mat-label>
+					<mat-select placeholder="Variant"  [(ngModel)]="aircraft.Variant">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="aircraft.Variant" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Operator</mat-label>
+					<mat-select placeholder="Operator"  [(ngModel)]="aircraft.Operator">
+						@for (operator of operators; track operator.operatorId) {
+							<mat-option name="aircraft.Operator" ngDefaultControl
+							            [value]="operator.operatorId">
+								{{operator.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Registration</mat-label>
+					<mat-select placeholder="Registration"  [(ngModel)]="aircraft.Registration">
+						@for (registration of registrations; track registration.registrationId) {
+							<mat-option name="aircraft.Registration" ngDefaultControl
+							            [value]="registration.registrationId">
+								{{registration.tailNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warranty</mat-label>
+					<mat-select placeholder="Warranty"  [(ngModel)]="aircraft.Warranty">
+						@for (warranty of warrantys; track warranty.warrantyId) {
+							<mat-option name="aircraft.Warranty" ngDefaultControl
+							            [value]="warranty.warrantyId">
+								{{warranty.coverageMonths}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>MaintenanceRecords</mat-label>
+					<mat-select placeholder="MaintenanceRecords" multiple [(ngModel)]="aircraft.MaintenanceRecords">
+						@for (maintenanceWorkOrder of maintenanceWorkOrders; track maintenanceWorkOrder.maintenanceWorkOrderId) {
+							<mat-option name="aircraft.MaintenanceRecords" ngDefaultControl
+							            [value]="maintenanceWorkOrder.maintenanceWorkOrderId">
+								{{maintenanceWorkOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ConnectedAircraft</mat-label>
+					<mat-select placeholder="ConnectedAircraft"  [(ngModel)]="aircraft.ConnectedAircraft">
+						@for (connectedAircraft of connectedAircrafts; track connectedAircraft.connectedAircraftId) {
+							<mat-option name="aircraft.ConnectedAircraft" ngDefaultControl
+							            [value]="connectedAircraft.connectedAircraftId">
+								{{connectedAircraft.communicationsProvider}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CabinLayout</mat-label>
+					<mat-select placeholder="CabinLayout"  [(ngModel)]="aircraft.CabinLayout">
+						@for (cabinLayout of cabinLayouts; track cabinLayout.cabinLayoutId) {
+							<mat-option name="aircraft.CabinLayout" ngDefaultControl
+							            [value]="cabinLayout.cabinLayoutId">
+								{{cabinLayout.layoutCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																										 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addAircraft(aircraft.msn, aircraft.deliveryDate, aircraft.Variant, aircraft.Operator, aircraft.Registration, aircraft.Warranty, aircraft.MaintenanceRecords, aircraft.ConnectedAircraft, aircraft.CabinLayout)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

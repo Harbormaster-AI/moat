@@ -1,0 +1,61 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="audienceSegment.name" [(ngModel)]="audienceSegment.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="estimatedReach" name="audienceSegment.estimatedReach" [(ngModel)]="audienceSegment.estimatedReach">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="audienceSegment.description" [(ngModel)]="audienceSegment.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Provider</mat-label>
+					<mat-select placeholder="Provider"   [compareWith]="compareFn"  [(ngModel)]="audienceSegment.Provider">
+						@for (dataProvider of dataProviders; track dataProvider.dataProviderId) {
+							<mat-option name="audienceSegment.Provider" ngDefaultControl
+							            [value]="dataProvider.dataProviderId">
+								{{dataProvider.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple  [compareWith]="compareFn"  [(ngModel)]="audienceSegment.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="audienceSegment.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ProviderType</mat-label>
+						<mat-select placeholder="ProviderType" name="audienceSegment.ProviderType" [(ngModel)]="audienceSegment.ProviderType">
+							@for (DataProviderType of DataProviderTypes; track DataProviderType) {
+								<mat-option ngDefaultControl [value]="DataProviderType">
+									{{DataProviderType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAudienceSegment(audienceSegment.name, audienceSegment.estimatedReach, audienceSegment.description, audienceSegment.Provider, audienceSegment.Campaigns, audienceSegment.ProviderType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

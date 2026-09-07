@@ -1,0 +1,485 @@
+<div class="app-header">hr-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="OrganizationMenu">Organization</button>
+								<button mat-menu-item [matMenuTriggerFor]="DepartmentMenu">Department</button>
+								<button mat-menu-item [matMenuTriggerFor]="LocationMenu">Location</button>
+								<button mat-menu-item [matMenuTriggerFor]="CostCenterMenu">CostCenter</button>
+								<button mat-menu-item [matMenuTriggerFor]="JobFamilyMenu">JobFamily</button>
+								<button mat-menu-item [matMenuTriggerFor]="JobProfileMenu">JobProfile</button>
+								<button mat-menu-item [matMenuTriggerFor]="CompetencyMenu">Competency</button>
+								<button mat-menu-item [matMenuTriggerFor]="PositionMenu">Position</button>
+								<button mat-menu-item [matMenuTriggerFor]="EmployeeMenu">Employee</button>
+								<button mat-menu-item [matMenuTriggerFor]="EmploymentAssignmentMenu">EmploymentAssignment</button>
+								<button mat-menu-item [matMenuTriggerFor]="EmploymentContractMenu">EmploymentContract</button>
+								<button mat-menu-item [matMenuTriggerFor]="WorkScheduleMenu">WorkSchedule</button>
+								<button mat-menu-item [matMenuTriggerFor]="WorkShiftMenu">WorkShift</button>
+								<button mat-menu-item [matMenuTriggerFor]="ScheduleExceptionMenu">ScheduleException</button>
+								<button mat-menu-item [matMenuTriggerFor]="CompensationPackageMenu">CompensationPackage</button>
+								<button mat-menu-item [matMenuTriggerFor]="SalaryComponentMenu">SalaryComponent</button>
+								<button mat-menu-item [matMenuTriggerFor]="BonusPlanMenu">BonusPlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="EquityGrantMenu">EquityGrant</button>
+								<button mat-menu-item [matMenuTriggerFor]="BenefitPlanMenu">BenefitPlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="BenefitEnrollmentMenu">BenefitEnrollment</button>
+								<button mat-menu-item [matMenuTriggerFor]="DependentMenu">Dependent</button>
+								<button mat-menu-item [matMenuTriggerFor]="PayrollCalendarMenu">PayrollCalendar</button>
+								<button mat-menu-item [matMenuTriggerFor]="PayrollRunMenu">PayrollRun</button>
+								<button mat-menu-item [matMenuTriggerFor]="PayrollItemMenu">PayrollItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="TaxWithholdingMenu">TaxWithholding</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentMethodMenu">PaymentMethod</button>
+								<button mat-menu-item [matMenuTriggerFor]="TimesheetMenu">Timesheet</button>
+								<button mat-menu-item [matMenuTriggerFor]="TimeEntryMenu">TimeEntry</button>
+								<button mat-menu-item [matMenuTriggerFor]="ApprovalMenu">Approval</button>
+								<button mat-menu-item [matMenuTriggerFor]="LeavePolicyMenu">LeavePolicy</button>
+								<button mat-menu-item [matMenuTriggerFor]="LeaveRequestMenu">LeaveRequest</button>
+								<button mat-menu-item [matMenuTriggerFor]="PerformanceCycleMenu">PerformanceCycle</button>
+								<button mat-menu-item [matMenuTriggerFor]="GoalMenu">Goal</button>
+								<button mat-menu-item [matMenuTriggerFor]="PerformanceReviewMenu">PerformanceReview</button>
+								<button mat-menu-item [matMenuTriggerFor]="CompetencyRatingMenu">CompetencyRating</button>
+								<button mat-menu-item [matMenuTriggerFor]="TrainingCourseMenu">TrainingCourse</button>
+								<button mat-menu-item [matMenuTriggerFor]="TrainingEnrollmentMenu">TrainingEnrollment</button>
+								<button mat-menu-item [matMenuTriggerFor]="CertificationMenu">Certification</button>
+								<button mat-menu-item [matMenuTriggerFor]="JobRequisitionMenu">JobRequisition</button>
+								<button mat-menu-item [matMenuTriggerFor]="CandidateMenu">Candidate</button>
+								<button mat-menu-item [matMenuTriggerFor]="JobApplicationMenu">JobApplication</button>
+								<button mat-menu-item [matMenuTriggerFor]="InterviewMenu">Interview</button>
+								<button mat-menu-item [matMenuTriggerFor]="ScreeningMenu">Screening</button>
+								<button mat-menu-item [matMenuTriggerFor]="OfferMenu">Offer</button>
+								<button mat-menu-item [matMenuTriggerFor]="OnboardingTaskMenu">OnboardingTask</button>
+								<button mat-menu-item [matMenuTriggerFor]="BackgroundCheckMenu">BackgroundCheck</button>
+								<button mat-menu-item [matMenuTriggerFor]="DocumentMenu">Document</button>
+								<button mat-menu-item [matMenuTriggerFor]="PolicyMenu">Policy</button>
+								<button mat-menu-item [matMenuTriggerFor]="PolicyAcknowledgementMenu">PolicyAcknowledgement</button>
+								<button mat-menu-item [matMenuTriggerFor]="TerminationMenu">Termination</button>
+								<button mat-menu-item [matMenuTriggerFor]="WorkAuthorizationMenu">WorkAuthorization</button>
+								<button mat-menu-item [matMenuTriggerFor]="BankAccountMenu">BankAccount</button>
+				
+						<mat-menu #OrganizationMenu="matMenu">
+			<a routerLink="createOrganization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOrganization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DepartmentMenu="matMenu">
+			<a routerLink="createDepartment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDepartment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LocationMenu="matMenu">
+			<a routerLink="createLocation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLocation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CostCenterMenu="matMenu">
+			<a routerLink="createCostCenter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCostCenter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #JobFamilyMenu="matMenu">
+			<a routerLink="createJobFamily">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexJobFamily">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #JobProfileMenu="matMenu">
+			<a routerLink="createJobProfile">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexJobProfile">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CompetencyMenu="matMenu">
+			<a routerLink="createCompetency">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCompetency">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PositionMenu="matMenu">
+			<a routerLink="createPosition">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPosition">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EmployeeMenu="matMenu">
+			<a routerLink="createEmployee">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEmployee">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EmploymentAssignmentMenu="matMenu">
+			<a routerLink="createEmploymentAssignment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEmploymentAssignment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EmploymentContractMenu="matMenu">
+			<a routerLink="createEmploymentContract">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEmploymentContract">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WorkScheduleMenu="matMenu">
+			<a routerLink="createWorkSchedule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWorkSchedule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WorkShiftMenu="matMenu">
+			<a routerLink="createWorkShift">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWorkShift">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ScheduleExceptionMenu="matMenu">
+			<a routerLink="createScheduleException">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexScheduleException">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CompensationPackageMenu="matMenu">
+			<a routerLink="createCompensationPackage">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCompensationPackage">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SalaryComponentMenu="matMenu">
+			<a routerLink="createSalaryComponent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSalaryComponent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BonusPlanMenu="matMenu">
+			<a routerLink="createBonusPlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBonusPlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EquityGrantMenu="matMenu">
+			<a routerLink="createEquityGrant">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEquityGrant">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BenefitPlanMenu="matMenu">
+			<a routerLink="createBenefitPlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBenefitPlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BenefitEnrollmentMenu="matMenu">
+			<a routerLink="createBenefitEnrollment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBenefitEnrollment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DependentMenu="matMenu">
+			<a routerLink="createDependent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDependent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PayrollCalendarMenu="matMenu">
+			<a routerLink="createPayrollCalendar">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPayrollCalendar">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PayrollRunMenu="matMenu">
+			<a routerLink="createPayrollRun">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPayrollRun">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PayrollItemMenu="matMenu">
+			<a routerLink="createPayrollItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPayrollItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TaxWithholdingMenu="matMenu">
+			<a routerLink="createTaxWithholding">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTaxWithholding">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentMethodMenu="matMenu">
+			<a routerLink="createPaymentMethod">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPaymentMethod">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TimesheetMenu="matMenu">
+			<a routerLink="createTimesheet">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTimesheet">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TimeEntryMenu="matMenu">
+			<a routerLink="createTimeEntry">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTimeEntry">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ApprovalMenu="matMenu">
+			<a routerLink="createApproval">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexApproval">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LeavePolicyMenu="matMenu">
+			<a routerLink="createLeavePolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLeavePolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LeaveRequestMenu="matMenu">
+			<a routerLink="createLeaveRequest">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLeaveRequest">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PerformanceCycleMenu="matMenu">
+			<a routerLink="createPerformanceCycle">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPerformanceCycle">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #GoalMenu="matMenu">
+			<a routerLink="createGoal">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexGoal">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PerformanceReviewMenu="matMenu">
+			<a routerLink="createPerformanceReview">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPerformanceReview">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CompetencyRatingMenu="matMenu">
+			<a routerLink="createCompetencyRating">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCompetencyRating">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TrainingCourseMenu="matMenu">
+			<a routerLink="createTrainingCourse">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTrainingCourse">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TrainingEnrollmentMenu="matMenu">
+			<a routerLink="createTrainingEnrollment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTrainingEnrollment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CertificationMenu="matMenu">
+			<a routerLink="createCertification">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCertification">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #JobRequisitionMenu="matMenu">
+			<a routerLink="createJobRequisition">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexJobRequisition">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CandidateMenu="matMenu">
+			<a routerLink="createCandidate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCandidate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #JobApplicationMenu="matMenu">
+			<a routerLink="createJobApplication">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexJobApplication">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InterviewMenu="matMenu">
+			<a routerLink="createInterview">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInterview">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ScreeningMenu="matMenu">
+			<a routerLink="createScreening">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexScreening">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OfferMenu="matMenu">
+			<a routerLink="createOffer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOffer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OnboardingTaskMenu="matMenu">
+			<a routerLink="createOnboardingTask">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOnboardingTask">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BackgroundCheckMenu="matMenu">
+			<a routerLink="createBackgroundCheck">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBackgroundCheck">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DocumentMenu="matMenu">
+			<a routerLink="createDocument">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDocument">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PolicyMenu="matMenu">
+			<a routerLink="createPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PolicyAcknowledgementMenu="matMenu">
+			<a routerLink="createPolicyAcknowledgement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPolicyAcknowledgement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TerminationMenu="matMenu">
+			<a routerLink="createTermination">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTermination">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WorkAuthorizationMenu="matMenu">
+			<a routerLink="createWorkAuthorization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWorkAuthorization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BankAccountMenu="matMenu">
+			<a routerLink="createBankAccount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBankAccount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

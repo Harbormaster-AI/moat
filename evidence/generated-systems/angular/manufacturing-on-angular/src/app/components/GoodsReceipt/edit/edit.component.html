@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>receiptNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="receiptNumber" name="goodsReceipt.receiptNumber" [(ngModel)]="goodsReceipt.receiptNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>receiptDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="receiptDate" name="goodsReceipt.receiptDate" [(ngModel)]="goodsReceipt.receiptDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PurchaseOrder</mat-label>
+					<mat-select placeholder="PurchaseOrder"   [compareWith]="compareFn"  [(ngModel)]="goodsReceipt.PurchaseOrder">
+						@for (purchaseOrder of purchaseOrders; track purchaseOrder.purchaseOrderId) {
+							<mat-option name="goodsReceipt.PurchaseOrder" ngDefaultControl
+							            [value]="purchaseOrder.purchaseOrderId">
+								{{purchaseOrder.poNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"   [compareWith]="compareFn"  [(ngModel)]="goodsReceipt.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="goodsReceipt.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple  [compareWith]="compareFn"  [(ngModel)]="goodsReceipt.Lines">
+						@for (goodsReceiptLine of goodsReceiptLines; track goodsReceiptLine.goodsReceiptLineId) {
+							<mat-option name="goodsReceipt.Lines" ngDefaultControl
+							            [value]="goodsReceiptLine.goodsReceiptLineId">
+								{{goodsReceiptLine.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="goodsReceipt.Status" [(ngModel)]="goodsReceipt.Status">
+							@for (ReceiptStatus of ReceiptStatuss; track ReceiptStatus) {
+								<mat-option ngDefaultControl [value]="ReceiptStatus">
+									{{ReceiptStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateGoodsReceipt(goodsReceipt.receiptNumber, goodsReceipt.receiptDate, goodsReceipt.PurchaseOrder, goodsReceipt.Warehouse, goodsReceipt.Lines, goodsReceipt.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

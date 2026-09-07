@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">CreativeVariation List</h5>
+
+    <a
+            [routerLink]="['/createCreativeVariation']"
+            class="btn btn-primary btn-sm">
+        Create CreativeVariation
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">language</th>
+                        <th scope="col">headline</th>
+                        <th scope="col">bodyText</th>
+                        <th scope="col">callToAction</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (creativeVariation of creativeVariations; track creativeVariation.creativeVariationId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ creativeVariation.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ creativeVariation.language }}
+                </td>
+                                <td class="align-middle">
+                    {{ creativeVariation.headline }}
+                </td>
+                                <td class="align-middle">
+                    {{ creativeVariation.bodyText }}
+                </td>
+                                <td class="align-middle">
+                    {{ creativeVariation.callToAction }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCreativeVariation', creativeVariation.creativeVariationId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCreativeVariation(creativeVariation.creativeVariationId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (creativeVariations?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No creativeVariations found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

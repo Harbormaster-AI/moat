@@ -1,0 +1,46 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<input matInput placeholder="quantityOnHand" name="inventoryItem.quantityOnHand" [(ngModel)]="inventoryItem.quantityOnHand">
+																																																																	<p>
+					 																																																																															<input matInput placeholder="quantityReserved" name="inventoryItem.quantityReserved" [(ngModel)]="inventoryItem.quantityReserved">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lotNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="lotNumber" name="inventoryItem.lotNumber" [(ngModel)]="inventoryItem.lotNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Component</mat-label>
+					<mat-select placeholder="Component"   [compareWith]="compareFn"  [(ngModel)]="inventoryItem.Component">
+						@for (component_ of component_s; track component_.component_Id) {
+							<mat-option name="inventoryItem.Component" ngDefaultControl
+							            [value]="component_.component_Id">
+								{{component_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"   [compareWith]="compareFn"  [(ngModel)]="inventoryItem.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="inventoryItem.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateInventoryItem(inventoryItem.quantityOnHand, inventoryItem.quantityReserved, inventoryItem.lotNumber, inventoryItem.Component, inventoryItem.Warehouse)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

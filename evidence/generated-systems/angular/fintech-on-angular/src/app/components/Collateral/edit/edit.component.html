@@ -1,0 +1,47 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="collateral.description" [(ngModel)]="collateral.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>value</mat-label>
+								<input matInput ngDefaultControl placeholder="value" name="collateral.value" [(ngModel)]="collateral.value">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Loan</mat-label>
+					<mat-select placeholder="Loan"   [compareWith]="compareFn"  [(ngModel)]="collateral.Loan">
+						@for (loan of loans; track loan.loanId) {
+							<mat-option name="collateral.Loan" ngDefaultControl
+							            [value]="loan.loanId">
+								{{loan.loanNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>CollateralType</mat-label>
+						<mat-select placeholder="CollateralType" name="collateral.CollateralType" [(ngModel)]="collateral.CollateralType">
+							@for (CollateralType of CollateralTypes; track CollateralType) {
+								<mat-option ngDefaultControl [value]="CollateralType">
+									{{CollateralType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateCollateral(collateral.description, collateral.value, collateral.Loan, collateral.CollateralType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

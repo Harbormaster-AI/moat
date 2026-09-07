@@ -1,0 +1,99 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>memberId</mat-label>
+								<input matInput ngDefaultControl placeholder="memberId" name="coverage.memberId" [(ngModel)]="coverage.memberId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>groupNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="groupNumber" name="coverage.groupNumber" [(ngModel)]="coverage.groupNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="coverage.effectiveDate" [(ngModel)]="coverage.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="coverage.endDate" [(ngModel)]="coverage.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="coverage.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="coverage.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plan</mat-label>
+					<mat-select placeholder="Plan"  [(ngModel)]="coverage.Plan">
+						@for (insurancePlan of insurancePlans; track insurancePlan.insurancePlanId) {
+							<mat-option name="coverage.Plan" ngDefaultControl
+							            [value]="insurancePlan.insurancePlanId">
+								{{insurancePlan.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Claims</mat-label>
+					<mat-select placeholder="Claims" multiple [(ngModel)]="coverage.Claims">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="coverage.Claims" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Authorizations</mat-label>
+					<mat-select placeholder="Authorizations" multiple [(ngModel)]="coverage.Authorizations">
+						@for (authorization of authorizations; track authorization.authorizationId) {
+							<mat-option name="coverage.Authorizations" ngDefaultControl
+							            [value]="authorization.authorizationId">
+								{{authorization.authNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>CoverageType</mat-label>
+						<mat-select placeholder="CoverageType" name="coverage.CoverageType" [(ngModel)]="coverage.CoverageType">
+							@for (CoverageType of CoverageTypes; track CoverageType) {
+								<mat-option ngDefaultControl [value]="CoverageType">
+									{{CoverageType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addCoverage(coverage.memberId, coverage.groupNumber, coverage.effectiveDate, coverage.endDate, coverage.Patient, coverage.Plan, coverage.Claims, coverage.Authorizations, coverage.CoverageType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

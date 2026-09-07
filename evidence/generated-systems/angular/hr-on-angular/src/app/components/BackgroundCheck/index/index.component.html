@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">BackgroundCheck List</h5>
+
+    <a
+            [routerLink]="['/createBackgroundCheck']"
+            class="btn btn-primary btn-sm">
+        Create BackgroundCheck
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">checkNumber</th>
+                        <th scope="col">provider</th>
+                        <th scope="col">completedDate</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (backgroundCheck of backgroundChecks; track backgroundCheck.backgroundCheckId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ backgroundCheck.checkNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ backgroundCheck.provider }}
+                </td>
+                                <td class="align-middle">
+                    {{ backgroundCheck.completedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ backgroundCheck.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadBackgroundCheck', backgroundCheck.backgroundCheckId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteBackgroundCheck(backgroundCheck.backgroundCheckId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (backgroundChecks?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No backgroundChecks found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,76 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="feeSchedule.name" [(ngModel)]="feeSchedule.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="feeSchedule.amount" [(ngModel)]="feeSchedule.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>percentage</mat-label>
+								<input matInput ngDefaultControl placeholder="percentage" name="feeSchedule.percentage" [(ngModel)]="feeSchedule.percentage">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>minimum</mat-label>
+								<input matInput ngDefaultControl placeholder="minimum" name="feeSchedule.minimum" [(ngModel)]="feeSchedule.minimum">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>maximum</mat-label>
+								<input matInput ngDefaultControl placeholder="maximum" name="feeSchedule.maximum" [(ngModel)]="feeSchedule.maximum">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>PricingPlan</mat-label>
+					<mat-select placeholder="PricingPlan"  [(ngModel)]="feeSchedule.PricingPlan">
+						@for (pricingPlan of pricingPlans; track pricingPlan.pricingPlanId) {
+							<mat-option name="feeSchedule.PricingPlan" ngDefaultControl
+							            [value]="pricingPlan.pricingPlanId">
+								{{pricingPlan.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>FeeType</mat-label>
+						<mat-select placeholder="FeeType" name="feeSchedule.FeeType" [(ngModel)]="feeSchedule.FeeType">
+							@for (FeeType of FeeTypes; track FeeType) {
+								<mat-option ngDefaultControl [value]="FeeType">
+									{{FeeType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>CalculationMethod</mat-label>
+						<mat-select placeholder="CalculationMethod" name="feeSchedule.CalculationMethod" [(ngModel)]="feeSchedule.CalculationMethod">
+							@for (FeeCalculationMethod of FeeCalculationMethods; track FeeCalculationMethod) {
+								<mat-option ngDefaultControl [value]="FeeCalculationMethod">
+									{{FeeCalculationMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																							 																							 										<button
+				(click)="addFeeSchedule(feeSchedule.name, feeSchedule.amount, feeSchedule.percentage, feeSchedule.minimum, feeSchedule.maximum, feeSchedule.PricingPlan, feeSchedule.FeeType, feeSchedule.CalculationMethod)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

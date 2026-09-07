@@ -1,0 +1,82 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="trackingPixel.name" [(ngModel)]="trackingPixel.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>url</mat-label>
+								<input matInput ngDefaultControl placeholder="url" name="trackingPixel.url" [(ngModel)]="trackingPixel.url">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"   [compareWith]="compareFn"  [(ngModel)]="trackingPixel.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="trackingPixel.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Advertiser</mat-label>
+					<mat-select placeholder="Advertiser"   [compareWith]="compareFn"  [(ngModel)]="trackingPixel.Advertiser">
+						@for (advertiser of advertisers; track advertiser.advertiserId) {
+							<mat-option name="trackingPixel.Advertiser" ngDefaultControl
+							            [value]="advertiser.advertiserId">
+								{{advertiser.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ConversionEvents</mat-label>
+					<mat-select placeholder="ConversionEvents" multiple  [compareWith]="compareFn"  [(ngModel)]="trackingPixel.ConversionEvents">
+						@for (conversionEvent of conversionEvents; track conversionEvent.conversionEventId) {
+							<mat-option name="trackingPixel.ConversionEvents" ngDefaultControl
+							            [value]="conversionEvent.conversionEventId">
+								{{conversionEvent.timestamp}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>EventType</mat-label>
+						<mat-select placeholder="EventType" name="trackingPixel.EventType" [(ngModel)]="trackingPixel.EventType">
+							@for (ConversionEventType of ConversionEventTypes; track ConversionEventType) {
+								<mat-option ngDefaultControl [value]="ConversionEventType">
+									{{ConversionEventType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PixelType</mat-label>
+						<mat-select placeholder="PixelType" name="trackingPixel.PixelType" [(ngModel)]="trackingPixel.PixelType">
+							@for (PixelType of PixelTypes; track PixelType) {
+								<mat-option ngDefaultControl [value]="PixelType">
+									{{PixelType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateTrackingPixel(trackingPixel.name, trackingPixel.url, trackingPixel.Campaign, trackingPixel.Advertiser, trackingPixel.ConversionEvents, trackingPixel.EventType, trackingPixel.PixelType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

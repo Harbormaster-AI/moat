@@ -1,0 +1,138 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>referenceNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="referenceNumber" name="reservation.referenceNumber" [(ngModel)]="reservation.referenceNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reservedQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="reservedQuantity" name="reservation.reservedQuantity" [(ngModel)]="reservation.reservedQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>promisedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="promisedDate" name="reservation.promisedDate" [(ngModel)]="reservation.promisedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"   [compareWith]="compareFn"  [(ngModel)]="reservation.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="reservation.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"   [compareWith]="compareFn"  [(ngModel)]="reservation.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="reservation.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"   [compareWith]="compareFn"  [(ngModel)]="reservation.Location">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="reservation.Location" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>InventoryItem</mat-label>
+					<mat-select placeholder="InventoryItem"   [compareWith]="compareFn"  [(ngModel)]="reservation.InventoryItem">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="reservation.InventoryItem" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"   [compareWith]="compareFn"  [(ngModel)]="reservation.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="reservation.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple  [compareWith]="compareFn"  [(ngModel)]="reservation.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="reservation.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>DemandSignal</mat-label>
+					<mat-select placeholder="DemandSignal"   [compareWith]="compareFn"  [(ngModel)]="reservation.DemandSignal">
+						@for (demandSignal of demandSignals; track demandSignal.demandSignalId) {
+							<mat-option name="reservation.DemandSignal" ngDefaultControl
+							            [value]="demandSignal.demandSignalId">
+								{{demandSignal.externalReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ReservationStatus</mat-label>
+						<mat-select placeholder="ReservationStatus" name="reservation.ReservationStatus" [(ngModel)]="reservation.ReservationStatus">
+							@for (ReservationStatus of ReservationStatuss; track ReservationStatus) {
+								<mat-option ngDefaultControl [value]="ReservationStatus">
+									{{ReservationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ReservationType</mat-label>
+						<mat-select placeholder="ReservationType" name="reservation.ReservationType" [(ngModel)]="reservation.ReservationType">
+							@for (ReservationType of ReservationTypes; track ReservationType) {
+								<mat-option ngDefaultControl [value]="ReservationType">
+									{{ReservationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateReservation(reservation.referenceNumber, reservation.reservedQuantity, reservation.promisedDate, reservation.Sku, reservation.Warehouse, reservation.Location, reservation.InventoryItem, reservation.Lot, reservation.SerialNumbers, reservation.DemandSignal, reservation.ReservationStatus, reservation.ReservationType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

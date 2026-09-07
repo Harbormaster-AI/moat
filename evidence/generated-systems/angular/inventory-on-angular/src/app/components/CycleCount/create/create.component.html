@@ -1,0 +1,99 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>countNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="countNumber" name="cycleCount.countNumber" [(ngModel)]="cycleCount.countNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>scheduledDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="scheduledDate" name="cycleCount.scheduledDate" [(ngModel)]="cycleCount.scheduledDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>performedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="performedDate" name="cycleCount.performedDate" [(ngModel)]="cycleCount.performedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>approvedBy</mat-label>
+								<input matInput ngDefaultControl placeholder="approvedBy" name="cycleCount.approvedBy" [(ngModel)]="cycleCount.approvedBy">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="cycleCount.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="cycleCount.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Locations</mat-label>
+					<mat-select placeholder="Locations" multiple [(ngModel)]="cycleCount.Locations">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="cycleCount.Locations" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Entries</mat-label>
+					<mat-select placeholder="Entries" multiple [(ngModel)]="cycleCount.Entries">
+						@for (cycleCountEntry of cycleCountEntrys; track cycleCountEntry.cycleCountEntryId) {
+							<mat-option name="cycleCount.Entries" ngDefaultControl
+							            [value]="cycleCountEntry.cycleCountEntryId">
+								{{cycleCountEntry.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple [(ngModel)]="cycleCount.Transactions">
+						@for (inventoryTransaction of inventoryTransactions; track inventoryTransaction.inventoryTransactionId) {
+							<mat-option name="cycleCount.Transactions" ngDefaultControl
+							            [value]="inventoryTransaction.inventoryTransactionId">
+								{{inventoryTransaction.transactionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="cycleCount.Status" [(ngModel)]="cycleCount.Status">
+							@for (CountStatus of CountStatuss; track CountStatus) {
+								<mat-option ngDefaultControl [value]="CountStatus">
+									{{CountStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addCycleCount(cycleCount.countNumber, cycleCount.scheduledDate, cycleCount.performedDate, cycleCount.approvedBy, cycleCount.Warehouse, cycleCount.Locations, cycleCount.Entries, cycleCount.Transactions, cycleCount.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

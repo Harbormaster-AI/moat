@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reference</mat-label>
+								<input matInput ngDefaultControl placeholder="reference" name="kYCDocument.reference" [(ngModel)]="kYCDocument.reference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>issuedCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="issuedCountry" name="kYCDocument.issuedCountry" [(ngModel)]="kYCDocument.issuedCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>expirationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="expirationDate" name="kYCDocument.expirationDate" [(ngModel)]="kYCDocument.expirationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>KycProfile</mat-label>
+					<mat-select placeholder="KycProfile"   [compareWith]="compareFn"  [(ngModel)]="kYCDocument.KycProfile">
+						@for (kYCProfile of kYCProfiles; track kYCProfile.kYCProfileId) {
+							<mat-option name="kYCDocument.KycProfile" ngDefaultControl
+							            [value]="kYCProfile.kYCProfileId">
+								{{kYCProfile.profileId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>DocumentType</mat-label>
+						<mat-select placeholder="DocumentType" name="kYCDocument.DocumentType" [(ngModel)]="kYCDocument.DocumentType">
+							@for (KYCDocumentType of KYCDocumentTypes; track KYCDocumentType) {
+								<mat-option ngDefaultControl [value]="KYCDocumentType">
+									{{KYCDocumentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="kYCDocument.Status" [(ngModel)]="kYCDocument.Status">
+							@for (DocumentStatus of DocumentStatuss; track DocumentStatus) {
+								<mat-option ngDefaultControl [value]="DocumentStatus">
+									{{DocumentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateKYCDocument(kYCDocument.reference, kYCDocument.issuedCountry, kYCDocument.expirationDate, kYCDocument.KycProfile, kYCDocument.DocumentType, kYCDocument.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

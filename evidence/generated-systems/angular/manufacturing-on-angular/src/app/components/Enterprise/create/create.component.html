@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="enterprise.name" [(ngModel)]="enterprise.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="enterprise.legalName" [(ngModel)]="enterprise.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>registrationCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="registrationCountry" name="enterprise.registrationCountry" [(ngModel)]="enterprise.registrationCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="enterprise.website" [(ngModel)]="enterprise.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>taxId</mat-label>
+								<input matInput ngDefaultControl placeholder="taxId" name="enterprise.taxId" [(ngModel)]="enterprise.taxId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>BusinessUnits</mat-label>
+					<mat-select placeholder="BusinessUnits" multiple [(ngModel)]="enterprise.BusinessUnits">
+						@for (businessUnit of businessUnits; track businessUnit.businessUnitId) {
+							<mat-option name="enterprise.BusinessUnits" ngDefaultControl
+							            [value]="businessUnit.businessUnitId">
+								{{businessUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Plants</mat-label>
+					<mat-select placeholder="Plants" multiple [(ngModel)]="enterprise.Plants">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="enterprise.Plants" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Suppliers</mat-label>
+					<mat-select placeholder="Suppliers" multiple [(ngModel)]="enterprise.Suppliers">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="enterprise.Suppliers" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Customers</mat-label>
+					<mat-select placeholder="Customers" multiple [(ngModel)]="enterprise.Customers">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="enterprise.Customers" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 										<button
+				(click)="addEnterprise(enterprise.name, enterprise.legalName, enterprise.registrationCountry, enterprise.website, enterprise.taxId, enterprise.BusinessUnits, enterprise.Plants, enterprise.Suppliers, enterprise.Customers)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

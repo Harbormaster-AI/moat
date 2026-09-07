@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="aircraftModel.name" [(ngModel)]="aircraftModel.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>modelDesignation</mat-label>
+								<input matInput ngDefaultControl placeholder="modelDesignation" name="aircraftModel.modelDesignation" [(ngModel)]="aircraftModel.modelDesignation">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Family</mat-label>
+					<mat-select placeholder="Family"  [(ngModel)]="aircraftModel.Family">
+						@for (aircraftFamily of aircraftFamilys; track aircraftFamily.aircraftFamilyId) {
+							<mat-option name="aircraftModel.Family" ngDefaultControl
+							            [value]="aircraftFamily.aircraftFamilyId">
+								{{aircraftFamily.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple [(ngModel)]="aircraftModel.Variants">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="aircraftModel.Variants" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>EngineTypes</mat-label>
+					<mat-select placeholder="EngineTypes" multiple [(ngModel)]="aircraftModel.EngineTypes">
+						@for (engineType of engineTypes; track engineType.engineTypeId) {
+							<mat-option name="aircraftModel.EngineTypes" ngDefaultControl
+							            [value]="engineType.engineTypeId">
+								{{engineType.engineModelCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>AircraftType</mat-label>
+						<mat-select placeholder="AircraftType" name="aircraftModel.AircraftType" [(ngModel)]="aircraftModel.AircraftType">
+							@for (AircraftType of AircraftTypes; track AircraftType) {
+								<mat-option ngDefaultControl [value]="AircraftType">
+									{{AircraftType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 										<button
+				(click)="addAircraftModel(aircraftModel.name, aircraftModel.modelDesignation, aircraftModel.Family, aircraftModel.Variants, aircraftModel.EngineTypes, aircraftModel.AircraftType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

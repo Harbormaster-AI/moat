@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>assetTag</mat-label>
+								<input matInput ngDefaultControl placeholder="assetTag" name="asset.assetTag" [(ngModel)]="asset.assetTag">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>assetName</mat-label>
+								<input matInput ngDefaultControl placeholder="assetName" name="asset.assetName" [(ngModel)]="asset.assetName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>commissioningDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="commissioningDate" name="asset.commissioningDate" [(ngModel)]="asset.commissioningDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"   [compareWith]="compareFn"  [(ngModel)]="asset.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="asset.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkCenter</mat-label>
+					<mat-select placeholder="WorkCenter"   [compareWith]="compareFn"  [(ngModel)]="asset.WorkCenter">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="asset.WorkCenter" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>MaintenanceOrders</mat-label>
+					<mat-select placeholder="MaintenanceOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="asset.MaintenanceOrders">
+						@for (maintenanceOrder of maintenanceOrders; track maintenanceOrder.maintenanceOrderId) {
+							<mat-option name="asset.MaintenanceOrders" ngDefaultControl
+							            [value]="maintenanceOrder.maintenanceOrderId">
+								{{maintenanceOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>MaintenancePlans</mat-label>
+					<mat-select placeholder="MaintenancePlans" multiple  [compareWith]="compareFn"  [(ngModel)]="asset.MaintenancePlans">
+						@for (maintenancePlan of maintenancePlans; track maintenancePlan.maintenancePlanId) {
+							<mat-option name="asset.MaintenancePlans" ngDefaultControl
+							            [value]="maintenancePlan.maintenancePlanId">
+								{{maintenancePlan.planNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AssetStatus</mat-label>
+						<mat-select placeholder="AssetStatus" name="asset.AssetStatus" [(ngModel)]="asset.AssetStatus">
+							@for (AssetStatus of AssetStatuss; track AssetStatus) {
+								<mat-option ngDefaultControl [value]="AssetStatus">
+									{{AssetStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAsset(asset.assetTag, asset.assetName, asset.commissioningDate, asset.Plant, asset.WorkCenter, asset.MaintenanceOrders, asset.MaintenancePlans, asset.AssetStatus)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

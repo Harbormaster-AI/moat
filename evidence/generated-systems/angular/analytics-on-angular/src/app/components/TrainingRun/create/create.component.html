@@ -1,0 +1,117 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>runLabel</mat-label>
+								<input matInput ngDefaultControl placeholder="runLabel" name="trainingRun.runLabel" [(ngModel)]="trainingRun.runLabel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>startedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startedAt" name="trainingRun.startedAt" [(ngModel)]="trainingRun.startedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>completedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="completedAt" name="trainingRun.completedAt" [(ngModel)]="trainingRun.completedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Experiment</mat-label>
+					<mat-select placeholder="Experiment"  [(ngModel)]="trainingRun.Experiment">
+						@for (experiment of experiments; track experiment.experimentId) {
+							<mat-option name="trainingRun.Experiment" ngDefaultControl
+							            [value]="experiment.experimentId">
+								{{experiment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ModelVersion</mat-label>
+					<mat-select placeholder="ModelVersion"  [(ngModel)]="trainingRun.ModelVersion">
+						@for (modelVersion of modelVersions; track modelVersion.modelVersionId) {
+							<mat-option name="trainingRun.ModelVersion" ngDefaultControl
+							            [value]="modelVersion.modelVersionId">
+								{{modelVersion.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InputDatasets</mat-label>
+					<mat-select placeholder="InputDatasets" multiple [(ngModel)]="trainingRun.InputDatasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="trainingRun.InputDatasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Features</mat-label>
+					<mat-select placeholder="Features" multiple [(ngModel)]="trainingRun.Features">
+						@for (feature of features; track feature.featureId) {
+							<mat-option name="trainingRun.Features" ngDefaultControl
+							            [value]="feature.featureId">
+								{{feature.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RunMetrics</mat-label>
+					<mat-select placeholder="RunMetrics" multiple [(ngModel)]="trainingRun.RunMetrics">
+						@for (runMetric of runMetrics; track runMetric.runMetricId) {
+							<mat-option name="trainingRun.RunMetrics" ngDefaultControl
+							            [value]="runMetric.runMetricId">
+								{{runMetric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RunParameters</mat-label>
+					<mat-select placeholder="RunParameters" multiple [(ngModel)]="trainingRun.RunParameters">
+						@for (runParameter of runParameters; track runParameter.runParameterId) {
+							<mat-option name="trainingRun.RunParameters" ngDefaultControl
+							            [value]="runParameter.runParameterId">
+								{{runParameter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="trainingRun.Status" [(ngModel)]="trainingRun.Status">
+							@for (TrainingStatus of TrainingStatuss; track TrainingStatus) {
+								<mat-option ngDefaultControl [value]="TrainingStatus">
+									{{TrainingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addTrainingRun(trainingRun.runLabel, trainingRun.startedAt, trainingRun.completedAt, trainingRun.Experiment, trainingRun.ModelVersion, trainingRun.InputDatasets, trainingRun.Features, trainingRun.RunMetrics, trainingRun.RunParameters, trainingRun.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

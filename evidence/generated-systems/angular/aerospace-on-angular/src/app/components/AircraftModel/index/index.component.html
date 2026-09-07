@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">AircraftModel List</h5>
+
+    <a
+            [routerLink]="['/createAircraftModel']"
+            class="btn btn-primary btn-sm">
+        Create AircraftModel
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">modelDesignation</th>
+                        <th scope="col">AircraftType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (aircraftModel of aircraftModels; track aircraftModel.aircraftModelId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ aircraftModel.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ aircraftModel.modelDesignation }}
+                </td>
+                                <td class="align-middle">
+                    {{ aircraftModel.AircraftType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAircraftModel', aircraftModel.aircraftModelId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAircraftModel(aircraftModel.aircraftModelId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (aircraftModels?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No aircraftModels found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

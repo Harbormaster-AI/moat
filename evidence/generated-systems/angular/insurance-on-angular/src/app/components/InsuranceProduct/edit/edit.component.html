@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="insuranceProduct.name" [(ngModel)]="insuranceProduct.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>productCode</mat-label>
+								<input matInput ngDefaultControl placeholder="productCode" name="insuranceProduct.productCode" [(ngModel)]="insuranceProduct.productCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Insurer</mat-label>
+					<mat-select placeholder="Insurer"   [compareWith]="compareFn"  [(ngModel)]="insuranceProduct.Insurer">
+						@for (insurer of insurers; track insurer.insurerId) {
+							<mat-option name="insuranceProduct.Insurer" ngDefaultControl
+							            [value]="insurer.insurerId">
+								{{insurer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CoverageDefinitions</mat-label>
+					<mat-select placeholder="CoverageDefinitions" multiple  [compareWith]="compareFn"  [(ngModel)]="insuranceProduct.CoverageDefinitions">
+						@for (coverageDefinition of coverageDefinitions; track coverageDefinition.coverageDefinitionId) {
+							<mat-option name="insuranceProduct.CoverageDefinitions" ngDefaultControl
+							            [value]="coverageDefinition.coverageDefinitionId">
+								{{coverageDefinition.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>LineOfBusiness</mat-label>
+						<mat-select placeholder="LineOfBusiness" name="insuranceProduct.LineOfBusiness" [(ngModel)]="insuranceProduct.LineOfBusiness">
+							@for (LineOfBusiness of LineOfBusinesss; track LineOfBusiness) {
+								<mat-option ngDefaultControl [value]="LineOfBusiness">
+									{{LineOfBusiness}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateInsuranceProduct(insuranceProduct.name, insuranceProduct.productCode, insuranceProduct.Insurer, insuranceProduct.CoverageDefinitions, insuranceProduct.LineOfBusiness)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

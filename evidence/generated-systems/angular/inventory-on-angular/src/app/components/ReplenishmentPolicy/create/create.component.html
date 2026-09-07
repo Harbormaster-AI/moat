@@ -1,0 +1,87 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>minLevel</mat-label>
+								<input matInput ngDefaultControl placeholder="minLevel" name="replenishmentPolicy.minLevel" [(ngModel)]="replenishmentPolicy.minLevel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>maxLevel</mat-label>
+								<input matInput ngDefaultControl placeholder="maxLevel" name="replenishmentPolicy.maxLevel" [(ngModel)]="replenishmentPolicy.maxLevel">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>reorderPoint</mat-label>
+								<input matInput ngDefaultControl placeholder="reorderPoint" name="replenishmentPolicy.reorderPoint" [(ngModel)]="replenishmentPolicy.reorderPoint">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>reorderQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="reorderQuantity" name="replenishmentPolicy.reorderQuantity" [(ngModel)]="replenishmentPolicy.reorderQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="leadTimeDays" name="replenishmentPolicy.leadTimeDays" [(ngModel)]="replenishmentPolicy.leadTimeDays">
+																																																																	<p>
+																																																																																				<input matInput placeholder="reviewPeriodDays" name="replenishmentPolicy.reviewPeriodDays" [(ngModel)]="replenishmentPolicy.reviewPeriodDays">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="replenishmentPolicy.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="replenishmentPolicy.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="replenishmentPolicy.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="replenishmentPolicy.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="replenishmentPolicy.Location">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="replenishmentPolicy.Location" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PolicyType</mat-label>
+						<mat-select placeholder="PolicyType" name="replenishmentPolicy.PolicyType" [(ngModel)]="replenishmentPolicy.PolicyType">
+							@for (ReplenishmentPolicyType of ReplenishmentPolicyTypes; track ReplenishmentPolicyType) {
+								<mat-option ngDefaultControl [value]="ReplenishmentPolicyType">
+									{{ReplenishmentPolicyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addReplenishmentPolicy(replenishmentPolicy.minLevel, replenishmentPolicy.maxLevel, replenishmentPolicy.reorderPoint, replenishmentPolicy.reorderQuantity, replenishmentPolicy.leadTimeDays, replenishmentPolicy.reviewPeriodDays, replenishmentPolicy.Sku, replenishmentPolicy.Warehouse, replenishmentPolicy.Location, replenishmentPolicy.PolicyType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

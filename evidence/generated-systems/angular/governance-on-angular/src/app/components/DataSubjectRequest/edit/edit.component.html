@@ -1,0 +1,92 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>receivedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="receivedDate" name="dataSubjectRequest.receivedDate" [(ngModel)]="dataSubjectRequest.receivedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="dataSubjectRequest.dueDate" [(ngModel)]="dataSubjectRequest.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>requesterCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="requesterCountry" name="dataSubjectRequest.requesterCountry" [(ngModel)]="dataSubjectRequest.requesterCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="dataSubjectRequest.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="dataSubjectRequest.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple  [compareWith]="compareFn"  [(ngModel)]="dataSubjectRequest.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="dataSubjectRequest.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Records</mat-label>
+					<mat-select placeholder="Records" multiple  [compareWith]="compareFn"  [(ngModel)]="dataSubjectRequest.Records">
+						@for (record_ of record_s; track record_.record_Id) {
+							<mat-option name="dataSubjectRequest.Records" ngDefaultControl
+							            [value]="record_.record_Id">
+								{{record_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>RequestType</mat-label>
+						<mat-select placeholder="RequestType" name="dataSubjectRequest.RequestType" [(ngModel)]="dataSubjectRequest.RequestType">
+							@for (DataSubjectRequestType of DataSubjectRequestTypes; track DataSubjectRequestType) {
+								<mat-option ngDefaultControl [value]="DataSubjectRequestType">
+									{{DataSubjectRequestType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="dataSubjectRequest.Status" [(ngModel)]="dataSubjectRequest.Status">
+							@for (RequestStatus of RequestStatuss; track RequestStatus) {
+								<mat-option ngDefaultControl [value]="RequestStatus">
+									{{RequestStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateDataSubjectRequest(dataSubjectRequest.receivedDate, dataSubjectRequest.dueDate, dataSubjectRequest.requesterCountry, dataSubjectRequest.Organization, dataSubjectRequest.ProcessingActivities, dataSubjectRequest.Records, dataSubjectRequest.RequestType, dataSubjectRequest.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

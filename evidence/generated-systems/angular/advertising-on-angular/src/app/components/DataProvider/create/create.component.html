@@ -1,0 +1,47 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="dataProvider.name" [(ngModel)]="dataProvider.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="dataProvider.website" [(ngModel)]="dataProvider.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>AudienceSegments</mat-label>
+					<mat-select placeholder="AudienceSegments" multiple [(ngModel)]="dataProvider.AudienceSegments">
+						@for (audienceSegment of audienceSegments; track audienceSegment.audienceSegmentId) {
+							<mat-option name="dataProvider.AudienceSegments" ngDefaultControl
+							            [value]="audienceSegment.audienceSegmentId">
+								{{audienceSegment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ProviderType</mat-label>
+						<mat-select placeholder="ProviderType" name="dataProvider.ProviderType" [(ngModel)]="dataProvider.ProviderType">
+							@for (DataProviderType of DataProviderTypes; track DataProviderType) {
+								<mat-option ngDefaultControl [value]="DataProviderType">
+									{{DataProviderType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																							 										<button
+				(click)="addDataProvider(dataProvider.name, dataProvider.website, dataProvider.AudienceSegments, dataProvider.ProviderType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

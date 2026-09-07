@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Diagnosis List</h5>
+
+    <a
+            [routerLink]="['/createDiagnosis']"
+            class="btn btn-primary btn-sm">
+        Create Diagnosis
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">code</th>
+                        <th scope="col">description</th>
+                        <th scope="col">onsetDate</th>
+                        <th scope="col">Certainty</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (diagnosis of diagnosiss; track diagnosis.diagnosisId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ diagnosis.code }}
+                </td>
+                                <td class="align-middle">
+                    {{ diagnosis.description }}
+                </td>
+                                <td class="align-middle">
+                    {{ diagnosis.onsetDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ diagnosis.Certainty }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadDiagnosis', diagnosis.diagnosisId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteDiagnosis(diagnosis.diagnosisId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (diagnosiss?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No diagnosiss found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

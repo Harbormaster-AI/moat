@@ -1,0 +1,52 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>sku</mat-label>
+								<input matInput ngDefaultControl placeholder="sku" name="inventoryItem.sku" [(ngModel)]="inventoryItem.sku">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="inventoryItem.name" [(ngModel)]="inventoryItem.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="quantityOnHand" name="inventoryItem.quantityOnHand" [(ngModel)]="inventoryItem.quantityOnHand">
+																																																																	<p>
+					 																																																																															<input matInput placeholder="quantityReserved" name="inventoryItem.quantityReserved" [(ngModel)]="inventoryItem.quantityReserved">
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="inventoryItem.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="inventoryItem.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"   [compareWith]="compareFn"  [(ngModel)]="inventoryItem.Supplier">
+						@for (medicalSupplier of medicalSuppliers; track medicalSupplier.medicalSupplierId) {
+							<mat-option name="inventoryItem.Supplier" ngDefaultControl
+							            [value]="medicalSupplier.medicalSupplierId">
+								{{medicalSupplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateInventoryItem(inventoryItem.sku, inventoryItem.name, inventoryItem.quantityOnHand, inventoryItem.quantityReserved, inventoryItem.Facility, inventoryItem.Supplier)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

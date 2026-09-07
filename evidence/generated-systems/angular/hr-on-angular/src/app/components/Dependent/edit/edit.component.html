@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="dependent.firstName" [(ngModel)]="dependent.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="dependent.lastName" [(ngModel)]="dependent.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>birthDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="birthDate" name="dependent.birthDate" [(ngModel)]="dependent.birthDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>BenefitEnrollment</mat-label>
+					<mat-select placeholder="BenefitEnrollment"   [compareWith]="compareFn"  [(ngModel)]="dependent.BenefitEnrollment">
+						@for (benefitEnrollment of benefitEnrollments; track benefitEnrollment.benefitEnrollmentId) {
+							<mat-option name="dependent.BenefitEnrollment" ngDefaultControl
+							            [value]="benefitEnrollment.benefitEnrollmentId">
+								{{benefitEnrollment.enrollmentId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="dependent.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="dependent.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Relationship</mat-label>
+						<mat-select placeholder="Relationship" name="dependent.Relationship" [(ngModel)]="dependent.Relationship">
+							@for (DependentRelationship of DependentRelationships; track DependentRelationship) {
+								<mat-option ngDefaultControl [value]="DependentRelationship">
+									{{DependentRelationship}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateDependent(dependent.firstName, dependent.lastName, dependent.birthDate, dependent.BenefitEnrollment, dependent.Employee, dependent.Relationship)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

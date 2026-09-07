@@ -1,0 +1,109 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="transferOrder.orderNumber" [(ngModel)]="transferOrder.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>requestedShipDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="requestedShipDate" name="transferOrder.requestedShipDate" [(ngModel)]="transferOrder.requestedShipDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>requestedReceiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="requestedReceiveDate" name="transferOrder.requestedReceiveDate" [(ngModel)]="transferOrder.requestedReceiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>shippedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="shippedDate" name="transferOrder.shippedDate" [(ngModel)]="transferOrder.shippedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>receivedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="receivedDate" name="transferOrder.receivedDate" [(ngModel)]="transferOrder.receivedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>OriginWarehouse</mat-label>
+					<mat-select placeholder="OriginWarehouse"  [(ngModel)]="transferOrder.OriginWarehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="transferOrder.OriginWarehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>DestinationWarehouse</mat-label>
+					<mat-select placeholder="DestinationWarehouse"  [(ngModel)]="transferOrder.DestinationWarehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="transferOrder.DestinationWarehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple [(ngModel)]="transferOrder.Lines">
+						@for (transferOrderLine of transferOrderLines; track transferOrderLine.transferOrderLineId) {
+							<mat-option name="transferOrder.Lines" ngDefaultControl
+							            [value]="transferOrderLine.transferOrderLineId">
+								{{transferOrderLine.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple [(ngModel)]="transferOrder.Transactions">
+						@for (inventoryTransaction of inventoryTransactions; track inventoryTransaction.inventoryTransactionId) {
+							<mat-option name="transferOrder.Transactions" ngDefaultControl
+							            [value]="inventoryTransaction.inventoryTransactionId">
+								{{inventoryTransaction.transactionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="transferOrder.Status" [(ngModel)]="transferOrder.Status">
+							@for (TransferOrderStatus of TransferOrderStatuss; track TransferOrderStatus) {
+								<mat-option ngDefaultControl [value]="TransferOrderStatus">
+									{{TransferOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addTransferOrder(transferOrder.orderNumber, transferOrder.requestedShipDate, transferOrder.requestedReceiveDate, transferOrder.shippedDate, transferOrder.receivedDate, transferOrder.OriginWarehouse, transferOrder.DestinationWarehouse, transferOrder.Lines, transferOrder.Transactions, transferOrder.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

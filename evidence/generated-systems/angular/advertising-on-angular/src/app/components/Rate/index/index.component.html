@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Rate List</h5>
+
+    <a
+            [routerLink]="['/createRate']"
+            class="btn btn-primary btn-sm">
+        Create Rate
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">unitPrice</th>
+                        <th scope="col">AdFormat</th>
+                        <th scope="col">PricingModel</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (rate of rates; track rate.rateId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ rate.unitPrice }}
+                </td>
+                                <td class="align-middle">
+                    {{ rate.AdFormat }}
+                </td>
+                                <td class="align-middle">
+                    {{ rate.PricingModel }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadRate', rate.rateId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteRate(rate.rateId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (rates?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No rates found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,163 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="dataSet.name" [(ngModel)]="dataSet.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>schemaVersion</mat-label>
+								<input matInput ngDefaultControl placeholder="schemaVersion" name="dataSet.schemaVersion" [(ngModel)]="dataSet.schemaVersion">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>refreshSchedule</mat-label>
+								<input matInput ngDefaultControl placeholder="refreshSchedule" name="dataSet.refreshSchedule" [(ngModel)]="dataSet.refreshSchedule">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="dataSet.Sensitive" ngDefaultControl [(ngModel)]="dataSet.Sensitive">Sensitive</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"  [(ngModel)]="dataSet.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="dataSet.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Sources</mat-label>
+					<mat-select placeholder="Sources" multiple [(ngModel)]="dataSet.Sources">
+						@for (dataSource of dataSources; track dataSource.dataSourceId) {
+							<mat-option name="dataSet.Sources" ngDefaultControl
+							            [value]="dataSource.dataSourceId">
+								{{dataSource.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Pipelines</mat-label>
+					<mat-select placeholder="Pipelines" multiple [(ngModel)]="dataSet.Pipelines">
+						@for (dataPipeline of dataPipelines; track dataPipeline.dataPipelineId) {
+							<mat-option name="dataSet.Pipelines" ngDefaultControl
+							            [value]="dataPipeline.dataPipelineId">
+								{{dataPipeline.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SemanticModels</mat-label>
+					<mat-select placeholder="SemanticModels" multiple [(ngModel)]="dataSet.SemanticModels">
+						@for (semanticModel of semanticModels; track semanticModel.semanticModelId) {
+							<mat-option name="dataSet.SemanticModels" ngDefaultControl
+							            [value]="semanticModel.semanticModelId">
+								{{semanticModel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Dimensions</mat-label>
+					<mat-select placeholder="Dimensions" multiple [(ngModel)]="dataSet.Dimensions">
+						@for (dimension of dimensions; track dimension.dimensionId) {
+							<mat-option name="dataSet.Dimensions" ngDefaultControl
+							            [value]="dimension.dimensionId">
+								{{dimension.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Measures</mat-label>
+					<mat-select placeholder="Measures" multiple [(ngModel)]="dataSet.Measures">
+						@for (measure of measures; track measure.measureId) {
+							<mat-option name="dataSet.Measures" ngDefaultControl
+							            [value]="measure.measureId">
+								{{measure.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Metrics</mat-label>
+					<mat-select placeholder="Metrics" multiple [(ngModel)]="dataSet.Metrics">
+						@for (metric of metrics; track metric.metricId) {
+							<mat-option name="dataSet.Metrics" ngDefaultControl
+							            [value]="metric.metricId">
+								{{metric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>QualityRules</mat-label>
+					<mat-select placeholder="QualityRules" multiple [(ngModel)]="dataSet.QualityRules">
+						@for (qualityRule of qualityRules; track qualityRule.qualityRuleId) {
+							<mat-option name="dataSet.QualityRules" ngDefaultControl
+							            [value]="qualityRule.qualityRuleId">
+								{{qualityRule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LineageNode</mat-label>
+					<mat-select placeholder="LineageNode"  [(ngModel)]="dataSet.LineageNode">
+						@for (lineageNode of lineageNodes; track lineageNode.lineageNodeId) {
+							<mat-option name="dataSet.LineageNode" ngDefaultControl
+							            [value]="lineageNode.lineageNodeId">
+								{{lineageNode.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Tags</mat-label>
+					<mat-select placeholder="Tags" multiple [(ngModel)]="dataSet.Tags">
+						@for (tag of tags; track tag.tagId) {
+							<mat-option name="dataSet.Tags" ngDefaultControl
+							            [value]="tag.tagId">
+								{{tag.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DataFormat</mat-label>
+						<mat-select placeholder="DataFormat" name="dataSet.DataFormat" [(ngModel)]="dataSet.DataFormat">
+							@for (DataFormat of DataFormats; track DataFormat) {
+								<mat-option ngDefaultControl [value]="DataFormat">
+									{{DataFormat}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																																																	 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addDataSet(dataSet.name, dataSet.schemaVersion, dataSet.refreshSchedule, dataSet.Sensitive == true ? true : false, dataSet.Workspace, dataSet.Sources, dataSet.Pipelines, dataSet.SemanticModels, dataSet.Dimensions, dataSet.Measures, dataSet.Metrics, dataSet.QualityRules, dataSet.LineageNode, dataSet.Tags, dataSet.DataFormat)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

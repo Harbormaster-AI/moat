@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Shift List</h5>
+
+    <a
+            [routerLink]="['/createShift']"
+            class="btn btn-primary btn-sm">
+        Create Shift
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">shiftName</th>
+                        <th scope="col">startTime</th>
+                        <th scope="col">endTime</th>
+                        <th scope="col">ShiftType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (shift of shifts; track shift.shiftId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ shift.shiftName }}
+                </td>
+                                <td class="align-middle">
+                    {{ shift.startTime }}
+                </td>
+                                <td class="align-middle">
+                    {{ shift.endTime }}
+                </td>
+                                <td class="align-middle">
+                    {{ shift.ShiftType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadShift', shift.shiftId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteShift(shift.shiftId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (shifts?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No shifts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

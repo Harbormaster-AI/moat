@@ -1,0 +1,42 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>specCode</mat-label>
+								<input matInput ngDefaultControl placeholder="specCode" name="qualitySpecification.specCode" [(ngModel)]="qualitySpecification.specCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="qualitySpecification.name" [(ngModel)]="qualitySpecification.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>version</mat-label>
+								<input matInput ngDefaultControl placeholder="version" name="qualitySpecification.version" [(ngModel)]="qualitySpecification.version">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"  [(ngModel)]="qualitySpecification.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="qualitySpecification.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 										<button
+				(click)="addQualitySpecification(qualitySpecification.specCode, qualitySpecification.name, qualitySpecification.version, qualitySpecification.Item)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

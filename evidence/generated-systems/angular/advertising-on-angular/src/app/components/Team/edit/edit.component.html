@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="team.name" [(ngModel)]="team.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Agency</mat-label>
+					<mat-select placeholder="Agency"   [compareWith]="compareFn"  [(ngModel)]="team.Agency">
+						@for (agency of agencys; track agency.agencyId) {
+							<mat-option name="team.Agency" ngDefaultControl
+							            [value]="agency.agencyId">
+								{{agency.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Users</mat-label>
+					<mat-select placeholder="Users" multiple  [compareWith]="compareFn"  [(ngModel)]="team.Users">
+						@for (user of users; track user.userId) {
+							<mat-option name="team.Users" ngDefaultControl
+							            [value]="user.userId">
+								{{user.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>AdAccounts</mat-label>
+					<mat-select placeholder="AdAccounts" multiple  [compareWith]="compareFn"  [(ngModel)]="team.AdAccounts">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="team.AdAccounts" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateTeam(team.name, team.Agency, team.Users, team.AdAccounts)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

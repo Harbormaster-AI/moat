@@ -1,0 +1,62 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>policyNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="policyNumber" name="policy.policyNumber" [(ngModel)]="policy.policyNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="policy.name" [(ngModel)]="policy.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="policy.effectiveDate" [(ngModel)]="policy.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="policy.description" [(ngModel)]="policy.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="policy.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="policy.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Acknowledgements</mat-label>
+					<mat-select placeholder="Acknowledgements" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Acknowledgements">
+						@for (policyAcknowledgement of policyAcknowledgements; track policyAcknowledgement.policyAcknowledgementId) {
+							<mat-option name="policy.Acknowledgements" ngDefaultControl
+							            [value]="policyAcknowledgement.policyAcknowledgementId">
+								{{policyAcknowledgement.acknowledgementDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updatePolicy(policy.policyNumber, policy.name, policy.effectiveDate, policy.description, policy.Organization, policy.Acknowledgements)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

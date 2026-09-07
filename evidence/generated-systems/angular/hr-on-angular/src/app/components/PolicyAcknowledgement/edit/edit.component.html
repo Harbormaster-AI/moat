@@ -1,0 +1,55 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>acknowledgementDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="acknowledgementDate" name="policyAcknowledgement.acknowledgementDate" [(ngModel)]="policyAcknowledgement.acknowledgementDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="policyAcknowledgement.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="policyAcknowledgement.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="policyAcknowledgement.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="policyAcknowledgement.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="policyAcknowledgement.Status" [(ngModel)]="policyAcknowledgement.Status">
+							@for (AcknowledgementStatus of AcknowledgementStatuss; track AcknowledgementStatus) {
+								<mat-option ngDefaultControl [value]="AcknowledgementStatus">
+									{{AcknowledgementStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																	 						 										<button
+				(click)="updatePolicyAcknowledgement(policyAcknowledgement.acknowledgementDate, policyAcknowledgement.Policy, policyAcknowledgement.Employee, policyAcknowledgement.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

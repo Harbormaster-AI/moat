@@ -1,0 +1,50 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>baseCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="baseCurrency" name="exchangeRate.baseCurrency" [(ngModel)]="exchangeRate.baseCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quoteCurrency</mat-label>
+								<input matInput ngDefaultControl placeholder="quoteCurrency" name="exchangeRate.quoteCurrency" [(ngModel)]="exchangeRate.quoteCurrency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>rate</mat-label>
+								<input matInput ngDefaultControl placeholder="rate" name="exchangeRate.rate" [(ngModel)]="exchangeRate.rate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="exchangeRate.asOf" class="form-control" name="exchangeRate.asOf" #exchangeRate.asOf ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>source</mat-label>
+								<input matInput ngDefaultControl placeholder="source" name="exchangeRate.source" [(ngModel)]="exchangeRate.source">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>UsedByQuotes</mat-label>
+					<mat-select placeholder="UsedByQuotes" multiple [(ngModel)]="exchangeRate.UsedByQuotes">
+						@for (fXQuote of fXQuotes; track fXQuote.fXQuoteId) {
+							<mat-option name="exchangeRate.UsedByQuotes" ngDefaultControl
+							            [value]="fXQuote.fXQuoteId">
+								{{fXQuote.baseCurrency}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																							 																										 										<button
+				(click)="addExchangeRate(exchangeRate.baseCurrency, exchangeRate.quoteCurrency, exchangeRate.rate, exchangeRate.asOf, exchangeRate.source, exchangeRate.UsedByQuotes)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

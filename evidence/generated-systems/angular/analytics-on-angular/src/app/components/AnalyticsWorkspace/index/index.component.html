@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">AnalyticsWorkspace List</h5>
+
+    <a
+            [routerLink]="['/createAnalyticsWorkspace']"
+            class="btn btn-primary btn-sm">
+        Create AnalyticsWorkspace
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">businessDomain</th>
+                        <th scope="col">ownerTeam</th>
+                        <th scope="col">GovernanceTier</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ analyticsWorkspace.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ analyticsWorkspace.businessDomain }}
+                </td>
+                                <td class="align-middle">
+                    {{ analyticsWorkspace.ownerTeam }}
+                </td>
+                                <td class="align-middle">
+                    {{ analyticsWorkspace.GovernanceTier }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAnalyticsWorkspace', analyticsWorkspace.analyticsWorkspaceId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAnalyticsWorkspace(analyticsWorkspace.analyticsWorkspaceId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (analyticsWorkspaces?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No analyticsWorkspaces found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

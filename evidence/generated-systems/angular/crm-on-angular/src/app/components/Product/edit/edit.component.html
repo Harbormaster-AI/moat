@@ -1,0 +1,120 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>sku</mat-label>
+								<input matInput ngDefaultControl placeholder="sku" name="product.sku" [(ngModel)]="product.sku">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="product.name" [(ngModel)]="product.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="product.asActive" ngDefaultControl [(ngModel)]="product.asActive">asActive</mat-checkbox>
+																																																								<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>standardPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="standardPrice" name="product.standardPrice" [(ngModel)]="product.standardPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="product.description" [(ngModel)]="product.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="product.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="product.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PriceBookEntries</mat-label>
+					<mat-select placeholder="PriceBookEntries" multiple  [compareWith]="compareFn"  [(ngModel)]="product.PriceBookEntries">
+						@for (priceBookEntry of priceBookEntrys; track priceBookEntry.priceBookEntryId) {
+							<mat-option name="product.PriceBookEntries" ngDefaultControl
+							            [value]="priceBookEntry.priceBookEntryId">
+								{{priceBookEntry.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>OpportunityLineItems</mat-label>
+					<mat-select placeholder="OpportunityLineItems" multiple  [compareWith]="compareFn"  [(ngModel)]="product.OpportunityLineItems">
+						@for (opportunityLineItem of opportunityLineItems; track opportunityLineItem.opportunityLineItemId) {
+							<mat-option name="product.OpportunityLineItems" ngDefaultControl
+							            [value]="opportunityLineItem.opportunityLineItemId">
+								{{opportunityLineItem.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>QuoteLineItems</mat-label>
+					<mat-select placeholder="QuoteLineItems" multiple  [compareWith]="compareFn"  [(ngModel)]="product.QuoteLineItems">
+						@for (quoteLineItem of quoteLineItems; track quoteLineItem.quoteLineItemId) {
+							<mat-option name="product.QuoteLineItems" ngDefaultControl
+							            [value]="quoteLineItem.quoteLineItemId">
+								{{quoteLineItem.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>OrderItems</mat-label>
+					<mat-select placeholder="OrderItems" multiple  [compareWith]="compareFn"  [(ngModel)]="product.OrderItems">
+						@for (orderItem of orderItems; track orderItem.orderItemId) {
+							<mat-option name="product.OrderItems" ngDefaultControl
+							            [value]="orderItem.orderItemId">
+								{{orderItem.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ProductType</mat-label>
+						<mat-select placeholder="ProductType" name="product.ProductType" [(ngModel)]="product.ProductType">
+							@for (ProductType of ProductTypes; track ProductType) {
+								<mat-option ngDefaultControl [value]="ProductType">
+									{{ProductType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Uom</mat-label>
+						<mat-select placeholder="Uom" name="product.Uom" [(ngModel)]="product.Uom">
+							@for (UnitOfMeasure of UnitOfMeasures; track UnitOfMeasure) {
+								<mat-option ngDefaultControl [value]="UnitOfMeasure">
+									{{UnitOfMeasure}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 																							 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateProduct(product.sku, product.name, product.asActive == true ? true : false, product.standardPrice, product.description, product.Organization, product.PriceBookEntries, product.OpportunityLineItems, product.QuoteLineItems, product.OrderItems, product.ProductType, product.Uom)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

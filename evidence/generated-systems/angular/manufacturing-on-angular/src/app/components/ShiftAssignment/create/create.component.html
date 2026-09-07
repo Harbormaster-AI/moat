@@ -1,0 +1,56 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>assignmentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="assignmentDate" name="shiftAssignment.assignmentDate" [(ngModel)]="shiftAssignment.assignmentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Shift</mat-label>
+					<mat-select placeholder="Shift"  [(ngModel)]="shiftAssignment.Shift">
+						@for (shift of shifts; track shift.shiftId) {
+							<mat-option name="shiftAssignment.Shift" ngDefaultControl
+							            [value]="shift.shiftId">
+								{{shift.shiftName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="shiftAssignment.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="shiftAssignment.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkCenter</mat-label>
+					<mat-select placeholder="WorkCenter"  [(ngModel)]="shiftAssignment.WorkCenter">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="shiftAssignment.WorkCenter" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																										 																										 																										 										<button
+				(click)="addShiftAssignment(shiftAssignment.assignmentDate, shiftAssignment.Shift, shiftAssignment.Employee, shiftAssignment.WorkCenter)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

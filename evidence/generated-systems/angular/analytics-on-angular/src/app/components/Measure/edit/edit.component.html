@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="measure.name" [(ngModel)]="measure.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>format</mat-label>
+								<input matInput ngDefaultControl placeholder="format" name="measure.format" [(ngModel)]="measure.format">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>SemanticModel</mat-label>
+					<mat-select placeholder="SemanticModel"   [compareWith]="compareFn"  [(ngModel)]="measure.SemanticModel">
+						@for (semanticModel of semanticModels; track semanticModel.semanticModelId) {
+							<mat-option name="measure.SemanticModel" ngDefaultControl
+							            [value]="semanticModel.semanticModelId">
+								{{semanticModel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple  [compareWith]="compareFn"  [(ngModel)]="measure.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="measure.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>GlossaryTerms</mat-label>
+					<mat-select placeholder="GlossaryTerms" multiple  [compareWith]="compareFn"  [(ngModel)]="measure.GlossaryTerms">
+						@for (businessGlossaryTerm of businessGlossaryTerms; track businessGlossaryTerm.businessGlossaryTermId) {
+							<mat-option name="measure.GlossaryTerms" ngDefaultControl
+							            [value]="businessGlossaryTerm.businessGlossaryTermId">
+								{{businessGlossaryTerm.term}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Aggregation</mat-label>
+						<mat-select placeholder="Aggregation" name="measure.Aggregation" [(ngModel)]="measure.Aggregation">
+							@for (AggregationType of AggregationTypes; track AggregationType) {
+								<mat-option ngDefaultControl [value]="AggregationType">
+									{{AggregationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateMeasure(measure.name, measure.format, measure.SemanticModel, measure.Datasets, measure.GlossaryTerms, measure.Aggregation)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

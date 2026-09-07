@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">BenefitPlan List</h5>
+
+    <a
+            [routerLink]="['/createBenefitPlan']"
+            class="btn btn-primary btn-sm">
+        Create BenefitPlan
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">providerName</th>
+                        <th scope="col">employeeContributionRate</th>
+                        <th scope="col">employerContributionRate</th>
+                        <th scope="col">eligibilityRules</th>
+                        <th scope="col">BenefitType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (benefitPlan of benefitPlans; track benefitPlan.benefitPlanId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ benefitPlan.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitPlan.providerName }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitPlan.employeeContributionRate }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitPlan.employerContributionRate }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitPlan.eligibilityRules }}
+                </td>
+                                <td class="align-middle">
+                    {{ benefitPlan.BenefitType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadBenefitPlan', benefitPlan.benefitPlanId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteBenefitPlan(benefitPlan.benefitPlanId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (benefitPlans?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No benefitPlans found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

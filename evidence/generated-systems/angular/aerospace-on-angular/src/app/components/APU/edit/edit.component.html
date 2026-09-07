@@ -1,0 +1,42 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>model_</mat-label>
+								<input matInput ngDefaultControl placeholder="model_" name="aPU.model_" [(ngModel)]="aPU.model_">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"   [compareWith]="compareFn"  [(ngModel)]="aPU.Supplier">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="aPU.Supplier" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple  [compareWith]="compareFn"  [(ngModel)]="aPU.Variants">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="aPU.Variants" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																				 						 																				 						 										<button
+				(click)="updateAPU(aPU.model_, aPU.Supplier, aPU.Variants)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">User List</h5>
+
+    <a
+            [routerLink]="['/createUser']"
+            class="btn btn-primary btn-sm">
+        Create User
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">firstName</th>
+                        <th scope="col">lastName</th>
+                        <th scope="col">email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (user of users; track user.userId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ user.firstName }}
+                </td>
+                                <td class="align-middle">
+                    {{ user.lastName }}
+                </td>
+                                <td class="align-middle">
+                    {{ user.email }}
+                </td>
+                                <td class="align-middle">
+                    {{ user.Role }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadUser', user.userId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteUser(user.userId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (users?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No users found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

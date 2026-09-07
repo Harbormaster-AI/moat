@@ -1,0 +1,56 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>date</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="date" name="scheduleException.date" [(ngModel)]="scheduleException.date">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>reason</mat-label>
+								<input matInput ngDefaultControl placeholder="reason" name="scheduleException.reason" [(ngModel)]="scheduleException.reason">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>hours</mat-label>
+								<input matInput ngDefaultControl placeholder="hours" name="scheduleException.hours" [(ngModel)]="scheduleException.hours">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkSchedule</mat-label>
+					<mat-select placeholder="WorkSchedule"  [(ngModel)]="scheduleException.WorkSchedule">
+						@for (workSchedule of workSchedules; track workSchedule.workScheduleId) {
+							<mat-option name="scheduleException.WorkSchedule" ngDefaultControl
+							            [value]="workSchedule.workScheduleId">
+								{{workSchedule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="scheduleException.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="scheduleException.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 										<button
+				(click)="addScheduleException(scheduleException.date, scheduleException.reason, scheduleException.hours, scheduleException.WorkSchedule, scheduleException.Employee)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,184 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>caseNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="caseNumber" name="case_.caseNumber" [(ngModel)]="case_.caseNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>subject</mat-label>
+								<input matInput ngDefaultControl placeholder="subject" name="case_.subject" [(ngModel)]="case_.subject">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="case_.description" [(ngModel)]="case_.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="case_.slaDue" class="form-control" name="case_.slaDue" #case_.slaDue ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="case_.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="case_.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="case_.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="case_.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Contact</mat-label>
+					<mat-select placeholder="Contact"   [compareWith]="compareFn"  [(ngModel)]="case_.Contact">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="case_.Contact" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"   [compareWith]="compareFn"  [(ngModel)]="case_.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="case_.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Team</mat-label>
+					<mat-select placeholder="Team"   [compareWith]="compareFn"  [(ngModel)]="case_.Team">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="case_.Team" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple  [compareWith]="compareFn"  [(ngModel)]="case_.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="case_.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CaseComments</mat-label>
+					<mat-select placeholder="CaseComments" multiple  [compareWith]="compareFn"  [(ngModel)]="case_.CaseComments">
+						@for (note of notes; track note.noteId) {
+							<mat-option name="case_.CaseComments" ngDefaultControl
+							            [value]="note.noteId">
+								{{note.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Emails</mat-label>
+					<mat-select placeholder="Emails" multiple  [compareWith]="compareFn"  [(ngModel)]="case_.Emails">
+						@for (emailMessage of emailMessages; track emailMessage.emailMessageId) {
+							<mat-option name="case_.Emails" ngDefaultControl
+							            [value]="emailMessage.emailMessageId">
+								{{emailMessage.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>RelatedOpportunities</mat-label>
+					<mat-select placeholder="RelatedOpportunities" multiple  [compareWith]="compareFn"  [(ngModel)]="case_.RelatedOpportunities">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="case_.RelatedOpportunities" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="case_.Status" [(ngModel)]="case_.Status">
+							@for (CaseStatus of CaseStatuss; track CaseStatus) {
+								<mat-option ngDefaultControl [value]="CaseStatus">
+									{{CaseStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="case_.Priority" [(ngModel)]="case_.Priority">
+							@for (CasePriority of CasePrioritys; track CasePriority) {
+								<mat-option ngDefaultControl [value]="CasePriority">
+									{{CasePriority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Origin</mat-label>
+						<mat-select placeholder="Origin" name="case_.Origin" [(ngModel)]="case_.Origin">
+							@for (CaseOrigin of CaseOrigins; track CaseOrigin) {
+								<mat-option ngDefaultControl [value]="CaseOrigin">
+									{{CaseOrigin}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="case_.Severity" [(ngModel)]="case_.Severity">
+							@for (CaseSeverity of CaseSeveritys; track CaseSeverity) {
+								<mat-option ngDefaultControl [value]="CaseSeverity">
+									{{CaseSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateCase_(case_.caseNumber, case_.subject, case_.description, case_.slaDue, case_.Organization, case_.Account, case_.Contact, case_.Owner, case_.Team, case_.Activities, case_.CaseComments, case_.Emails, case_.RelatedOpportunities, case_.Status, case_.Priority, case_.Origin, case_.Severity)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

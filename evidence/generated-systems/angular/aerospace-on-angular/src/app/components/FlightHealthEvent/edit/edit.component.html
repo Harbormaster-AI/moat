@@ -1,0 +1,41 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>eventCode</mat-label>
+								<input matInput ngDefaultControl placeholder="eventCode" name="flightHealthEvent.eventCode" [(ngModel)]="flightHealthEvent.eventCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ConnectedAircraft</mat-label>
+					<mat-select placeholder="ConnectedAircraft"   [compareWith]="compareFn"  [(ngModel)]="flightHealthEvent.ConnectedAircraft">
+						@for (connectedAircraft of connectedAircrafts; track connectedAircraft.connectedAircraftId) {
+							<mat-option name="flightHealthEvent.ConnectedAircraft" ngDefaultControl
+							            [value]="connectedAircraft.connectedAircraftId">
+								{{connectedAircraft.communicationsProvider}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="flightHealthEvent.Severity" [(ngModel)]="flightHealthEvent.Severity">
+							@for (EventSeverity of EventSeveritys; track EventSeverity) {
+								<mat-option ngDefaultControl [value]="EventSeverity">
+									{{EventSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																	 						 										<button
+				(click)="updateFlightHealthEvent(flightHealthEvent.eventCode, flightHealthEvent.ConnectedAircraft, flightHealthEvent.Severity)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

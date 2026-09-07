@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="compliancePolicy.name" [(ngModel)]="compliancePolicy.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>policyCode</mat-label>
+								<input matInput ngDefaultControl placeholder="policyCode" name="compliancePolicy.policyCode" [(ngModel)]="compliancePolicy.policyCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="compliancePolicy.description" [(ngModel)]="compliancePolicy.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Institution</mat-label>
+					<mat-select placeholder="Institution"   [compareWith]="compareFn"  [(ngModel)]="compliancePolicy.Institution">
+						@for (financialInstitution of financialInstitutions; track financialInstitution.financialInstitutionId) {
+							<mat-option name="compliancePolicy.Institution" ngDefaultControl
+							            [value]="financialInstitution.financialInstitutionId">
+								{{financialInstitution.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="compliancePolicy.Status" [(ngModel)]="compliancePolicy.Status">
+							@for (PolicyStatus of PolicyStatuss; track PolicyStatus) {
+								<mat-option ngDefaultControl [value]="PolicyStatus">
+									{{PolicyStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateCompliancePolicy(compliancePolicy.name, compliancePolicy.policyCode, compliancePolicy.description, compliancePolicy.Institution, compliancePolicy.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>poNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="poNumber" name="purchaseOrder.poNumber" [(ngModel)]="purchaseOrder.poNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>orderDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="orderDate" name="purchaseOrder.orderDate" [(ngModel)]="purchaseOrder.orderDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="purchaseOrder.totalAmount" [(ngModel)]="purchaseOrder.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"   [compareWith]="compareFn"  [(ngModel)]="purchaseOrder.Supplier">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="purchaseOrder.Supplier" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"   [compareWith]="compareFn"  [(ngModel)]="purchaseOrder.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="purchaseOrder.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple  [compareWith]="compareFn"  [(ngModel)]="purchaseOrder.Lines">
+						@for (purchaseOrderLine of purchaseOrderLines; track purchaseOrderLine.purchaseOrderLineId) {
+							<mat-option name="purchaseOrder.Lines" ngDefaultControl
+							            [value]="purchaseOrderLine.purchaseOrderLineId">
+								{{purchaseOrderLine.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>GoodsReceipts</mat-label>
+					<mat-select placeholder="GoodsReceipts" multiple  [compareWith]="compareFn"  [(ngModel)]="purchaseOrder.GoodsReceipts">
+						@for (goodsReceipt of goodsReceipts; track goodsReceipt.goodsReceiptId) {
+							<mat-option name="purchaseOrder.GoodsReceipts" ngDefaultControl
+							            [value]="goodsReceipt.goodsReceiptId">
+								{{goodsReceipt.receiptNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="purchaseOrder.Status" [(ngModel)]="purchaseOrder.Status">
+							@for (PurchaseOrderStatus of PurchaseOrderStatuss; track PurchaseOrderStatus) {
+								<mat-option ngDefaultControl [value]="PurchaseOrderStatus">
+									{{PurchaseOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updatePurchaseOrder(purchaseOrder.poNumber, purchaseOrder.orderDate, purchaseOrder.totalAmount, purchaseOrder.Supplier, purchaseOrder.Plant, purchaseOrder.Lines, purchaseOrder.GoodsReceipts, purchaseOrder.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

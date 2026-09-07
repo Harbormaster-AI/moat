@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="territory.name" [(ngModel)]="territory.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>region</mat-label>
+								<input matInput ngDefaultControl placeholder="region" name="territory.region" [(ngModel)]="territory.region">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="territory.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="territory.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Accounts</mat-label>
+					<mat-select placeholder="Accounts" multiple [(ngModel)]="territory.Accounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="territory.Accounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Users</mat-label>
+					<mat-select placeholder="Users" multiple [(ngModel)]="territory.Users">
+						@for (user of users; track user.userId) {
+							<mat-option name="territory.Users" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>TerritoryType</mat-label>
+						<mat-select placeholder="TerritoryType" name="territory.TerritoryType" [(ngModel)]="territory.TerritoryType">
+							@for (TerritoryType of TerritoryTypes; track TerritoryType) {
+								<mat-option ngDefaultControl [value]="TerritoryType">
+									{{TerritoryType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 										<button
+				(click)="addTerritory(territory.name, territory.region, territory.Organization, territory.Accounts, territory.Users, territory.TerritoryType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

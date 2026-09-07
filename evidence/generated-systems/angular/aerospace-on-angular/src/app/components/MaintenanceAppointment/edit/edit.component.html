@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>appointmentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="appointmentDate" name="maintenanceAppointment.appointmentDate" [(ngModel)]="maintenanceAppointment.appointmentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Aircraft</mat-label>
+					<mat-select placeholder="Aircraft"   [compareWith]="compareFn"  [(ngModel)]="maintenanceAppointment.Aircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="maintenanceAppointment.Aircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>MroFacility</mat-label>
+					<mat-select placeholder="MroFacility"   [compareWith]="compareFn"  [(ngModel)]="maintenanceAppointment.MroFacility">
+						@for (mROFacility of mROFacilitys; track mROFacility.mROFacilityId) {
+							<mat-option name="maintenanceAppointment.MroFacility" ngDefaultControl
+							            [value]="mROFacility.mROFacilityId">
+								{{mROFacility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkOrder</mat-label>
+					<mat-select placeholder="WorkOrder"   [compareWith]="compareFn"  [(ngModel)]="maintenanceAppointment.WorkOrder">
+						@for (maintenanceWorkOrder of maintenanceWorkOrders; track maintenanceWorkOrder.maintenanceWorkOrderId) {
+							<mat-option name="maintenanceAppointment.WorkOrder" ngDefaultControl
+							            [value]="maintenanceWorkOrder.maintenanceWorkOrderId">
+								{{maintenanceWorkOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="maintenanceAppointment.Status" [(ngModel)]="maintenanceAppointment.Status">
+							@for (AppointmentStatus of AppointmentStatuss; track AppointmentStatus) {
+								<mat-option ngDefaultControl [value]="AppointmentStatus">
+									{{AppointmentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateMaintenanceAppointment(maintenanceAppointment.appointmentDate, maintenanceAppointment.Aircraft, maintenanceAppointment.MroFacility, maintenanceAppointment.WorkOrder, maintenanceAppointment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

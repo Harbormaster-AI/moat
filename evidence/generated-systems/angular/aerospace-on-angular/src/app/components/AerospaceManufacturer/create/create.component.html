@@ -1,0 +1,84 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="aerospaceManufacturer.name" [(ngModel)]="aerospaceManufacturer.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="aerospaceManufacturer.legalName" [(ngModel)]="aerospaceManufacturer.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>headquartersCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="headquartersCountry" name="aerospaceManufacturer.headquartersCountry" [(ngModel)]="aerospaceManufacturer.headquartersCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="aerospaceManufacturer.website" [(ngModel)]="aerospaceManufacturer.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Programs</mat-label>
+					<mat-select placeholder="Programs" multiple [(ngModel)]="aerospaceManufacturer.Programs">
+						@for (aircraftProgram of aircraftPrograms; track aircraftProgram.aircraftProgramId) {
+							<mat-option name="aerospaceManufacturer.Programs" ngDefaultControl
+							            [value]="aircraftProgram.aircraftProgramId">
+								{{aircraftProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Plants</mat-label>
+					<mat-select placeholder="Plants" multiple [(ngModel)]="aerospaceManufacturer.Plants">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="aerospaceManufacturer.Plants" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Suppliers</mat-label>
+					<mat-select placeholder="Suppliers" multiple [(ngModel)]="aerospaceManufacturer.Suppliers">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="aerospaceManufacturer.Suppliers" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProductionCertificates</mat-label>
+					<mat-select placeholder="ProductionCertificates" multiple [(ngModel)]="aerospaceManufacturer.ProductionCertificates">
+						@for (productionCertificate of productionCertificates; track productionCertificate.productionCertificateId) {
+							<mat-option name="aerospaceManufacturer.ProductionCertificates" ngDefaultControl
+							            [value]="productionCertificate.productionCertificateId">
+								{{productionCertificate.certificateNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 										<button
+				(click)="addAerospaceManufacturer(aerospaceManufacturer.name, aerospaceManufacturer.legalName, aerospaceManufacturer.headquartersCountry, aerospaceManufacturer.website, aerospaceManufacturer.Programs, aerospaceManufacturer.Plants, aerospaceManufacturer.Suppliers, aerospaceManufacturer.ProductionCertificates)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

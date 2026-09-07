@@ -1,0 +1,87 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>shipmentNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="shipmentNumber" name="inboundShipment.shipmentNumber" [(ngModel)]="inboundShipment.shipmentNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>expectedArrivalDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="expectedArrivalDate" name="inboundShipment.expectedArrivalDate" [(ngModel)]="inboundShipment.expectedArrivalDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>arrivalDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="arrivalDate" name="inboundShipment.arrivalDate" [(ngModel)]="inboundShipment.arrivalDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>carrierName</mat-label>
+								<input matInput ngDefaultControl placeholder="carrierName" name="inboundShipment.carrierName" [(ngModel)]="inboundShipment.carrierName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"   [compareWith]="compareFn"  [(ngModel)]="inboundShipment.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="inboundShipment.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple  [compareWith]="compareFn"  [(ngModel)]="inboundShipment.Lines">
+						@for (inboundShipmentLine of inboundShipmentLines; track inboundShipmentLine.inboundShipmentLineId) {
+							<mat-option name="inboundShipment.Lines" ngDefaultControl
+							            [value]="inboundShipmentLine.inboundShipmentLineId">
+								{{inboundShipmentLine.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple  [compareWith]="compareFn"  [(ngModel)]="inboundShipment.Transactions">
+						@for (inventoryTransaction of inventoryTransactions; track inventoryTransaction.inventoryTransactionId) {
+							<mat-option name="inboundShipment.Transactions" ngDefaultControl
+							            [value]="inventoryTransaction.inventoryTransactionId">
+								{{inventoryTransaction.transactionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="inboundShipment.Status" [(ngModel)]="inboundShipment.Status">
+							@for (InboundShipmentStatus of InboundShipmentStatuss; track InboundShipmentStatus) {
+								<mat-option ngDefaultControl [value]="InboundShipmentStatus">
+									{{InboundShipmentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateInboundShipment(inboundShipment.shipmentNumber, inboundShipment.expectedArrivalDate, inboundShipment.arrivalDate, inboundShipment.carrierName, inboundShipment.Warehouse, inboundShipment.Lines, inboundShipment.Transactions, inboundShipment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

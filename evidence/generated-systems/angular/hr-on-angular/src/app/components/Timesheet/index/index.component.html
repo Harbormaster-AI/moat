@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Timesheet List</h5>
+
+    <a
+            [routerLink]="['/createTimesheet']"
+            class="btn btn-primary btn-sm">
+        Create Timesheet
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">periodStart</th>
+                        <th scope="col">periodEnd</th>
+                        <th scope="col">submissionDate</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (timesheet of timesheets; track timesheet.timesheetId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ timesheet.periodStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ timesheet.periodEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ timesheet.submissionDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ timesheet.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadTimesheet', timesheet.timesheetId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteTimesheet(timesheet.timesheetId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (timesheets?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No timesheets found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

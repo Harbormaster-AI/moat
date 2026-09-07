@@ -1,0 +1,84 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="agency.name" [(ngModel)]="agency.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="agency.legalName" [(ngModel)]="agency.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>headquartersCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="headquartersCountry" name="agency.headquartersCountry" [(ngModel)]="agency.headquartersCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="agency.website" [(ngModel)]="agency.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Advertisers</mat-label>
+					<mat-select placeholder="Advertisers" multiple  [compareWith]="compareFn"  [(ngModel)]="agency.Advertisers">
+						@for (advertiser of advertisers; track advertiser.advertiserId) {
+							<mat-option name="agency.Advertisers" ngDefaultControl
+							            [value]="advertiser.advertiserId">
+								{{advertiser.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Teams</mat-label>
+					<mat-select placeholder="Teams" multiple  [compareWith]="compareFn"  [(ngModel)]="agency.Teams">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="agency.Teams" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Users</mat-label>
+					<mat-select placeholder="Users" multiple  [compareWith]="compareFn"  [(ngModel)]="agency.Users">
+						@for (user of users; track user.userId) {
+							<mat-option name="agency.Users" ngDefaultControl
+							            [value]="user.userId">
+								{{user.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InsertionOrders</mat-label>
+					<mat-select placeholder="InsertionOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="agency.InsertionOrders">
+						@for (insertionOrder of insertionOrders; track insertionOrder.insertionOrderId) {
+							<mat-option name="agency.InsertionOrders" ngDefaultControl
+							            [value]="insertionOrder.insertionOrderId">
+								{{insertionOrder.ioNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateAgency(agency.name, agency.legalName, agency.headquartersCountry, agency.website, agency.Advertisers, agency.Teams, agency.Users, agency.InsertionOrders)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

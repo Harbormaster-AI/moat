@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>actionTitle</mat-label>
+								<input matInput ngDefaultControl placeholder="actionTitle" name="correctiveAction.actionTitle" [(ngModel)]="correctiveAction.actionTitle">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>owner</mat-label>
+								<input matInput ngDefaultControl placeholder="owner" name="correctiveAction.owner" [(ngModel)]="correctiveAction.owner">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>targetDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="targetDate" name="correctiveAction.targetDate" [(ngModel)]="correctiveAction.targetDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Finding</mat-label>
+					<mat-select placeholder="Finding"   [compareWith]="compareFn"  [(ngModel)]="correctiveAction.Finding">
+						@for (auditFinding of auditFindings; track auditFinding.auditFindingId) {
+							<mat-option name="correctiveAction.Finding" ngDefaultControl
+							            [value]="auditFinding.auditFindingId">
+								{{auditFinding.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Issue</mat-label>
+					<mat-select placeholder="Issue"   [compareWith]="compareFn"  [(ngModel)]="correctiveAction.Issue">
+						@for (issue of issues; track issue.issueId) {
+							<mat-option name="correctiveAction.Issue" ngDefaultControl
+							            [value]="issue.issueId">
+								{{issue.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="correctiveAction.Status" [(ngModel)]="correctiveAction.Status">
+							@for (ActionStatus of ActionStatuss; track ActionStatus) {
+								<mat-option ngDefaultControl [value]="ActionStatus">
+									{{ActionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateCorrectiveAction(correctiveAction.actionTitle, correctiveAction.owner, correctiveAction.targetDate, correctiveAction.Finding, correctiveAction.Issue, correctiveAction.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

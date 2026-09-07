@@ -1,0 +1,61 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>resultValue</mat-label>
+								<input matInput ngDefaultControl placeholder="resultValue" name="inspectionResult.resultValue" [(ngModel)]="inspectionResult.resultValue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="inspectionResult.recordedOn" class="form-control" name="inspectionResult.recordedOn" #inspectionResult.recordedOn ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>notes</mat-label>
+								<input matInput ngDefaultControl placeholder="notes" name="inspectionResult.notes" [(ngModel)]="inspectionResult.notes">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>InspectionLot</mat-label>
+					<mat-select placeholder="InspectionLot"  [(ngModel)]="inspectionResult.InspectionLot">
+						@for (inspectionLot of inspectionLots; track inspectionLot.inspectionLotId) {
+							<mat-option name="inspectionResult.InspectionLot" ngDefaultControl
+							            [value]="inspectionLot.inspectionLotId">
+								{{inspectionLot.lotNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Characteristic</mat-label>
+					<mat-select placeholder="Characteristic"  [(ngModel)]="inspectionResult.Characteristic">
+						@for (inspectionCharacteristic of inspectionCharacteristics; track inspectionCharacteristic.inspectionCharacteristicId) {
+							<mat-option name="inspectionResult.Characteristic" ngDefaultControl
+							            [value]="inspectionCharacteristic.inspectionCharacteristicId">
+								{{inspectionCharacteristic.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ResultStatus</mat-label>
+						<mat-select placeholder="ResultStatus" name="inspectionResult.ResultStatus" [(ngModel)]="inspectionResult.ResultStatus">
+							@for (InspectionResultStatus of InspectionResultStatuss; track InspectionResultStatus) {
+								<mat-option ngDefaultControl [value]="InspectionResultStatus">
+									{{InspectionResultStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addInspectionResult(inspectionResult.resultValue, inspectionResult.recordedOn, inspectionResult.notes, inspectionResult.InspectionLot, inspectionResult.Characteristic, inspectionResult.ResultStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

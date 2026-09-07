@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>checkNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="checkNumber" name="backgroundCheck.checkNumber" [(ngModel)]="backgroundCheck.checkNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>provider</mat-label>
+								<input matInput ngDefaultControl placeholder="provider" name="backgroundCheck.provider" [(ngModel)]="backgroundCheck.provider">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>completedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="completedDate" name="backgroundCheck.completedDate" [(ngModel)]="backgroundCheck.completedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Candidate</mat-label>
+					<mat-select placeholder="Candidate"   [compareWith]="compareFn"  [(ngModel)]="backgroundCheck.Candidate">
+						@for (candidate of candidates; track candidate.candidateId) {
+							<mat-option name="backgroundCheck.Candidate" ngDefaultControl
+							            [value]="candidate.candidateId">
+								{{candidate.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Requisition</mat-label>
+					<mat-select placeholder="Requisition"   [compareWith]="compareFn"  [(ngModel)]="backgroundCheck.Requisition">
+						@for (jobRequisition of jobRequisitions; track jobRequisition.jobRequisitionId) {
+							<mat-option name="backgroundCheck.Requisition" ngDefaultControl
+							            [value]="jobRequisition.jobRequisitionId">
+								{{jobRequisition.requisitionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Report</mat-label>
+					<mat-select placeholder="Report"   [compareWith]="compareFn"  [(ngModel)]="backgroundCheck.Report">
+						@for (document of documents; track document.documentId) {
+							<mat-option name="backgroundCheck.Report" ngDefaultControl
+							            [value]="document.documentId">
+								{{document.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="backgroundCheck.Status" [(ngModel)]="backgroundCheck.Status">
+							@for (BackgroundCheckStatus of BackgroundCheckStatuss; track BackgroundCheckStatus) {
+								<mat-option ngDefaultControl [value]="BackgroundCheckStatus">
+									{{BackgroundCheckStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBackgroundCheck(backgroundCheck.checkNumber, backgroundCheck.provider, backgroundCheck.completedDate, backgroundCheck.Candidate, backgroundCheck.Requisition, backgroundCheck.Report, backgroundCheck.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

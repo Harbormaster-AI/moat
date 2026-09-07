@@ -1,0 +1,105 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="controlTest_.name" [(ngModel)]="controlTest_.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>testPeriodStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="testPeriodStart" name="controlTest_.testPeriodStart" [(ngModel)]="controlTest_.testPeriodStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>testPeriodEnd</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="testPeriodEnd" name="controlTest_.testPeriodEnd" [(ngModel)]="controlTest_.testPeriodEnd">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<input matInput placeholder="sampleSize" name="controlTest_.sampleSize" [(ngModel)]="controlTest_.sampleSize">
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Control</mat-label>
+					<mat-select placeholder="Control"   [compareWith]="compareFn"  [(ngModel)]="controlTest_.Control">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="controlTest_.Control" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Evidence</mat-label>
+					<mat-select placeholder="Evidence" multiple  [compareWith]="compareFn"  [(ngModel)]="controlTest_.Evidence">
+						@for (evidence of evidences; track evidence.evidenceId) {
+							<mat-option name="controlTest_.Evidence" ngDefaultControl
+							            [value]="evidence.evidenceId">
+								{{evidence.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Engagement</mat-label>
+					<mat-select placeholder="Engagement"   [compareWith]="compareFn"  [(ngModel)]="controlTest_.Engagement">
+						@for (auditEngagement of auditEngagements; track auditEngagement.auditEngagementId) {
+							<mat-option name="controlTest_.Engagement" ngDefaultControl
+							            [value]="auditEngagement.auditEngagementId">
+								{{auditEngagement.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>TestType</mat-label>
+						<mat-select placeholder="TestType" name="controlTest_.TestType" [(ngModel)]="controlTest_.TestType">
+							@for (TestType of TestTypes; track TestType) {
+								<mat-option ngDefaultControl [value]="TestType">
+									{{TestType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Effectiveness</mat-label>
+						<mat-select placeholder="Effectiveness" name="controlTest_.Effectiveness" [(ngModel)]="controlTest_.Effectiveness">
+							@for (ControlEffectiveness of ControlEffectivenesss; track ControlEffectiveness) {
+								<mat-option ngDefaultControl [value]="ControlEffectiveness">
+									{{ControlEffectiveness}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="controlTest_.Status" [(ngModel)]="controlTest_.Status">
+							@for (TestStatus of TestStatuss; track TestStatus) {
+								<mat-option ngDefaultControl [value]="TestStatus">
+									{{TestStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateControlTest_(controlTest_.name, controlTest_.testPeriodStart, controlTest_.testPeriodEnd, controlTest_.sampleSize, controlTest_.Control, controlTest_.Evidence, controlTest_.Engagement, controlTest_.TestType, controlTest_.Effectiveness, controlTest_.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

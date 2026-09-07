@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">BillingAccount List</h5>
+
+    <a
+            [routerLink]="['/createBillingAccount']"
+            class="btn btn-primary btn-sm">
+        Create BillingAccount
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">accountNumber</th>
+                        <th scope="col">balance</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (billingAccount of billingAccounts; track billingAccount.billingAccountId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ billingAccount.accountNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ billingAccount.balance }}
+                </td>
+                                <td class="align-middle">
+                    {{ billingAccount.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadBillingAccount', billingAccount.billingAccountId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteBillingAccount(billingAccount.billingAccountId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (billingAccounts?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No billingAccounts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

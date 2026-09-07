@@ -1,0 +1,224 @@
+<div class="app-header">inventory-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="StockKeepingUnitMenu">StockKeepingUnit</button>
+								<button mat-menu-item [matMenuTriggerFor]="WarehouseMenu">Warehouse</button>
+								<button mat-menu-item [matMenuTriggerFor]="StorageLocationMenu">StorageLocation</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryItemMenu">InventoryItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="LotMenu">Lot</button>
+								<button mat-menu-item [matMenuTriggerFor]="SerialNumberMenu">SerialNumber</button>
+								<button mat-menu-item [matMenuTriggerFor]="ReservationMenu">Reservation</button>
+								<button mat-menu-item [matMenuTriggerFor]="DemandSignalMenu">DemandSignal</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryTransactionMenu">InventoryTransaction</button>
+								<button mat-menu-item [matMenuTriggerFor]="TransferOrderMenu">TransferOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="TransferOrderLineMenu">TransferOrderLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="StockAdjustmentMenu">StockAdjustment</button>
+								<button mat-menu-item [matMenuTriggerFor]="StockAdjustmentLineMenu">StockAdjustmentLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="CycleCountMenu">CycleCount</button>
+								<button mat-menu-item [matMenuTriggerFor]="CycleCountEntryMenu">CycleCountEntry</button>
+								<button mat-menu-item [matMenuTriggerFor]="ReplenishmentPolicyMenu">ReplenishmentPolicy</button>
+								<button mat-menu-item [matMenuTriggerFor]="UoMConversionMenu">UoMConversion</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryThresholdAlertMenu">InventoryThresholdAlert</button>
+								<button mat-menu-item [matMenuTriggerFor]="QuarantineMenu">Quarantine</button>
+								<button mat-menu-item [matMenuTriggerFor]="ExpirationPolicyMenu">ExpirationPolicy</button>
+								<button mat-menu-item [matMenuTriggerFor]="InboundShipmentMenu">InboundShipment</button>
+								<button mat-menu-item [matMenuTriggerFor]="InboundShipmentLineMenu">InboundShipmentLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="OutboundAllocationMenu">OutboundAllocation</button>
+				
+						<mat-menu #StockKeepingUnitMenu="matMenu">
+			<a routerLink="createStockKeepingUnit">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexStockKeepingUnit">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WarehouseMenu="matMenu">
+			<a routerLink="createWarehouse">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWarehouse">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #StorageLocationMenu="matMenu">
+			<a routerLink="createStorageLocation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexStorageLocation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryItemMenu="matMenu">
+			<a routerLink="createInventoryItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LotMenu="matMenu">
+			<a routerLink="createLot">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLot">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SerialNumberMenu="matMenu">
+			<a routerLink="createSerialNumber">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSerialNumber">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ReservationMenu="matMenu">
+			<a routerLink="createReservation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexReservation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DemandSignalMenu="matMenu">
+			<a routerLink="createDemandSignal">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDemandSignal">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryTransactionMenu="matMenu">
+			<a routerLink="createInventoryTransaction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryTransaction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TransferOrderMenu="matMenu">
+			<a routerLink="createTransferOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTransferOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TransferOrderLineMenu="matMenu">
+			<a routerLink="createTransferOrderLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTransferOrderLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #StockAdjustmentMenu="matMenu">
+			<a routerLink="createStockAdjustment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexStockAdjustment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #StockAdjustmentLineMenu="matMenu">
+			<a routerLink="createStockAdjustmentLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexStockAdjustmentLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CycleCountMenu="matMenu">
+			<a routerLink="createCycleCount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCycleCount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CycleCountEntryMenu="matMenu">
+			<a routerLink="createCycleCountEntry">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCycleCountEntry">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ReplenishmentPolicyMenu="matMenu">
+			<a routerLink="createReplenishmentPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexReplenishmentPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #UoMConversionMenu="matMenu">
+			<a routerLink="createUoMConversion">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexUoMConversion">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryThresholdAlertMenu="matMenu">
+			<a routerLink="createInventoryThresholdAlert">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryThresholdAlert">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QuarantineMenu="matMenu">
+			<a routerLink="createQuarantine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQuarantine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ExpirationPolicyMenu="matMenu">
+			<a routerLink="createExpirationPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexExpirationPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InboundShipmentMenu="matMenu">
+			<a routerLink="createInboundShipment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInboundShipment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InboundShipmentLineMenu="matMenu">
+			<a routerLink="createInboundShipmentLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInboundShipmentLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OutboundAllocationMenu="matMenu">
+			<a routerLink="createOutboundAllocation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOutboundAllocation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

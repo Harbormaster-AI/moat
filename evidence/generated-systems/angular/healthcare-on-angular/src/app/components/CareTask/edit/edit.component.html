@@ -1,0 +1,84 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="careTask.description" [(ngModel)]="careTask.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="careTask.dueDate" [(ngModel)]="careTask.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CarePlan</mat-label>
+					<mat-select placeholder="CarePlan"   [compareWith]="compareFn"  [(ngModel)]="careTask.CarePlan">
+						@for (carePlan of carePlans; track carePlan.carePlanId) {
+							<mat-option name="careTask.CarePlan" ngDefaultControl
+							            [value]="carePlan.carePlanId">
+								{{carePlan.planNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>AssignedTo</mat-label>
+					<mat-select placeholder="AssignedTo"   [compareWith]="compareFn"  [(ngModel)]="careTask.AssignedTo">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="careTask.AssignedTo" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"   [compareWith]="compareFn"  [(ngModel)]="careTask.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="careTask.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="careTask.Status" [(ngModel)]="careTask.Status">
+							@for (TaskStatus of TaskStatuss; track TaskStatus) {
+								<mat-option ngDefaultControl [value]="TaskStatus">
+									{{TaskStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="careTask.Priority" [(ngModel)]="careTask.Priority">
+							@for (Priority of Prioritys; track Priority) {
+								<mat-option ngDefaultControl [value]="Priority">
+									{{Priority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateCareTask(careTask.description, careTask.dueDate, careTask.CarePlan, careTask.AssignedTo, careTask.Encounter, careTask.Status, careTask.Priority)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

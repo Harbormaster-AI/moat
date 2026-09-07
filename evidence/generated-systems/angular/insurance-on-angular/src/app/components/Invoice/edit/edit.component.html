@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>invoiceNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="invoiceNumber" name="invoice.invoiceNumber" [(ngModel)]="invoice.invoiceNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="invoice.dueDate" [(ngModel)]="invoice.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalDue</mat-label>
+								<input matInput ngDefaultControl placeholder="totalDue" name="invoice.totalDue" [(ngModel)]="invoice.totalDue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>BillingAccount</mat-label>
+					<mat-select placeholder="BillingAccount"   [compareWith]="compareFn"  [(ngModel)]="invoice.BillingAccount">
+						@for (billingAccount of billingAccounts; track billingAccount.billingAccountId) {
+							<mat-option name="invoice.BillingAccount" ngDefaultControl
+							            [value]="billingAccount.billingAccountId">
+								{{billingAccount.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="invoice.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="invoice.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Payments</mat-label>
+					<mat-select placeholder="Payments" multiple  [compareWith]="compareFn"  [(ngModel)]="invoice.Payments">
+						@for (payment of payments; track payment.paymentId) {
+							<mat-option name="invoice.Payments" ngDefaultControl
+							            [value]="payment.paymentId">
+								{{payment.paymentReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="invoice.Status" [(ngModel)]="invoice.Status">
+							@for (InvoiceStatus of InvoiceStatuss; track InvoiceStatus) {
+								<mat-option ngDefaultControl [value]="InvoiceStatus">
+									{{InvoiceStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateInvoice(invoice.invoiceNumber, invoice.dueDate, invoice.totalDue, invoice.BillingAccount, invoice.Policy, invoice.Payments, invoice.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

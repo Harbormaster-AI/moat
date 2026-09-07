@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Nonconformance List</h5>
+
+    <a
+            [routerLink]="['/createNonconformance']"
+            class="btn btn-primary btn-sm">
+        Create Nonconformance
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">ncNumber</th>
+                        <th scope="col">description</th>
+                        <th scope="col">containmentAction</th>
+                        <th scope="col">NcType</th>
+                        <th scope="col">Severity</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (nonconformance of nonconformances; track nonconformance.nonconformanceId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ nonconformance.ncNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ nonconformance.description }}
+                </td>
+                                <td class="align-middle">
+                    {{ nonconformance.containmentAction }}
+                </td>
+                                <td class="align-middle">
+                    {{ nonconformance.NcType }}
+                </td>
+                                <td class="align-middle">
+                    {{ nonconformance.Severity }}
+                </td>
+                                <td class="align-middle">
+                    {{ nonconformance.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadNonconformance', nonconformance.nonconformanceId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteNonconformance(nonconformance.nonconformanceId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (nonconformances?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No nonconformances found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

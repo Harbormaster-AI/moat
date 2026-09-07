@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>certificateNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="certificateNumber" name="typeCertificate.certificateNumber" [(ngModel)]="typeCertificate.certificateNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>authority</mat-label>
+								<input matInput ngDefaultControl placeholder="authority" name="typeCertificate.authority" [(ngModel)]="typeCertificate.authority">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Program</mat-label>
+					<mat-select placeholder="Program"   [compareWith]="compareFn"  [(ngModel)]="typeCertificate.Program">
+						@for (aircraftProgram of aircraftPrograms; track aircraftProgram.aircraftProgramId) {
+							<mat-option name="typeCertificate.Program" ngDefaultControl
+							            [value]="aircraftProgram.aircraftProgramId">
+								{{aircraftProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateTypeCertificate(typeCertificate.certificateNumber, typeCertificate.authority, typeCertificate.Program)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

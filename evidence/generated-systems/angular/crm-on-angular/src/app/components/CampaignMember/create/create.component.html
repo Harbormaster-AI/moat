@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																									<mat-checkbox name="campaignMember.responded" ngDefaultControl [(ngModel)]="campaignMember.responded">responded</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"  [(ngModel)]="campaignMember.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="campaignMember.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Lead</mat-label>
+					<mat-select placeholder="Lead"  [(ngModel)]="campaignMember.Lead">
+						@for (lead of leads; track lead.leadId) {
+							<mat-option name="campaignMember.Lead" ngDefaultControl
+							            [value]="lead.leadId">
+								{{lead.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Contact</mat-label>
+					<mat-select placeholder="Contact"  [(ngModel)]="campaignMember.Contact">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="campaignMember.Contact" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="campaignMember.Status" [(ngModel)]="campaignMember.Status">
+							@for (CampaignMemberStatus of CampaignMemberStatuss; track CampaignMemberStatus) {
+								<mat-option ngDefaultControl [value]="CampaignMemberStatus">
+									{{CampaignMemberStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>MemberType</mat-label>
+						<mat-select placeholder="MemberType" name="campaignMember.MemberType" [(ngModel)]="campaignMember.MemberType">
+							@for (CampaignMemberType of CampaignMemberTypes; track CampaignMemberType) {
+								<mat-option ngDefaultControl [value]="CampaignMemberType">
+									{{CampaignMemberType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																																 																										 																										 																							 																							 										<button
+				(click)="addCampaignMember(campaignMember.responded == true ? true : false, campaignMember.Campaign, campaignMember.Lead, campaignMember.Contact, campaignMember.Status, campaignMember.MemberType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

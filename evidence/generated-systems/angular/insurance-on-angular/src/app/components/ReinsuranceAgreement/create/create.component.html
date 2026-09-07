@@ -1,0 +1,88 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>agreementNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="agreementNumber" name="reinsuranceAgreement.agreementNumber" [(ngModel)]="reinsuranceAgreement.agreementNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>effectivePeriod</mat-label>
+								<input matInput ngDefaultControl placeholder="effectivePeriod" name="reinsuranceAgreement.effectivePeriod" [(ngModel)]="reinsuranceAgreement.effectivePeriod">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>retention</mat-label>
+								<input matInput ngDefaultControl placeholder="retention" name="reinsuranceAgreement.retention" [(ngModel)]="reinsuranceAgreement.retention">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>limit</mat-label>
+								<input matInput ngDefaultControl placeholder="limit" name="reinsuranceAgreement.limit" [(ngModel)]="reinsuranceAgreement.limit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>cessionPercentage</mat-label>
+								<input matInput ngDefaultControl placeholder="cessionPercentage" name="reinsuranceAgreement.cessionPercentage" [(ngModel)]="reinsuranceAgreement.cessionPercentage">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Insurer</mat-label>
+					<mat-select placeholder="Insurer"  [(ngModel)]="reinsuranceAgreement.Insurer">
+						@for (insurer of insurers; track insurer.insurerId) {
+							<mat-option name="reinsuranceAgreement.Insurer" ngDefaultControl
+							            [value]="insurer.insurerId">
+								{{insurer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple [(ngModel)]="reinsuranceAgreement.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="reinsuranceAgreement.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ReinsuranceType</mat-label>
+						<mat-select placeholder="ReinsuranceType" name="reinsuranceAgreement.ReinsuranceType" [(ngModel)]="reinsuranceAgreement.ReinsuranceType">
+							@for (ReinsuranceType of ReinsuranceTypes; track ReinsuranceType) {
+								<mat-option ngDefaultControl [value]="ReinsuranceType">
+									{{ReinsuranceType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>TreatyType</mat-label>
+						<mat-select placeholder="TreatyType" name="reinsuranceAgreement.TreatyType" [(ngModel)]="reinsuranceAgreement.TreatyType">
+							@for (TreatyType of TreatyTypes; track TreatyType) {
+								<mat-option ngDefaultControl [value]="TreatyType">
+									{{TreatyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																							 																							 										<button
+				(click)="addReinsuranceAgreement(reinsuranceAgreement.agreementNumber, reinsuranceAgreement.effectivePeriod, reinsuranceAgreement.retention, reinsuranceAgreement.limit, reinsuranceAgreement.cessionPercentage, reinsuranceAgreement.Insurer, reinsuranceAgreement.Policies, reinsuranceAgreement.ReinsuranceType, reinsuranceAgreement.TreatyType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,95 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>claimNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="claimNumber" name="claim.claimNumber" [(ngModel)]="claim.claimNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="claim.totalAmount" [(ngModel)]="claim.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="claim.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="claim.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Coverage</mat-label>
+					<mat-select placeholder="Coverage"  [(ngModel)]="claim.Coverage">
+						@for (coverage of coverages; track coverage.coverageId) {
+							<mat-option name="claim.Coverage" ngDefaultControl
+							            [value]="coverage.coverageId">
+								{{coverage.memberId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"  [(ngModel)]="claim.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="claim.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Invoices</mat-label>
+					<mat-select placeholder="Invoices" multiple [(ngModel)]="claim.Invoices">
+						@for (invoice of invoices; track invoice.invoiceId) {
+							<mat-option name="claim.Invoices" ngDefaultControl
+							            [value]="invoice.invoiceId">
+								{{invoice.invoiceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Payer</mat-label>
+					<mat-select placeholder="Payer"  [(ngModel)]="claim.Payer">
+						@for (insurancePayer of insurancePayers; track insurancePayer.insurancePayerId) {
+							<mat-option name="claim.Payer" ngDefaultControl
+							            [value]="insurancePayer.insurancePayerId">
+								{{insurancePayer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="claim.Status" [(ngModel)]="claim.Status">
+							@for (ClaimStatus of ClaimStatuss; track ClaimStatus) {
+								<mat-option ngDefaultControl [value]="ClaimStatus">
+									{{ClaimStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addClaim(claim.claimNumber, claim.totalAmount, claim.Patient, claim.Coverage, claim.Encounter, claim.Invoices, claim.Payer, claim.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

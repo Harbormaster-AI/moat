@@ -1,0 +1,386 @@
+<div class="app-header">governance-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="OrganizationMenu">Organization</button>
+								<button mat-menu-item [matMenuTriggerFor]="GovernanceBodyMenu">GovernanceBody</button>
+								<button mat-menu-item [matMenuTriggerFor]="PersonMenu">Person</button>
+								<button mat-menu-item [matMenuTriggerFor]="RoleMenu">Role</button>
+								<button mat-menu-item [matMenuTriggerFor]="RoleAssignmentMenu">RoleAssignment</button>
+								<button mat-menu-item [matMenuTriggerFor]="PolicyMenu">Policy</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProcedureMenu">Procedure</button>
+								<button mat-menu-item [matMenuTriggerFor]="RegulationMenu">Regulation</button>
+								<button mat-menu-item [matMenuTriggerFor]="ObligationMenu">Obligation</button>
+								<button mat-menu-item [matMenuTriggerFor]="ControlMenu">Control</button>
+								<button mat-menu-item [matMenuTriggerFor]="ControlTest_Menu">ControlTest_</button>
+								<button mat-menu-item [matMenuTriggerFor]="EvidenceMenu">Evidence</button>
+								<button mat-menu-item [matMenuTriggerFor]="RiskMenu">Risk</button>
+								<button mat-menu-item [matMenuTriggerFor]="RiskAssessmentMenu">RiskAssessment</button>
+								<button mat-menu-item [matMenuTriggerFor]="ComplianceProgramMenu">ComplianceProgram</button>
+								<button mat-menu-item [matMenuTriggerFor]="ComplianceRequirementMenu">ComplianceRequirement</button>
+								<button mat-menu-item [matMenuTriggerFor]="AttestationMenu">Attestation</button>
+								<button mat-menu-item [matMenuTriggerFor]="AuditProgramMenu">AuditProgram</button>
+								<button mat-menu-item [matMenuTriggerFor]="AuditEngagementMenu">AuditEngagement</button>
+								<button mat-menu-item [matMenuTriggerFor]="AuditWorkpaperMenu">AuditWorkpaper</button>
+								<button mat-menu-item [matMenuTriggerFor]="AuditFindingMenu">AuditFinding</button>
+								<button mat-menu-item [matMenuTriggerFor]="CorrectiveActionMenu">CorrectiveAction</button>
+								<button mat-menu-item [matMenuTriggerFor]="IssueMenu">Issue</button>
+								<button mat-menu-item [matMenuTriggerFor]="BusinessUnitMenu">BusinessUnit</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataProcessingActivityMenu">DataProcessingActivity</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataCategoryMenu">DataCategory</button>
+								<button mat-menu-item [matMenuTriggerFor]="System_Menu">System_</button>
+								<button mat-menu-item [matMenuTriggerFor]="PrivacyNoticeMenu">PrivacyNotice</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataSubjectRequestMenu">DataSubjectRequest</button>
+								<button mat-menu-item [matMenuTriggerFor]="RecordsRepositoryMenu">RecordsRepository</button>
+								<button mat-menu-item [matMenuTriggerFor]="Record_Menu">Record_</button>
+								<button mat-menu-item [matMenuTriggerFor]="RetentionScheduleMenu">RetentionSchedule</button>
+								<button mat-menu-item [matMenuTriggerFor]="DispositionReviewMenu">DispositionReview</button>
+								<button mat-menu-item [matMenuTriggerFor]="LegalHoldMenu">LegalHold</button>
+								<button mat-menu-item [matMenuTriggerFor]="MatterMenu">Matter</button>
+								<button mat-menu-item [matMenuTriggerFor]="ThirdPartyMenu">ThirdParty</button>
+								<button mat-menu-item [matMenuTriggerFor]="ThirdPartyAssessmentMenu">ThirdPartyAssessment</button>
+								<button mat-menu-item [matMenuTriggerFor]="ContractMenu">Contract</button>
+								<button mat-menu-item [matMenuTriggerFor]="Exception_Menu">Exception_</button>
+								<button mat-menu-item [matMenuTriggerFor]="ConsentMenu">Consent</button>
+								<button mat-menu-item [matMenuTriggerFor]="DataBreachMenu">DataBreach</button>
+				
+						<mat-menu #OrganizationMenu="matMenu">
+			<a routerLink="createOrganization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOrganization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #GovernanceBodyMenu="matMenu">
+			<a routerLink="createGovernanceBody">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexGovernanceBody">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PersonMenu="matMenu">
+			<a routerLink="createPerson">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPerson">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RoleMenu="matMenu">
+			<a routerLink="createRole">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRole">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RoleAssignmentMenu="matMenu">
+			<a routerLink="createRoleAssignment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRoleAssignment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PolicyMenu="matMenu">
+			<a routerLink="createPolicy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPolicy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProcedureMenu="matMenu">
+			<a routerLink="createProcedure">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProcedure">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RegulationMenu="matMenu">
+			<a routerLink="createRegulation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRegulation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ObligationMenu="matMenu">
+			<a routerLink="createObligation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexObligation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ControlMenu="matMenu">
+			<a routerLink="createControl">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexControl">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ControlTest_Menu="matMenu">
+			<a routerLink="createControlTest_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexControlTest_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EvidenceMenu="matMenu">
+			<a routerLink="createEvidence">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEvidence">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RiskMenu="matMenu">
+			<a routerLink="createRisk">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRisk">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RiskAssessmentMenu="matMenu">
+			<a routerLink="createRiskAssessment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRiskAssessment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ComplianceProgramMenu="matMenu">
+			<a routerLink="createComplianceProgram">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexComplianceProgram">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ComplianceRequirementMenu="matMenu">
+			<a routerLink="createComplianceRequirement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexComplianceRequirement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AttestationMenu="matMenu">
+			<a routerLink="createAttestation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAttestation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AuditProgramMenu="matMenu">
+			<a routerLink="createAuditProgram">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAuditProgram">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AuditEngagementMenu="matMenu">
+			<a routerLink="createAuditEngagement">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAuditEngagement">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AuditWorkpaperMenu="matMenu">
+			<a routerLink="createAuditWorkpaper">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAuditWorkpaper">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AuditFindingMenu="matMenu">
+			<a routerLink="createAuditFinding">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAuditFinding">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CorrectiveActionMenu="matMenu">
+			<a routerLink="createCorrectiveAction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCorrectiveAction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #IssueMenu="matMenu">
+			<a routerLink="createIssue">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexIssue">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BusinessUnitMenu="matMenu">
+			<a routerLink="createBusinessUnit">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBusinessUnit">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataProcessingActivityMenu="matMenu">
+			<a routerLink="createDataProcessingActivity">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataProcessingActivity">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataCategoryMenu="matMenu">
+			<a routerLink="createDataCategory">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataCategory">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #System_Menu="matMenu">
+			<a routerLink="createSystem_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSystem_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PrivacyNoticeMenu="matMenu">
+			<a routerLink="createPrivacyNotice">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPrivacyNotice">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataSubjectRequestMenu="matMenu">
+			<a routerLink="createDataSubjectRequest">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataSubjectRequest">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RecordsRepositoryMenu="matMenu">
+			<a routerLink="createRecordsRepository">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRecordsRepository">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #Record_Menu="matMenu">
+			<a routerLink="createRecord_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRecord_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RetentionScheduleMenu="matMenu">
+			<a routerLink="createRetentionSchedule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRetentionSchedule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DispositionReviewMenu="matMenu">
+			<a routerLink="createDispositionReview">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDispositionReview">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LegalHoldMenu="matMenu">
+			<a routerLink="createLegalHold">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLegalHold">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MatterMenu="matMenu">
+			<a routerLink="createMatter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMatter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ThirdPartyMenu="matMenu">
+			<a routerLink="createThirdParty">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexThirdParty">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ThirdPartyAssessmentMenu="matMenu">
+			<a routerLink="createThirdPartyAssessment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexThirdPartyAssessment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ContractMenu="matMenu">
+			<a routerLink="createContract">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexContract">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #Exception_Menu="matMenu">
+			<a routerLink="createException_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexException_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ConsentMenu="matMenu">
+			<a routerLink="createConsent">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexConsent">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DataBreachMenu="matMenu">
+			<a routerLink="createDataBreach">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDataBreach">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

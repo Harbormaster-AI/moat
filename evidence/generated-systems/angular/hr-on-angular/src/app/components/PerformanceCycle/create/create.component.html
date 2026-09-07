@@ -1,0 +1,81 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="performanceCycle.name" [(ngModel)]="performanceCycle.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="performanceCycle.startDate" [(ngModel)]="performanceCycle.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="performanceCycle.endDate" [(ngModel)]="performanceCycle.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="performanceCycle.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="performanceCycle.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Reviews</mat-label>
+					<mat-select placeholder="Reviews" multiple [(ngModel)]="performanceCycle.Reviews">
+						@for (performanceReview of performanceReviews; track performanceReview.performanceReviewId) {
+							<mat-option name="performanceCycle.Reviews" ngDefaultControl
+							            [value]="performanceReview.performanceReviewId">
+								{{performanceReview.reviewNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Goals</mat-label>
+					<mat-select placeholder="Goals" multiple [(ngModel)]="performanceCycle.Goals">
+						@for (goal of goals; track goal.goalId) {
+							<mat-option name="performanceCycle.Goals" ngDefaultControl
+							            [value]="goal.goalId">
+								{{goal.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="performanceCycle.Status" [(ngModel)]="performanceCycle.Status">
+							@for (CycleStatus of CycleStatuss; track CycleStatus) {
+								<mat-option ngDefaultControl [value]="CycleStatus">
+									{{CycleStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addPerformanceCycle(performanceCycle.name, performanceCycle.startDate, performanceCycle.endDate, performanceCycle.Organization, performanceCycle.Reviews, performanceCycle.Goals, performanceCycle.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

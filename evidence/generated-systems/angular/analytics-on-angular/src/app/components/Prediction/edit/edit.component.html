@@ -1,0 +1,68 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>referenceKey</mat-label>
+								<input matInput ngDefaultControl placeholder="referenceKey" name="prediction.referenceKey" [(ngModel)]="prediction.referenceKey">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>predictedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="predictedAt" name="prediction.predictedAt" [(ngModel)]="prediction.predictedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>score</mat-label>
+								<input matInput ngDefaultControl placeholder="score" name="prediction.score" [(ngModel)]="prediction.score">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Endpoint</mat-label>
+					<mat-select placeholder="Endpoint"   [compareWith]="compareFn"  [(ngModel)]="prediction.Endpoint">
+						@for (inferenceEndpoint of inferenceEndpoints; track inferenceEndpoint.inferenceEndpointId) {
+							<mat-option name="prediction.Endpoint" ngDefaultControl
+							            [value]="inferenceEndpoint.inferenceEndpointId">
+								{{inferenceEndpoint.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ModelVersion</mat-label>
+					<mat-select placeholder="ModelVersion"   [compareWith]="compareFn"  [(ngModel)]="prediction.ModelVersion">
+						@for (modelVersion of modelVersions; track modelVersion.modelVersionId) {
+							<mat-option name="prediction.ModelVersion" ngDefaultControl
+							            [value]="modelVersion.modelVersionId">
+								{{modelVersion.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"   [compareWith]="compareFn"  [(ngModel)]="prediction.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="prediction.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updatePrediction(prediction.referenceKey, prediction.predictedAt, prediction.score, prediction.Endpoint, prediction.ModelVersion, prediction.Dataset)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

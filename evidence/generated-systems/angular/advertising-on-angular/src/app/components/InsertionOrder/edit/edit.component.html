@@ -1,0 +1,89 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>ioNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="ioNumber" name="insertionOrder.ioNumber" [(ngModel)]="insertionOrder.ioNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>agreedBudget</mat-label>
+								<input matInput ngDefaultControl placeholder="agreedBudget" name="insertionOrder.agreedBudget" [(ngModel)]="insertionOrder.agreedBudget">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>flight</mat-label>
+								<input matInput ngDefaultControl placeholder="flight" name="insertionOrder.flight" [(ngModel)]="insertionOrder.flight">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Advertiser</mat-label>
+					<mat-select placeholder="Advertiser"   [compareWith]="compareFn"  [(ngModel)]="insertionOrder.Advertiser">
+						@for (advertiser of advertisers; track advertiser.advertiserId) {
+							<mat-option name="insertionOrder.Advertiser" ngDefaultControl
+							            [value]="advertiser.advertiserId">
+								{{advertiser.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Agency</mat-label>
+					<mat-select placeholder="Agency"   [compareWith]="compareFn"  [(ngModel)]="insertionOrder.Agency">
+						@for (agency of agencys; track agency.agencyId) {
+							<mat-option name="insertionOrder.Agency" ngDefaultControl
+							            [value]="agency.agencyId">
+								{{agency.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Publisher</mat-label>
+					<mat-select placeholder="Publisher"   [compareWith]="compareFn"  [(ngModel)]="insertionOrder.Publisher">
+						@for (publisher of publishers; track publisher.publisherId) {
+							<mat-option name="insertionOrder.Publisher" ngDefaultControl
+							            [value]="publisher.publisherId">
+								{{publisher.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple  [compareWith]="compareFn"  [(ngModel)]="insertionOrder.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="insertionOrder.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="insertionOrder.Status" [(ngModel)]="insertionOrder.Status">
+							@for (IOStatus of IOStatuss; track IOStatus) {
+								<mat-option ngDefaultControl [value]="IOStatus">
+									{{IOStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateInsertionOrder(insertionOrder.ioNumber, insertionOrder.agreedBudget, insertionOrder.flight, insertionOrder.Advertiser, insertionOrder.Agency, insertionOrder.Publisher, insertionOrder.Campaigns, insertionOrder.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,48 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="salesRegion.name" [(ngModel)]="salesRegion.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>regionCode</mat-label>
+								<input matInput ngDefaultControl placeholder="regionCode" name="salesRegion.regionCode" [(ngModel)]="salesRegion.regionCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Operators</mat-label>
+					<mat-select placeholder="Operators" multiple [(ngModel)]="salesRegion.Operators">
+						@for (operator of operators; track operator.operatorId) {
+							<mat-option name="salesRegion.Operators" ngDefaultControl
+							            [value]="operator.operatorId">
+								{{operator.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SalesCampaigns</mat-label>
+					<mat-select placeholder="SalesCampaigns" multiple [(ngModel)]="salesRegion.SalesCampaigns">
+						@for (salesCampaign of salesCampaigns; track salesCampaign.salesCampaignId) {
+							<mat-option name="salesRegion.SalesCampaigns" ngDefaultControl
+							            [value]="salesCampaign.salesCampaignId">
+								{{salesCampaign.campaignCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																										 																										 										<button
+				(click)="addSalesRegion(salesRegion.name, salesRegion.regionCode, salesRegion.Operators, salesRegion.SalesCampaigns)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

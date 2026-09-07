@@ -1,0 +1,97 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>offerNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="offerNumber" name="offer.offerNumber" [(ngModel)]="offer.offerNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>proposedStartDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="proposedStartDate" name="offer.proposedStartDate" [(ngModel)]="offer.proposedStartDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>baseSalary</mat-label>
+								<input matInput ngDefaultControl placeholder="baseSalary" name="offer.baseSalary" [(ngModel)]="offer.baseSalary">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>signOnBonus</mat-label>
+								<input matInput ngDefaultControl placeholder="signOnBonus" name="offer.signOnBonus" [(ngModel)]="offer.signOnBonus">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Requisition</mat-label>
+					<mat-select placeholder="Requisition"   [compareWith]="compareFn"  [(ngModel)]="offer.Requisition">
+						@for (jobRequisition of jobRequisitions; track jobRequisition.jobRequisitionId) {
+							<mat-option name="offer.Requisition" ngDefaultControl
+							            [value]="jobRequisition.jobRequisitionId">
+								{{jobRequisition.requisitionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Candidate</mat-label>
+					<mat-select placeholder="Candidate"   [compareWith]="compareFn"  [(ngModel)]="offer.Candidate">
+						@for (candidate of candidates; track candidate.candidateId) {
+							<mat-option name="offer.Candidate" ngDefaultControl
+							            [value]="candidate.candidateId">
+								{{candidate.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ApprovedBy</mat-label>
+					<mat-select placeholder="ApprovedBy"   [compareWith]="compareFn"  [(ngModel)]="offer.ApprovedBy">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="offer.ApprovedBy" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Contract</mat-label>
+					<mat-select placeholder="Contract"   [compareWith]="compareFn"  [(ngModel)]="offer.Contract">
+						@for (employmentContract of employmentContracts; track employmentContract.employmentContractId) {
+							<mat-option name="offer.Contract" ngDefaultControl
+							            [value]="employmentContract.employmentContractId">
+								{{employmentContract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="offer.Status" [(ngModel)]="offer.Status">
+							@for (OfferStatus of OfferStatuss; track OfferStatus) {
+								<mat-option ngDefaultControl [value]="OfferStatus">
+									{{OfferStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateOffer(offer.offerNumber, offer.proposedStartDate, offer.baseSalary, offer.signOnBonus, offer.Requisition, offer.Candidate, offer.ApprovedBy, offer.Contract, offer.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

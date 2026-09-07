@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">LaboratoryOrder List</h5>
+
+    <a
+            [routerLink]="['/createLaboratoryOrder']"
+            class="btn btn-primary btn-sm">
+        Create LaboratoryOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">testCode</th>
+                        <th scope="col">fastingRequired</th>
+                        <th scope="col">SpecimenType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (laboratoryOrder of laboratoryOrders; track laboratoryOrder.laboratoryOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ laboratoryOrder.testCode }}
+                </td>
+                                <td class="align-middle">
+                    {{ laboratoryOrder.fastingRequired }}
+                </td>
+                                <td class="align-middle">
+                    {{ laboratoryOrder.SpecimenType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadLaboratoryOrder', laboratoryOrder.laboratoryOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteLaboratoryOrder(laboratoryOrder.laboratoryOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (laboratoryOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No laboratoryOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

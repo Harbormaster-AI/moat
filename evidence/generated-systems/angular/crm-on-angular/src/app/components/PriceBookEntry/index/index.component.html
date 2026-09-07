@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PriceBookEntry List</h5>
+
+    <a
+            [routerLink]="['/createPriceBookEntry']"
+            class="btn btn-primary btn-sm">
+        Create PriceBookEntry
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">unitPrice</th>
+                        <th scope="col">effectiveDate</th>
+                        <th scope="col">expirationDate</th>
+                        <th scope="col">asActive</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (priceBookEntry of priceBookEntrys; track priceBookEntry.priceBookEntryId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ priceBookEntry.unitPrice }}
+                </td>
+                                <td class="align-middle">
+                    {{ priceBookEntry.effectiveDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ priceBookEntry.expirationDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ priceBookEntry.asActive }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPriceBookEntry', priceBookEntry.priceBookEntryId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePriceBookEntry(priceBookEntry.priceBookEntryId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (priceBookEntrys?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No priceBookEntrys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

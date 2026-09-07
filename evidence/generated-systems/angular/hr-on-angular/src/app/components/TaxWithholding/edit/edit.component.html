@@ -1,0 +1,49 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>taxId</mat-label>
+								<input matInput ngDefaultControl placeholder="taxId" name="taxWithholding.taxId" [(ngModel)]="taxWithholding.taxId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="allowances" name="taxWithholding.allowances" [(ngModel)]="taxWithholding.allowances">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>additionalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="additionalAmount" name="taxWithholding.additionalAmount" [(ngModel)]="taxWithholding.additionalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="taxWithholding.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="taxWithholding.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>FilingStatus</mat-label>
+						<mat-select placeholder="FilingStatus" name="taxWithholding.FilingStatus" [(ngModel)]="taxWithholding.FilingStatus">
+							@for (FilingStatus of FilingStatuss; track FilingStatus) {
+								<mat-option ngDefaultControl [value]="FilingStatus">
+									{{FilingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateTaxWithholding(taxWithholding.taxId, taxWithholding.allowances, taxWithholding.additionalAmount, taxWithholding.Employee, taxWithholding.FilingStatus)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

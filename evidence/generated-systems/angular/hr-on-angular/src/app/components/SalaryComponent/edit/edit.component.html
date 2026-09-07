@@ -1,0 +1,43 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="salaryComponent.amount" [(ngModel)]="salaryComponent.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="salaryComponent.recurring" ngDefaultControl [(ngModel)]="salaryComponent.recurring">recurring</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CompensationPackage</mat-label>
+					<mat-select placeholder="CompensationPackage"   [compareWith]="compareFn"  [(ngModel)]="salaryComponent.CompensationPackage">
+						@for (compensationPackage of compensationPackages; track compensationPackage.compensationPackageId) {
+							<mat-option name="salaryComponent.CompensationPackage" ngDefaultControl
+							            [value]="compensationPackage.compensationPackageId">
+								{{compensationPackage.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ComponentType</mat-label>
+						<mat-select placeholder="ComponentType" name="salaryComponent.ComponentType" [(ngModel)]="salaryComponent.ComponentType">
+							@for (SalaryComponentType of SalaryComponentTypes; track SalaryComponentType) {
+								<mat-option ngDefaultControl [value]="SalaryComponentType">
+									{{SalaryComponentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 																										 						 																	 						 										<button
+				(click)="updateSalaryComponent(salaryComponent.amount, salaryComponent.recurring == true ? true : false, salaryComponent.CompensationPackage, salaryComponent.ComponentType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

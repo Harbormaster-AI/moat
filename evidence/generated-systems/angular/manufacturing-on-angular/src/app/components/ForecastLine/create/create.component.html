@@ -1,0 +1,56 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>period</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="period" name="forecastLine.period" [(ngModel)]="forecastLine.period">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="forecastLine.quantity" [(ngModel)]="forecastLine.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>confidence</mat-label>
+								<input matInput ngDefaultControl placeholder="confidence" name="forecastLine.confidence" [(ngModel)]="forecastLine.confidence">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Forecast</mat-label>
+					<mat-select placeholder="Forecast"  [(ngModel)]="forecastLine.Forecast">
+						@for (forecast of forecasts; track forecast.forecastId) {
+							<mat-option name="forecastLine.Forecast" ngDefaultControl
+							            [value]="forecast.forecastId">
+								{{forecast.forecastNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"  [(ngModel)]="forecastLine.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="forecastLine.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 										<button
+				(click)="addForecastLine(forecastLine.period, forecastLine.quantity, forecastLine.confidence, forecastLine.Forecast, forecastLine.Item)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

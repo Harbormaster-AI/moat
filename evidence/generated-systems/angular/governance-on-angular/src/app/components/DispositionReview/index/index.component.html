@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">DispositionReview List</h5>
+
+    <a
+            [routerLink]="['/createDispositionReview']"
+            class="btn btn-primary btn-sm">
+        Create DispositionReview
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">reviewDate</th>
+                        <th scope="col">reviewer</th>
+                        <th scope="col">notes</th>
+                        <th scope="col">Outcome</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (dispositionReview of dispositionReviews; track dispositionReview.dispositionReviewId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ dispositionReview.reviewDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ dispositionReview.reviewer }}
+                </td>
+                                <td class="align-middle">
+                    {{ dispositionReview.notes }}
+                </td>
+                                <td class="align-middle">
+                    {{ dispositionReview.Outcome }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadDispositionReview', dispositionReview.dispositionReviewId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteDispositionReview(dispositionReview.dispositionReviewId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (dispositionReviews?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No dispositionReviews found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

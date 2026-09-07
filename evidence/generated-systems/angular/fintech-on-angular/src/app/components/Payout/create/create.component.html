@@ -1,0 +1,93 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>payoutReference</mat-label>
+								<input matInput ngDefaultControl placeholder="payoutReference" name="payout.payoutReference" [(ngModel)]="payout.payoutReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="payout.amount" [(ngModel)]="payout.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="payout.currency" [(ngModel)]="payout.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>scheduledDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="scheduledDate" name="payout.scheduledDate" [(ngModel)]="payout.scheduledDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>paidDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="paidDate" name="payout.paidDate" [(ngModel)]="payout.paidDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"  [(ngModel)]="payout.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="payout.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>SettlementBatch</mat-label>
+					<mat-select placeholder="SettlementBatch"  [(ngModel)]="payout.SettlementBatch">
+						@for (settlementBatch of settlementBatchs; track settlementBatch.settlementBatchId) {
+							<mat-option name="payout.SettlementBatch" ngDefaultControl
+							            [value]="settlementBatch.settlementBatchId">
+								{{settlementBatch.batchId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>DestinationAccount</mat-label>
+					<mat-select placeholder="DestinationAccount"  [(ngModel)]="payout.DestinationAccount">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="payout.DestinationAccount" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="payout.Status" [(ngModel)]="payout.Status">
+							@for (PayoutStatus of PayoutStatuss; track PayoutStatus) {
+								<mat-option ngDefaultControl [value]="PayoutStatus">
+									{{PayoutStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addPayout(payout.payoutReference, payout.amount, payout.currency, payout.scheduledDate, payout.paidDate, payout.Merchant, payout.SettlementBatch, payout.DestinationAccount, payout.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

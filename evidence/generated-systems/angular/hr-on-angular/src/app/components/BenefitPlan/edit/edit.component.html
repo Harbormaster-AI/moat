@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="benefitPlan.name" [(ngModel)]="benefitPlan.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>providerName</mat-label>
+								<input matInput ngDefaultControl placeholder="providerName" name="benefitPlan.providerName" [(ngModel)]="benefitPlan.providerName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>employeeContributionRate</mat-label>
+								<input matInput ngDefaultControl placeholder="employeeContributionRate" name="benefitPlan.employeeContributionRate" [(ngModel)]="benefitPlan.employeeContributionRate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>employerContributionRate</mat-label>
+								<input matInput ngDefaultControl placeholder="employerContributionRate" name="benefitPlan.employerContributionRate" [(ngModel)]="benefitPlan.employerContributionRate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>eligibilityRules</mat-label>
+								<input matInput ngDefaultControl placeholder="eligibilityRules" name="benefitPlan.eligibilityRules" [(ngModel)]="benefitPlan.eligibilityRules">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="benefitPlan.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="benefitPlan.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Enrollments</mat-label>
+					<mat-select placeholder="Enrollments" multiple  [compareWith]="compareFn"  [(ngModel)]="benefitPlan.Enrollments">
+						@for (benefitEnrollment of benefitEnrollments; track benefitEnrollment.benefitEnrollmentId) {
+							<mat-option name="benefitPlan.Enrollments" ngDefaultControl
+							            [value]="benefitEnrollment.benefitEnrollmentId">
+								{{benefitEnrollment.enrollmentId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>BenefitType</mat-label>
+						<mat-select placeholder="BenefitType" name="benefitPlan.BenefitType" [(ngModel)]="benefitPlan.BenefitType">
+							@for (BenefitType of BenefitTypes; track BenefitType) {
+								<mat-option ngDefaultControl [value]="BenefitType">
+									{{BenefitType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBenefitPlan(benefitPlan.name, benefitPlan.providerName, benefitPlan.employeeContributionRate, benefitPlan.employerContributionRate, benefitPlan.eligibilityRules, benefitPlan.Organization, benefitPlan.Enrollments, benefitPlan.BenefitType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

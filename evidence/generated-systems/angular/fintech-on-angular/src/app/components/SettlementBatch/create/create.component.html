@@ -1,0 +1,89 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>batchId</mat-label>
+								<input matInput ngDefaultControl placeholder="batchId" name="settlementBatch.batchId" [(ngModel)]="settlementBatch.batchId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="settlementBatch.periodStart" class="form-control" name="settlementBatch.periodStart" #settlementBatch.periodStart ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="settlementBatch.periodEnd" class="form-control" name="settlementBatch.periodEnd" #settlementBatch.periodEnd ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalVolume</mat-label>
+								<input matInput ngDefaultControl placeholder="totalVolume" name="settlementBatch.totalVolume" [(ngModel)]="settlementBatch.totalVolume">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="totalCount" name="settlementBatch.totalCount" [(ngModel)]="settlementBatch.totalCount">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Processor</mat-label>
+					<mat-select placeholder="Processor"  [(ngModel)]="settlementBatch.Processor">
+						@for (paymentProcessor of paymentProcessors; track paymentProcessor.paymentProcessorId) {
+							<mat-option name="settlementBatch.Processor" ngDefaultControl
+							            [value]="paymentProcessor.paymentProcessorId">
+								{{paymentProcessor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Merchant</mat-label>
+					<mat-select placeholder="Merchant"  [(ngModel)]="settlementBatch.Merchant">
+						@for (merchant of merchants; track merchant.merchantId) {
+							<mat-option name="settlementBatch.Merchant" ngDefaultControl
+							            [value]="merchant.merchantId">
+								{{merchant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Payouts</mat-label>
+					<mat-select placeholder="Payouts" multiple [(ngModel)]="settlementBatch.Payouts">
+						@for (payout of payouts; track payout.payoutId) {
+							<mat-option name="settlementBatch.Payouts" ngDefaultControl
+							            [value]="payout.payoutId">
+								{{payout.payoutReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple [(ngModel)]="settlementBatch.Transactions">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="settlementBatch.Transactions" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="settlementBatch.Status" [(ngModel)]="settlementBatch.Status">
+							@for (SettlementStatus of SettlementStatuss; track SettlementStatus) {
+								<mat-option ngDefaultControl [value]="SettlementStatus">
+									{{SettlementStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addSettlementBatch(settlementBatch.batchId, settlementBatch.periodStart, settlementBatch.periodEnd, settlementBatch.totalVolume, settlementBatch.totalCount, settlementBatch.Processor, settlementBatch.Merchant, settlementBatch.Payouts, settlementBatch.Transactions, settlementBatch.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

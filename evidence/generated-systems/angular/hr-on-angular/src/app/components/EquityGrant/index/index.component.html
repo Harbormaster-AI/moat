@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">EquityGrant List</h5>
+
+    <a
+            [routerLink]="['/createEquityGrant']"
+            class="btn btn-primary btn-sm">
+        Create EquityGrant
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">grantId</th>
+                        <th scope="col">grantedUnits</th>
+                        <th scope="col">vestingStart</th>
+                        <th scope="col">GrantType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (equityGrant of equityGrants; track equityGrant.equityGrantId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ equityGrant.grantId }}
+                </td>
+                                <td class="align-middle">
+                    {{ equityGrant.grantedUnits }}
+                </td>
+                                <td class="align-middle">
+                    {{ equityGrant.vestingStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ equityGrant.GrantType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEquityGrant', equityGrant.equityGrantId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEquityGrant(equityGrant.equityGrantId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (equityGrants?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No equityGrants found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

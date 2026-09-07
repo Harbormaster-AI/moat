@@ -1,0 +1,58 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>substance</mat-label>
+								<input matInput ngDefaultControl placeholder="substance" name="allergy.substance" [(ngModel)]="allergy.substance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reaction</mat-label>
+								<input matInput ngDefaultControl placeholder="reaction" name="allergy.reaction" [(ngModel)]="allergy.reaction">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"   [compareWith]="compareFn"  [(ngModel)]="allergy.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="allergy.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="allergy.Severity" [(ngModel)]="allergy.Severity">
+							@for (AllergySeverity of AllergySeveritys; track AllergySeverity) {
+								<mat-option ngDefaultControl [value]="AllergySeverity">
+									{{AllergySeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="allergy.Status" [(ngModel)]="allergy.Status">
+							@for (AllergyStatus of AllergyStatuss; track AllergyStatus) {
+								<mat-option ngDefaultControl [value]="AllergyStatus">
+									{{AllergyStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateAllergy(allergy.substance, allergy.reaction, allergy.Patient, allergy.Severity, allergy.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

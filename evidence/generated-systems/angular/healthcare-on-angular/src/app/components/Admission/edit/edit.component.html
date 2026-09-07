@@ -1,0 +1,55 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<ngb-timepicker [(ngModel)]="admission.admitDateTime" class="form-control" name="admission.admitDateTime" #admission.admitDateTime ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bed</mat-label>
+								<input matInput ngDefaultControl placeholder="bed" name="admission.bed" [(ngModel)]="admission.bed">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"   [compareWith]="compareFn"  [(ngModel)]="admission.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="admission.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Facility</mat-label>
+					<mat-select placeholder="Facility"   [compareWith]="compareFn"  [(ngModel)]="admission.Facility">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="admission.Facility" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AdmissionType</mat-label>
+						<mat-select placeholder="AdmissionType" name="admission.AdmissionType" [(ngModel)]="admission.AdmissionType">
+							@for (AdmissionType of AdmissionTypes; track AdmissionType) {
+								<mat-option ngDefaultControl [value]="AdmissionType">
+									{{AdmissionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAdmission(admission.admitDateTime, admission.bed, admission.Encounter, admission.Facility, admission.AdmissionType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

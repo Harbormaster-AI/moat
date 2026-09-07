@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="healthSystem.name" [(ngModel)]="healthSystem.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="healthSystem.legalName" [(ngModel)]="healthSystem.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>headquartersCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="headquartersCountry" name="healthSystem.headquartersCountry" [(ngModel)]="healthSystem.headquartersCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="healthSystem.website" [(ngModel)]="healthSystem.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Facilities</mat-label>
+					<mat-select placeholder="Facilities" multiple  [compareWith]="compareFn"  [(ngModel)]="healthSystem.Facilities">
+						@for (facility of facilitys; track facility.facilityId) {
+							<mat-option name="healthSystem.Facilities" ngDefaultControl
+							            [value]="facility.facilityId">
+								{{facility.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Suppliers</mat-label>
+					<mat-select placeholder="Suppliers" multiple  [compareWith]="compareFn"  [(ngModel)]="healthSystem.Suppliers">
+						@for (medicalSupplier of medicalSuppliers; track medicalSupplier.medicalSupplierId) {
+							<mat-option name="healthSystem.Suppliers" ngDefaultControl
+							            [value]="medicalSupplier.medicalSupplierId">
+								{{medicalSupplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateHealthSystem(healthSystem.name, healthSystem.legalName, healthSystem.headquartersCountry, healthSystem.website, healthSystem.Facilities, healthSystem.Suppliers)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

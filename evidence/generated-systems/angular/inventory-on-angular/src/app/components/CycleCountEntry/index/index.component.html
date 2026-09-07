@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">CycleCountEntry List</h5>
+
+    <a
+            [routerLink]="['/createCycleCountEntry']"
+            class="btn btn-primary btn-sm">
+        Create CycleCountEntry
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">lineNumber</th>
+                        <th scope="col">systemQuantity</th>
+                        <th scope="col">countedQuantity</th>
+                        <th scope="col">varianceQuantity</th>
+                        <th scope="col">recountRequired</th>
+                        <th scope="col">StockStatus</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (cycleCountEntry of cycleCountEntrys; track cycleCountEntry.cycleCountEntryId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ cycleCountEntry.lineNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCountEntry.systemQuantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCountEntry.countedQuantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCountEntry.varianceQuantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCountEntry.recountRequired }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCountEntry.StockStatus }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCycleCountEntry', cycleCountEntry.cycleCountEntryId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCycleCountEntry(cycleCountEntry.cycleCountEntryId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (cycleCountEntrys?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No cycleCountEntrys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

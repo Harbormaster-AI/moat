@@ -1,0 +1,131 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="record_.title" [(ngModel)]="record_.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>creationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="creationDate" name="record_.creationDate" [(ngModel)]="record_.creationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Repository</mat-label>
+					<mat-select placeholder="Repository"  [(ngModel)]="record_.Repository">
+						@for (recordsRepository of recordsRepositorys; track recordsRepository.recordsRepositoryId) {
+							<mat-option name="record_.Repository" ngDefaultControl
+							            [value]="recordsRepository.recordsRepositoryId">
+								{{recordsRepository.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>RetentionSchedule</mat-label>
+					<mat-select placeholder="RetentionSchedule"  [(ngModel)]="record_.RetentionSchedule">
+						@for (retentionSchedule of retentionSchedules; track retentionSchedule.retentionScheduleId) {
+							<mat-option name="record_.RetentionSchedule" ngDefaultControl
+							            [value]="retentionSchedule.retentionScheduleId">
+								{{retentionSchedule.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple [(ngModel)]="record_.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="record_.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DataCategories</mat-label>
+					<mat-select placeholder="DataCategories" multiple [(ngModel)]="record_.DataCategories">
+						@for (dataCategory of dataCategorys; track dataCategory.dataCategoryId) {
+							<mat-option name="record_.DataCategories" ngDefaultControl
+							            [value]="dataCategory.dataCategoryId">
+								{{dataCategory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LegalHolds</mat-label>
+					<mat-select placeholder="LegalHolds" multiple [(ngModel)]="record_.LegalHolds">
+						@for (legalHold of legalHolds; track legalHold.legalHoldId) {
+							<mat-option name="record_.LegalHolds" ngDefaultControl
+							            [value]="legalHold.legalHoldId">
+								{{legalHold.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DataSubjectRequests</mat-label>
+					<mat-select placeholder="DataSubjectRequests" multiple [(ngModel)]="record_.DataSubjectRequests">
+						@for (dataSubjectRequest of dataSubjectRequests; track dataSubjectRequest.dataSubjectRequestId) {
+							<mat-option name="record_.DataSubjectRequests" ngDefaultControl
+							            [value]="dataSubjectRequest.dataSubjectRequestId">
+								{{dataSubjectRequest.receivedDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>RecordType</mat-label>
+						<mat-select placeholder="RecordType" name="record_.RecordType" [(ngModel)]="record_.RecordType">
+							@for (RecordType of RecordTypes; track RecordType) {
+								<mat-option ngDefaultControl [value]="RecordType">
+									{{RecordType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Classification</mat-label>
+						<mat-select placeholder="Classification" name="record_.Classification" [(ngModel)]="record_.Classification">
+							@for (DataClassificationLevel of DataClassificationLevels; track DataClassificationLevel) {
+								<mat-option ngDefaultControl [value]="DataClassificationLevel">
+									{{DataClassificationLevel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="record_.Status" [(ngModel)]="record_.Status">
+							@for (RecordStatus of RecordStatuss; track RecordStatus) {
+								<mat-option ngDefaultControl [value]="RecordStatus">
+									{{RecordStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																										 																							 																							 																							 										<button
+				(click)="addRecord_(record_.title, record_.creationDate, record_.Repository, record_.RetentionSchedule, record_.ProcessingActivities, record_.DataCategories, record_.LegalHolds, record_.DataSubjectRequests, record_.RecordType, record_.Classification, record_.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

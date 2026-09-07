@@ -1,0 +1,140 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>requisitionNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="requisitionNumber" name="jobRequisition.requisitionNumber" [(ngModel)]="jobRequisition.requisitionNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="jobRequisition.title" [(ngModel)]="jobRequisition.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="openings" name="jobRequisition.openings" [(ngModel)]="jobRequisition.openings">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>targetStartDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="targetStartDate" name="jobRequisition.targetStartDate" [(ngModel)]="jobRequisition.targetStartDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Department</mat-label>
+					<mat-select placeholder="Department"   [compareWith]="compareFn"  [(ngModel)]="jobRequisition.Department">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="jobRequisition.Department" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>HiringManager</mat-label>
+					<mat-select placeholder="HiringManager"   [compareWith]="compareFn"  [(ngModel)]="jobRequisition.HiringManager">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="jobRequisition.HiringManager" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Recruiter</mat-label>
+					<mat-select placeholder="Recruiter"   [compareWith]="compareFn"  [(ngModel)]="jobRequisition.Recruiter">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="jobRequisition.Recruiter" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>JobProfile</mat-label>
+					<mat-select placeholder="JobProfile"   [compareWith]="compareFn"  [(ngModel)]="jobRequisition.JobProfile">
+						@for (jobProfile of jobProfiles; track jobProfile.jobProfileId) {
+							<mat-option name="jobRequisition.JobProfile" ngDefaultControl
+							            [value]="jobProfile.jobProfileId">
+								{{jobProfile.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Candidates</mat-label>
+					<mat-select placeholder="Candidates" multiple  [compareWith]="compareFn"  [(ngModel)]="jobRequisition.Candidates">
+						@for (candidate of candidates; track candidate.candidateId) {
+							<mat-option name="jobRequisition.Candidates" ngDefaultControl
+							            [value]="candidate.candidateId">
+								{{candidate.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Interviews</mat-label>
+					<mat-select placeholder="Interviews" multiple  [compareWith]="compareFn"  [(ngModel)]="jobRequisition.Interviews">
+						@for (interview of interviews; track interview.interviewId) {
+							<mat-option name="jobRequisition.Interviews" ngDefaultControl
+							            [value]="interview.interviewId">
+								{{interview.interviewDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Offers</mat-label>
+					<mat-select placeholder="Offers" multiple  [compareWith]="compareFn"  [(ngModel)]="jobRequisition.Offers">
+						@for (offer of offers; track offer.offerId) {
+							<mat-option name="jobRequisition.Offers" ngDefaultControl
+							            [value]="offer.offerId">
+								{{offer.offerNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="jobRequisition.Status" [(ngModel)]="jobRequisition.Status">
+							@for (RequisitionStatus of RequisitionStatuss; track RequisitionStatus) {
+								<mat-option ngDefaultControl [value]="RequisitionStatus">
+									{{RequisitionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="jobRequisition.Priority" [(ngModel)]="jobRequisition.Priority">
+							@for (RequisitionPriority of RequisitionPrioritys; track RequisitionPriority) {
+								<mat-option ngDefaultControl [value]="RequisitionPriority">
+									{{RequisitionPriority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateJobRequisition(jobRequisition.requisitionNumber, jobRequisition.title, jobRequisition.openings, jobRequisition.targetStartDate, jobRequisition.Department, jobRequisition.HiringManager, jobRequisition.Recruiter, jobRequisition.JobProfile, jobRequisition.Candidates, jobRequisition.Interviews, jobRequisition.Offers, jobRequisition.Status, jobRequisition.Priority)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

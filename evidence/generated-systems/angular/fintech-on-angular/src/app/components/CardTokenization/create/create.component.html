@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>tokenReference</mat-label>
+								<input matInput ngDefaultControl placeholder="tokenReference" name="cardTokenization.tokenReference" [(ngModel)]="cardTokenization.tokenReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="cardTokenization.createdAt" class="form-control" name="cardTokenization.createdAt" #cardTokenization.createdAt ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Card</mat-label>
+					<mat-select placeholder="Card"  [(ngModel)]="cardTokenization.Card">
+						@for (paymentCard of paymentCards; track paymentCard.paymentCardId) {
+							<mat-option name="cardTokenization.Card" ngDefaultControl
+							            [value]="paymentCard.paymentCardId">
+								{{paymentCard.cardholderName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>WalletProvider</mat-label>
+						<mat-select placeholder="WalletProvider" name="cardTokenization.WalletProvider" [(ngModel)]="cardTokenization.WalletProvider">
+							@for (WalletProvider of WalletProviders; track WalletProvider) {
+								<mat-option ngDefaultControl [value]="WalletProvider">
+									{{WalletProvider}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="cardTokenization.Status" [(ngModel)]="cardTokenization.Status">
+							@for (TokenizationStatus of TokenizationStatuss; track TokenizationStatus) {
+								<mat-option ngDefaultControl [value]="TokenizationStatus">
+									{{TokenizationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																							 																							 										<button
+				(click)="addCardTokenization(cardTokenization.tokenReference, cardTokenization.createdAt, cardTokenization.Card, cardTokenization.WalletProvider, cardTokenization.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

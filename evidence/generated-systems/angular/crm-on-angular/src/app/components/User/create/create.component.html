@@ -1,0 +1,190 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>username</mat-label>
+								<input matInput ngDefaultControl placeholder="username" name="user.username" [(ngModel)]="user.username">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>fullName</mat-label>
+								<input matInput ngDefaultControl placeholder="fullName" name="user.fullName" [(ngModel)]="user.fullName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="user.email" [(ngModel)]="user.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>locale</mat-label>
+								<input matInput ngDefaultControl placeholder="locale" name="user.locale" [(ngModel)]="user.locale">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="user.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="user.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Teams</mat-label>
+					<mat-select placeholder="Teams" multiple [(ngModel)]="user.Teams">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="user.Teams" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple [(ngModel)]="user.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="user.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>OwnedAccounts</mat-label>
+					<mat-select placeholder="OwnedAccounts" multiple [(ngModel)]="user.OwnedAccounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="user.OwnedAccounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>OwnedLeads</mat-label>
+					<mat-select placeholder="OwnedLeads" multiple [(ngModel)]="user.OwnedLeads">
+						@for (lead of leads; track lead.leadId) {
+							<mat-option name="user.OwnedLeads" ngDefaultControl
+							            [value]="lead.leadId">
+								{{lead.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>OwnedOpportunities</mat-label>
+					<mat-select placeholder="OwnedOpportunities" multiple [(ngModel)]="user.OwnedOpportunities">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="user.OwnedOpportunities" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>OwnedCases</mat-label>
+					<mat-select placeholder="OwnedCases" multiple [(ngModel)]="user.OwnedCases">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="user.OwnedCases" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Quotes</mat-label>
+					<mat-select placeholder="Quotes" multiple [(ngModel)]="user.Quotes">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="user.Quotes" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple [(ngModel)]="user.Orders">
+						@for (order of orders; track order.orderId) {
+							<mat-option name="user.Orders" ngDefaultControl
+							            [value]="order.orderId">
+								{{order.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple [(ngModel)]="user.Contracts">
+						@for (contract of contracts; track contract.contractId) {
+							<mat-option name="user.Contracts" ngDefaultControl
+							            [value]="contract.contractId">
+								{{contract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>EmailMessages</mat-label>
+					<mat-select placeholder="EmailMessages" multiple [(ngModel)]="user.EmailMessages">
+						@for (emailMessage of emailMessages; track emailMessage.emailMessageId) {
+							<mat-option name="user.EmailMessages" ngDefaultControl
+							            [value]="emailMessage.emailMessageId">
+								{{emailMessage.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Role</mat-label>
+						<mat-select placeholder="Role" name="user.Role" [(ngModel)]="user.Role">
+							@for (UserRole of UserRoles; track UserRole) {
+								<mat-option ngDefaultControl [value]="UserRole">
+									{{UserRole}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="user.Status" [(ngModel)]="user.Status">
+							@for (UserStatus of UserStatuss; track UserStatus) {
+								<mat-option ngDefaultControl [value]="UserStatus">
+									{{UserStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addUser(user.username, user.fullName, user.email, user.locale, user.Organization, user.Teams, user.Activities, user.OwnedAccounts, user.OwnedLeads, user.OwnedOpportunities, user.OwnedCases, user.Quotes, user.Orders, user.Contracts, user.EmailMessages, user.Role, user.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

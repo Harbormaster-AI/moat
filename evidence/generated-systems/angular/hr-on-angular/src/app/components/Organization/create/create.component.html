@@ -1,0 +1,108 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="organization.name" [(ngModel)]="organization.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="organization.legalName" [(ngModel)]="organization.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>registrationCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="registrationCountry" name="organization.registrationCountry" [(ngModel)]="organization.registrationCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="organization.website" [(ngModel)]="organization.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Departments</mat-label>
+					<mat-select placeholder="Departments" multiple [(ngModel)]="organization.Departments">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="organization.Departments" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Locations</mat-label>
+					<mat-select placeholder="Locations" multiple [(ngModel)]="organization.Locations">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="organization.Locations" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>JobFamilies</mat-label>
+					<mat-select placeholder="JobFamilies" multiple [(ngModel)]="organization.JobFamilies">
+						@for (jobFamily of jobFamilys; track jobFamily.jobFamilyId) {
+							<mat-option name="organization.JobFamilies" ngDefaultControl
+							            [value]="jobFamily.jobFamilyId">
+								{{jobFamily.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>BenefitPlans</mat-label>
+					<mat-select placeholder="BenefitPlans" multiple [(ngModel)]="organization.BenefitPlans">
+						@for (benefitPlan of benefitPlans; track benefitPlan.benefitPlanId) {
+							<mat-option name="organization.BenefitPlans" ngDefaultControl
+							            [value]="benefitPlan.benefitPlanId">
+								{{benefitPlan.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CostCenters</mat-label>
+					<mat-select placeholder="CostCenters" multiple [(ngModel)]="organization.CostCenters">
+						@for (costCenter of costCenters; track costCenter.costCenterId) {
+							<mat-option name="organization.CostCenters" ngDefaultControl
+							            [value]="costCenter.costCenterId">
+								{{costCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>PayrollCalendars</mat-label>
+					<mat-select placeholder="PayrollCalendars" multiple [(ngModel)]="organization.PayrollCalendars">
+						@for (payrollCalendar of payrollCalendars; track payrollCalendar.payrollCalendarId) {
+							<mat-option name="organization.PayrollCalendars" ngDefaultControl
+							            [value]="payrollCalendar.payrollCalendarId">
+								{{payrollCalendar.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addOrganization(organization.name, organization.legalName, organization.registrationCountry, organization.website, organization.Departments, organization.Locations, organization.JobFamilies, organization.BenefitPlans, organization.CostCenters, organization.PayrollCalendars)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

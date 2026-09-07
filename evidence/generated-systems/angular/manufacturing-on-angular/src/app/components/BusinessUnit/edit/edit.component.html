@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="businessUnit.name" [(ngModel)]="businessUnit.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="businessUnit.code" [(ngModel)]="businessUnit.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Enterprise</mat-label>
+					<mat-select placeholder="Enterprise"   [compareWith]="compareFn"  [(ngModel)]="businessUnit.Enterprise">
+						@for (enterprise of enterprises; track enterprise.enterpriseId) {
+							<mat-option name="businessUnit.Enterprise" ngDefaultControl
+							            [value]="enterprise.enterpriseId">
+								{{enterprise.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Items</mat-label>
+					<mat-select placeholder="Items" multiple  [compareWith]="compareFn"  [(ngModel)]="businessUnit.Items">
+						@for (item of items; track item.itemId) {
+							<mat-option name="businessUnit.Items" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Plants</mat-label>
+					<mat-select placeholder="Plants" multiple  [compareWith]="compareFn"  [(ngModel)]="businessUnit.Plants">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="businessUnit.Plants" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Category</mat-label>
+						<mat-select placeholder="Category" name="businessUnit.Category" [(ngModel)]="businessUnit.Category">
+							@for (BusinessUnitCategory of BusinessUnitCategorys; track BusinessUnitCategory) {
+								<mat-option ngDefaultControl [value]="BusinessUnitCategory">
+									{{BusinessUnitCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBusinessUnit(businessUnit.name, businessUnit.code, businessUnit.Enterprise, businessUnit.Items, businessUnit.Plants, businessUnit.Category)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

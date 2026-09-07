@@ -1,0 +1,43 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="verifiedAddress.address" [(ngModel)]="verifiedAddress.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="verifiedAddress.verifiedAt" class="form-control" name="verifiedAddress.verifiedAt" #verifiedAddress.verifiedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>KycProfile</mat-label>
+					<mat-select placeholder="KycProfile"   [compareWith]="compareFn"  [(ngModel)]="verifiedAddress.KycProfile">
+						@for (kYCProfile of kYCProfiles; track kYCProfile.kYCProfileId) {
+							<mat-option name="verifiedAddress.KycProfile" ngDefaultControl
+							            [value]="kYCProfile.kYCProfileId">
+								{{kYCProfile.profileId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>VerificationStatus</mat-label>
+						<mat-select placeholder="VerificationStatus" name="verifiedAddress.VerificationStatus" [(ngModel)]="verifiedAddress.VerificationStatus">
+							@for (VerificationStatus of VerificationStatuss; track VerificationStatus) {
+								<mat-option ngDefaultControl [value]="VerificationStatus">
+									{{VerificationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateVerifiedAddress(verifiedAddress.address, verifiedAddress.verifiedAt, verifiedAddress.KycProfile, verifiedAddress.VerificationStatus)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

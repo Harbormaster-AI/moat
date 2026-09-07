@@ -1,0 +1,111 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>ncNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="ncNumber" name="nonconformance.ncNumber" [(ngModel)]="nonconformance.ncNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="nonconformance.description" [(ngModel)]="nonconformance.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>containmentAction</mat-label>
+								<input matInput ngDefaultControl placeholder="containmentAction" name="nonconformance.containmentAction" [(ngModel)]="nonconformance.containmentAction">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"   [compareWith]="compareFn"  [(ngModel)]="nonconformance.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="nonconformance.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkOrder</mat-label>
+					<mat-select placeholder="WorkOrder"   [compareWith]="compareFn"  [(ngModel)]="nonconformance.WorkOrder">
+						@for (workOrder of workOrders; track workOrder.workOrderId) {
+							<mat-option name="nonconformance.WorkOrder" ngDefaultControl
+							            [value]="workOrder.workOrderId">
+								{{workOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>InspectionLot</mat-label>
+					<mat-select placeholder="InspectionLot"   [compareWith]="compareFn"  [(ngModel)]="nonconformance.InspectionLot">
+						@for (inspectionLot of inspectionLots; track inspectionLot.inspectionLotId) {
+							<mat-option name="nonconformance.InspectionLot" ngDefaultControl
+							            [value]="inspectionLot.inspectionLotId">
+								{{inspectionLot.lotNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CorrectiveAction</mat-label>
+					<mat-select placeholder="CorrectiveAction"   [compareWith]="compareFn"  [(ngModel)]="nonconformance.CorrectiveAction">
+						@for (correctiveAction of correctiveActions; track correctiveAction.correctiveActionId) {
+							<mat-option name="nonconformance.CorrectiveAction" ngDefaultControl
+							            [value]="correctiveAction.correctiveActionId">
+								{{correctiveAction.capaNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>NcType</mat-label>
+						<mat-select placeholder="NcType" name="nonconformance.NcType" [(ngModel)]="nonconformance.NcType">
+							@for (NonconformanceType of NonconformanceTypes; track NonconformanceType) {
+								<mat-option ngDefaultControl [value]="NonconformanceType">
+									{{NonconformanceType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="nonconformance.Severity" [(ngModel)]="nonconformance.Severity">
+							@for (QualitySeverity of QualitySeveritys; track QualitySeverity) {
+								<mat-option ngDefaultControl [value]="QualitySeverity">
+									{{QualitySeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="nonconformance.Status" [(ngModel)]="nonconformance.Status">
+							@for (NonconformanceStatus of NonconformanceStatuss; track NonconformanceStatus) {
+								<mat-option ngDefaultControl [value]="NonconformanceStatus">
+									{{NonconformanceStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateNonconformance(nonconformance.ncNumber, nonconformance.description, nonconformance.containmentAction, nonconformance.Item, nonconformance.WorkOrder, nonconformance.InspectionLot, nonconformance.CorrectiveAction, nonconformance.NcType, nonconformance.Severity, nonconformance.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

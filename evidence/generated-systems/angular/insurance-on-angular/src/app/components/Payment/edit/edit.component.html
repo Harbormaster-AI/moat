@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>paymentReference</mat-label>
+								<input matInput ngDefaultControl placeholder="paymentReference" name="payment.paymentReference" [(ngModel)]="payment.paymentReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="payment.amount" [(ngModel)]="payment.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>paymentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="paymentDate" name="payment.paymentDate" [(ngModel)]="payment.paymentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Invoice</mat-label>
+					<mat-select placeholder="Invoice"   [compareWith]="compareFn"  [(ngModel)]="payment.Invoice">
+						@for (invoice of invoices; track invoice.invoiceId) {
+							<mat-option name="payment.Invoice" ngDefaultControl
+							            [value]="invoice.invoiceId">
+								{{invoice.invoiceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>BillingAccount</mat-label>
+					<mat-select placeholder="BillingAccount"   [compareWith]="compareFn"  [(ngModel)]="payment.BillingAccount">
+						@for (billingAccount of billingAccounts; track billingAccount.billingAccountId) {
+							<mat-option name="payment.BillingAccount" ngDefaultControl
+							            [value]="billingAccount.billingAccountId">
+								{{billingAccount.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="payment.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="payment.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Method</mat-label>
+						<mat-select placeholder="Method" name="payment.Method" [(ngModel)]="payment.Method">
+							@for (PaymentMethod of PaymentMethods; track PaymentMethod) {
+								<mat-option ngDefaultControl [value]="PaymentMethod">
+									{{PaymentMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="payment.Status" [(ngModel)]="payment.Status">
+							@for (PaymentStatus of PaymentStatuss; track PaymentStatus) {
+								<mat-option ngDefaultControl [value]="PaymentStatus">
+									{{PaymentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updatePayment(payment.paymentReference, payment.amount, payment.paymentDate, payment.Invoice, payment.BillingAccount, payment.Policy, payment.Method, payment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

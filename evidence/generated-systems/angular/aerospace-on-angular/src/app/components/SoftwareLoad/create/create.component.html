@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>version</mat-label>
+								<input matInput ngDefaultControl placeholder="version" name="softwareLoad.version" [(ngModel)]="softwareLoad.version">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ConnectedAircraft</mat-label>
+					<mat-select placeholder="ConnectedAircraft"  [(ngModel)]="softwareLoad.ConnectedAircraft">
+						@for (connectedAircraft of connectedAircrafts; track connectedAircraft.connectedAircraftId) {
+							<mat-option name="softwareLoad.ConnectedAircraft" ngDefaultControl
+							            [value]="connectedAircraft.connectedAircraftId">
+								{{connectedAircraft.communicationsProvider}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AvionicsSuite</mat-label>
+					<mat-select placeholder="AvionicsSuite"  [(ngModel)]="softwareLoad.AvionicsSuite">
+						@for (avionicsSuite of avionicsSuites; track avionicsSuite.avionicsSuiteId) {
+							<mat-option name="softwareLoad.AvionicsSuite" ngDefaultControl
+							            [value]="avionicsSuite.avionicsSuiteId">
+								{{avionicsSuite.suiteName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>LoadType</mat-label>
+						<mat-select placeholder="LoadType" name="softwareLoad.LoadType" [(ngModel)]="softwareLoad.LoadType">
+							@for (SoftwareLoadType of SoftwareLoadTypes; track SoftwareLoadType) {
+								<mat-option ngDefaultControl [value]="SoftwareLoadType">
+									{{SoftwareLoadType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																							 										<button
+				(click)="addSoftwareLoad(softwareLoad.version, softwareLoad.ConnectedAircraft, softwareLoad.AvionicsSuite, softwareLoad.LoadType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

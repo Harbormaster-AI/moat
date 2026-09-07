@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">LoanApplication List</h5>
+
+    <a
+            [routerLink]="['/createLoanApplication']"
+            class="btn btn-primary btn-sm">
+        Create LoanApplication
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">applicationNumber</th>
+                        <th scope="col">amountRequested</th>
+                        <th scope="col">termMonths</th>
+                        <th scope="col">submittedAt</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Purpose</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (loanApplication of loanApplications; track loanApplication.loanApplicationId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ loanApplication.applicationNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ loanApplication.amountRequested }}
+                </td>
+                                <td class="align-middle">
+                    {{ loanApplication.termMonths }}
+                </td>
+                                <td class="align-middle">
+                    {{ loanApplication.submittedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ loanApplication.Product }}
+                </td>
+                                <td class="align-middle">
+                    {{ loanApplication.Purpose }}
+                </td>
+                                <td class="align-middle">
+                    {{ loanApplication.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadLoanApplication', loanApplication.loanApplicationId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteLoanApplication(loanApplication.loanApplicationId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (loanApplications?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No loanApplications found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

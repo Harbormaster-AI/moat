@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>medicationCode</mat-label>
+								<input matInput ngDefaultControl placeholder="medicationCode" name="medicationOrder.medicationCode" [(ngModel)]="medicationOrder.medicationCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dose</mat-label>
+								<input matInput ngDefaultControl placeholder="dose" name="medicationOrder.dose" [(ngModel)]="medicationOrder.dose">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>frequency</mat-label>
+								<input matInput ngDefaultControl placeholder="frequency" name="medicationOrder.frequency" [(ngModel)]="medicationOrder.frequency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>duration</mat-label>
+								<input matInput ngDefaultControl placeholder="duration" name="medicationOrder.duration" [(ngModel)]="medicationOrder.duration">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"   [compareWith]="compareFn"  [(ngModel)]="medicationOrder.Order">
+						@for (clinicalOrder of clinicalOrders; track clinicalOrder.clinicalOrderId) {
+							<mat-option name="medicationOrder.Order" ngDefaultControl
+							            [value]="clinicalOrder.clinicalOrderId">
+								{{clinicalOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Pharmacy</mat-label>
+					<mat-select placeholder="Pharmacy"   [compareWith]="compareFn"  [(ngModel)]="medicationOrder.Pharmacy">
+						@for (pharmacy of pharmacys; track pharmacy.pharmacyId) {
+							<mat-option name="medicationOrder.Pharmacy" ngDefaultControl
+							            [value]="pharmacy.pharmacyId">
+								{{pharmacy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Dispenses</mat-label>
+					<mat-select placeholder="Dispenses" multiple  [compareWith]="compareFn"  [(ngModel)]="medicationOrder.Dispenses">
+						@for (medicationDispense of medicationDispenses; track medicationDispense.medicationDispenseId) {
+							<mat-option name="medicationOrder.Dispenses" ngDefaultControl
+							            [value]="medicationDispense.medicationDispenseId">
+								{{medicationDispense.dispenseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Route</mat-label>
+						<mat-select placeholder="Route" name="medicationOrder.Route" [(ngModel)]="medicationOrder.Route">
+							@for (RouteOfAdministration of RouteOfAdministrations; track RouteOfAdministration) {
+								<mat-option ngDefaultControl [value]="RouteOfAdministration">
+									{{RouteOfAdministration}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateMedicationOrder(medicationOrder.medicationCode, medicationOrder.dose, medicationOrder.frequency, medicationOrder.duration, medicationOrder.Order, medicationOrder.Pharmacy, medicationOrder.Dispenses, medicationOrder.Route)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>periodStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="periodStart" name="timesheet.periodStart" [(ngModel)]="timesheet.periodStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>periodEnd</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="periodEnd" name="timesheet.periodEnd" [(ngModel)]="timesheet.periodEnd">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>submissionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="submissionDate" name="timesheet.submissionDate" [(ngModel)]="timesheet.submissionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="timesheet.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="timesheet.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>TimeEntries</mat-label>
+					<mat-select placeholder="TimeEntries" multiple [(ngModel)]="timesheet.TimeEntries">
+						@for (timeEntry of timeEntrys; track timeEntry.timeEntryId) {
+							<mat-option name="timesheet.TimeEntries" ngDefaultControl
+							            [value]="timeEntry.timeEntryId">
+								{{timeEntry.entryDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Approvals</mat-label>
+					<mat-select placeholder="Approvals" multiple [(ngModel)]="timesheet.Approvals">
+						@for (approval of approvals; track approval.approvalId) {
+							<mat-option name="timesheet.Approvals" ngDefaultControl
+							            [value]="approval.approvalId">
+								{{approval.approverComment}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="timesheet.Status" [(ngModel)]="timesheet.Status">
+							@for (TimesheetStatus of TimesheetStatuss; track TimesheetStatus) {
+								<mat-option ngDefaultControl [value]="TimesheetStatus">
+									{{TimesheetStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addTimesheet(timesheet.periodStart, timesheet.periodEnd, timesheet.submissionDate, timesheet.Employee, timesheet.TimeEntries, timesheet.Approvals, timesheet.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

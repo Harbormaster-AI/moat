@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>bulletinNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="bulletinNumber" name="serviceBulletin.bulletinNumber" [(ngModel)]="serviceBulletin.bulletinNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>WorkOrders</mat-label>
+					<mat-select placeholder="WorkOrders" multiple [(ngModel)]="serviceBulletin.WorkOrders">
+						@for (maintenanceWorkOrder of maintenanceWorkOrders; track maintenanceWorkOrder.maintenanceWorkOrderId) {
+							<mat-option name="serviceBulletin.WorkOrders" ngDefaultControl
+							            [value]="maintenanceWorkOrder.maintenanceWorkOrderId">
+								{{maintenanceWorkOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple [(ngModel)]="serviceBulletin.Variants">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="serviceBulletin.Variants" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Category</mat-label>
+						<mat-select placeholder="Category" name="serviceBulletin.Category" [(ngModel)]="serviceBulletin.Category">
+							@for (ServiceBulletinCategory of ServiceBulletinCategorys; track ServiceBulletinCategory) {
+								<mat-option ngDefaultControl [value]="ServiceBulletinCategory">
+									{{ServiceBulletinCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																							 										<button
+				(click)="addServiceBulletin(serviceBulletin.bulletinNumber, serviceBulletin.WorkOrders, serviceBulletin.Variants, serviceBulletin.Category)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="runMetric.name" [(ngModel)]="runMetric.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>value</mat-label>
+								<input matInput ngDefaultControl placeholder="value" name="runMetric.value" [(ngModel)]="runMetric.value">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>TrainingRun</mat-label>
+					<mat-select placeholder="TrainingRun"   [compareWith]="compareFn"  [(ngModel)]="runMetric.TrainingRun">
+						@for (trainingRun of trainingRuns; track trainingRun.trainingRunId) {
+							<mat-option name="runMetric.TrainingRun" ngDefaultControl
+							            [value]="trainingRun.trainingRunId">
+								{{trainingRun.runLabel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Metric</mat-label>
+					<mat-select placeholder="Metric"   [compareWith]="compareFn"  [(ngModel)]="runMetric.Metric">
+						@for (metric of metrics; track metric.metricId) {
+							<mat-option name="runMetric.Metric" ngDefaultControl
+							            [value]="metric.metricId">
+								{{metric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"   [compareWith]="compareFn"  [(ngModel)]="runMetric.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="runMetric.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateRunMetric(runMetric.name, runMetric.value, runMetric.TrainingRun, runMetric.Metric, runMetric.Dataset)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="underwriter.firstName" [(ngModel)]="underwriter.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="underwriter.lastName" [(ngModel)]="underwriter.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>employeeId</mat-label>
+								<input matInput ngDefaultControl placeholder="employeeId" name="underwriter.employeeId" [(ngModel)]="underwriter.employeeId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>authorityLimit</mat-label>
+								<input matInput ngDefaultControl placeholder="authorityLimit" name="underwriter.authorityLimit" [(ngModel)]="underwriter.authorityLimit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Decisions</mat-label>
+					<mat-select placeholder="Decisions" multiple  [compareWith]="compareFn"  [(ngModel)]="underwriter.Decisions">
+						@for (underwritingDecision of underwritingDecisions; track underwritingDecision.underwritingDecisionId) {
+							<mat-option name="underwriter.Decisions" ngDefaultControl
+							            [value]="underwritingDecision.underwritingDecisionId">
+								{{underwritingDecision.notes}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Insurer</mat-label>
+					<mat-select placeholder="Insurer"   [compareWith]="compareFn"  [(ngModel)]="underwriter.Insurer">
+						@for (insurer of insurers; track insurer.insurerId) {
+							<mat-option name="underwriter.Insurer" ngDefaultControl
+							            [value]="insurer.insurerId">
+								{{insurer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateUnderwriter(underwriter.firstName, underwriter.lastName, underwriter.employeeId, underwriter.authorityLimit, underwriter.Decisions, underwriter.Insurer)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

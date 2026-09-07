@@ -1,0 +1,102 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<input matInput placeholder="lineNumber" name="stockAdjustmentLine.lineNumber" [(ngModel)]="stockAdjustmentLine.lineNumber">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="stockAdjustmentLine.quantity" [(ngModel)]="stockAdjustmentLine.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Adjustment</mat-label>
+					<mat-select placeholder="Adjustment"  [(ngModel)]="stockAdjustmentLine.Adjustment">
+						@for (stockAdjustment of stockAdjustments; track stockAdjustment.stockAdjustmentId) {
+							<mat-option name="stockAdjustmentLine.Adjustment" ngDefaultControl
+							            [value]="stockAdjustment.stockAdjustmentId">
+								{{stockAdjustment.adjustmentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="stockAdjustmentLine.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="stockAdjustmentLine.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"  [(ngModel)]="stockAdjustmentLine.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="stockAdjustmentLine.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="stockAdjustmentLine.Location">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="stockAdjustmentLine.Location" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple [(ngModel)]="stockAdjustmentLine.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="stockAdjustmentLine.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>UnitOfMeasure</mat-label>
+						<mat-select placeholder="UnitOfMeasure" name="stockAdjustmentLine.UnitOfMeasure" [(ngModel)]="stockAdjustmentLine.UnitOfMeasure">
+							@for (UnitOfMeasure of UnitOfMeasures; track UnitOfMeasure) {
+								<mat-option ngDefaultControl [value]="UnitOfMeasure">
+									{{UnitOfMeasure}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>StockStatus</mat-label>
+						<mat-select placeholder="StockStatus" name="stockAdjustmentLine.StockStatus" [(ngModel)]="stockAdjustmentLine.StockStatus">
+							@for (StockStatus of StockStatuss; track StockStatus) {
+								<mat-option ngDefaultControl [value]="StockStatus">
+									{{StockStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addStockAdjustmentLine(stockAdjustmentLine.lineNumber, stockAdjustmentLine.quantity, stockAdjustmentLine.Adjustment, stockAdjustmentLine.Sku, stockAdjustmentLine.Lot, stockAdjustmentLine.Location, stockAdjustmentLine.SerialNumbers, stockAdjustmentLine.UnitOfMeasure, stockAdjustmentLine.StockStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

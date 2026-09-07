@@ -1,0 +1,108 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="plant.name" [(ngModel)]="plant.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>plantCode</mat-label>
+								<input matInput ngDefaultControl placeholder="plantCode" name="plant.plantCode" [(ngModel)]="plant.plantCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="plant.address" [(ngModel)]="plant.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>timeZone</mat-label>
+								<input matInput ngDefaultControl placeholder="timeZone" name="plant.timeZone" [(ngModel)]="plant.timeZone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Enterprise</mat-label>
+					<mat-select placeholder="Enterprise"  [(ngModel)]="plant.Enterprise">
+						@for (enterprise of enterprises; track enterprise.enterpriseId) {
+							<mat-option name="plant.Enterprise" ngDefaultControl
+							            [value]="enterprise.enterpriseId">
+								{{enterprise.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProductionLines</mat-label>
+					<mat-select placeholder="ProductionLines" multiple [(ngModel)]="plant.ProductionLines">
+						@for (productionLine of productionLines; track productionLine.productionLineId) {
+							<mat-option name="plant.ProductionLines" ngDefaultControl
+							            [value]="productionLine.productionLineId">
+								{{productionLine.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>WorkCenters</mat-label>
+					<mat-select placeholder="WorkCenters" multiple [(ngModel)]="plant.WorkCenters">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="plant.WorkCenters" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Warehouses</mat-label>
+					<mat-select placeholder="Warehouses" multiple [(ngModel)]="plant.Warehouses">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="plant.Warehouses" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Assets</mat-label>
+					<mat-select placeholder="Assets" multiple [(ngModel)]="plant.Assets">
+						@for (asset of assets; track asset.assetId) {
+							<mat-option name="plant.Assets" ngDefaultControl
+							            [value]="asset.assetId">
+								{{asset.assetName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProductionSchedules</mat-label>
+					<mat-select placeholder="ProductionSchedules" multiple [(ngModel)]="plant.ProductionSchedules">
+						@for (productionSchedule of productionSchedules; track productionSchedule.productionScheduleId) {
+							<mat-option name="plant.ProductionSchedules" ngDefaultControl
+							            [value]="productionSchedule.productionScheduleId">
+								{{productionSchedule.scheduleNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																										 										<button
+				(click)="addPlant(plant.name, plant.plantCode, plant.address, plant.timeZone, plant.Enterprise, plant.ProductionLines, plant.WorkCenters, plant.Warehouses, plant.Assets, plant.ProductionSchedules)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

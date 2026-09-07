@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="timeSeries.name" [(ngModel)]="timeSeries.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>timezone</mat-label>
+								<input matInput ngDefaultControl placeholder="timezone" name="timeSeries.timezone" [(ngModel)]="timeSeries.timezone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple  [compareWith]="compareFn"  [(ngModel)]="timeSeries.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="timeSeries.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Forecasts</mat-label>
+					<mat-select placeholder="Forecasts" multiple  [compareWith]="compareFn"  [(ngModel)]="timeSeries.Forecasts">
+						@for (forecast of forecasts; track forecast.forecastId) {
+							<mat-option name="timeSeries.Forecasts" ngDefaultControl
+							            [value]="forecast.forecastId">
+								{{forecast.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Anomalies</mat-label>
+					<mat-select placeholder="Anomalies" multiple  [compareWith]="compareFn"  [(ngModel)]="timeSeries.Anomalies">
+						@for (anomaly of anomalys; track anomaly.anomalyId) {
+							<mat-option name="timeSeries.Anomalies" ngDefaultControl
+							            [value]="anomaly.anomalyId">
+								{{anomaly.occurredAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Granularity</mat-label>
+						<mat-select placeholder="Granularity" name="timeSeries.Granularity" [(ngModel)]="timeSeries.Granularity">
+							@for (TimeGranularity of TimeGranularitys; track TimeGranularity) {
+								<mat-option ngDefaultControl [value]="TimeGranularity">
+									{{TimeGranularity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateTimeSeries(timeSeries.name, timeSeries.timezone, timeSeries.Datasets, timeSeries.Forecasts, timeSeries.Anomalies, timeSeries.Granularity)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

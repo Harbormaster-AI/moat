@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>authNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="authNumber" name="authorization.authNumber" [(ngModel)]="authorization.authNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>requestedService</mat-label>
+								<input matInput ngDefaultControl placeholder="requestedService" name="authorization.requestedService" [(ngModel)]="authorization.requestedService">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Coverage</mat-label>
+					<mat-select placeholder="Coverage"  [(ngModel)]="authorization.Coverage">
+						@for (coverage of coverages; track coverage.coverageId) {
+							<mat-option name="authorization.Coverage" ngDefaultControl
+							            [value]="coverage.coverageId">
+								{{coverage.memberId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"  [(ngModel)]="authorization.Order">
+						@for (clinicalOrder of clinicalOrders; track clinicalOrder.clinicalOrderId) {
+							<mat-option name="authorization.Order" ngDefaultControl
+							            [value]="clinicalOrder.clinicalOrderId">
+								{{clinicalOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="authorization.Status" [(ngModel)]="authorization.Status">
+							@for (AuthorizationStatus of AuthorizationStatuss; track AuthorizationStatus) {
+								<mat-option ngDefaultControl [value]="AuthorizationStatus">
+									{{AuthorizationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addAuthorization(authorization.authNumber, authorization.requestedService, authorization.Coverage, authorization.Order, authorization.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

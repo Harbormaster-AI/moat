@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">AircraftOption List</h5>
+
+    <a
+            [routerLink]="['/createAircraftOption']"
+            class="btn btn-primary btn-sm">
+        Create AircraftOption
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">code</th>
+                        <th scope="col">name</th>
+                        <th scope="col">OptionCategory</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (aircraftOption of aircraftOptions; track aircraftOption.aircraftOptionId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ aircraftOption.code }}
+                </td>
+                                <td class="align-middle">
+                    {{ aircraftOption.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ aircraftOption.OptionCategory }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAircraftOption', aircraftOption.aircraftOptionId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAircraftOption(aircraftOption.aircraftOptionId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (aircraftOptions?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No aircraftOptions found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

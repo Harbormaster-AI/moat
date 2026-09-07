@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>tailNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="tailNumber" name="registration.tailNumber" [(ngModel)]="registration.tailNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>registryCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="registryCountry" name="registration.registryCountry" [(ngModel)]="registration.registryCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Aircraft</mat-label>
+					<mat-select placeholder="Aircraft"   [compareWith]="compareFn"  [(ngModel)]="registration.Aircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="registration.Aircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateRegistration(registration.tailNumber, registration.registryCountry, registration.Aircraft)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

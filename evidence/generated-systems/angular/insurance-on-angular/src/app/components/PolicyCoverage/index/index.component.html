@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PolicyCoverage List</h5>
+
+    <a
+            [routerLink]="['/createPolicyCoverage']"
+            class="btn btn-primary btn-sm">
+        Create PolicyCoverage
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">limit</th>
+                        <th scope="col">deductible</th>
+                        <th scope="col">premium</th>
+                        <th scope="col">CoverageType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (policyCoverage of policyCoverages; track policyCoverage.policyCoverageId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ policyCoverage.limit }}
+                </td>
+                                <td class="align-middle">
+                    {{ policyCoverage.deductible }}
+                </td>
+                                <td class="align-middle">
+                    {{ policyCoverage.premium }}
+                </td>
+                                <td class="align-middle">
+                    {{ policyCoverage.CoverageType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPolicyCoverage', policyCoverage.policyCoverageId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePolicyCoverage(policyCoverage.policyCoverageId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (policyCoverages?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No policyCoverages found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>assessmentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="assessmentDate" name="thirdPartyAssessment.assessmentDate" [(ngModel)]="thirdPartyAssessment.assessmentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>assessor</mat-label>
+								<input matInput ngDefaultControl placeholder="assessor" name="thirdPartyAssessment.assessor" [(ngModel)]="thirdPartyAssessment.assessor">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ThirdParty</mat-label>
+					<mat-select placeholder="ThirdParty"  [(ngModel)]="thirdPartyAssessment.ThirdParty">
+						@for (thirdParty of thirdPartys; track thirdParty.thirdPartyId) {
+							<mat-option name="thirdPartyAssessment.ThirdParty" ngDefaultControl
+							            [value]="thirdParty.thirdPartyId">
+								{{thirdParty.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Issues</mat-label>
+					<mat-select placeholder="Issues" multiple [(ngModel)]="thirdPartyAssessment.Issues">
+						@for (issue of issues; track issue.issueId) {
+							<mat-option name="thirdPartyAssessment.Issues" ngDefaultControl
+							            [value]="issue.issueId">
+								{{issue.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>AssessmentType</mat-label>
+						<mat-select placeholder="AssessmentType" name="thirdPartyAssessment.AssessmentType" [(ngModel)]="thirdPartyAssessment.AssessmentType">
+							@for (AssessmentType of AssessmentTypes; track AssessmentType) {
+								<mat-option ngDefaultControl [value]="AssessmentType">
+									{{AssessmentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Result</mat-label>
+						<mat-select placeholder="Result" name="thirdPartyAssessment.Result" [(ngModel)]="thirdPartyAssessment.Result">
+							@for (AssessmentResult of AssessmentResults; track AssessmentResult) {
+								<mat-option ngDefaultControl [value]="AssessmentResult">
+									{{AssessmentResult}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 																							 										<button
+				(click)="addThirdPartyAssessment(thirdPartyAssessment.assessmentDate, thirdPartyAssessment.assessor, thirdPartyAssessment.ThirdParty, thirdPartyAssessment.Issues, thirdPartyAssessment.AssessmentType, thirdPartyAssessment.Result)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

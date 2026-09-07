@@ -1,0 +1,217 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>employeeNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="employeeNumber" name="employee.employeeNumber" [(ngModel)]="employee.employeeNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="employee.name" [(ngModel)]="employee.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>workEmail</mat-label>
+								<input matInput ngDefaultControl placeholder="workEmail" name="employee.workEmail" [(ngModel)]="employee.workEmail">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>workPhone</mat-label>
+								<input matInput ngDefaultControl placeholder="workPhone" name="employee.workPhone" [(ngModel)]="employee.workPhone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dateOfHire</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dateOfHire" name="employee.dateOfHire" [(ngModel)]="employee.dateOfHire">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>nationalId</mat-label>
+								<input matInput ngDefaultControl placeholder="nationalId" name="employee.nationalId" [(ngModel)]="employee.nationalId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Manager</mat-label>
+					<mat-select placeholder="Manager"   [compareWith]="compareFn"  [(ngModel)]="employee.Manager">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="employee.Manager" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>DirectReports</mat-label>
+					<mat-select placeholder="DirectReports" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.DirectReports">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="employee.DirectReports" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Department</mat-label>
+					<mat-select placeholder="Department"   [compareWith]="compareFn"  [(ngModel)]="employee.Department">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="employee.Department" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PrimaryLocation</mat-label>
+					<mat-select placeholder="PrimaryLocation"   [compareWith]="compareFn"  [(ngModel)]="employee.PrimaryLocation">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="employee.PrimaryLocation" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CostCenter</mat-label>
+					<mat-select placeholder="CostCenter"   [compareWith]="compareFn"  [(ngModel)]="employee.CostCenter">
+						@for (costCenter of costCenters; track costCenter.costCenterId) {
+							<mat-option name="employee.CostCenter" ngDefaultControl
+							            [value]="costCenter.costCenterId">
+								{{costCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>EmploymentAssignments</mat-label>
+					<mat-select placeholder="EmploymentAssignments" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.EmploymentAssignments">
+						@for (employmentAssignment of employmentAssignments; track employmentAssignment.employmentAssignmentId) {
+							<mat-option name="employee.EmploymentAssignments" ngDefaultControl
+							            [value]="employmentAssignment.employmentAssignmentId">
+								{{employmentAssignment.startDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.Contracts">
+						@for (employmentContract of employmentContracts; track employmentContract.employmentContractId) {
+							<mat-option name="employee.Contracts" ngDefaultControl
+							            [value]="employmentContract.employmentContractId">
+								{{employmentContract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>BenefitEnrollments</mat-label>
+					<mat-select placeholder="BenefitEnrollments" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.BenefitEnrollments">
+						@for (benefitEnrollment of benefitEnrollments; track benefitEnrollment.benefitEnrollmentId) {
+							<mat-option name="employee.BenefitEnrollments" ngDefaultControl
+							            [value]="benefitEnrollment.benefitEnrollmentId">
+								{{benefitEnrollment.enrollmentId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Timesheets</mat-label>
+					<mat-select placeholder="Timesheets" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.Timesheets">
+						@for (timesheet of timesheets; track timesheet.timesheetId) {
+							<mat-option name="employee.Timesheets" ngDefaultControl
+							            [value]="timesheet.timesheetId">
+								{{timesheet.periodStart}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LeaveRequests</mat-label>
+					<mat-select placeholder="LeaveRequests" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.LeaveRequests">
+						@for (leaveRequest of leaveRequests; track leaveRequest.leaveRequestId) {
+							<mat-option name="employee.LeaveRequests" ngDefaultControl
+							            [value]="leaveRequest.leaveRequestId">
+								{{leaveRequest.requestNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PerformanceReviews</mat-label>
+					<mat-select placeholder="PerformanceReviews" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.PerformanceReviews">
+						@for (performanceReview of performanceReviews; track performanceReview.performanceReviewId) {
+							<mat-option name="employee.PerformanceReviews" ngDefaultControl
+							            [value]="performanceReview.performanceReviewId">
+								{{performanceReview.reviewNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>TrainingEnrollments</mat-label>
+					<mat-select placeholder="TrainingEnrollments" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.TrainingEnrollments">
+						@for (trainingEnrollment of trainingEnrollments; track trainingEnrollment.trainingEnrollmentId) {
+							<mat-option name="employee.TrainingEnrollments" ngDefaultControl
+							            [value]="trainingEnrollment.trainingEnrollmentId">
+								{{trainingEnrollment.enrollmentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkAuthorizations</mat-label>
+					<mat-select placeholder="WorkAuthorizations" multiple  [compareWith]="compareFn"  [(ngModel)]="employee.WorkAuthorizations">
+						@for (workAuthorization of workAuthorizations; track workAuthorization.workAuthorizationId) {
+							<mat-option name="employee.WorkAuthorizations" ngDefaultControl
+							            [value]="workAuthorization.workAuthorizationId">
+								{{workAuthorization.country}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="employee.Status" [(ngModel)]="employee.Status">
+							@for (EmploymentStatus of EmploymentStatuss; track EmploymentStatus) {
+								<mat-option ngDefaultControl [value]="EmploymentStatus">
+									{{EmploymentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateEmployee(employee.employeeNumber, employee.name, employee.workEmail, employee.workPhone, employee.dateOfHire, employee.nationalId, employee.Manager, employee.DirectReports, employee.Department, employee.PrimaryLocation, employee.CostCenter, employee.EmploymentAssignments, employee.Contracts, employee.BenefitEnrollments, employee.Timesheets, employee.LeaveRequests, employee.PerformanceReviews, employee.TrainingEnrollments, employee.WorkAuthorizations, employee.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,25 @@
+import { HttpClient } from '@angular/common/http';
+import { BaseComponent } from '../base.component';
+
+import { Directive } from '@angular/core';
+
+/**
+	Base class of all OutboundAllocation Edit and Create Components.  
+ **/
+@Directive()
+export class SubBaseComponent extends BaseComponent {
+
+  constructor (http: HttpClient) { super(http); }
+  
+  ngOnInit() {
+  	super.ngOnInit();
+  	
+	this.initWarehouseList();
+	this.initStockKeepingUnitList();
+	this.initInventoryItemList();
+	this.initReservationList();
+	this.initLotList();
+	this.initSerialNumberList();
+	this.initStorageLocationList();
+  }
+}

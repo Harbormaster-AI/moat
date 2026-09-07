@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>directiveNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="directiveNumber" name="airworthinessDirective.directiveNumber" [(ngModel)]="airworthinessDirective.directiveNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="airworthinessDirective.title" [(ngModel)]="airworthinessDirective.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>WorkOrders</mat-label>
+					<mat-select placeholder="WorkOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="airworthinessDirective.WorkOrders">
+						@for (maintenanceWorkOrder of maintenanceWorkOrders; track maintenanceWorkOrder.maintenanceWorkOrderId) {
+							<mat-option name="airworthinessDirective.WorkOrders" ngDefaultControl
+							            [value]="maintenanceWorkOrder.maintenanceWorkOrderId">
+								{{maintenanceWorkOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 										<button
+				(click)="updateAirworthinessDirective(airworthinessDirective.directiveNumber, airworthinessDirective.title, airworthinessDirective.WorkOrders)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

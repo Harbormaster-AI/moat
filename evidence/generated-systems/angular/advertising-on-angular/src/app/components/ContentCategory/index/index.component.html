@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ContentCategory List</h5>
+
+    <a
+            [routerLink]="['/createContentCategory']"
+            class="btn btn-primary btn-sm">
+        Create ContentCategory
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">code</th>
+                        <th scope="col">name</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (contentCategory of contentCategorys; track contentCategory.contentCategoryId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ contentCategory.code }}
+                </td>
+                                <td class="align-middle">
+                    {{ contentCategory.name }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadContentCategory', contentCategory.contentCategoryId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteContentCategory(contentCategory.contentCategoryId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (contentCategorys?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No contentCategorys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

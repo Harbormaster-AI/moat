@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="position.quantity" [(ngModel)]="position.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>averageCost</mat-label>
+								<input matInput ngDefaultControl placeholder="averageCost" name="position.averageCost" [(ngModel)]="position.averageCost">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>marketValue</mat-label>
+								<input matInput ngDefaultControl placeholder="marketValue" name="position.marketValue" [(ngModel)]="position.marketValue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Portfolio</mat-label>
+					<mat-select placeholder="Portfolio"   [compareWith]="compareFn"  [(ngModel)]="position.Portfolio">
+						@for (investmentPortfolio of investmentPortfolios; track investmentPortfolio.investmentPortfolioId) {
+							<mat-option name="position.Portfolio" ngDefaultControl
+							            [value]="investmentPortfolio.investmentPortfolioId">
+								{{investmentPortfolio.portfolioCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Security</mat-label>
+					<mat-select placeholder="Security"   [compareWith]="compareFn"  [(ngModel)]="position.Security">
+						@for (security of securitys; track security.securityId) {
+							<mat-option name="position.Security" ngDefaultControl
+							            [value]="security.securityId">
+								{{security.symbol}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 										<button
+				(click)="updatePosition(position.quantity, position.averageCost, position.marketValue, position.Portfolio, position.Security)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

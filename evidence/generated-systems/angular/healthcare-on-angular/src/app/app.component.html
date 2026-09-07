@@ -1,0 +1,368 @@
+<div class="app-header">healthcare-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="HealthSystemMenu">HealthSystem</button>
+								<button mat-menu-item [matMenuTriggerFor]="FacilityMenu">Facility</button>
+								<button mat-menu-item [matMenuTriggerFor]="DepartmentMenu">Department</button>
+								<button mat-menu-item [matMenuTriggerFor]="CareTeamMenu">CareTeam</button>
+								<button mat-menu-item [matMenuTriggerFor]="ClinicianMenu">Clinician</button>
+								<button mat-menu-item [matMenuTriggerFor]="PatientMenu">Patient</button>
+								<button mat-menu-item [matMenuTriggerFor]="AppointmentMenu">Appointment</button>
+								<button mat-menu-item [matMenuTriggerFor]="EncounterMenu">Encounter</button>
+								<button mat-menu-item [matMenuTriggerFor]="AdmissionMenu">Admission</button>
+								<button mat-menu-item [matMenuTriggerFor]="DischargeMenu">Discharge</button>
+								<button mat-menu-item [matMenuTriggerFor]="ClinicalOrderMenu">ClinicalOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="MedicationOrderMenu">MedicationOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="LaboratoryMenu">Laboratory</button>
+								<button mat-menu-item [matMenuTriggerFor]="LaboratoryOrderMenu">LaboratoryOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="LabResultMenu">LabResult</button>
+								<button mat-menu-item [matMenuTriggerFor]="ImagingCenterMenu">ImagingCenter</button>
+								<button mat-menu-item [matMenuTriggerFor]="ImagingOrderMenu">ImagingOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="ImagingReportMenu">ImagingReport</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProcedureOrderMenu">ProcedureOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProcedureMenu">Procedure</button>
+								<button mat-menu-item [matMenuTriggerFor]="PharmacyMenu">Pharmacy</button>
+								<button mat-menu-item [matMenuTriggerFor]="MedicationDispenseMenu">MedicationDispense</button>
+								<button mat-menu-item [matMenuTriggerFor]="DiagnosisMenu">Diagnosis</button>
+								<button mat-menu-item [matMenuTriggerFor]="ObservationMenu">Observation</button>
+								<button mat-menu-item [matMenuTriggerFor]="CarePlanMenu">CarePlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="CareTaskMenu">CareTask</button>
+								<button mat-menu-item [matMenuTriggerFor]="AllergyMenu">Allergy</button>
+								<button mat-menu-item [matMenuTriggerFor]="ConditionMenu">Condition</button>
+								<button mat-menu-item [matMenuTriggerFor]="InsurancePayerMenu">InsurancePayer</button>
+								<button mat-menu-item [matMenuTriggerFor]="InsurancePlanMenu">InsurancePlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="CoverageMenu">Coverage</button>
+								<button mat-menu-item [matMenuTriggerFor]="ClaimMenu">Claim</button>
+								<button mat-menu-item [matMenuTriggerFor]="AuthorizationMenu">Authorization</button>
+								<button mat-menu-item [matMenuTriggerFor]="InvoiceMenu">Invoice</button>
+								<button mat-menu-item [matMenuTriggerFor]="PaymentMenu">Payment</button>
+								<button mat-menu-item [matMenuTriggerFor]="MedicalDeviceMenu">MedicalDevice</button>
+								<button mat-menu-item [matMenuTriggerFor]="SoftwareUpdateMenu">SoftwareUpdate</button>
+								<button mat-menu-item [matMenuTriggerFor]="MedicalSupplierMenu">MedicalSupplier</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryItemMenu">InventoryItem</button>
+				
+						<mat-menu #HealthSystemMenu="matMenu">
+			<a routerLink="createHealthSystem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexHealthSystem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #FacilityMenu="matMenu">
+			<a routerLink="createFacility">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexFacility">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DepartmentMenu="matMenu">
+			<a routerLink="createDepartment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDepartment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CareTeamMenu="matMenu">
+			<a routerLink="createCareTeam">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCareTeam">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ClinicianMenu="matMenu">
+			<a routerLink="createClinician">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexClinician">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PatientMenu="matMenu">
+			<a routerLink="createPatient">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPatient">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AppointmentMenu="matMenu">
+			<a routerLink="createAppointment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAppointment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EncounterMenu="matMenu">
+			<a routerLink="createEncounter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEncounter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AdmissionMenu="matMenu">
+			<a routerLink="createAdmission">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAdmission">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DischargeMenu="matMenu">
+			<a routerLink="createDischarge">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDischarge">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ClinicalOrderMenu="matMenu">
+			<a routerLink="createClinicalOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexClinicalOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MedicationOrderMenu="matMenu">
+			<a routerLink="createMedicationOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMedicationOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LaboratoryMenu="matMenu">
+			<a routerLink="createLaboratory">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLaboratory">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LaboratoryOrderMenu="matMenu">
+			<a routerLink="createLaboratoryOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLaboratoryOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LabResultMenu="matMenu">
+			<a routerLink="createLabResult">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLabResult">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ImagingCenterMenu="matMenu">
+			<a routerLink="createImagingCenter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexImagingCenter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ImagingOrderMenu="matMenu">
+			<a routerLink="createImagingOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexImagingOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ImagingReportMenu="matMenu">
+			<a routerLink="createImagingReport">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexImagingReport">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProcedureOrderMenu="matMenu">
+			<a routerLink="createProcedureOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProcedureOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProcedureMenu="matMenu">
+			<a routerLink="createProcedure">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProcedure">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PharmacyMenu="matMenu">
+			<a routerLink="createPharmacy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPharmacy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MedicationDispenseMenu="matMenu">
+			<a routerLink="createMedicationDispense">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMedicationDispense">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #DiagnosisMenu="matMenu">
+			<a routerLink="createDiagnosis">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexDiagnosis">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ObservationMenu="matMenu">
+			<a routerLink="createObservation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexObservation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CarePlanMenu="matMenu">
+			<a routerLink="createCarePlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCarePlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CareTaskMenu="matMenu">
+			<a routerLink="createCareTask">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCareTask">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AllergyMenu="matMenu">
+			<a routerLink="createAllergy">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAllergy">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ConditionMenu="matMenu">
+			<a routerLink="createCondition">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCondition">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InsurancePayerMenu="matMenu">
+			<a routerLink="createInsurancePayer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInsurancePayer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InsurancePlanMenu="matMenu">
+			<a routerLink="createInsurancePlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInsurancePlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CoverageMenu="matMenu">
+			<a routerLink="createCoverage">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCoverage">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ClaimMenu="matMenu">
+			<a routerLink="createClaim">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexClaim">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AuthorizationMenu="matMenu">
+			<a routerLink="createAuthorization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAuthorization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InvoiceMenu="matMenu">
+			<a routerLink="createInvoice">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInvoice">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PaymentMenu="matMenu">
+			<a routerLink="createPayment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPayment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MedicalDeviceMenu="matMenu">
+			<a routerLink="createMedicalDevice">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMedicalDevice">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SoftwareUpdateMenu="matMenu">
+			<a routerLink="createSoftwareUpdate">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSoftwareUpdate">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MedicalSupplierMenu="matMenu">
+			<a routerLink="createMedicalSupplier">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMedicalSupplier">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryItemMenu="matMenu">
+			<a routerLink="createInventoryItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

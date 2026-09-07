@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">EmploymentAssignment List</h5>
+
+    <a
+            [routerLink]="['/createEmploymentAssignment']"
+            class="btn btn-primary btn-sm">
+        Create EmploymentAssignment
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">startDate</th>
+                        <th scope="col">endDate</th>
+                        <th scope="col">primary</th>
+                        <th scope="col">AssignmentType</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (employmentAssignment of employmentAssignments; track employmentAssignment.employmentAssignmentId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ employmentAssignment.startDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentAssignment.endDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentAssignment.primary }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentAssignment.AssignmentType }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentAssignment.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEmploymentAssignment', employmentAssignment.employmentAssignmentId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEmploymentAssignment(employmentAssignment.employmentAssignmentId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (employmentAssignments?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No employmentAssignments found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

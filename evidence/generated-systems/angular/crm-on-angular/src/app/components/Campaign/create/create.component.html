@@ -1,0 +1,194 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="campaign.name" [(ngModel)]="campaign.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="campaign.startDate" [(ngModel)]="campaign.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="campaign.endDate" [(ngModel)]="campaign.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>budget</mat-label>
+								<input matInput ngDefaultControl placeholder="budget" name="campaign.budget" [(ngModel)]="campaign.budget">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>actualCost</mat-label>
+								<input matInput ngDefaultControl placeholder="actualCost" name="campaign.actualCost" [(ngModel)]="campaign.actualCost">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>expectedRevenue</mat-label>
+								<input matInput ngDefaultControl placeholder="expectedRevenue" name="campaign.expectedRevenue" [(ngModel)]="campaign.expectedRevenue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="campaign.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="campaign.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ParentCampaign</mat-label>
+					<mat-select placeholder="ParentCampaign"  [(ngModel)]="campaign.ParentCampaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="campaign.ParentCampaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ChildCampaigns</mat-label>
+					<mat-select placeholder="ChildCampaigns" multiple [(ngModel)]="campaign.ChildCampaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="campaign.ChildCampaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Members</mat-label>
+					<mat-select placeholder="Members" multiple [(ngModel)]="campaign.Members">
+						@for (campaignMember of campaignMembers; track campaignMember.campaignMemberId) {
+							<mat-option name="campaign.Members" ngDefaultControl
+							            [value]="campaignMember.campaignMemberId">
+								{{campaignMember.responded}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Opportunities</mat-label>
+					<mat-select placeholder="Opportunities" multiple [(ngModel)]="campaign.Opportunities">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="campaign.Opportunities" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Accounts</mat-label>
+					<mat-select placeholder="Accounts" multiple [(ngModel)]="campaign.Accounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="campaign.Accounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Leads</mat-label>
+					<mat-select placeholder="Leads" multiple [(ngModel)]="campaign.Leads">
+						@for (lead of leads; track lead.leadId) {
+							<mat-option name="campaign.Leads" ngDefaultControl
+							            [value]="lead.leadId">
+								{{lead.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Contacts</mat-label>
+					<mat-select placeholder="Contacts" multiple [(ngModel)]="campaign.Contacts">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="campaign.Contacts" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Teams</mat-label>
+					<mat-select placeholder="Teams" multiple [(ngModel)]="campaign.Teams">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="campaign.Teams" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple [(ngModel)]="campaign.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="campaign.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="campaign.Status" [(ngModel)]="campaign.Status">
+							@for (CampaignStatus of CampaignStatuss; track CampaignStatus) {
+								<mat-option ngDefaultControl [value]="CampaignStatus">
+									{{CampaignStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Type</mat-label>
+						<mat-select placeholder="Type" name="campaign.Type" [(ngModel)]="campaign.Type">
+							@for (CampaignType of CampaignTypes; track CampaignType) {
+								<mat-option ngDefaultControl [value]="CampaignType">
+									{{CampaignType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addCampaign(campaign.name, campaign.startDate, campaign.endDate, campaign.budget, campaign.actualCost, campaign.expectedRevenue, campaign.Organization, campaign.ParentCampaign, campaign.ChildCampaigns, campaign.Members, campaign.Opportunities, campaign.Accounts, campaign.Leads, campaign.Contacts, campaign.Teams, campaign.Activities, campaign.Status, campaign.Type)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

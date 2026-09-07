@@ -1,0 +1,87 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="legalHold.name" [(ngModel)]="legalHold.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reason</mat-label>
+								<input matInput ngDefaultControl placeholder="reason" name="legalHold.reason" [(ngModel)]="legalHold.reason">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>issuedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="issuedDate" name="legalHold.issuedDate" [(ngModel)]="legalHold.issuedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>releaseDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="releaseDate" name="legalHold.releaseDate" [(ngModel)]="legalHold.releaseDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Repositories</mat-label>
+					<mat-select placeholder="Repositories" multiple  [compareWith]="compareFn"  [(ngModel)]="legalHold.Repositories">
+						@for (recordsRepository of recordsRepositorys; track recordsRepository.recordsRepositoryId) {
+							<mat-option name="legalHold.Repositories" ngDefaultControl
+							            [value]="recordsRepository.recordsRepositoryId">
+								{{recordsRepository.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Records</mat-label>
+					<mat-select placeholder="Records" multiple  [compareWith]="compareFn"  [(ngModel)]="legalHold.Records">
+						@for (record_ of record_s; track record_.record_Id) {
+							<mat-option name="legalHold.Records" ngDefaultControl
+							            [value]="record_.record_Id">
+								{{record_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Matter</mat-label>
+					<mat-select placeholder="Matter"   [compareWith]="compareFn"  [(ngModel)]="legalHold.Matter">
+						@for (matter of matters; track matter.matterId) {
+							<mat-option name="legalHold.Matter" ngDefaultControl
+							            [value]="matter.matterId">
+								{{matter.matterName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>HoldStatus</mat-label>
+						<mat-select placeholder="HoldStatus" name="legalHold.HoldStatus" [(ngModel)]="legalHold.HoldStatus">
+							@for (LegalHoldStatus of LegalHoldStatuss; track LegalHoldStatus) {
+								<mat-option ngDefaultControl [value]="LegalHoldStatus">
+									{{LegalHoldStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateLegalHold(legalHold.name, legalHold.reason, legalHold.issuedDate, legalHold.releaseDate, legalHold.Repositories, legalHold.Records, legalHold.Matter, legalHold.HoldStatus)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>capaNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="capaNumber" name="correctiveAction.capaNumber" [(ngModel)]="correctiveAction.capaNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>rootCause</mat-label>
+								<input matInput ngDefaultControl placeholder="rootCause" name="correctiveAction.rootCause" [(ngModel)]="correctiveAction.rootCause">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>correctiveAction</mat-label>
+								<input matInput ngDefaultControl placeholder="correctiveAction" name="correctiveAction.correctiveAction" [(ngModel)]="correctiveAction.correctiveAction">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>verificationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="verificationDate" name="correctiveAction.verificationDate" [(ngModel)]="correctiveAction.verificationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Nonconformance</mat-label>
+					<mat-select placeholder="Nonconformance"  [(ngModel)]="correctiveAction.Nonconformance">
+						@for (nonconformance of nonconformances; track nonconformance.nonconformanceId) {
+							<mat-option name="correctiveAction.Nonconformance" ngDefaultControl
+							            [value]="nonconformance.nonconformanceId">
+								{{nonconformance.ncNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"  [(ngModel)]="correctiveAction.Owner">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="correctiveAction.Owner" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="correctiveAction.Status" [(ngModel)]="correctiveAction.Status">
+							@for (CAPAStatus of CAPAStatuss; track CAPAStatus) {
+								<mat-option ngDefaultControl [value]="CAPAStatus">
+									{{CAPAStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																							 										<button
+				(click)="addCorrectiveAction(correctiveAction.capaNumber, correctiveAction.rootCause, correctiveAction.correctiveAction, correctiveAction.verificationDate, correctiveAction.Nonconformance, correctiveAction.Owner, correctiveAction.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

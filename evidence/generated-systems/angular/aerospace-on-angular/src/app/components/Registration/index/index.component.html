@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Registration List</h5>
+
+    <a
+            [routerLink]="['/createRegistration']"
+            class="btn btn-primary btn-sm">
+        Create Registration
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">tailNumber</th>
+                        <th scope="col">registryCountry</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (registration of registrations; track registration.registrationId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ registration.tailNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ registration.registryCountry }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadRegistration', registration.registrationId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteRegistration(registration.registrationId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (registrations?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No registrations found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

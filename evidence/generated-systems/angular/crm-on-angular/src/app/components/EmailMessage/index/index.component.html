@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">EmailMessage List</h5>
+
+    <a
+            [routerLink]="['/createEmailMessage']"
+            class="btn btn-primary btn-sm">
+        Create EmailMessage
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">subject</th>
+                        <th scope="col">body</th>
+                        <th scope="col">sentAt</th>
+                        <th scope="col">messageId</th>
+                        <th scope="col">Direction</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (emailMessage of emailMessages; track emailMessage.emailMessageId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ emailMessage.subject }}
+                </td>
+                                <td class="align-middle">
+                    {{ emailMessage.body }}
+                </td>
+                                <td class="align-middle">
+                    {{ emailMessage.sentAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ emailMessage.messageId }}
+                </td>
+                                <td class="align-middle">
+                    {{ emailMessage.Direction }}
+                </td>
+                                <td class="align-middle">
+                    {{ emailMessage.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEmailMessage', emailMessage.emailMessageId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEmailMessage(emailMessage.emailMessageId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (emailMessages?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No emailMessages found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

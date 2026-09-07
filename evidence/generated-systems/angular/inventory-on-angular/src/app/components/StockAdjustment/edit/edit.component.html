@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>adjustmentNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="adjustmentNumber" name="stockAdjustment.adjustmentNumber" [(ngModel)]="stockAdjustment.adjustmentNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reason</mat-label>
+								<input matInput ngDefaultControl placeholder="reason" name="stockAdjustment.reason" [(ngModel)]="stockAdjustment.reason">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>adjustmentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="adjustmentDate" name="stockAdjustment.adjustmentDate" [(ngModel)]="stockAdjustment.adjustmentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"   [compareWith]="compareFn"  [(ngModel)]="stockAdjustment.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="stockAdjustment.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple  [compareWith]="compareFn"  [(ngModel)]="stockAdjustment.Lines">
+						@for (stockAdjustmentLine of stockAdjustmentLines; track stockAdjustmentLine.stockAdjustmentLineId) {
+							<mat-option name="stockAdjustment.Lines" ngDefaultControl
+							            [value]="stockAdjustmentLine.stockAdjustmentLineId">
+								{{stockAdjustmentLine.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple  [compareWith]="compareFn"  [(ngModel)]="stockAdjustment.Transactions">
+						@for (inventoryTransaction of inventoryTransactions; track inventoryTransaction.inventoryTransactionId) {
+							<mat-option name="stockAdjustment.Transactions" ngDefaultControl
+							            [value]="inventoryTransaction.inventoryTransactionId">
+								{{inventoryTransaction.transactionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AdjustmentType</mat-label>
+						<mat-select placeholder="AdjustmentType" name="stockAdjustment.AdjustmentType" [(ngModel)]="stockAdjustment.AdjustmentType">
+							@for (AdjustmentType of AdjustmentTypes; track AdjustmentType) {
+								<mat-option ngDefaultControl [value]="AdjustmentType">
+									{{AdjustmentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="stockAdjustment.Status" [(ngModel)]="stockAdjustment.Status">
+							@for (AdjustmentStatus of AdjustmentStatuss; track AdjustmentStatus) {
+								<mat-option ngDefaultControl [value]="AdjustmentStatus">
+									{{AdjustmentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateStockAdjustment(stockAdjustment.adjustmentNumber, stockAdjustment.reason, stockAdjustment.adjustmentDate, stockAdjustment.Warehouse, stockAdjustment.Lines, stockAdjustment.Transactions, stockAdjustment.AdjustmentType, stockAdjustment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

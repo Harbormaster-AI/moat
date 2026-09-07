@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="payrollCalendar.name" [(ngModel)]="payrollCalendar.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>country</mat-label>
+								<input matInput ngDefaultControl placeholder="country" name="payrollCalendar.country" [(ngModel)]="payrollCalendar.country">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="payrollCalendar.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="payrollCalendar.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>PayrollRuns</mat-label>
+					<mat-select placeholder="PayrollRuns" multiple [(ngModel)]="payrollCalendar.PayrollRuns">
+						@for (payrollRun of payrollRuns; track payrollRun.payrollRunId) {
+							<mat-option name="payrollCalendar.PayrollRuns" ngDefaultControl
+							            [value]="payrollRun.payrollRunId">
+								{{payrollRun.runNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Employees</mat-label>
+					<mat-select placeholder="Employees" multiple [(ngModel)]="payrollCalendar.Employees">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="payrollCalendar.Employees" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PayFrequency</mat-label>
+						<mat-select placeholder="PayFrequency" name="payrollCalendar.PayFrequency" [(ngModel)]="payrollCalendar.PayFrequency">
+							@for (PayFrequency of PayFrequencys; track PayFrequency) {
+								<mat-option ngDefaultControl [value]="PayFrequency">
+									{{PayFrequency}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 										<button
+				(click)="addPayrollCalendar(payrollCalendar.name, payrollCalendar.country, payrollCalendar.Organization, payrollCalendar.PayrollRuns, payrollCalendar.Employees, payrollCalendar.PayFrequency)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

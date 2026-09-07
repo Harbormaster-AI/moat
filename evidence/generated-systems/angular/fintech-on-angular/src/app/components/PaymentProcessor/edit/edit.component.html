@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="paymentProcessor.name" [(ngModel)]="paymentProcessor.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>processorCode</mat-label>
+								<input matInput ngDefaultControl placeholder="processorCode" name="paymentProcessor.processorCode" [(ngModel)]="paymentProcessor.processorCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>networkSupport</mat-label>
+								<input matInput ngDefaultControl placeholder="networkSupport" name="paymentProcessor.networkSupport" [(ngModel)]="paymentProcessor.networkSupport">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Institutions</mat-label>
+					<mat-select placeholder="Institutions" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentProcessor.Institutions">
+						@for (financialInstitution of financialInstitutions; track financialInstitution.financialInstitutionId) {
+							<mat-option name="paymentProcessor.Institutions" ngDefaultControl
+							            [value]="financialInstitution.financialInstitutionId">
+								{{financialInstitution.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentProcessor.Contracts">
+						@for (paymentContract of paymentContracts; track paymentContract.paymentContractId) {
+							<mat-option name="paymentProcessor.Contracts" ngDefaultControl
+							            [value]="paymentContract.paymentContractId">
+								{{paymentContract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Settlements</mat-label>
+					<mat-select placeholder="Settlements" multiple  [compareWith]="compareFn"  [(ngModel)]="paymentProcessor.Settlements">
+						@for (settlementBatch of settlementBatchs; track settlementBatch.settlementBatchId) {
+							<mat-option name="paymentProcessor.Settlements" ngDefaultControl
+							            [value]="settlementBatch.settlementBatchId">
+								{{settlementBatch.batchId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updatePaymentProcessor(paymentProcessor.name, paymentProcessor.processorCode, paymentProcessor.networkSupport, paymentProcessor.Institutions, paymentProcessor.Contracts, paymentProcessor.Settlements)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

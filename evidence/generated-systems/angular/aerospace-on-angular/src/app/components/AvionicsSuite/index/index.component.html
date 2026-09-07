@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">AvionicsSuite List</h5>
+
+    <a
+            [routerLink]="['/createAvionicsSuite']"
+            class="btn btn-primary btn-sm">
+        Create AvionicsSuite
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">suiteName</th>
+                        <th scope="col">softwareBaseline</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (avionicsSuite of avionicsSuites; track avionicsSuite.avionicsSuiteId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ avionicsSuite.suiteName }}
+                </td>
+                                <td class="align-middle">
+                    {{ avionicsSuite.softwareBaseline }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAvionicsSuite', avionicsSuite.avionicsSuiteId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAvionicsSuite(avionicsSuite.avionicsSuiteId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (avionicsSuites?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No avionicsSuites found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

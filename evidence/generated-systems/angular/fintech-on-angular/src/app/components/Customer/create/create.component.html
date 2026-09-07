@@ -1,0 +1,205 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="customer.firstName" [(ngModel)]="customer.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="customer.lastName" [(ngModel)]="customer.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>dateOfBirth</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dateOfBirth" name="customer.dateOfBirth" [(ngModel)]="customer.dateOfBirth">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="customer.email" [(ngModel)]="customer.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>phone</mat-label>
+								<input matInput ngDefaultControl placeholder="phone" name="customer.phone" [(ngModel)]="customer.phone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="customer.address" [(ngModel)]="customer.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>taxId</mat-label>
+								<input matInput ngDefaultControl placeholder="taxId" name="customer.taxId" [(ngModel)]="customer.taxId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>riskScore</mat-label>
+								<input matInput ngDefaultControl placeholder="riskScore" name="customer.riskScore" [(ngModel)]="customer.riskScore">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Institution</mat-label>
+					<mat-select placeholder="Institution"  [(ngModel)]="customer.Institution">
+						@for (financialInstitution of financialInstitutions; track financialInstitution.financialInstitutionId) {
+							<mat-option name="customer.Institution" ngDefaultControl
+							            [value]="financialInstitution.financialInstitutionId">
+								{{financialInstitution.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Accounts</mat-label>
+					<mat-select placeholder="Accounts" multiple [(ngModel)]="customer.Accounts">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="customer.Accounts" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Wallets</mat-label>
+					<mat-select placeholder="Wallets" multiple [(ngModel)]="customer.Wallets">
+						@for (wallet of wallets; track wallet.walletId) {
+							<mat-option name="customer.Wallets" ngDefaultControl
+							            [value]="wallet.walletId">
+								{{wallet.currency}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Cards</mat-label>
+					<mat-select placeholder="Cards" multiple [(ngModel)]="customer.Cards">
+						@for (paymentCard of paymentCards; track paymentCard.paymentCardId) {
+							<mat-option name="customer.Cards" ngDefaultControl
+							            [value]="paymentCard.paymentCardId">
+								{{paymentCard.cardholderName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>KycProfiles</mat-label>
+					<mat-select placeholder="KycProfiles" multiple [(ngModel)]="customer.KycProfiles">
+						@for (kYCProfile of kYCProfiles; track kYCProfile.kYCProfileId) {
+							<mat-option name="customer.KycProfiles" ngDefaultControl
+							            [value]="kYCProfile.kYCProfileId">
+								{{kYCProfile.profileId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Consents</mat-label>
+					<mat-select placeholder="Consents" multiple [(ngModel)]="customer.Consents">
+						@for (consent of consents; track consent.consentId) {
+							<mat-option name="customer.Consents" ngDefaultControl
+							            [value]="consent.consentId">
+								{{consent.grantedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Agreements</mat-label>
+					<mat-select placeholder="Agreements" multiple [(ngModel)]="customer.Agreements">
+						@for (agreement of agreements; track agreement.agreementId) {
+							<mat-option name="customer.Agreements" ngDefaultControl
+							            [value]="agreement.agreementId">
+								{{agreement.agreementNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LoanApplications</mat-label>
+					<mat-select placeholder="LoanApplications" multiple [(ngModel)]="customer.LoanApplications">
+						@for (loanApplication of loanApplications; track loanApplication.loanApplicationId) {
+							<mat-option name="customer.LoanApplications" ngDefaultControl
+							            [value]="loanApplication.loanApplicationId">
+								{{loanApplication.applicationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Loans</mat-label>
+					<mat-select placeholder="Loans" multiple [(ngModel)]="customer.Loans">
+						@for (loan of loans; track loan.loanId) {
+							<mat-option name="customer.Loans" ngDefaultControl
+							            [value]="loan.loanId">
+								{{loan.loanNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Portfolios</mat-label>
+					<mat-select placeholder="Portfolios" multiple [(ngModel)]="customer.Portfolios">
+						@for (investmentPortfolio of investmentPortfolios; track investmentPortfolio.investmentPortfolioId) {
+							<mat-option name="customer.Portfolios" ngDefaultControl
+							            [value]="investmentPortfolio.investmentPortfolioId">
+								{{investmentPortfolio.portfolioCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Disputes</mat-label>
+					<mat-select placeholder="Disputes" multiple [(ngModel)]="customer.Disputes">
+						@for (dispute of disputes; track dispute.disputeId) {
+							<mat-option name="customer.Disputes" ngDefaultControl
+							            [value]="dispute.disputeId">
+								{{dispute.disputeReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>CustomerType</mat-label>
+						<mat-select placeholder="CustomerType" name="customer.CustomerType" [(ngModel)]="customer.CustomerType">
+							@for (CustomerType of CustomerTypes; track CustomerType) {
+								<mat-option ngDefaultControl [value]="CustomerType">
+									{{CustomerType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addCustomer(customer.firstName, customer.lastName, customer.dateOfBirth, customer.email, customer.phone, customer.address, customer.taxId, customer.riskScore, customer.Institution, customer.Accounts, customer.Wallets, customer.Cards, customer.KycProfiles, customer.Consents, customer.Agreements, customer.LoanApplications, customer.Loans, customer.Portfolios, customer.Disputes, customer.CustomerType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,165 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>subject</mat-label>
+								<input matInput ngDefaultControl placeholder="subject" name="activity.subject" [(ngModel)]="activity.subject">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="activity.dueDate" [(ngModel)]="activity.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="activity.startAt" class="form-control" name="activity.startAt" #activity.startAt ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="activity.endAt" class="form-control" name="activity.endAt" #activity.endAt ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>location</mat-label>
+								<input matInput ngDefaultControl placeholder="location" name="activity.location" [(ngModel)]="activity.location">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="activity.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="activity.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"   [compareWith]="compareFn"  [(ngModel)]="activity.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="activity.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="activity.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="activity.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Contact</mat-label>
+					<mat-select placeholder="Contact"   [compareWith]="compareFn"  [(ngModel)]="activity.Contact">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="activity.Contact" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Lead</mat-label>
+					<mat-select placeholder="Lead"   [compareWith]="compareFn"  [(ngModel)]="activity.Lead">
+						@for (lead of leads; track lead.leadId) {
+							<mat-option name="activity.Lead" ngDefaultControl
+							            [value]="lead.leadId">
+								{{lead.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Opportunity</mat-label>
+					<mat-select placeholder="Opportunity"   [compareWith]="compareFn"  [(ngModel)]="activity.Opportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="activity.Opportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Case</mat-label>
+					<mat-select placeholder="Case"   [compareWith]="compareFn"  [(ngModel)]="activity.Case">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="activity.Case" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"   [compareWith]="compareFn"  [(ngModel)]="activity.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="activity.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ActivityType</mat-label>
+						<mat-select placeholder="ActivityType" name="activity.ActivityType" [(ngModel)]="activity.ActivityType">
+							@for (ActivityType of ActivityTypes; track ActivityType) {
+								<mat-option ngDefaultControl [value]="ActivityType">
+									{{ActivityType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="activity.Status" [(ngModel)]="activity.Status">
+							@for (ActivityStatus of ActivityStatuss; track ActivityStatus) {
+								<mat-option ngDefaultControl [value]="ActivityStatus">
+									{{ActivityStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Priority</mat-label>
+						<mat-select placeholder="Priority" name="activity.Priority" [(ngModel)]="activity.Priority">
+							@for (ActivityPriority of ActivityPrioritys; track ActivityPriority) {
+								<mat-option ngDefaultControl [value]="ActivityPriority">
+									{{ActivityPriority}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateActivity(activity.subject, activity.dueDate, activity.startAt, activity.endAt, activity.location, activity.Organization, activity.Owner, activity.Account, activity.Contact, activity.Lead, activity.Opportunity, activity.Case, activity.Campaign, activity.ActivityType, activity.Status, activity.Priority)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

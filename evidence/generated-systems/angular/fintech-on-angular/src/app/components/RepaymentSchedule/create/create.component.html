@@ -1,0 +1,75 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<input matInput placeholder="installmentNumber" name="repaymentSchedule.installmentNumber" [(ngModel)]="repaymentSchedule.installmentNumber">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>dueDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="dueDate" name="repaymentSchedule.dueDate" [(ngModel)]="repaymentSchedule.dueDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>amountDue</mat-label>
+								<input matInput ngDefaultControl placeholder="amountDue" name="repaymentSchedule.amountDue" [(ngModel)]="repaymentSchedule.amountDue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>principalDue</mat-label>
+								<input matInput ngDefaultControl placeholder="principalDue" name="repaymentSchedule.principalDue" [(ngModel)]="repaymentSchedule.principalDue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>interestDue</mat-label>
+								<input matInput ngDefaultControl placeholder="interestDue" name="repaymentSchedule.interestDue" [(ngModel)]="repaymentSchedule.interestDue">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Loan</mat-label>
+					<mat-select placeholder="Loan"  [(ngModel)]="repaymentSchedule.Loan">
+						@for (loan of loans; track loan.loanId) {
+							<mat-option name="repaymentSchedule.Loan" ngDefaultControl
+							            [value]="loan.loanId">
+								{{loan.loanNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Payments</mat-label>
+					<mat-select placeholder="Payments" multiple [(ngModel)]="repaymentSchedule.Payments">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="repaymentSchedule.Payments" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="repaymentSchedule.Status" [(ngModel)]="repaymentSchedule.Status">
+							@for (InstallmentStatus of InstallmentStatuss; track InstallmentStatus) {
+								<mat-option ngDefaultControl [value]="InstallmentStatus">
+									{{InstallmentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																							 										<button
+				(click)="addRepaymentSchedule(repaymentSchedule.installmentNumber, repaymentSchedule.dueDate, repaymentSchedule.amountDue, repaymentSchedule.principalDue, repaymentSchedule.interestDue, repaymentSchedule.Loan, repaymentSchedule.Payments, repaymentSchedule.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

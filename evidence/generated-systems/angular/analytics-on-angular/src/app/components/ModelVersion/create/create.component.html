@@ -1,0 +1,112 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>version</mat-label>
+								<input matInput ngDefaultControl placeholder="version" name="modelVersion.version" [(ngModel)]="modelVersion.version">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Model_</mat-label>
+					<mat-select placeholder="Model_"  [(ngModel)]="modelVersion.Model_">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="modelVersion.Model_" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>TrainingRun</mat-label>
+					<mat-select placeholder="TrainingRun"  [(ngModel)]="modelVersion.TrainingRun">
+						@for (trainingRun of trainingRuns; track trainingRun.trainingRunId) {
+							<mat-option name="modelVersion.TrainingRun" ngDefaultControl
+							            [value]="trainingRun.trainingRunId">
+								{{trainingRun.runLabel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>EvaluationMetrics</mat-label>
+					<mat-select placeholder="EvaluationMetrics" multiple [(ngModel)]="modelVersion.EvaluationMetrics">
+						@for (evaluationMetric of evaluationMetrics; track evaluationMetric.evaluationMetricId) {
+							<mat-option name="modelVersion.EvaluationMetrics" ngDefaultControl
+							            [value]="evaluationMetric.evaluationMetricId">
+								{{evaluationMetric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Deployments</mat-label>
+					<mat-select placeholder="Deployments" multiple [(ngModel)]="modelVersion.Deployments">
+						@for (inferenceEndpoint of inferenceEndpoints; track inferenceEndpoint.inferenceEndpointId) {
+							<mat-option name="modelVersion.Deployments" ngDefaultControl
+							            [value]="inferenceEndpoint.inferenceEndpointId">
+								{{inferenceEndpoint.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>FeatureSets</mat-label>
+					<mat-select placeholder="FeatureSets" multiple [(ngModel)]="modelVersion.FeatureSets">
+						@for (featureSet of featureSets; track featureSet.featureSetId) {
+							<mat-option name="modelVersion.FeatureSets" ngDefaultControl
+							            [value]="featureSet.featureSetId">
+								{{featureSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple [(ngModel)]="modelVersion.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="modelVersion.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Lifecycle</mat-label>
+						<mat-select placeholder="Lifecycle" name="modelVersion.Lifecycle" [(ngModel)]="modelVersion.Lifecycle">
+							@for (ModelLifecycle of ModelLifecycles; track ModelLifecycle) {
+								<mat-option ngDefaultControl [value]="ModelLifecycle">
+									{{ModelLifecycle}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>TrainingStatus</mat-label>
+						<mat-select placeholder="TrainingStatus" name="modelVersion.TrainingStatus" [(ngModel)]="modelVersion.TrainingStatus">
+							@for (TrainingStatus of TrainingStatuss; track TrainingStatus) {
+								<mat-option ngDefaultControl [value]="TrainingStatus">
+									{{TrainingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addModelVersion(modelVersion.version, modelVersion.Model_, modelVersion.TrainingRun, modelVersion.EvaluationMetrics, modelVersion.Deployments, modelVersion.FeatureSets, modelVersion.Datasets, modelVersion.Lifecycle, modelVersion.TrainingStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

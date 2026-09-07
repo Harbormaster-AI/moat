@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ForecastLine List</h5>
+
+    <a
+            [routerLink]="['/createForecastLine']"
+            class="btn btn-primary btn-sm">
+        Create ForecastLine
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">period</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">confidence</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (forecastLine of forecastLines; track forecastLine.forecastLineId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ forecastLine.period }}
+                </td>
+                                <td class="align-middle">
+                    {{ forecastLine.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ forecastLine.confidence }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadForecastLine', forecastLine.forecastLineId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteForecastLine(forecastLine.forecastLineId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (forecastLines?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No forecastLines found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

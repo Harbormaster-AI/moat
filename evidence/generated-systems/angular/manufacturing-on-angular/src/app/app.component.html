@@ -1,0 +1,386 @@
+<div class="app-header">manufacturing-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="EnterpriseMenu">Enterprise</button>
+								<button mat-menu-item [matMenuTriggerFor]="BusinessUnitMenu">BusinessUnit</button>
+								<button mat-menu-item [matMenuTriggerFor]="PlantMenu">Plant</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductionLineMenu">ProductionLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="WorkCenterMenu">WorkCenter</button>
+								<button mat-menu-item [matMenuTriggerFor]="ItemMenu">Item</button>
+								<button mat-menu-item [matMenuTriggerFor]="BOMMenu">BOM</button>
+								<button mat-menu-item [matMenuTriggerFor]="BOMItemMenu">BOMItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="RoutingMenu">Routing</button>
+								<button mat-menu-item [matMenuTriggerFor]="OperationMenu">Operation</button>
+								<button mat-menu-item [matMenuTriggerFor]="WorkOrderMenu">WorkOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductionScheduleMenu">ProductionSchedule</button>
+								<button mat-menu-item [matMenuTriggerFor]="SupplierMenu">Supplier</button>
+								<button mat-menu-item [matMenuTriggerFor]="PurchaseOrderMenu">PurchaseOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="PurchaseOrderLineMenu">PurchaseOrderLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="GoodsReceiptMenu">GoodsReceipt</button>
+								<button mat-menu-item [matMenuTriggerFor]="GoodsReceiptLineMenu">GoodsReceiptLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="WarehouseMenu">Warehouse</button>
+								<button mat-menu-item [matMenuTriggerFor]="LocationMenu">Location</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryItemMenu">InventoryItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="InventoryTransactionMenu">InventoryTransaction</button>
+								<button mat-menu-item [matMenuTriggerFor]="CustomerMenu">Customer</button>
+								<button mat-menu-item [matMenuTriggerFor]="SalesOrderMenu">SalesOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="SalesOrderLineMenu">SalesOrderLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="QualitySpecificationMenu">QualitySpecification</button>
+								<button mat-menu-item [matMenuTriggerFor]="InspectionPlanMenu">InspectionPlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="InspectionCharacteristicMenu">InspectionCharacteristic</button>
+								<button mat-menu-item [matMenuTriggerFor]="InspectionLotMenu">InspectionLot</button>
+								<button mat-menu-item [matMenuTriggerFor]="InspectionResultMenu">InspectionResult</button>
+								<button mat-menu-item [matMenuTriggerFor]="NonconformanceMenu">Nonconformance</button>
+								<button mat-menu-item [matMenuTriggerFor]="CorrectiveActionMenu">CorrectiveAction</button>
+								<button mat-menu-item [matMenuTriggerFor]="AssetMenu">Asset</button>
+								<button mat-menu-item [matMenuTriggerFor]="MaintenancePlanMenu">MaintenancePlan</button>
+								<button mat-menu-item [matMenuTriggerFor]="MaintenanceOrderMenu">MaintenanceOrder</button>
+								<button mat-menu-item [matMenuTriggerFor]="EmployeeMenu">Employee</button>
+								<button mat-menu-item [matMenuTriggerFor]="ShiftMenu">Shift</button>
+								<button mat-menu-item [matMenuTriggerFor]="ShiftAssignmentMenu">ShiftAssignment</button>
+								<button mat-menu-item [matMenuTriggerFor]="ForecastMenu">Forecast</button>
+								<button mat-menu-item [matMenuTriggerFor]="ForecastLineMenu">ForecastLine</button>
+								<button mat-menu-item [matMenuTriggerFor]="MRPRunMenu">MRPRun</button>
+								<button mat-menu-item [matMenuTriggerFor]="PlannedOrderMenu">PlannedOrder</button>
+				
+						<mat-menu #EnterpriseMenu="matMenu">
+			<a routerLink="createEnterprise">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEnterprise">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BusinessUnitMenu="matMenu">
+			<a routerLink="createBusinessUnit">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBusinessUnit">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PlantMenu="matMenu">
+			<a routerLink="createPlant">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPlant">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductionLineMenu="matMenu">
+			<a routerLink="createProductionLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProductionLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WorkCenterMenu="matMenu">
+			<a routerLink="createWorkCenter">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWorkCenter">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ItemMenu="matMenu">
+			<a routerLink="createItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BOMMenu="matMenu">
+			<a routerLink="createBOM">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBOM">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #BOMItemMenu="matMenu">
+			<a routerLink="createBOMItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexBOMItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #RoutingMenu="matMenu">
+			<a routerLink="createRouting">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexRouting">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OperationMenu="matMenu">
+			<a routerLink="createOperation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOperation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WorkOrderMenu="matMenu">
+			<a routerLink="createWorkOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWorkOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductionScheduleMenu="matMenu">
+			<a routerLink="createProductionSchedule">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProductionSchedule">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SupplierMenu="matMenu">
+			<a routerLink="createSupplier">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSupplier">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PurchaseOrderMenu="matMenu">
+			<a routerLink="createPurchaseOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPurchaseOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PurchaseOrderLineMenu="matMenu">
+			<a routerLink="createPurchaseOrderLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPurchaseOrderLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #GoodsReceiptMenu="matMenu">
+			<a routerLink="createGoodsReceipt">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexGoodsReceipt">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #GoodsReceiptLineMenu="matMenu">
+			<a routerLink="createGoodsReceiptLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexGoodsReceiptLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #WarehouseMenu="matMenu">
+			<a routerLink="createWarehouse">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexWarehouse">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LocationMenu="matMenu">
+			<a routerLink="createLocation">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLocation">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryItemMenu="matMenu">
+			<a routerLink="createInventoryItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InventoryTransactionMenu="matMenu">
+			<a routerLink="createInventoryTransaction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInventoryTransaction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CustomerMenu="matMenu">
+			<a routerLink="createCustomer">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCustomer">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SalesOrderMenu="matMenu">
+			<a routerLink="createSalesOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSalesOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #SalesOrderLineMenu="matMenu">
+			<a routerLink="createSalesOrderLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexSalesOrderLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QualitySpecificationMenu="matMenu">
+			<a routerLink="createQualitySpecification">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQualitySpecification">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InspectionPlanMenu="matMenu">
+			<a routerLink="createInspectionPlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInspectionPlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InspectionCharacteristicMenu="matMenu">
+			<a routerLink="createInspectionCharacteristic">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInspectionCharacteristic">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InspectionLotMenu="matMenu">
+			<a routerLink="createInspectionLot">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInspectionLot">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #InspectionResultMenu="matMenu">
+			<a routerLink="createInspectionResult">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexInspectionResult">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #NonconformanceMenu="matMenu">
+			<a routerLink="createNonconformance">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexNonconformance">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CorrectiveActionMenu="matMenu">
+			<a routerLink="createCorrectiveAction">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCorrectiveAction">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AssetMenu="matMenu">
+			<a routerLink="createAsset">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAsset">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MaintenancePlanMenu="matMenu">
+			<a routerLink="createMaintenancePlan">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMaintenancePlan">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MaintenanceOrderMenu="matMenu">
+			<a routerLink="createMaintenanceOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMaintenanceOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EmployeeMenu="matMenu">
+			<a routerLink="createEmployee">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEmployee">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ShiftMenu="matMenu">
+			<a routerLink="createShift">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexShift">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ShiftAssignmentMenu="matMenu">
+			<a routerLink="createShiftAssignment">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexShiftAssignment">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ForecastMenu="matMenu">
+			<a routerLink="createForecast">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexForecast">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ForecastLineMenu="matMenu">
+			<a routerLink="createForecastLine">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexForecastLine">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #MRPRunMenu="matMenu">
+			<a routerLink="createMRPRun">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexMRPRun">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PlannedOrderMenu="matMenu">
+			<a routerLink="createPlannedOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPlannedOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

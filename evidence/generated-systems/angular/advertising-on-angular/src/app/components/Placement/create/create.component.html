@@ -1,0 +1,62 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="placement.name" [(ngModel)]="placement.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>flight</mat-label>
+								<input matInput ngDefaultControl placeholder="flight" name="placement.flight" [(ngModel)]="placement.flight">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="goalImpressions" name="placement.goalImpressions" [(ngModel)]="placement.goalImpressions">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>LineItem</mat-label>
+					<mat-select placeholder="LineItem"  [(ngModel)]="placement.LineItem">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="placement.LineItem" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AdSlot</mat-label>
+					<mat-select placeholder="AdSlot"  [(ngModel)]="placement.AdSlot">
+						@for (adSlot of adSlots; track adSlot.adSlotId) {
+							<mat-option name="placement.AdSlot" ngDefaultControl
+							            [value]="adSlot.adSlotId">
+								{{adSlot.slotCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Deal</mat-label>
+					<mat-select placeholder="Deal"  [(ngModel)]="placement.Deal">
+						@for (deal of deals; track deal.dealId) {
+							<mat-option name="placement.Deal" ngDefaultControl
+							            [value]="deal.dealId">
+								{{deal.floorPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 																										 										<button
+				(click)="addPlacement(placement.name, placement.flight, placement.goalImpressions, placement.LineItem, placement.AdSlot, placement.Deal)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

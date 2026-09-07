@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>symbol</mat-label>
+								<input matInput ngDefaultControl placeholder="symbol" name="security.symbol" [(ngModel)]="security.symbol">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>isin</mat-label>
+								<input matInput ngDefaultControl placeholder="isin" name="security.isin" [(ngModel)]="security.isin">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>cusip</mat-label>
+								<input matInput ngDefaultControl placeholder="cusip" name="security.cusip" [(ngModel)]="security.cusip">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="security.currency" [(ngModel)]="security.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Positions</mat-label>
+					<mat-select placeholder="Positions" multiple [(ngModel)]="security.Positions">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="security.Positions" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Trades</mat-label>
+					<mat-select placeholder="Trades" multiple [(ngModel)]="security.Trades">
+						@for (trade of trades; track trade.tradeId) {
+							<mat-option name="security.Trades" ngDefaultControl
+							            [value]="trade.tradeId">
+								{{trade.executedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple [(ngModel)]="security.Orders">
+						@for (tradeOrder of tradeOrders; track tradeOrder.tradeOrderId) {
+							<mat-option name="security.Orders" ngDefaultControl
+							            [value]="tradeOrder.tradeOrderId">
+								{{tradeOrder.orderId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>SecurityType</mat-label>
+						<mat-select placeholder="SecurityType" name="security.SecurityType" [(ngModel)]="security.SecurityType">
+							@for (SecurityType of SecurityTypes; track SecurityType) {
+								<mat-option ngDefaultControl [value]="SecurityType">
+									{{SecurityType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addSecurity(security.symbol, security.isin, security.cusip, security.currency, security.Positions, security.Trades, security.Orders, security.SecurityType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

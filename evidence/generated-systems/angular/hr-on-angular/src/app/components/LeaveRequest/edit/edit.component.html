@@ -1,0 +1,93 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>requestNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="requestNumber" name="leaveRequest.requestNumber" [(ngModel)]="leaveRequest.requestNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="leaveRequest.startDate" [(ngModel)]="leaveRequest.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="leaveRequest.endDate" [(ngModel)]="leaveRequest.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reason</mat-label>
+								<input matInput ngDefaultControl placeholder="reason" name="leaveRequest.reason" [(ngModel)]="leaveRequest.reason">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>hours</mat-label>
+								<input matInput ngDefaultControl placeholder="hours" name="leaveRequest.hours" [(ngModel)]="leaveRequest.hours">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="leaveRequest.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="leaveRequest.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>LeavePolicy</mat-label>
+					<mat-select placeholder="LeavePolicy"   [compareWith]="compareFn"  [(ngModel)]="leaveRequest.LeavePolicy">
+						@for (leavePolicy of leavePolicys; track leavePolicy.leavePolicyId) {
+							<mat-option name="leaveRequest.LeavePolicy" ngDefaultControl
+							            [value]="leavePolicy.leavePolicyId">
+								{{leavePolicy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Approvals</mat-label>
+					<mat-select placeholder="Approvals" multiple  [compareWith]="compareFn"  [(ngModel)]="leaveRequest.Approvals">
+						@for (approval of approvals; track approval.approvalId) {
+							<mat-option name="leaveRequest.Approvals" ngDefaultControl
+							            [value]="approval.approvalId">
+								{{approval.approverComment}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="leaveRequest.Status" [(ngModel)]="leaveRequest.Status">
+							@for (LeaveStatus of LeaveStatuss; track LeaveStatus) {
+								<mat-option ngDefaultControl [value]="LeaveStatus">
+									{{LeaveStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateLeaveRequest(leaveRequest.requestNumber, leaveRequest.startDate, leaveRequest.endDate, leaveRequest.reason, leaveRequest.hours, leaveRequest.Employee, leaveRequest.LeavePolicy, leaveRequest.Approvals, leaveRequest.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

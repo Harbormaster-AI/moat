@@ -1,0 +1,154 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>itemNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="itemNumber" name="item.itemNumber" [(ngModel)]="item.itemNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="item.name" [(ngModel)]="item.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>standardCost</mat-label>
+								<input matInput ngDefaultControl placeholder="standardCost" name="item.standardCost" [(ngModel)]="item.standardCost">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>weight</mat-label>
+								<input matInput ngDefaultControl placeholder="weight" name="item.weight" [(ngModel)]="item.weight">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="item.asSerialControlled" ngDefaultControl [(ngModel)]="item.asSerialControlled">asSerialControlled</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>BusinessUnit</mat-label>
+					<mat-select placeholder="BusinessUnit"  [(ngModel)]="item.BusinessUnit">
+						@for (businessUnit of businessUnits; track businessUnit.businessUnitId) {
+							<mat-option name="item.BusinessUnit" ngDefaultControl
+							            [value]="businessUnit.businessUnitId">
+								{{businessUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Boms</mat-label>
+					<mat-select placeholder="Boms" multiple [(ngModel)]="item.Boms">
+						@for (bOM of bOMs; track bOM.bOMId) {
+							<mat-option name="item.Boms" ngDefaultControl
+							            [value]="bOM.bOMId">
+								{{bOM.bomNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Routings</mat-label>
+					<mat-select placeholder="Routings" multiple [(ngModel)]="item.Routings">
+						@for (routing of routings; track routing.routingId) {
+							<mat-option name="item.Routings" ngDefaultControl
+							            [value]="routing.routingId">
+								{{routing.routingNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Suppliers</mat-label>
+					<mat-select placeholder="Suppliers" multiple [(ngModel)]="item.Suppliers">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="item.Suppliers" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>QualitySpecifications</mat-label>
+					<mat-select placeholder="QualitySpecifications" multiple [(ngModel)]="item.QualitySpecifications">
+						@for (qualitySpecification of qualitySpecifications; track qualitySpecification.qualitySpecificationId) {
+							<mat-option name="item.QualitySpecifications" ngDefaultControl
+							            [value]="qualitySpecification.qualitySpecificationId">
+								{{qualitySpecification.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple [(ngModel)]="item.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="item.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ItemType</mat-label>
+						<mat-select placeholder="ItemType" name="item.ItemType" [(ngModel)]="item.ItemType">
+							@for (ItemType of ItemTypes; track ItemType) {
+								<mat-option ngDefaultControl [value]="ItemType">
+									{{ItemType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ProcurementType</mat-label>
+						<mat-select placeholder="ProcurementType" name="item.ProcurementType" [(ngModel)]="item.ProcurementType">
+							@for (ProcurementType of ProcurementTypes; track ProcurementType) {
+								<mat-option ngDefaultControl [value]="ProcurementType">
+									{{ProcurementType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>UnitOfMeasure</mat-label>
+						<mat-select placeholder="UnitOfMeasure" name="item.UnitOfMeasure" [(ngModel)]="item.UnitOfMeasure">
+							@for (UnitOfMeasure of UnitOfMeasures; track UnitOfMeasure) {
+								<mat-option ngDefaultControl [value]="UnitOfMeasure">
+									{{UnitOfMeasure}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>LifecycleStatus</mat-label>
+						<mat-select placeholder="LifecycleStatus" name="item.LifecycleStatus" [(ngModel)]="item.LifecycleStatus">
+							@for (ProductLifecycleStatus of ProductLifecycleStatuss; track ProductLifecycleStatus) {
+								<mat-option ngDefaultControl [value]="ProductLifecycleStatus">
+									{{ProductLifecycleStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																																																	 																										 																										 																										 																										 																										 																							 																							 																							 																							 										<button
+				(click)="addItem(item.itemNumber, item.name, item.standardCost, item.weight, item.asSerialControlled == true ? true : false, item.BusinessUnit, item.Boms, item.Routings, item.Suppliers, item.QualitySpecifications, item.InventoryItems, item.ItemType, item.ProcurementType, item.UnitOfMeasure, item.LifecycleStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

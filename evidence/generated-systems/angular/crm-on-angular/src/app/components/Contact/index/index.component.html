@@ -1,0 +1,91 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Contact List</h5>
+
+    <a
+            [routerLink]="['/createContact']"
+            class="btn btn-primary btn-sm">
+        Create Contact
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">firstName</th>
+                        <th scope="col">lastName</th>
+                        <th scope="col">title</th>
+                        <th scope="col">email</th>
+                        <th scope="col">phone</th>
+                        <th scope="col">mobile</th>
+                        <th scope="col">mailingAddress</th>
+                        <th scope="col">PreferredContactMethod</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (contact of contacts; track contact.contactId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ contact.firstName }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.lastName }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.title }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.email }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.phone }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.mobile }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.mailingAddress }}
+                </td>
+                                <td class="align-middle">
+                    {{ contact.PreferredContactMethod }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadContact', contact.contactId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteContact(contact.contactId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (contacts?.length === 0) {
+            <tr>
+                <td
+                        colspan="10"
+                        class="text-center">
+                    No contacts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

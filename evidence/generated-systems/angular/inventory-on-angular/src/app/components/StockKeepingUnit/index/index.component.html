@@ -1,0 +1,99 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">StockKeepingUnit List</h5>
+
+    <a
+            [routerLink]="['/createStockKeepingUnit']"
+            class="btn btn-primary btn-sm">
+        Create StockKeepingUnit
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">skuCode</th>
+                        <th scope="col">name</th>
+                        <th scope="col">weight</th>
+                        <th scope="col">weightUnit</th>
+                        <th scope="col">volume</th>
+                        <th scope="col">volumeUnit</th>
+                        <th scope="col">shelfLifeDays</th>
+                        <th scope="col">hazardousMaterial</th>
+                        <th scope="col">ItemType</th>
+                        <th scope="col">UnitOfMeasure</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.skuCode }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.weight }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.weightUnit }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.volume }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.volumeUnit }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.shelfLifeDays }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.hazardousMaterial }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.ItemType }}
+                </td>
+                                <td class="align-middle">
+                    {{ stockKeepingUnit.UnitOfMeasure }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadStockKeepingUnit', stockKeepingUnit.stockKeepingUnitId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteStockKeepingUnit(stockKeepingUnit.stockKeepingUnitId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (stockKeepingUnits?.length === 0) {
+            <tr>
+                <td
+                        colspan="12"
+                        class="text-center">
+                    No stockKeepingUnits found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

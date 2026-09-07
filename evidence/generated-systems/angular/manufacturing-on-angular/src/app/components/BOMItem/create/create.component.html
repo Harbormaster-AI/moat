@@ -1,0 +1,50 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<input matInput placeholder="lineNumber" name="bOMItem.lineNumber" [(ngModel)]="bOMItem.lineNumber">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="bOMItem.quantity" [(ngModel)]="bOMItem.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>scrapPercent</mat-label>
+								<input matInput ngDefaultControl placeholder="scrapPercent" name="bOMItem.scrapPercent" [(ngModel)]="bOMItem.scrapPercent">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Bom</mat-label>
+					<mat-select placeholder="Bom"  [(ngModel)]="bOMItem.Bom">
+						@for (bOM of bOMs; track bOM.bOMId) {
+							<mat-option name="bOMItem.Bom" ngDefaultControl
+							            [value]="bOM.bOMId">
+								{{bOM.bomNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Component</mat-label>
+					<mat-select placeholder="Component"  [(ngModel)]="bOMItem.Component">
+						@for (item of items; track item.itemId) {
+							<mat-option name="bOMItem.Component" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 										<button
+				(click)="addBOMItem(bOMItem.lineNumber, bOMItem.quantity, bOMItem.scrapPercent, bOMItem.Bom, bOMItem.Component)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

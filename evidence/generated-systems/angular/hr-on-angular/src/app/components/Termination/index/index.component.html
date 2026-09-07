@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Termination List</h5>
+
+    <a
+            [routerLink]="['/createTermination']"
+            class="btn btn-primary btn-sm">
+        Create Termination
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">terminationNumber</th>
+                        <th scope="col">terminationDate</th>
+                        <th scope="col">notes</th>
+                        <th scope="col">eligibleForRehire</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Type</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (termination of terminations; track termination.terminationId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ termination.terminationNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ termination.terminationDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ termination.notes }}
+                </td>
+                                <td class="align-middle">
+                    {{ termination.eligibleForRehire }}
+                </td>
+                                <td class="align-middle">
+                    {{ termination.Reason }}
+                </td>
+                                <td class="align-middle">
+                    {{ termination.Type }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadTermination', termination.terminationId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteTermination(termination.terminationId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (terminations?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No terminations found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

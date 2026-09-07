@@ -1,0 +1,102 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="insurer.name" [(ngModel)]="insurer.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>legalName</mat-label>
+								<input matInput ngDefaultControl placeholder="legalName" name="insurer.legalName" [(ngModel)]="insurer.legalName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>domicileCountry</mat-label>
+								<input matInput ngDefaultControl placeholder="domicileCountry" name="insurer.domicileCountry" [(ngModel)]="insurer.domicileCountry">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>naicNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="naicNumber" name="insurer.naicNumber" [(ngModel)]="insurer.naicNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="insurer.website" [(ngModel)]="insurer.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Products</mat-label>
+					<mat-select placeholder="Products" multiple  [compareWith]="compareFn"  [(ngModel)]="insurer.Products">
+						@for (insuranceProduct of insuranceProducts; track insuranceProduct.insuranceProductId) {
+							<mat-option name="insurer.Products" ngDefaultControl
+							            [value]="insuranceProduct.insuranceProductId">
+								{{insuranceProduct.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>DistributionPartners</mat-label>
+					<mat-select placeholder="DistributionPartners" multiple  [compareWith]="compareFn"  [(ngModel)]="insurer.DistributionPartners">
+						@for (distributor of distributors; track distributor.distributorId) {
+							<mat-option name="insurer.DistributionPartners" ngDefaultControl
+							            [value]="distributor.distributorId">
+								{{distributor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple  [compareWith]="compareFn"  [(ngModel)]="insurer.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="insurer.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Claims</mat-label>
+					<mat-select placeholder="Claims" multiple  [compareWith]="compareFn"  [(ngModel)]="insurer.Claims">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="insurer.Claims" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ReinsuranceAgreements</mat-label>
+					<mat-select placeholder="ReinsuranceAgreements" multiple  [compareWith]="compareFn"  [(ngModel)]="insurer.ReinsuranceAgreements">
+						@for (reinsuranceAgreement of reinsuranceAgreements; track reinsuranceAgreement.reinsuranceAgreementId) {
+							<mat-option name="insurer.ReinsuranceAgreements" ngDefaultControl
+							            [value]="reinsuranceAgreement.reinsuranceAgreementId">
+								{{reinsuranceAgreement.agreementNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateInsurer(insurer.name, insurer.legalName, insurer.domicileCountry, insurer.naicNumber, insurer.website, insurer.Products, insurer.DistributionPartners, insurer.Policies, insurer.Claims, insurer.ReinsuranceAgreements)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

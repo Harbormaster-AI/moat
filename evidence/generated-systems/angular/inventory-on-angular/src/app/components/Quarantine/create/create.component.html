@@ -1,0 +1,93 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>reason</mat-label>
+								<input matInput ngDefaultControl placeholder="reason" name="quarantine.reason" [(ngModel)]="quarantine.reason">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>startedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startedAt" name="quarantine.startedAt" [(ngModel)]="quarantine.startedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>releasedAt</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="releasedAt" name="quarantine.releasedAt" [(ngModel)]="quarantine.releasedAt">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="quarantine.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="quarantine.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Items</mat-label>
+					<mat-select placeholder="Items" multiple [(ngModel)]="quarantine.Items">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="quarantine.Items" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"  [(ngModel)]="quarantine.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="quarantine.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple [(ngModel)]="quarantine.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="quarantine.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Disposition</mat-label>
+						<mat-select placeholder="Disposition" name="quarantine.Disposition" [(ngModel)]="quarantine.Disposition">
+							@for (Disposition of Dispositions; track Disposition) {
+								<mat-option ngDefaultControl [value]="Disposition">
+									{{Disposition}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addQuarantine(quarantine.reason, quarantine.startedAt, quarantine.releasedAt, quarantine.Warehouse, quarantine.Items, quarantine.Lot, quarantine.SerialNumbers, quarantine.Disposition)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

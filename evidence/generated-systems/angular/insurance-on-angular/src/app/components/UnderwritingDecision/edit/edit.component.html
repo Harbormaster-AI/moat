@@ -1,0 +1,61 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>notes</mat-label>
+								<input matInput ngDefaultControl placeholder="notes" name="underwritingDecision.notes" [(ngModel)]="underwritingDecision.notes">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>decisionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="decisionDate" name="underwritingDecision.decisionDate" [(ngModel)]="underwritingDecision.decisionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Quote</mat-label>
+					<mat-select placeholder="Quote"   [compareWith]="compareFn"  [(ngModel)]="underwritingDecision.Quote">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="underwritingDecision.Quote" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Underwriter</mat-label>
+					<mat-select placeholder="Underwriter"   [compareWith]="compareFn"  [(ngModel)]="underwritingDecision.Underwriter">
+						@for (underwriter of underwriters; track underwriter.underwriterId) {
+							<mat-option name="underwritingDecision.Underwriter" ngDefaultControl
+							            [value]="underwriter.underwriterId">
+								{{underwriter.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Decision</mat-label>
+						<mat-select placeholder="Decision" name="underwritingDecision.Decision" [(ngModel)]="underwritingDecision.Decision">
+							@for (UnderwritingDecisionType of UnderwritingDecisionTypes; track UnderwritingDecisionType) {
+								<mat-option ngDefaultControl [value]="UnderwritingDecisionType">
+									{{UnderwritingDecisionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateUnderwritingDecision(underwritingDecision.notes, underwritingDecision.decisionDate, underwritingDecision.Quote, underwritingDecision.Underwriter, underwritingDecision.Decision)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

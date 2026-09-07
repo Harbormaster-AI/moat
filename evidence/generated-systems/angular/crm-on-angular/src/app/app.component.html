@@ -1,0 +1,233 @@
+<div class="app-header">crm-on-angular</div>
+
+<mat-sidenav-container class="app-container">
+
+	<mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+
+						<button mat-menu-item [matMenuTriggerFor]="OrganizationMenu">Organization</button>
+								<button mat-menu-item [matMenuTriggerFor]="UserMenu">User</button>
+								<button mat-menu-item [matMenuTriggerFor]="TeamMenu">Team</button>
+								<button mat-menu-item [matMenuTriggerFor]="TerritoryMenu">Territory</button>
+								<button mat-menu-item [matMenuTriggerFor]="AccountMenu">Account</button>
+								<button mat-menu-item [matMenuTriggerFor]="ContactMenu">Contact</button>
+								<button mat-menu-item [matMenuTriggerFor]="LeadMenu">Lead</button>
+								<button mat-menu-item [matMenuTriggerFor]="OpportunityMenu">Opportunity</button>
+								<button mat-menu-item [matMenuTriggerFor]="OpportunityLineItemMenu">OpportunityLineItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="OpportunityStageHistoryMenu">OpportunityStageHistory</button>
+								<button mat-menu-item [matMenuTriggerFor]="ProductMenu">Product</button>
+								<button mat-menu-item [matMenuTriggerFor]="PriceBookMenu">PriceBook</button>
+								<button mat-menu-item [matMenuTriggerFor]="PriceBookEntryMenu">PriceBookEntry</button>
+								<button mat-menu-item [matMenuTriggerFor]="QuoteMenu">Quote</button>
+								<button mat-menu-item [matMenuTriggerFor]="QuoteLineItemMenu">QuoteLineItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="OrderMenu">Order</button>
+								<button mat-menu-item [matMenuTriggerFor]="OrderItemMenu">OrderItem</button>
+								<button mat-menu-item [matMenuTriggerFor]="ContractMenu">Contract</button>
+								<button mat-menu-item [matMenuTriggerFor]="Case_Menu">Case_</button>
+								<button mat-menu-item [matMenuTriggerFor]="ActivityMenu">Activity</button>
+								<button mat-menu-item [matMenuTriggerFor]="CampaignMenu">Campaign</button>
+								<button mat-menu-item [matMenuTriggerFor]="CampaignMemberMenu">CampaignMember</button>
+								<button mat-menu-item [matMenuTriggerFor]="NoteMenu">Note</button>
+								<button mat-menu-item [matMenuTriggerFor]="EmailMessageMenu">EmailMessage</button>
+				
+						<mat-menu #OrganizationMenu="matMenu">
+			<a routerLink="createOrganization">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOrganization">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #UserMenu="matMenu">
+			<a routerLink="createUser">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexUser">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TeamMenu="matMenu">
+			<a routerLink="createTeam">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTeam">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #TerritoryMenu="matMenu">
+			<a routerLink="createTerritory">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexTerritory">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #AccountMenu="matMenu">
+			<a routerLink="createAccount">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexAccount">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ContactMenu="matMenu">
+			<a routerLink="createContact">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexContact">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #LeadMenu="matMenu">
+			<a routerLink="createLead">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexLead">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OpportunityMenu="matMenu">
+			<a routerLink="createOpportunity">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOpportunity">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OpportunityLineItemMenu="matMenu">
+			<a routerLink="createOpportunityLineItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOpportunityLineItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OpportunityStageHistoryMenu="matMenu">
+			<a routerLink="createOpportunityStageHistory">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOpportunityStageHistory">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ProductMenu="matMenu">
+			<a routerLink="createProduct">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexProduct">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PriceBookMenu="matMenu">
+			<a routerLink="createPriceBook">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPriceBook">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #PriceBookEntryMenu="matMenu">
+			<a routerLink="createPriceBookEntry">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexPriceBookEntry">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QuoteMenu="matMenu">
+			<a routerLink="createQuote">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQuote">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #QuoteLineItemMenu="matMenu">
+			<a routerLink="createQuoteLineItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexQuoteLineItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OrderMenu="matMenu">
+			<a routerLink="createOrder">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOrder">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #OrderItemMenu="matMenu">
+			<a routerLink="createOrderItem">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexOrderItem">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ContractMenu="matMenu">
+			<a routerLink="createContract">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexContract">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #Case_Menu="matMenu">
+			<a routerLink="createCase_">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCase_">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #ActivityMenu="matMenu">
+			<a routerLink="createActivity">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexActivity">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CampaignMenu="matMenu">
+			<a routerLink="createCampaign">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCampaign">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #CampaignMemberMenu="matMenu">
+			<a routerLink="createCampaignMember">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexCampaignMember">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #NoteMenu="matMenu">
+			<a routerLink="createNote">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexNote">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+								<mat-menu #EmailMessageMenu="matMenu">
+			<a routerLink="createEmailMessage">
+				<button mat-menu-item>Add</button>
+			</a>
+			<a routerLink="indexEmailMessage">
+				<button mat-menu-item>Show All</button>
+			</a>
+		</mat-menu>
+				
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<div class="container" style="padding-top:10px">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+
+</mat-sidenav-container>

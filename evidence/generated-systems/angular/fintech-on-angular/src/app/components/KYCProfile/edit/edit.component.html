@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>profileId</mat-label>
+								<input matInput ngDefaultControl placeholder="profileId" name="kYCProfile.profileId" [(ngModel)]="kYCProfile.profileId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="kYCProfile.createdAt" class="form-control" name="kYCProfile.createdAt" #kYCProfile.createdAt ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="kYCProfile.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="kYCProfile.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Documents</mat-label>
+					<mat-select placeholder="Documents" multiple  [compareWith]="compareFn"  [(ngModel)]="kYCProfile.Documents">
+						@for (kYCDocument of kYCDocuments; track kYCDocument.kYCDocumentId) {
+							<mat-option name="kYCProfile.Documents" ngDefaultControl
+							            [value]="kYCDocument.kYCDocumentId">
+								{{kYCDocument.reference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Screenings</mat-label>
+					<mat-select placeholder="Screenings" multiple  [compareWith]="compareFn"  [(ngModel)]="kYCProfile.Screenings">
+						@for (screening of screenings; track screening.screeningId) {
+							<mat-option name="kYCProfile.Screenings" ngDefaultControl
+							            [value]="screening.screeningId">
+								{{screening.score}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Addresses</mat-label>
+					<mat-select placeholder="Addresses" multiple  [compareWith]="compareFn"  [(ngModel)]="kYCProfile.Addresses">
+						@for (verifiedAddress of verifiedAddresss; track verifiedAddress.verifiedAddressId) {
+							<mat-option name="kYCProfile.Addresses" ngDefaultControl
+							            [value]="verifiedAddress.verifiedAddressId">
+								{{verifiedAddress.address}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="kYCProfile.Status" [(ngModel)]="kYCProfile.Status">
+							@for (KYCStatus of KYCStatuss; track KYCStatus) {
+								<mat-option ngDefaultControl [value]="KYCStatus">
+									{{KYCStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>VerificationLevel</mat-label>
+						<mat-select placeholder="VerificationLevel" name="kYCProfile.VerificationLevel" [(ngModel)]="kYCProfile.VerificationLevel">
+							@for (VerificationLevel of VerificationLevels; track VerificationLevel) {
+								<mat-option ngDefaultControl [value]="VerificationLevel">
+									{{VerificationLevel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateKYCProfile(kYCProfile.profileId, kYCProfile.createdAt, kYCProfile.Customer, kYCProfile.Documents, kYCProfile.Screenings, kYCProfile.Addresses, kYCProfile.Status, kYCProfile.VerificationLevel)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

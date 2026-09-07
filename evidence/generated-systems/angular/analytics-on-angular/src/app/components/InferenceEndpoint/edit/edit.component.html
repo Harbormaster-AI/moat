@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="inferenceEndpoint.name" [(ngModel)]="inferenceEndpoint.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endpointUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="endpointUrl" name="inferenceEndpoint.endpointUrl" [(ngModel)]="inferenceEndpoint.endpointUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>trafficShare</mat-label>
+								<input matInput ngDefaultControl placeholder="trafficShare" name="inferenceEndpoint.trafficShare" [(ngModel)]="inferenceEndpoint.trafficShare">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ModelVersion</mat-label>
+					<mat-select placeholder="ModelVersion"   [compareWith]="compareFn"  [(ngModel)]="inferenceEndpoint.ModelVersion">
+						@for (modelVersion of modelVersions; track modelVersion.modelVersionId) {
+							<mat-option name="inferenceEndpoint.ModelVersion" ngDefaultControl
+							            [value]="modelVersion.modelVersionId">
+								{{modelVersion.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Workspace</mat-label>
+					<mat-select placeholder="Workspace"   [compareWith]="compareFn"  [(ngModel)]="inferenceEndpoint.Workspace">
+						@for (analyticsWorkspace of analyticsWorkspaces; track analyticsWorkspace.analyticsWorkspaceId) {
+							<mat-option name="inferenceEndpoint.Workspace" ngDefaultControl
+							            [value]="analyticsWorkspace.analyticsWorkspaceId">
+								{{analyticsWorkspace.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Predictions</mat-label>
+					<mat-select placeholder="Predictions" multiple  [compareWith]="compareFn"  [(ngModel)]="inferenceEndpoint.Predictions">
+						@for (prediction of predictions; track prediction.predictionId) {
+							<mat-option name="inferenceEndpoint.Predictions" ngDefaultControl
+							            [value]="prediction.predictionId">
+								{{prediction.referenceKey}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Mode</mat-label>
+						<mat-select placeholder="Mode" name="inferenceEndpoint.Mode" [(ngModel)]="inferenceEndpoint.Mode">
+							@for (InferenceMode of InferenceModes; track InferenceMode) {
+								<mat-option ngDefaultControl [value]="InferenceMode">
+									{{InferenceMode}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateInferenceEndpoint(inferenceEndpoint.name, inferenceEndpoint.endpointUrl, inferenceEndpoint.trafficShare, inferenceEndpoint.ModelVersion, inferenceEndpoint.Workspace, inferenceEndpoint.Predictions, inferenceEndpoint.Mode)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,95 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="visualization.title" [(ngModel)]="visualization.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>options</mat-label>
+								<input matInput ngDefaultControl placeholder="options" name="visualization.options" [(ngModel)]="visualization.options">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Dashboard</mat-label>
+					<mat-select placeholder="Dashboard"  [(ngModel)]="visualization.Dashboard">
+						@for (dashboard of dashboards; track dashboard.dashboardId) {
+							<mat-option name="visualization.Dashboard" ngDefaultControl
+							            [value]="dashboard.dashboardId">
+								{{dashboard.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Report</mat-label>
+					<mat-select placeholder="Report"  [(ngModel)]="visualization.Report">
+						@for (report of reports; track report.reportId) {
+							<mat-option name="visualization.Report" ngDefaultControl
+							            [value]="report.reportId">
+								{{report.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Metrics</mat-label>
+					<mat-select placeholder="Metrics" multiple [(ngModel)]="visualization.Metrics">
+						@for (metric of metrics; track metric.metricId) {
+							<mat-option name="visualization.Metrics" ngDefaultControl
+							            [value]="metric.metricId">
+								{{metric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Dimensions</mat-label>
+					<mat-select placeholder="Dimensions" multiple [(ngModel)]="visualization.Dimensions">
+						@for (dimension of dimensions; track dimension.dimensionId) {
+							<mat-option name="visualization.Dimensions" ngDefaultControl
+							            [value]="dimension.dimensionId">
+								{{dimension.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple [(ngModel)]="visualization.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="visualization.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ChartType</mat-label>
+						<mat-select placeholder="ChartType" name="visualization.ChartType" [(ngModel)]="visualization.ChartType">
+							@for (ChartType of ChartTypes; track ChartType) {
+								<mat-option ngDefaultControl [value]="ChartType">
+									{{ChartType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addVisualization(visualization.title, visualization.options, visualization.Dashboard, visualization.Report, visualization.Metrics, visualization.Dimensions, visualization.Datasets, visualization.ChartType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

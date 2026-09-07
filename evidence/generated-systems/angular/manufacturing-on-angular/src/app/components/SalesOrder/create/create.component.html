@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="salesOrder.orderNumber" [(ngModel)]="salesOrder.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>orderDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="orderDate" name="salesOrder.orderDate" [(ngModel)]="salesOrder.orderDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="salesOrder.totalAmount" [(ngModel)]="salesOrder.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="salesOrder.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="salesOrder.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"  [(ngModel)]="salesOrder.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="salesOrder.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Lines</mat-label>
+					<mat-select placeholder="Lines" multiple [(ngModel)]="salesOrder.Lines">
+						@for (salesOrderLine of salesOrderLines; track salesOrderLine.salesOrderLineId) {
+							<mat-option name="salesOrder.Lines" ngDefaultControl
+							            [value]="salesOrderLine.salesOrderLineId">
+								{{salesOrderLine.lineNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>WorkOrders</mat-label>
+					<mat-select placeholder="WorkOrders" multiple [(ngModel)]="salesOrder.WorkOrders">
+						@for (workOrder of workOrders; track workOrder.workOrderId) {
+							<mat-option name="salesOrder.WorkOrders" ngDefaultControl
+							            [value]="workOrder.workOrderId">
+								{{workOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="salesOrder.Status" [(ngModel)]="salesOrder.Status">
+							@for (SalesOrderStatus of SalesOrderStatuss; track SalesOrderStatus) {
+								<mat-option ngDefaultControl [value]="SalesOrderStatus">
+									{{SalesOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addSalesOrder(salesOrder.orderNumber, salesOrder.orderDate, salesOrder.totalAmount, salesOrder.Customer, salesOrder.Plant, salesOrder.Lines, salesOrder.WorkOrders, salesOrder.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

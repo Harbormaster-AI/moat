@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>chargebackReference</mat-label>
+								<input matInput ngDefaultControl placeholder="chargebackReference" name="chargeback.chargebackReference" [(ngModel)]="chargeback.chargebackReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="chargeback.amount" [(ngModel)]="chargeback.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="chargeback.postedAt" class="form-control" name="chargeback.postedAt" #chargeback.postedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Dispute</mat-label>
+					<mat-select placeholder="Dispute"   [compareWith]="compareFn"  [(ngModel)]="chargeback.Dispute">
+						@for (dispute of disputes; track dispute.disputeId) {
+							<mat-option name="chargeback.Dispute" ngDefaultControl
+							            [value]="dispute.disputeId">
+								{{dispute.disputeReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Transaction</mat-label>
+					<mat-select placeholder="Transaction"   [compareWith]="compareFn"  [(ngModel)]="chargeback.Transaction">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="chargeback.Transaction" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Stage</mat-label>
+						<mat-select placeholder="Stage" name="chargeback.Stage" [(ngModel)]="chargeback.Stage">
+							@for (ChargebackStage of ChargebackStages; track ChargebackStage) {
+								<mat-option ngDefaultControl [value]="ChargebackStage">
+									{{ChargebackStage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="chargeback.Status" [(ngModel)]="chargeback.Status">
+							@for (ChargebackStatus of ChargebackStatuss; track ChargebackStatus) {
+								<mat-option ngDefaultControl [value]="ChargebackStatus">
+									{{ChargebackStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateChargeback(chargeback.chargebackReference, chargeback.amount, chargeback.postedAt, chargeback.Dispute, chargeback.Transaction, chargeback.Stage, chargeback.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

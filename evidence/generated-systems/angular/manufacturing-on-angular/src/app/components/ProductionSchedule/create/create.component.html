@@ -1,0 +1,69 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>scheduleNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="scheduleNumber" name="productionSchedule.scheduleNumber" [(ngModel)]="productionSchedule.scheduleNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>horizonStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="horizonStart" name="productionSchedule.horizonStart" [(ngModel)]="productionSchedule.horizonStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>horizonEnd</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="horizonEnd" name="productionSchedule.horizonEnd" [(ngModel)]="productionSchedule.horizonEnd">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"  [(ngModel)]="productionSchedule.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="productionSchedule.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>WorkOrders</mat-label>
+					<mat-select placeholder="WorkOrders" multiple [(ngModel)]="productionSchedule.WorkOrders">
+						@for (workOrder of workOrders; track workOrder.workOrderId) {
+							<mat-option name="productionSchedule.WorkOrders" ngDefaultControl
+							            [value]="workOrder.workOrderId">
+								{{workOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="productionSchedule.Status" [(ngModel)]="productionSchedule.Status">
+							@for (ScheduleStatus of ScheduleStatuss; track ScheduleStatus) {
+								<mat-option ngDefaultControl [value]="ScheduleStatus">
+									{{ScheduleStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 										<button
+				(click)="addProductionSchedule(productionSchedule.scheduleNumber, productionSchedule.horizonStart, productionSchedule.horizonEnd, productionSchedule.Plant, productionSchedule.WorkOrders, productionSchedule.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

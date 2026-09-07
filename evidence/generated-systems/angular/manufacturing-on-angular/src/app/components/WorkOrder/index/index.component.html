@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">WorkOrder List</h5>
+
+    <a
+            [routerLink]="['/createWorkOrder']"
+            class="btn btn-primary btn-sm">
+        Create WorkOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">workOrderNumber</th>
+                        <th scope="col">plannedStart</th>
+                        <th scope="col">plannedEnd</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">priority</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (workOrder of workOrders; track workOrder.workOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ workOrder.workOrderNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ workOrder.plannedStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ workOrder.plannedEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ workOrder.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ workOrder.priority }}
+                </td>
+                                <td class="align-middle">
+                    {{ workOrder.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadWorkOrder', workOrder.workOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteWorkOrder(workOrder.workOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (workOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No workOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

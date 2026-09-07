@@ -1,0 +1,38 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>agreementNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="agreementNumber" name="purchaseAgreement.agreementNumber" [(ngModel)]="purchaseAgreement.agreementNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="purchaseAgreement.effectiveDate" [(ngModel)]="purchaseAgreement.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AircraftOrder</mat-label>
+					<mat-select placeholder="AircraftOrder"  [(ngModel)]="purchaseAgreement.AircraftOrder">
+						@for (aircraftOrder of aircraftOrders; track aircraftOrder.aircraftOrderId) {
+							<mat-option name="purchaseAgreement.AircraftOrder" ngDefaultControl
+							            [value]="aircraftOrder.aircraftOrderId">
+								{{aircraftOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																										 										<button
+				(click)="addPurchaseAgreement(purchaseAgreement.agreementNumber, purchaseAgreement.effectiveDate, purchaseAgreement.AircraftOrder)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

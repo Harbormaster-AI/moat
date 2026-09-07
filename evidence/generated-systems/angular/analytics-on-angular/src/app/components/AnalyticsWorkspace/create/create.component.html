@@ -1,0 +1,161 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="analyticsWorkspace.name" [(ngModel)]="analyticsWorkspace.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>businessDomain</mat-label>
+								<input matInput ngDefaultControl placeholder="businessDomain" name="analyticsWorkspace.businessDomain" [(ngModel)]="analyticsWorkspace.businessDomain">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>ownerTeam</mat-label>
+								<input matInput ngDefaultControl placeholder="ownerTeam" name="analyticsWorkspace.ownerTeam" [(ngModel)]="analyticsWorkspace.ownerTeam">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple [(ngModel)]="analyticsWorkspace.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="analyticsWorkspace.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DataSources</mat-label>
+					<mat-select placeholder="DataSources" multiple [(ngModel)]="analyticsWorkspace.DataSources">
+						@for (dataSource of dataSources; track dataSource.dataSourceId) {
+							<mat-option name="analyticsWorkspace.DataSources" ngDefaultControl
+							            [value]="dataSource.dataSourceId">
+								{{dataSource.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Pipelines</mat-label>
+					<mat-select placeholder="Pipelines" multiple [(ngModel)]="analyticsWorkspace.Pipelines">
+						@for (dataPipeline of dataPipelines; track dataPipeline.dataPipelineId) {
+							<mat-option name="analyticsWorkspace.Pipelines" ngDefaultControl
+							            [value]="dataPipeline.dataPipelineId">
+								{{dataPipeline.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Dashboards</mat-label>
+					<mat-select placeholder="Dashboards" multiple [(ngModel)]="analyticsWorkspace.Dashboards">
+						@for (dashboard of dashboards; track dashboard.dashboardId) {
+							<mat-option name="analyticsWorkspace.Dashboards" ngDefaultControl
+							            [value]="dashboard.dashboardId">
+								{{dashboard.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Reports</mat-label>
+					<mat-select placeholder="Reports" multiple [(ngModel)]="analyticsWorkspace.Reports">
+						@for (report of reports; track report.reportId) {
+							<mat-option name="analyticsWorkspace.Reports" ngDefaultControl
+							            [value]="report.reportId">
+								{{report.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Notebooks</mat-label>
+					<mat-select placeholder="Notebooks" multiple [(ngModel)]="analyticsWorkspace.Notebooks">
+						@for (notebook of notebooks; track notebook.notebookId) {
+							<mat-option name="analyticsWorkspace.Notebooks" ngDefaultControl
+							            [value]="notebook.notebookId">
+								{{notebook.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Models</mat-label>
+					<mat-select placeholder="Models" multiple [(ngModel)]="analyticsWorkspace.Models">
+						@for (model_ of model_s; track model_.model_Id) {
+							<mat-option name="analyticsWorkspace.Models" ngDefaultControl
+							            [value]="model_.model_Id">
+								{{model_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>FeatureSets</mat-label>
+					<mat-select placeholder="FeatureSets" multiple [(ngModel)]="analyticsWorkspace.FeatureSets">
+						@for (featureSet of featureSets; track featureSet.featureSetId) {
+							<mat-option name="analyticsWorkspace.FeatureSets" ngDefaultControl
+							            [value]="featureSet.featureSetId">
+								{{featureSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple [(ngModel)]="analyticsWorkspace.Policies">
+						@for (accessPolicy of accessPolicys; track accessPolicy.accessPolicyId) {
+							<mat-option name="analyticsWorkspace.Policies" ngDefaultControl
+							            [value]="accessPolicy.accessPolicyId">
+								{{accessPolicy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LineageNodes</mat-label>
+					<mat-select placeholder="LineageNodes" multiple [(ngModel)]="analyticsWorkspace.LineageNodes">
+						@for (lineageNode of lineageNodes; track lineageNode.lineageNodeId) {
+							<mat-option name="analyticsWorkspace.LineageNodes" ngDefaultControl
+							            [value]="lineageNode.lineageNodeId">
+								{{lineageNode.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>GovernanceTier</mat-label>
+						<mat-select placeholder="GovernanceTier" name="analyticsWorkspace.GovernanceTier" [(ngModel)]="analyticsWorkspace.GovernanceTier">
+							@for (GovernanceTier of GovernanceTiers; track GovernanceTier) {
+								<mat-option ngDefaultControl [value]="GovernanceTier">
+									{{GovernanceTier}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addAnalyticsWorkspace(analyticsWorkspace.name, analyticsWorkspace.businessDomain, analyticsWorkspace.ownerTeam, analyticsWorkspace.Datasets, analyticsWorkspace.DataSources, analyticsWorkspace.Pipelines, analyticsWorkspace.Dashboards, analyticsWorkspace.Reports, analyticsWorkspace.Notebooks, analyticsWorkspace.Models, analyticsWorkspace.FeatureSets, analyticsWorkspace.Policies, analyticsWorkspace.LineageNodes, analyticsWorkspace.GovernanceTier)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

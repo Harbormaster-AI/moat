@@ -1,0 +1,85 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reportNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="reportNumber" name="imagingReport.reportNumber" [(ngModel)]="imagingReport.reportNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>impression</mat-label>
+								<input matInput ngDefaultControl placeholder="impression" name="imagingReport.impression" [(ngModel)]="imagingReport.impression">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="imagingReport.reportedDate" class="form-control" name="imagingReport.reportedDate" #imagingReport.reportedDate ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ImagingOrder</mat-label>
+					<mat-select placeholder="ImagingOrder"   [compareWith]="compareFn"  [(ngModel)]="imagingReport.ImagingOrder">
+						@for (imagingOrder of imagingOrders; track imagingOrder.imagingOrderId) {
+							<mat-option name="imagingReport.ImagingOrder" ngDefaultControl
+							            [value]="imagingOrder.imagingOrderId">
+								{{imagingOrder.bodySite}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Clinician</mat-label>
+					<mat-select placeholder="Clinician"   [compareWith]="compareFn"  [(ngModel)]="imagingReport.Clinician">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="imagingReport.Clinician" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"   [compareWith]="compareFn"  [(ngModel)]="imagingReport.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="imagingReport.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ImagingCenter</mat-label>
+					<mat-select placeholder="ImagingCenter"   [compareWith]="compareFn"  [(ngModel)]="imagingReport.ImagingCenter">
+						@for (imagingCenter of imagingCenters; track imagingCenter.imagingCenterId) {
+							<mat-option name="imagingReport.ImagingCenter" ngDefaultControl
+							            [value]="imagingCenter.imagingCenterId">
+								{{imagingCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="imagingReport.Status" [(ngModel)]="imagingReport.Status">
+							@for (ResultStatus of ResultStatuss; track ResultStatus) {
+								<mat-option ngDefaultControl [value]="ResultStatus">
+									{{ResultStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateImagingReport(imagingReport.reportNumber, imagingReport.impression, imagingReport.reportedDate, imagingReport.ImagingOrder, imagingReport.Clinician, imagingReport.Encounter, imagingReport.ImagingCenter, imagingReport.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

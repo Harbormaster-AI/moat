@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PaymentMethod List</h5>
+
+    <a
+            [routerLink]="['/createPaymentMethod']"
+            class="btn btn-primary btn-sm">
+        Create PaymentMethod
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">last4</th>
+                        <th scope="col">cardholderName</th>
+                        <th scope="col">billingAddress</th>
+                        <th scope="col">MethodType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (paymentMethod of paymentMethods; track paymentMethod.paymentMethodId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ paymentMethod.last4 }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentMethod.cardholderName }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentMethod.billingAddress }}
+                </td>
+                                <td class="align-middle">
+                    {{ paymentMethod.MethodType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPaymentMethod', paymentMethod.paymentMethodId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePaymentMethod(paymentMethod.paymentMethodId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (paymentMethods?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No paymentMethods found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

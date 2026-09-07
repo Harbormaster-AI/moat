@@ -1,0 +1,48 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="aircraftFamily.name" [(ngModel)]="aircraftFamily.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>familyCode</mat-label>
+								<input matInput ngDefaultControl placeholder="familyCode" name="aircraftFamily.familyCode" [(ngModel)]="aircraftFamily.familyCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Program</mat-label>
+					<mat-select placeholder="Program"   [compareWith]="compareFn"  [(ngModel)]="aircraftFamily.Program">
+						@for (aircraftProgram of aircraftPrograms; track aircraftProgram.aircraftProgramId) {
+							<mat-option name="aircraftFamily.Program" ngDefaultControl
+							            [value]="aircraftProgram.aircraftProgramId">
+								{{aircraftProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>AircraftModels</mat-label>
+					<mat-select placeholder="AircraftModels" multiple  [compareWith]="compareFn"  [(ngModel)]="aircraftFamily.AircraftModels">
+						@for (aircraftModel of aircraftModels; track aircraftModel.aircraftModelId) {
+							<mat-option name="aircraftFamily.AircraftModels" ngDefaultControl
+							            [value]="aircraftModel.aircraftModelId">
+								{{aircraftModel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateAircraftFamily(aircraftFamily.name, aircraftFamily.familyCode, aircraftFamily.Program, aircraftFamily.AircraftModels)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

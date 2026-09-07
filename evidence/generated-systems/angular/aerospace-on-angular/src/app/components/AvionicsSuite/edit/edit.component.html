@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>suiteName</mat-label>
+								<input matInput ngDefaultControl placeholder="suiteName" name="avionicsSuite.suiteName" [(ngModel)]="avionicsSuite.suiteName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>softwareBaseline</mat-label>
+								<input matInput ngDefaultControl placeholder="softwareBaseline" name="avionicsSuite.softwareBaseline" [(ngModel)]="avionicsSuite.softwareBaseline">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"   [compareWith]="compareFn"  [(ngModel)]="avionicsSuite.Supplier">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="avionicsSuite.Supplier" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple  [compareWith]="compareFn"  [(ngModel)]="avionicsSuite.Variants">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="avionicsSuite.Variants" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>SoftwareLoads</mat-label>
+					<mat-select placeholder="SoftwareLoads" multiple  [compareWith]="compareFn"  [(ngModel)]="avionicsSuite.SoftwareLoads">
+						@for (softwareLoad of softwareLoads; track softwareLoad.softwareLoadId) {
+							<mat-option name="avionicsSuite.SoftwareLoads" ngDefaultControl
+							            [value]="softwareLoad.softwareLoadId">
+								{{softwareLoad.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateAvionicsSuite(avionicsSuite.suiteName, avionicsSuite.softwareBaseline, avionicsSuite.Supplier, avionicsSuite.Variants, avionicsSuite.SoftwareLoads)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

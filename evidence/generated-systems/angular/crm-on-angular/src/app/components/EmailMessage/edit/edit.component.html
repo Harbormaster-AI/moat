@@ -1,0 +1,150 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>subject</mat-label>
+								<input matInput ngDefaultControl placeholder="subject" name="emailMessage.subject" [(ngModel)]="emailMessage.subject">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>body</mat-label>
+								<input matInput ngDefaultControl placeholder="body" name="emailMessage.body" [(ngModel)]="emailMessage.body">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="emailMessage.sentAt" class="form-control" name="emailMessage.sentAt" #emailMessage.sentAt ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>messageId</mat-label>
+								<input matInput ngDefaultControl placeholder="messageId" name="emailMessage.messageId" [(ngModel)]="emailMessage.messageId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="emailMessage.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="emailMessage.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="emailMessage.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Contact</mat-label>
+					<mat-select placeholder="Contact"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Contact">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="emailMessage.Contact" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Lead</mat-label>
+					<mat-select placeholder="Lead"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Lead">
+						@for (lead of leads; track lead.leadId) {
+							<mat-option name="emailMessage.Lead" ngDefaultControl
+							            [value]="lead.leadId">
+								{{lead.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Case</mat-label>
+					<mat-select placeholder="Case"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Case">
+						@for (case_ of case_s; track case_.case_Id) {
+							<mat-option name="emailMessage.Case" ngDefaultControl
+							            [value]="case_.case_Id">
+								{{case_.caseNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Opportunity</mat-label>
+					<mat-select placeholder="Opportunity"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Opportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="emailMessage.Opportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"   [compareWith]="compareFn"  [(ngModel)]="emailMessage.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="emailMessage.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Direction</mat-label>
+						<mat-select placeholder="Direction" name="emailMessage.Direction" [(ngModel)]="emailMessage.Direction">
+							@for (EmailDirection of EmailDirections; track EmailDirection) {
+								<mat-option ngDefaultControl [value]="EmailDirection">
+									{{EmailDirection}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="emailMessage.Status" [(ngModel)]="emailMessage.Status">
+							@for (EmailStatus of EmailStatuss; track EmailStatus) {
+								<mat-option ngDefaultControl [value]="EmailStatus">
+									{{EmailStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateEmailMessage(emailMessage.subject, emailMessage.body, emailMessage.sentAt, emailMessage.messageId, emailMessage.Organization, emailMessage.Owner, emailMessage.Account, emailMessage.Contact, emailMessage.Lead, emailMessage.Case, emailMessage.Opportunity, emailMessage.Campaign, emailMessage.Direction, emailMessage.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

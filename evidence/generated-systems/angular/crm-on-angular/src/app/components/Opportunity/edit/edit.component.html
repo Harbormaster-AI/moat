@@ -1,0 +1,209 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="opportunity.name" [(ngModel)]="opportunity.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="opportunity.amount" [(ngModel)]="opportunity.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>closeDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="closeDate" name="opportunity.closeDate" [(ngModel)]="opportunity.closeDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>probability</mat-label>
+								<input matInput ngDefaultControl placeholder="probability" name="opportunity.probability" [(ngModel)]="opportunity.probability">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="opportunity.description" [(ngModel)]="opportunity.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="opportunity.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="opportunity.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="opportunity.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="opportunity.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"   [compareWith]="compareFn"  [(ngModel)]="opportunity.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="opportunity.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Contacts</mat-label>
+					<mat-select placeholder="Contacts" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.Contacts">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="opportunity.Contacts" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LineItems</mat-label>
+					<mat-select placeholder="LineItems" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.LineItems">
+						@for (opportunityLineItem of opportunityLineItems; track opportunityLineItem.opportunityLineItemId) {
+							<mat-option name="opportunity.LineItems" ngDefaultControl
+							            [value]="opportunityLineItem.opportunityLineItemId">
+								{{opportunityLineItem.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>StageHistory</mat-label>
+					<mat-select placeholder="StageHistory" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.StageHistory">
+						@for (opportunityStageHistory of opportunityStageHistorys; track opportunityStageHistory.opportunityStageHistoryId) {
+							<mat-option name="opportunity.StageHistory" ngDefaultControl
+							            [value]="opportunityStageHistory.opportunityStageHistoryId">
+								{{opportunityStageHistory.changedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Quotes</mat-label>
+					<mat-select placeholder="Quotes" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.Quotes">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="opportunity.Quotes" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Orders</mat-label>
+					<mat-select placeholder="Orders" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.Orders">
+						@for (order of orders; track order.orderId) {
+							<mat-option name="opportunity.Orders" ngDefaultControl
+							            [value]="order.orderId">
+								{{order.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="opportunity.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="opportunity.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Teams</mat-label>
+					<mat-select placeholder="Teams" multiple  [compareWith]="compareFn"  [(ngModel)]="opportunity.Teams">
+						@for (team of teams; track team.teamId) {
+							<mat-option name="opportunity.Teams" ngDefaultControl
+							            [value]="team.teamId">
+								{{team.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Stage</mat-label>
+						<mat-select placeholder="Stage" name="opportunity.Stage" [(ngModel)]="opportunity.Stage">
+							@for (OpportunityStage of OpportunityStages; track OpportunityStage) {
+								<mat-option ngDefaultControl [value]="OpportunityStage">
+									{{OpportunityStage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Type</mat-label>
+						<mat-select placeholder="Type" name="opportunity.Type" [(ngModel)]="opportunity.Type">
+							@for (OpportunityType of OpportunityTypes; track OpportunityType) {
+								<mat-option ngDefaultControl [value]="OpportunityType">
+									{{OpportunityType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ForecastCategory</mat-label>
+						<mat-select placeholder="ForecastCategory" name="opportunity.ForecastCategory" [(ngModel)]="opportunity.ForecastCategory">
+							@for (ForecastCategory of ForecastCategorys; track ForecastCategory) {
+								<mat-option ngDefaultControl [value]="ForecastCategory">
+									{{ForecastCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateOpportunity(opportunity.name, opportunity.amount, opportunity.closeDate, opportunity.probability, opportunity.description, opportunity.Organization, opportunity.Account, opportunity.Owner, opportunity.Contacts, opportunity.LineItems, opportunity.StageHistory, opportunity.Quotes, opportunity.Orders, opportunity.Campaigns, opportunity.Activities, opportunity.Teams, opportunity.Stage, opportunity.Type, opportunity.ForecastCategory)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,82 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>udi</mat-label>
+								<input matInput ngDefaultControl placeholder="udi" name="medicalDevice.udi" [(ngModel)]="medicalDevice.udi">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>manufacturer</mat-label>
+								<input matInput ngDefaultControl placeholder="manufacturer" name="medicalDevice.manufacturer" [(ngModel)]="medicalDevice.manufacturer">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="medicalDevice.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="medicalDevice.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Observations</mat-label>
+					<mat-select placeholder="Observations" multiple [(ngModel)]="medicalDevice.Observations">
+						@for (observation of observations; track observation.observationId) {
+							<mat-option name="medicalDevice.Observations" ngDefaultControl
+							            [value]="observation.observationId">
+								{{observation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SoftwareUpdates</mat-label>
+					<mat-select placeholder="SoftwareUpdates" multiple [(ngModel)]="medicalDevice.SoftwareUpdates">
+						@for (softwareUpdate of softwareUpdates; track softwareUpdate.softwareUpdateId) {
+							<mat-option name="medicalDevice.SoftwareUpdates" ngDefaultControl
+							            [value]="softwareUpdate.softwareUpdateId">
+								{{softwareUpdate.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DeviceType</mat-label>
+						<mat-select placeholder="DeviceType" name="medicalDevice.DeviceType" [(ngModel)]="medicalDevice.DeviceType">
+							@for (DeviceType of DeviceTypes; track DeviceType) {
+								<mat-option ngDefaultControl [value]="DeviceType">
+									{{DeviceType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ConnectivityStatus</mat-label>
+						<mat-select placeholder="ConnectivityStatus" name="medicalDevice.ConnectivityStatus" [(ngModel)]="medicalDevice.ConnectivityStatus">
+							@for (DeviceConnectivityStatus of DeviceConnectivityStatuss; track DeviceConnectivityStatus) {
+								<mat-option ngDefaultControl [value]="DeviceConnectivityStatus">
+									{{DeviceConnectivityStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 																							 										<button
+				(click)="addMedicalDevice(medicalDevice.udi, medicalDevice.manufacturer, medicalDevice.Patient, medicalDevice.Observations, medicalDevice.SoftwareUpdates, medicalDevice.DeviceType, medicalDevice.ConnectivityStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

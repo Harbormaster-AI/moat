@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="costCenter.code" [(ngModel)]="costCenter.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="costCenter.name" [(ngModel)]="costCenter.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="costCenter.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="costCenter.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Departments</mat-label>
+					<mat-select placeholder="Departments" multiple  [compareWith]="compareFn"  [(ngModel)]="costCenter.Departments">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="costCenter.Departments" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Positions</mat-label>
+					<mat-select placeholder="Positions" multiple  [compareWith]="compareFn"  [(ngModel)]="costCenter.Positions">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="costCenter.Positions" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Employees</mat-label>
+					<mat-select placeholder="Employees" multiple  [compareWith]="compareFn"  [(ngModel)]="costCenter.Employees">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="costCenter.Employees" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateCostCenter(costCenter.code, costCenter.name, costCenter.Organization, costCenter.Departments, costCenter.Positions, costCenter.Employees)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

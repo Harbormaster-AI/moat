@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="quoteLineItem.quantity" [(ngModel)]="quoteLineItem.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>unitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="unitPrice" name="quoteLineItem.unitPrice" [(ngModel)]="quoteLineItem.unitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>discountAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="discountAmount" name="quoteLineItem.discountAmount" [(ngModel)]="quoteLineItem.discountAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>taxAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="taxAmount" name="quoteLineItem.taxAmount" [(ngModel)]="quoteLineItem.taxAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="quoteLineItem.totalAmount" [(ngModel)]="quoteLineItem.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Quote</mat-label>
+					<mat-select placeholder="Quote"   [compareWith]="compareFn"  [(ngModel)]="quoteLineItem.Quote">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="quoteLineItem.Quote" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"   [compareWith]="compareFn"  [(ngModel)]="quoteLineItem.Product">
+						@for (product of products; track product.productId) {
+							<mat-option name="quoteLineItem.Product" ngDefaultControl
+							            [value]="product.productId">
+								{{product.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PriceBookEntry</mat-label>
+					<mat-select placeholder="PriceBookEntry"   [compareWith]="compareFn"  [(ngModel)]="quoteLineItem.PriceBookEntry">
+						@for (priceBookEntry of priceBookEntrys; track priceBookEntry.priceBookEntryId) {
+							<mat-option name="quoteLineItem.PriceBookEntry" ngDefaultControl
+							            [value]="priceBookEntry.priceBookEntryId">
+								{{priceBookEntry.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>OpportunityLineItem</mat-label>
+					<mat-select placeholder="OpportunityLineItem"   [compareWith]="compareFn"  [(ngModel)]="quoteLineItem.OpportunityLineItem">
+						@for (opportunityLineItem of opportunityLineItems; track opportunityLineItem.opportunityLineItemId) {
+							<mat-option name="quoteLineItem.OpportunityLineItem" ngDefaultControl
+							            [value]="opportunityLineItem.opportunityLineItemId">
+								{{opportunityLineItem.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateQuoteLineItem(quoteLineItem.quantity, quoteLineItem.unitPrice, quoteLineItem.discountAmount, quoteLineItem.taxAmount, quoteLineItem.totalAmount, quoteLineItem.Quote, quoteLineItem.Product, quoteLineItem.PriceBookEntry, quoteLineItem.OpportunityLineItem)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

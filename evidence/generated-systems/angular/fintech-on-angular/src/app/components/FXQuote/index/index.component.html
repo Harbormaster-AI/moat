@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">FXQuote List</h5>
+
+    <a
+            [routerLink]="['/createFXQuote']"
+            class="btn btn-primary btn-sm">
+        Create FXQuote
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">baseCurrency</th>
+                        <th scope="col">quoteCurrency</th>
+                        <th scope="col">rate</th>
+                        <th scope="col">quotedAt</th>
+                        <th scope="col">expiresAt</th>
+                        <th scope="col">PriceType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (fXQuote of fXQuotes; track fXQuote.fXQuoteId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ fXQuote.baseCurrency }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXQuote.quoteCurrency }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXQuote.rate }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXQuote.quotedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXQuote.expiresAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ fXQuote.PriceType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadFXQuote', fXQuote.fXQuoteId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteFXQuote(fXQuote.fXQuoteId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (fXQuotes?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No fXQuotes found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

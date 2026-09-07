@@ -1,0 +1,124 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="thirdParty.name" [(ngModel)]="thirdParty.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>country</mat-label>
+								<input matInput ngDefaultControl placeholder="country" name="thirdParty.country" [(ngModel)]="thirdParty.country">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>contactEmail</mat-label>
+								<input matInput ngDefaultControl placeholder="contactEmail" name="thirdParty.contactEmail" [(ngModel)]="thirdParty.contactEmail">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="thirdParty.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="thirdParty.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProcessingActivities</mat-label>
+					<mat-select placeholder="ProcessingActivities" multiple [(ngModel)]="thirdParty.ProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="thirdParty.ProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Assessments</mat-label>
+					<mat-select placeholder="Assessments" multiple [(ngModel)]="thirdParty.Assessments">
+						@for (thirdPartyAssessment of thirdPartyAssessments; track thirdPartyAssessment.thirdPartyAssessmentId) {
+							<mat-option name="thirdParty.Assessments" ngDefaultControl
+							            [value]="thirdPartyAssessment.thirdPartyAssessmentId">
+								{{thirdPartyAssessment.assessmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple [(ngModel)]="thirdParty.Contracts">
+						@for (contract of contracts; track contract.contractId) {
+							<mat-option name="thirdParty.Contracts" ngDefaultControl
+							            [value]="contract.contractId">
+								{{contract.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Obligations</mat-label>
+					<mat-select placeholder="Obligations" multiple [(ngModel)]="thirdParty.Obligations">
+						@for (obligation of obligations; track obligation.obligationId) {
+							<mat-option name="thirdParty.Obligations" ngDefaultControl
+							            [value]="obligation.obligationId">
+								{{obligation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DataBreaches</mat-label>
+					<mat-select placeholder="DataBreaches" multiple [(ngModel)]="thirdParty.DataBreaches">
+						@for (dataBreach of dataBreachs; track dataBreach.dataBreachId) {
+							<mat-option name="thirdParty.DataBreaches" ngDefaultControl
+							            [value]="dataBreach.dataBreachId">
+								{{dataBreach.incidentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ThirdPartyType</mat-label>
+						<mat-select placeholder="ThirdPartyType" name="thirdParty.ThirdPartyType" [(ngModel)]="thirdParty.ThirdPartyType">
+							@for (ThirdPartyType of ThirdPartyTypes; track ThirdPartyType) {
+								<mat-option ngDefaultControl [value]="ThirdPartyType">
+									{{ThirdPartyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Criticality</mat-label>
+						<mat-select placeholder="Criticality" name="thirdParty.Criticality" [(ngModel)]="thirdParty.Criticality">
+							@for (VendorCriticality of VendorCriticalitys; track VendorCriticality) {
+								<mat-option ngDefaultControl [value]="VendorCriticality">
+									{{VendorCriticality}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addThirdParty(thirdParty.name, thirdParty.country, thirdParty.contactEmail, thirdParty.Organization, thirdParty.ProcessingActivities, thirdParty.Assessments, thirdParty.Contracts, thirdParty.Obligations, thirdParty.DataBreaches, thirdParty.ThirdPartyType, thirdParty.Criticality)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

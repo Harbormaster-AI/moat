@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Trade List</h5>
+
+    <a
+            [routerLink]="['/createTrade']"
+            class="btn btn-primary btn-sm">
+        Create Trade
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">executedAt</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">price</th>
+                        <th scope="col">fees</th>
+                        <th scope="col">settlementDate</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (trade of trades; track trade.tradeId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ trade.executedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ trade.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ trade.price }}
+                </td>
+                                <td class="align-middle">
+                    {{ trade.fees }}
+                </td>
+                                <td class="align-middle">
+                    {{ trade.settlementDate }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadTrade', trade.tradeId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteTrade(trade.tradeId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (trades?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No trades found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

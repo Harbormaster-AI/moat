@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">PayrollRun List</h5>
+
+    <a
+            [routerLink]="['/createPayrollRun']"
+            class="btn btn-primary btn-sm">
+        Create PayrollRun
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">runNumber</th>
+                        <th scope="col">periodStart</th>
+                        <th scope="col">periodEnd</th>
+                        <th scope="col">paymentDate</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (payrollRun of payrollRuns; track payrollRun.payrollRunId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ payrollRun.runNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ payrollRun.periodStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ payrollRun.periodEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ payrollRun.paymentDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ payrollRun.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadPayrollRun', payrollRun.payrollRunId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deletePayrollRun(payrollRun.payrollRunId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (payrollRuns?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No payrollRuns found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

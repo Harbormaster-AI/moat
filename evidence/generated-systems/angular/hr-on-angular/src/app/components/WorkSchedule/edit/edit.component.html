@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="workSchedule.name" [(ngModel)]="workSchedule.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>standardHoursPerWeek</mat-label>
+								<input matInput ngDefaultControl placeholder="standardHoursPerWeek" name="workSchedule.standardHoursPerWeek" [(ngModel)]="workSchedule.standardHoursPerWeek">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Contracts</mat-label>
+					<mat-select placeholder="Contracts" multiple  [compareWith]="compareFn"  [(ngModel)]="workSchedule.Contracts">
+						@for (employmentContract of employmentContracts; track employmentContract.employmentContractId) {
+							<mat-option name="workSchedule.Contracts" ngDefaultControl
+							            [value]="employmentContract.employmentContractId">
+								{{employmentContract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Shifts</mat-label>
+					<mat-select placeholder="Shifts" multiple  [compareWith]="compareFn"  [(ngModel)]="workSchedule.Shifts">
+						@for (workShift of workShifts; track workShift.workShiftId) {
+							<mat-option name="workSchedule.Shifts" ngDefaultControl
+							            [value]="workShift.workShiftId">
+								{{workShift.startTime}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Exceptions</mat-label>
+					<mat-select placeholder="Exceptions" multiple  [compareWith]="compareFn"  [(ngModel)]="workSchedule.Exceptions">
+						@for (scheduleException of scheduleExceptions; track scheduleException.scheduleExceptionId) {
+							<mat-option name="workSchedule.Exceptions" ngDefaultControl
+							            [value]="scheduleException.scheduleExceptionId">
+								{{scheduleException.date}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ScheduleType</mat-label>
+						<mat-select placeholder="ScheduleType" name="workSchedule.ScheduleType" [(ngModel)]="workSchedule.ScheduleType">
+							@for (ScheduleType of ScheduleTypes; track ScheduleType) {
+								<mat-option ngDefaultControl [value]="ScheduleType">
+									{{ScheduleType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateWorkSchedule(workSchedule.name, workSchedule.standardHoursPerWeek, workSchedule.Contracts, workSchedule.Shifts, workSchedule.Exceptions, workSchedule.ScheduleType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

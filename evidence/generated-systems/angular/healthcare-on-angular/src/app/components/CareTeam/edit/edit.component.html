@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="careTeam.name" [(ngModel)]="careTeam.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Department</mat-label>
+					<mat-select placeholder="Department"   [compareWith]="compareFn"  [(ngModel)]="careTeam.Department">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="careTeam.Department" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Clinicians</mat-label>
+					<mat-select placeholder="Clinicians" multiple  [compareWith]="compareFn"  [(ngModel)]="careTeam.Clinicians">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="careTeam.Clinicians" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Patients</mat-label>
+					<mat-select placeholder="Patients" multiple  [compareWith]="compareFn"  [(ngModel)]="careTeam.Patients">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="careTeam.Patients" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>CareSetting</mat-label>
+						<mat-select placeholder="CareSetting" name="careTeam.CareSetting" [(ngModel)]="careTeam.CareSetting">
+							@for (CareSettingType of CareSettingTypes; track CareSettingType) {
+								<mat-option ngDefaultControl [value]="CareSettingType">
+									{{CareSettingType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateCareTeam(careTeam.name, careTeam.Department, careTeam.Clinicians, careTeam.Patients, careTeam.CareSetting)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

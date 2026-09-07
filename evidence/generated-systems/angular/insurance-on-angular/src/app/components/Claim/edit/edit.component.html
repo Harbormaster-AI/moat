@@ -1,0 +1,170 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>claimNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="claimNumber" name="claim.claimNumber" [(ngModel)]="claim.claimNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>noticeDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="noticeDate" name="claim.noticeDate" [(ngModel)]="claim.noticeDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lossDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="lossDate" name="claim.lossDate" [(ngModel)]="claim.lossDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>reportedBy</mat-label>
+								<input matInput ngDefaultControl placeholder="reportedBy" name="claim.reportedBy" [(ngModel)]="claim.reportedBy">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Policy</mat-label>
+					<mat-select placeholder="Policy"   [compareWith]="compareFn"  [(ngModel)]="claim.Policy">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="claim.Policy" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="claim.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="claim.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Adjuster</mat-label>
+					<mat-select placeholder="Adjuster"   [compareWith]="compareFn"  [(ngModel)]="claim.Adjuster">
+						@for (adjuster of adjusters; track adjuster.adjusterId) {
+							<mat-option name="claim.Adjuster" ngDefaultControl
+							            [value]="adjuster.adjusterId">
+								{{adjuster.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Incident</mat-label>
+					<mat-select placeholder="Incident"   [compareWith]="compareFn"  [(ngModel)]="claim.Incident">
+						@for (incident of incidents; track incident.incidentId) {
+							<mat-option name="claim.Incident" ngDefaultControl
+							            [value]="incident.incidentId">
+								{{incident.location}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Exposures</mat-label>
+					<mat-select placeholder="Exposures" multiple  [compareWith]="compareFn"  [(ngModel)]="claim.Exposures">
+						@for (exposure of exposures; track exposure.exposureId) {
+							<mat-option name="claim.Exposures" ngDefaultControl
+							            [value]="exposure.exposureId">
+								{{exposure.Claim}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Reserves</mat-label>
+					<mat-select placeholder="Reserves" multiple  [compareWith]="compareFn"  [(ngModel)]="claim.Reserves">
+						@for (claimReserve of claimReserves; track claimReserve.claimReserveId) {
+							<mat-option name="claim.Reserves" ngDefaultControl
+							            [value]="claimReserve.claimReserveId">
+								{{claimReserve.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ClaimPayments</mat-label>
+					<mat-select placeholder="ClaimPayments" multiple  [compareWith]="compareFn"  [(ngModel)]="claim.ClaimPayments">
+						@for (claimPayment of claimPayments; track claimPayment.claimPaymentId) {
+							<mat-option name="claim.ClaimPayments" ngDefaultControl
+							            [value]="claimPayment.claimPaymentId">
+								{{claimPayment.paymentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ServiceProviders</mat-label>
+					<mat-select placeholder="ServiceProviders" multiple  [compareWith]="compareFn"  [(ngModel)]="claim.ServiceProviders">
+						@for (serviceProvider of serviceProviders; track serviceProvider.serviceProviderId) {
+							<mat-option name="claim.ServiceProviders" ngDefaultControl
+							            [value]="serviceProvider.serviceProviderId">
+								{{serviceProvider.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Subrogations</mat-label>
+					<mat-select placeholder="Subrogations" multiple  [compareWith]="compareFn"  [(ngModel)]="claim.Subrogations">
+						@for (subrogationRecovery of subrogationRecoverys; track subrogationRecovery.subrogationRecoveryId) {
+							<mat-option name="claim.Subrogations" ngDefaultControl
+							            [value]="subrogationRecovery.subrogationRecoveryId">
+								{{subrogationRecovery.recoveryReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="claim.Status" [(ngModel)]="claim.Status">
+							@for (ClaimStatus of ClaimStatuss; track ClaimStatus) {
+								<mat-option ngDefaultControl [value]="ClaimStatus">
+									{{ClaimStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>LossCause</mat-label>
+						<mat-select placeholder="LossCause" name="claim.LossCause" [(ngModel)]="claim.LossCause">
+							@for (CauseOfLoss of CauseOfLosss; track CauseOfLoss) {
+								<mat-option ngDefaultControl [value]="CauseOfLoss">
+									{{CauseOfLoss}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateClaim(claim.claimNumber, claim.noticeDate, claim.lossDate, claim.reportedBy, claim.Policy, claim.Customer, claim.Adjuster, claim.Incident, claim.Exposures, claim.Reserves, claim.ClaimPayments, claim.ServiceProviders, claim.Subrogations, claim.Status, claim.LossCause)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

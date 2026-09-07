@@ -1,0 +1,49 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																									<mat-checkbox name="paymentMethod.preferred" ngDefaultControl [(ngModel)]="paymentMethod.preferred">preferred</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="paymentMethod.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="paymentMethod.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>BankAccount</mat-label>
+					<mat-select placeholder="BankAccount"  [(ngModel)]="paymentMethod.BankAccount">
+						@for (bankAccount of bankAccounts; track bankAccount.bankAccountId) {
+							<mat-option name="paymentMethod.BankAccount" ngDefaultControl
+							            [value]="bankAccount.bankAccountId">
+								{{bankAccount.bankName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>MethodType</mat-label>
+						<mat-select placeholder="MethodType" name="paymentMethod.MethodType" [(ngModel)]="paymentMethod.MethodType">
+							@for (PaymentMethodType of PaymentMethodTypes; track PaymentMethodType) {
+								<mat-option ngDefaultControl [value]="PaymentMethodType">
+									{{PaymentMethodType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																																 																										 																							 										<button
+				(click)="addPaymentMethod(paymentMethod.preferred == true ? true : false, paymentMethod.Employee, paymentMethod.BankAccount, paymentMethod.MethodType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

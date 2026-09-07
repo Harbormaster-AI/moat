@@ -1,0 +1,125 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>paymentNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="paymentNumber" name="claimPayment.paymentNumber" [(ngModel)]="claimPayment.paymentNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="claimPayment.amount" [(ngModel)]="claimPayment.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>paymentDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="paymentDate" name="claimPayment.paymentDate" [(ngModel)]="claimPayment.paymentDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"   [compareWith]="compareFn"  [(ngModel)]="claimPayment.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="claimPayment.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Exposure</mat-label>
+					<mat-select placeholder="Exposure"   [compareWith]="compareFn"  [(ngModel)]="claimPayment.Exposure">
+						@for (exposure of exposures; track exposure.exposureId) {
+							<mat-option name="claimPayment.Exposure" ngDefaultControl
+							            [value]="exposure.exposureId">
+								{{exposure.Claim}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Beneficiary</mat-label>
+					<mat-select placeholder="Beneficiary"   [compareWith]="compareFn"  [(ngModel)]="claimPayment.Beneficiary">
+						@for (beneficiary of beneficiarys; track beneficiary.beneficiaryId) {
+							<mat-option name="claimPayment.Beneficiary" ngDefaultControl
+							            [value]="beneficiary.beneficiaryId">
+								{{beneficiary.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ServiceProvider</mat-label>
+					<mat-select placeholder="ServiceProvider"   [compareWith]="compareFn"  [(ngModel)]="claimPayment.ServiceProvider">
+						@for (serviceProvider of serviceProviders; track serviceProvider.serviceProviderId) {
+							<mat-option name="claimPayment.ServiceProvider" ngDefaultControl
+							            [value]="serviceProvider.serviceProviderId">
+								{{serviceProvider.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="claimPayment.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="claimPayment.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PayeeType</mat-label>
+						<mat-select placeholder="PayeeType" name="claimPayment.PayeeType" [(ngModel)]="claimPayment.PayeeType">
+							@for (PayeeType of PayeeTypes; track PayeeType) {
+								<mat-option ngDefaultControl [value]="PayeeType">
+									{{PayeeType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Method</mat-label>
+						<mat-select placeholder="Method" name="claimPayment.Method" [(ngModel)]="claimPayment.Method">
+							@for (PaymentMethod of PaymentMethods; track PaymentMethod) {
+								<mat-option ngDefaultControl [value]="PaymentMethod">
+									{{PaymentMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="claimPayment.Status" [(ngModel)]="claimPayment.Status">
+							@for (PaymentStatus of PaymentStatuss; track PaymentStatus) {
+								<mat-option ngDefaultControl [value]="PaymentStatus">
+									{{PaymentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateClaimPayment(claimPayment.paymentNumber, claimPayment.amount, claimPayment.paymentDate, claimPayment.Claim, claimPayment.Exposure, claimPayment.Beneficiary, claimPayment.ServiceProvider, claimPayment.Customer, claimPayment.PayeeType, claimPayment.Method, claimPayment.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

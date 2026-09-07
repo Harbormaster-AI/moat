@@ -1,0 +1,127 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>allocationNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="allocationNumber" name="outboundAllocation.allocationNumber" [(ngModel)]="outboundAllocation.allocationNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>allocatedQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="allocatedQuantity" name="outboundAllocation.allocatedQuantity" [(ngModel)]="outboundAllocation.allocatedQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>allocationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="allocationDate" name="outboundAllocation.allocationDate" [(ngModel)]="outboundAllocation.allocationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"   [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="outboundAllocation.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"   [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="outboundAllocation.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>InventoryItem</mat-label>
+					<mat-select placeholder="InventoryItem"   [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.InventoryItem">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="outboundAllocation.InventoryItem" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Reservation</mat-label>
+					<mat-select placeholder="Reservation"   [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.Reservation">
+						@for (reservation of reservations; track reservation.reservationId) {
+							<mat-option name="outboundAllocation.Reservation" ngDefaultControl
+							            [value]="reservation.reservationId">
+								{{reservation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"   [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="outboundAllocation.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple  [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="outboundAllocation.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>SourceLocation</mat-label>
+					<mat-select placeholder="SourceLocation"   [compareWith]="compareFn"  [(ngModel)]="outboundAllocation.SourceLocation">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="outboundAllocation.SourceLocation" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="outboundAllocation.Status" [(ngModel)]="outboundAllocation.Status">
+							@for (AllocationStatus of AllocationStatuss; track AllocationStatus) {
+								<mat-option ngDefaultControl [value]="AllocationStatus">
+									{{AllocationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateOutboundAllocation(outboundAllocation.allocationNumber, outboundAllocation.allocatedQuantity, outboundAllocation.allocationDate, outboundAllocation.Warehouse, outboundAllocation.Sku, outboundAllocation.InventoryItem, outboundAllocation.Reservation, outboundAllocation.Lot, outboundAllocation.SerialNumbers, outboundAllocation.SourceLocation, outboundAllocation.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

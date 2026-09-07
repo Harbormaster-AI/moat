@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">MaintenanceWorkOrder List</h5>
+
+    <a
+            [routerLink]="['/createMaintenanceWorkOrder']"
+            class="btn btn-primary btn-sm">
+        Create MaintenanceWorkOrder
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">workOrderNumber</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (maintenanceWorkOrder of maintenanceWorkOrders; track maintenanceWorkOrder.maintenanceWorkOrderId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ maintenanceWorkOrder.workOrderNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ maintenanceWorkOrder.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadMaintenanceWorkOrder', maintenanceWorkOrder.maintenanceWorkOrderId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteMaintenanceWorkOrder(maintenanceWorkOrder.maintenanceWorkOrderId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (maintenanceWorkOrders?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No maintenanceWorkOrders found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

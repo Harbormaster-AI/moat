@@ -1,0 +1,185 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>transactionNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="transactionNumber" name="inventoryTransaction.transactionNumber" [(ngModel)]="inventoryTransaction.transactionNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="inventoryTransaction.quantity" [(ngModel)]="inventoryTransaction.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>unitCost</mat-label>
+								<input matInput ngDefaultControl placeholder="unitCost" name="inventoryTransaction.unitCost" [(ngModel)]="inventoryTransaction.unitCost">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>transactionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="transactionDate" name="inventoryTransaction.transactionDate" [(ngModel)]="inventoryTransaction.transactionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>reasonCode</mat-label>
+								<input matInput ngDefaultControl placeholder="reasonCode" name="inventoryTransaction.reasonCode" [(ngModel)]="inventoryTransaction.reasonCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="inventoryTransaction.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="inventoryTransaction.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="inventoryTransaction.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="inventoryTransaction.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="inventoryTransaction.Location">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="inventoryTransaction.Location" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"  [(ngModel)]="inventoryTransaction.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="inventoryTransaction.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple [(ngModel)]="inventoryTransaction.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="inventoryTransaction.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>RelatedReservation</mat-label>
+					<mat-select placeholder="RelatedReservation"  [(ngModel)]="inventoryTransaction.RelatedReservation">
+						@for (reservation of reservations; track reservation.reservationId) {
+							<mat-option name="inventoryTransaction.RelatedReservation" ngDefaultControl
+							            [value]="reservation.reservationId">
+								{{reservation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>TransferOrder</mat-label>
+					<mat-select placeholder="TransferOrder"  [(ngModel)]="inventoryTransaction.TransferOrder">
+						@for (transferOrder of transferOrders; track transferOrder.transferOrderId) {
+							<mat-option name="inventoryTransaction.TransferOrder" ngDefaultControl
+							            [value]="transferOrder.transferOrderId">
+								{{transferOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Adjustment</mat-label>
+					<mat-select placeholder="Adjustment"  [(ngModel)]="inventoryTransaction.Adjustment">
+						@for (stockAdjustment of stockAdjustments; track stockAdjustment.stockAdjustmentId) {
+							<mat-option name="inventoryTransaction.Adjustment" ngDefaultControl
+							            [value]="stockAdjustment.stockAdjustmentId">
+								{{stockAdjustment.adjustmentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CycleCount</mat-label>
+					<mat-select placeholder="CycleCount"  [(ngModel)]="inventoryTransaction.CycleCount">
+						@for (cycleCount of cycleCounts; track cycleCount.cycleCountId) {
+							<mat-option name="inventoryTransaction.CycleCount" ngDefaultControl
+							            [value]="cycleCount.cycleCountId">
+								{{cycleCount.countNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>TransactionType</mat-label>
+						<mat-select placeholder="TransactionType" name="inventoryTransaction.TransactionType" [(ngModel)]="inventoryTransaction.TransactionType">
+							@for (TransactionType of TransactionTypes; track TransactionType) {
+								<mat-option ngDefaultControl [value]="TransactionType">
+									{{TransactionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>UnitOfMeasure</mat-label>
+						<mat-select placeholder="UnitOfMeasure" name="inventoryTransaction.UnitOfMeasure" [(ngModel)]="inventoryTransaction.UnitOfMeasure">
+							@for (UnitOfMeasure of UnitOfMeasures; track UnitOfMeasure) {
+								<mat-option ngDefaultControl [value]="UnitOfMeasure">
+									{{UnitOfMeasure}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="inventoryTransaction.Status" [(ngModel)]="inventoryTransaction.Status">
+							@for (TransactionStatus of TransactionStatuss; track TransactionStatus) {
+								<mat-option ngDefaultControl [value]="TransactionStatus">
+									{{TransactionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																										 																							 																							 																							 										<button
+				(click)="addInventoryTransaction(inventoryTransaction.transactionNumber, inventoryTransaction.quantity, inventoryTransaction.unitCost, inventoryTransaction.transactionDate, inventoryTransaction.reasonCode, inventoryTransaction.Sku, inventoryTransaction.Warehouse, inventoryTransaction.Location, inventoryTransaction.Lot, inventoryTransaction.SerialNumbers, inventoryTransaction.RelatedReservation, inventoryTransaction.TransferOrder, inventoryTransaction.Adjustment, inventoryTransaction.CycleCount, inventoryTransaction.TransactionType, inventoryTransaction.UnitOfMeasure, inventoryTransaction.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

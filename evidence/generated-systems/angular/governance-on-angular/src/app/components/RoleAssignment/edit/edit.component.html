@@ -1,0 +1,76 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveFrom</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveFrom" name="roleAssignment.effectiveFrom" [(ngModel)]="roleAssignment.effectiveFrom">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveTo</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveTo" name="roleAssignment.effectiveTo" [(ngModel)]="roleAssignment.effectiveTo">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Person</mat-label>
+					<mat-select placeholder="Person"   [compareWith]="compareFn"  [(ngModel)]="roleAssignment.Person">
+						@for (person of persons; track person.personId) {
+							<mat-option name="roleAssignment.Person" ngDefaultControl
+							            [value]="person.personId">
+								{{person.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Role</mat-label>
+					<mat-select placeholder="Role"   [compareWith]="compareFn"  [(ngModel)]="roleAssignment.Role">
+						@for (role of roles; track role.roleId) {
+							<mat-option name="roleAssignment.Role" ngDefaultControl
+							            [value]="role.roleId">
+								{{role.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>GovernanceBody</mat-label>
+					<mat-select placeholder="GovernanceBody"   [compareWith]="compareFn"  [(ngModel)]="roleAssignment.GovernanceBody">
+						@for (governanceBody of governanceBodys; track governanceBody.governanceBodyId) {
+							<mat-option name="roleAssignment.GovernanceBody" ngDefaultControl
+							            [value]="governanceBody.governanceBodyId">
+								{{governanceBody.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="roleAssignment.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="roleAssignment.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateRoleAssignment(roleAssignment.effectiveFrom, roleAssignment.effectiveTo, roleAssignment.Person, roleAssignment.Role, roleAssignment.GovernanceBody, roleAssignment.Organization)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

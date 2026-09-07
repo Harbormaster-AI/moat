@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Forecast List</h5>
+
+    <a
+            [routerLink]="['/createForecast']"
+            class="btn btn-primary btn-sm">
+        Create Forecast
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">forecastNumber</th>
+                        <th scope="col">forecastHorizonStart</th>
+                        <th scope="col">forecastHorizonEnd</th>
+                        <th scope="col">Method</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (forecast of forecasts; track forecast.forecastId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ forecast.forecastNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ forecast.forecastHorizonStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ forecast.forecastHorizonEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ forecast.Method }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadForecast', forecast.forecastId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteForecast(forecast.forecastId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (forecasts?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No forecasts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

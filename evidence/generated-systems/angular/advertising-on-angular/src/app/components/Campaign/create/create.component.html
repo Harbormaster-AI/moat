@@ -1,0 +1,136 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="campaign.name" [(ngModel)]="campaign.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalBudget</mat-label>
+								<input matInput ngDefaultControl placeholder="totalBudget" name="campaign.totalBudget" [(ngModel)]="campaign.totalBudget">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>flight</mat-label>
+								<input matInput ngDefaultControl placeholder="flight" name="campaign.flight" [(ngModel)]="campaign.flight">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AdAccount</mat-label>
+					<mat-select placeholder="AdAccount"  [(ngModel)]="campaign.AdAccount">
+						@for (adAccount of adAccounts; track adAccount.adAccountId) {
+							<mat-option name="campaign.AdAccount" ngDefaultControl
+							            [value]="adAccount.adAccountId">
+								{{adAccount.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>LineItems</mat-label>
+					<mat-select placeholder="LineItems" multiple [(ngModel)]="campaign.LineItems">
+						@for (lineItem of lineItems; track lineItem.lineItemId) {
+							<mat-option name="campaign.LineItems" ngDefaultControl
+							            [value]="lineItem.lineItemId">
+								{{lineItem.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Kpis</mat-label>
+					<mat-select placeholder="Kpis" multiple [(ngModel)]="campaign.Kpis">
+						@for (kPI of kPIs; track kPI.kPIId) {
+							<mat-option name="campaign.Kpis" ngDefaultControl
+							            [value]="kPI.kPIId">
+								{{kPI.targetValue}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>TrackingPixels</mat-label>
+					<mat-select placeholder="TrackingPixels" multiple [(ngModel)]="campaign.TrackingPixels">
+						@for (trackingPixel of trackingPixels; track trackingPixel.trackingPixelId) {
+							<mat-option name="campaign.TrackingPixels" ngDefaultControl
+							            [value]="trackingPixel.trackingPixelId">
+								{{trackingPixel.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Audiences</mat-label>
+					<mat-select placeholder="Audiences" multiple [(ngModel)]="campaign.Audiences">
+						@for (audienceSegment of audienceSegments; track audienceSegment.audienceSegmentId) {
+							<mat-option name="campaign.Audiences" ngDefaultControl
+							            [value]="audienceSegment.audienceSegmentId">
+								{{audienceSegment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Reports</mat-label>
+					<mat-select placeholder="Reports" multiple [(ngModel)]="campaign.Reports">
+						@for (report of reports; track report.reportId) {
+							<mat-option name="campaign.Reports" ngDefaultControl
+							            [value]="report.reportId">
+								{{report.reportName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>InsertionOrder</mat-label>
+					<mat-select placeholder="InsertionOrder"  [(ngModel)]="campaign.InsertionOrder">
+						@for (insertionOrder of insertionOrders; track insertionOrder.insertionOrderId) {
+							<mat-option name="campaign.InsertionOrder" ngDefaultControl
+							            [value]="insertionOrder.insertionOrderId">
+								{{insertionOrder.ioNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Objective</mat-label>
+						<mat-select placeholder="Objective" name="campaign.Objective" [(ngModel)]="campaign.Objective">
+							@for (ObjectiveType of ObjectiveTypes; track ObjectiveType) {
+								<mat-option ngDefaultControl [value]="ObjectiveType">
+									{{ObjectiveType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="campaign.Status" [(ngModel)]="campaign.Status">
+							@for (CampaignStatus of CampaignStatuss; track CampaignStatus) {
+								<mat-option ngDefaultControl [value]="CampaignStatus">
+									{{CampaignStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addCampaign(campaign.name, campaign.totalBudget, campaign.flight, campaign.AdAccount, campaign.LineItems, campaign.Kpis, campaign.TrackingPixels, campaign.Audiences, campaign.Reports, campaign.InsertionOrder, campaign.Objective, campaign.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

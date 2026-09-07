@@ -1,0 +1,85 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="aircraftProgram.name" [(ngModel)]="aircraftProgram.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>programCode</mat-label>
+								<input matInput ngDefaultControl placeholder="programCode" name="aircraftProgram.programCode" [(ngModel)]="aircraftProgram.programCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="entryIntoServiceYear" name="aircraftProgram.entryIntoServiceYear" [(ngModel)]="aircraftProgram.entryIntoServiceYear">
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Manufacturer</mat-label>
+					<mat-select placeholder="Manufacturer"  [(ngModel)]="aircraftProgram.Manufacturer">
+						@for (aerospaceManufacturer of aerospaceManufacturers; track aerospaceManufacturer.aerospaceManufacturerId) {
+							<mat-option name="aircraftProgram.Manufacturer" ngDefaultControl
+							            [value]="aerospaceManufacturer.aerospaceManufacturerId">
+								{{aerospaceManufacturer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>AircraftFamilies</mat-label>
+					<mat-select placeholder="AircraftFamilies" multiple [(ngModel)]="aircraftProgram.AircraftFamilies">
+						@for (aircraftFamily of aircraftFamilys; track aircraftFamily.aircraftFamilyId) {
+							<mat-option name="aircraftProgram.AircraftFamilies" ngDefaultControl
+							            [value]="aircraftFamily.aircraftFamilyId">
+								{{aircraftFamily.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>TypeCertificate</mat-label>
+					<mat-select placeholder="TypeCertificate"  [(ngModel)]="aircraftProgram.TypeCertificate">
+						@for (typeCertificate of typeCertificates; track typeCertificate.typeCertificateId) {
+							<mat-option name="aircraftProgram.TypeCertificate" ngDefaultControl
+							            [value]="typeCertificate.typeCertificateId">
+								{{typeCertificate.certificateNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>KeySuppliers</mat-label>
+					<mat-select placeholder="KeySuppliers" multiple [(ngModel)]="aircraftProgram.KeySuppliers">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="aircraftProgram.KeySuppliers" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="aircraftProgram.Status" [(ngModel)]="aircraftProgram.Status">
+							@for (ProgramStatus of ProgramStatuss; track ProgramStatus) {
+								<mat-option ngDefaultControl [value]="ProgramStatus">
+									{{ProgramStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addAircraftProgram(aircraftProgram.name, aircraftProgram.programCode, aircraftProgram.entryIntoServiceYear, aircraftProgram.Manufacturer, aircraftProgram.AircraftFamilies, aircraftProgram.TypeCertificate, aircraftProgram.KeySuppliers, aircraftProgram.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

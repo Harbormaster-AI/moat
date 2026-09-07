@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Employee List</h5>
+
+    <a
+            [routerLink]="['/createEmployee']"
+            class="btn btn-primary btn-sm">
+        Create Employee
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">employeeNumber</th>
+                        <th scope="col">name</th>
+                        <th scope="col">workEmail</th>
+                        <th scope="col">workPhone</th>
+                        <th scope="col">dateOfHire</th>
+                        <th scope="col">nationalId</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (employee of employees; track employee.employeeId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ employee.employeeNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ employee.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ employee.workEmail }}
+                </td>
+                                <td class="align-middle">
+                    {{ employee.workPhone }}
+                </td>
+                                <td class="align-middle">
+                    {{ employee.dateOfHire }}
+                </td>
+                                <td class="align-middle">
+                    {{ employee.nationalId }}
+                </td>
+                                <td class="align-middle">
+                    {{ employee.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEmployee', employee.employeeId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEmployee(employee.employeeId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (employees?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No employees found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="productionLine.name" [(ngModel)]="productionLine.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"  [(ngModel)]="productionLine.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="productionLine.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>WorkCenters</mat-label>
+					<mat-select placeholder="WorkCenters" multiple [(ngModel)]="productionLine.WorkCenters">
+						@for (workCenter of workCenters; track workCenter.workCenterId) {
+							<mat-option name="productionLine.WorkCenters" ngDefaultControl
+							            [value]="workCenter.workCenterId">
+								{{workCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>LineType</mat-label>
+						<mat-select placeholder="LineType" name="productionLine.LineType" [(ngModel)]="productionLine.LineType">
+							@for (ProductionLineType of ProductionLineTypes; track ProductionLineType) {
+								<mat-option ngDefaultControl [value]="ProductionLineType">
+									{{ProductionLineType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																							 										<button
+				(click)="addProductionLine(productionLine.name, productionLine.Plant, productionLine.WorkCenters, productionLine.LineType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,68 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<ngb-timepicker [(ngModel)]="consent.grantedAt" class="form-control" name="consent.grantedAt" #consent.grantedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<ngb-timepicker [(ngModel)]="consent.expiresAt" class="form-control" name="consent.expiresAt" #consent.expiresAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>scope</mat-label>
+								<input matInput ngDefaultControl placeholder="scope" name="consent.scope" [(ngModel)]="consent.scope">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="consent.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="consent.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ApiClient</mat-label>
+					<mat-select placeholder="ApiClient"  [(ngModel)]="consent.ApiClient">
+						@for (aPIClient of aPIClients; track aPIClient.aPIClientId) {
+							<mat-option name="consent.ApiClient" ngDefaultControl
+							            [value]="aPIClient.aPIClientId">
+								{{aPIClient.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ConsentType</mat-label>
+						<mat-select placeholder="ConsentType" name="consent.ConsentType" [(ngModel)]="consent.ConsentType">
+							@for (ConsentType of ConsentTypes; track ConsentType) {
+								<mat-option ngDefaultControl [value]="ConsentType">
+									{{ConsentType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="consent.Status" [(ngModel)]="consent.Status">
+							@for (ConsentStatus of ConsentStatuss; track ConsentStatus) {
+								<mat-option ngDefaultControl [value]="ConsentStatus">
+									{{ConsentStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																							 																							 										<button
+				(click)="addConsent(consent.grantedAt, consent.expiresAt, consent.scope, consent.Customer, consent.ApiClient, consent.ConsentType, consent.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

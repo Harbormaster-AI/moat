@@ -1,0 +1,43 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>version</mat-label>
+								<input matInput ngDefaultControl placeholder="version" name="softwareUpdate.version" [(ngModel)]="softwareUpdate.version">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="softwareUpdate.appliedDate" class="form-control" name="softwareUpdate.appliedDate" #softwareUpdate.appliedDate ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Device</mat-label>
+					<mat-select placeholder="Device"   [compareWith]="compareFn"  [(ngModel)]="softwareUpdate.Device">
+						@for (medicalDevice of medicalDevices; track medicalDevice.medicalDeviceId) {
+							<mat-option name="softwareUpdate.Device" ngDefaultControl
+							            [value]="medicalDevice.medicalDeviceId">
+								{{medicalDevice.udi}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>UpdateType</mat-label>
+						<mat-select placeholder="UpdateType" name="softwareUpdate.UpdateType" [(ngModel)]="softwareUpdate.UpdateType">
+							@for (SoftwareUpdateType of SoftwareUpdateTypes; track SoftwareUpdateType) {
+								<mat-option ngDefaultControl [value]="SoftwareUpdateType">
+									{{SoftwareUpdateType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																	 						 										<button
+				(click)="updateSoftwareUpdate(softwareUpdate.version, softwareUpdate.appliedDate, softwareUpdate.Device, softwareUpdate.UpdateType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

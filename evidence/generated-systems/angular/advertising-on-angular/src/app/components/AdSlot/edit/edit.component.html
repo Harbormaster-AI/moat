@@ -1,0 +1,75 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>slotCode</mat-label>
+								<input matInput ngDefaultControl placeholder="slotCode" name="adSlot.slotCode" [(ngModel)]="adSlot.slotCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="width" name="adSlot.width" [(ngModel)]="adSlot.width">
+																																																																	<p>
+					 																																																																															<input matInput placeholder="height" name="adSlot.height" [(ngModel)]="adSlot.height">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>floorPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="floorPrice" name="adSlot.floorPrice" [(ngModel)]="adSlot.floorPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>InventorySource</mat-label>
+					<mat-select placeholder="InventorySource"   [compareWith]="compareFn"  [(ngModel)]="adSlot.InventorySource">
+						@for (inventorySource of inventorySources; track inventorySource.inventorySourceId) {
+							<mat-option name="adSlot.InventorySource" ngDefaultControl
+							            [value]="inventorySource.inventorySourceId">
+								{{inventorySource.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Placements</mat-label>
+					<mat-select placeholder="Placements" multiple  [compareWith]="compareFn"  [(ngModel)]="adSlot.Placements">
+						@for (placement of placements; track placement.placementId) {
+							<mat-option name="adSlot.Placements" ngDefaultControl
+							            [value]="placement.placementId">
+								{{placement.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Rates</mat-label>
+					<mat-select placeholder="Rates" multiple  [compareWith]="compareFn"  [(ngModel)]="adSlot.Rates">
+						@for (rate of rates; track rate.rateId) {
+							<mat-option name="adSlot.Rates" ngDefaultControl
+							            [value]="rate.rateId">
+								{{rate.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Format</mat-label>
+						<mat-select placeholder="Format" name="adSlot.Format" [(ngModel)]="adSlot.Format">
+							@for (AdFormat of AdFormats; track AdFormat) {
+								<mat-option ngDefaultControl [value]="AdFormat">
+									{{AdFormat}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAdSlot(adSlot.slotCode, adSlot.width, adSlot.height, adSlot.floorPrice, adSlot.InventorySource, adSlot.Placements, adSlot.Rates, adSlot.Format)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

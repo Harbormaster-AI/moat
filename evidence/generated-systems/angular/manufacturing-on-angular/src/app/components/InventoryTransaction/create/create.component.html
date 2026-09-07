@@ -1,0 +1,103 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>transactionNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="transactionNumber" name="inventoryTransaction.transactionNumber" [(ngModel)]="inventoryTransaction.transactionNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="inventoryTransaction.quantity" [(ngModel)]="inventoryTransaction.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="inventoryTransaction.transactionDateTime" class="form-control" name="inventoryTransaction.transactionDateTime" #inventoryTransaction.transactionDateTime ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>referenceDocument</mat-label>
+								<input matInput ngDefaultControl placeholder="referenceDocument" name="inventoryTransaction.referenceDocument" [(ngModel)]="inventoryTransaction.referenceDocument">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"  [(ngModel)]="inventoryTransaction.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="inventoryTransaction.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="inventoryTransaction.Location">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="inventoryTransaction.Location" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.locationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>WorkOrder</mat-label>
+					<mat-select placeholder="WorkOrder"  [(ngModel)]="inventoryTransaction.WorkOrder">
+						@for (workOrder of workOrders; track workOrder.workOrderId) {
+							<mat-option name="inventoryTransaction.WorkOrder" ngDefaultControl
+							            [value]="workOrder.workOrderId">
+								{{workOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>PurchaseOrder</mat-label>
+					<mat-select placeholder="PurchaseOrder"  [(ngModel)]="inventoryTransaction.PurchaseOrder">
+						@for (purchaseOrder of purchaseOrders; track purchaseOrder.purchaseOrderId) {
+							<mat-option name="inventoryTransaction.PurchaseOrder" ngDefaultControl
+							            [value]="purchaseOrder.purchaseOrderId">
+								{{purchaseOrder.poNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>SalesOrder</mat-label>
+					<mat-select placeholder="SalesOrder"  [(ngModel)]="inventoryTransaction.SalesOrder">
+						@for (salesOrder of salesOrders; track salesOrder.salesOrderId) {
+							<mat-option name="inventoryTransaction.SalesOrder" ngDefaultControl
+							            [value]="salesOrder.salesOrderId">
+								{{salesOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>TransactionType</mat-label>
+						<mat-select placeholder="TransactionType" name="inventoryTransaction.TransactionType" [(ngModel)]="inventoryTransaction.TransactionType">
+							@for (InventoryTransactionType of InventoryTransactionTypes; track InventoryTransactionType) {
+								<mat-option ngDefaultControl [value]="InventoryTransactionType">
+									{{InventoryTransactionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addInventoryTransaction(inventoryTransaction.transactionNumber, inventoryTransaction.quantity, inventoryTransaction.transactionDateTime, inventoryTransaction.referenceDocument, inventoryTransaction.Item, inventoryTransaction.Location, inventoryTransaction.WorkOrder, inventoryTransaction.PurchaseOrder, inventoryTransaction.SalesOrder, inventoryTransaction.TransactionType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

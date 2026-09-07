@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>entryDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="entryDate" name="timeEntry.entryDate" [(ngModel)]="timeEntry.entryDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>hoursWorked</mat-label>
+								<input matInput ngDefaultControl placeholder="hoursWorked" name="timeEntry.hoursWorked" [(ngModel)]="timeEntry.hoursWorked">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Timesheet</mat-label>
+					<mat-select placeholder="Timesheet"   [compareWith]="compareFn"  [(ngModel)]="timeEntry.Timesheet">
+						@for (timesheet of timesheets; track timesheet.timesheetId) {
+							<mat-option name="timeEntry.Timesheet" ngDefaultControl
+							            [value]="timesheet.timesheetId">
+								{{timesheet.periodStart}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"   [compareWith]="compareFn"  [(ngModel)]="timeEntry.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="timeEntry.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CostCenter</mat-label>
+					<mat-select placeholder="CostCenter"   [compareWith]="compareFn"  [(ngModel)]="timeEntry.CostCenter">
+						@for (costCenter of costCenters; track costCenter.costCenterId) {
+							<mat-option name="timeEntry.CostCenter" ngDefaultControl
+							            [value]="costCenter.costCenterId">
+								{{costCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>EntryType</mat-label>
+						<mat-select placeholder="EntryType" name="timeEntry.EntryType" [(ngModel)]="timeEntry.EntryType">
+							@for (TimeEntryType of TimeEntryTypes; track TimeEntryType) {
+								<mat-option ngDefaultControl [value]="TimeEntryType">
+									{{TimeEntryType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateTimeEntry(timeEntry.entryDate, timeEntry.hoursWorked, timeEntry.Timesheet, timeEntry.Employee, timeEntry.CostCenter, timeEntry.EntryType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

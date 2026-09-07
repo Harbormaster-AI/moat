@@ -1,0 +1,84 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>interviewDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="interviewDate" name="interview.interviewDate" [(ngModel)]="interview.interviewDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>feedback</mat-label>
+								<input matInput ngDefaultControl placeholder="feedback" name="interview.feedback" [(ngModel)]="interview.feedback">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Requisition</mat-label>
+					<mat-select placeholder="Requisition"  [(ngModel)]="interview.Requisition">
+						@for (jobRequisition of jobRequisitions; track jobRequisition.jobRequisitionId) {
+							<mat-option name="interview.Requisition" ngDefaultControl
+							            [value]="jobRequisition.jobRequisitionId">
+								{{jobRequisition.requisitionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Candidate</mat-label>
+					<mat-select placeholder="Candidate"  [(ngModel)]="interview.Candidate">
+						@for (candidate of candidates; track candidate.candidateId) {
+							<mat-option name="interview.Candidate" ngDefaultControl
+							            [value]="candidate.candidateId">
+								{{candidate.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Interviewers</mat-label>
+					<mat-select placeholder="Interviewers" multiple [(ngModel)]="interview.Interviewers">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="interview.Interviewers" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Stage</mat-label>
+						<mat-select placeholder="Stage" name="interview.Stage" [(ngModel)]="interview.Stage">
+							@for (InterviewStage of InterviewStages; track InterviewStage) {
+								<mat-option ngDefaultControl [value]="InterviewStage">
+									{{InterviewStage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Result</mat-label>
+						<mat-select placeholder="Result" name="interview.Result" [(ngModel)]="interview.Result">
+							@for (InterviewResult of InterviewResults; track InterviewResult) {
+								<mat-option ngDefaultControl [value]="InterviewResult">
+									{{InterviewResult}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 																							 										<button
+				(click)="addInterview(interview.interviewDate, interview.feedback, interview.Requisition, interview.Candidate, interview.Interviewers, interview.Stage, interview.Result)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

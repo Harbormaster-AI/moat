@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">OpportunityStageHistory List</h5>
+
+    <a
+            [routerLink]="['/createOpportunityStageHistory']"
+            class="btn btn-primary btn-sm">
+        Create OpportunityStageHistory
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">changedAt</th>
+                        <th scope="col">comment</th>
+                        <th scope="col">FromStage</th>
+                        <th scope="col">ToStage</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (opportunityStageHistory of opportunityStageHistorys; track opportunityStageHistory.opportunityStageHistoryId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ opportunityStageHistory.changedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunityStageHistory.comment }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunityStageHistory.FromStage }}
+                </td>
+                                <td class="align-middle">
+                    {{ opportunityStageHistory.ToStage }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadOpportunityStageHistory', opportunityStageHistory.opportunityStageHistoryId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteOpportunityStageHistory(opportunityStageHistory.opportunityStageHistoryId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (opportunityStageHistorys?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No opportunityStageHistorys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

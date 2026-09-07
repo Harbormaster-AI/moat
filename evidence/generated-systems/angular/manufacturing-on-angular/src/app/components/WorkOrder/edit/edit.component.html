@@ -1,0 +1,113 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>workOrderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="workOrderNumber" name="workOrder.workOrderNumber" [(ngModel)]="workOrder.workOrderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="workOrder.plannedStart" class="form-control" name="workOrder.plannedStart" #workOrder.plannedStart ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="workOrder.plannedEnd" class="form-control" name="workOrder.plannedEnd" #workOrder.plannedEnd ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="workOrder.quantity" [(ngModel)]="workOrder.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="priority" name="workOrder.priority" [(ngModel)]="workOrder.priority">
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"   [compareWith]="compareFn"  [(ngModel)]="workOrder.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="workOrder.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"   [compareWith]="compareFn"  [(ngModel)]="workOrder.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="workOrder.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Routing</mat-label>
+					<mat-select placeholder="Routing"   [compareWith]="compareFn"  [(ngModel)]="workOrder.Routing">
+						@for (routing of routings; track routing.routingId) {
+							<mat-option name="workOrder.Routing" ngDefaultControl
+							            [value]="routing.routingId">
+								{{routing.routingNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Bom</mat-label>
+					<mat-select placeholder="Bom"   [compareWith]="compareFn"  [(ngModel)]="workOrder.Bom">
+						@for (bOM of bOMs; track bOM.bOMId) {
+							<mat-option name="workOrder.Bom" ngDefaultControl
+							            [value]="bOM.bOMId">
+								{{bOM.bomNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ProductionSchedule</mat-label>
+					<mat-select placeholder="ProductionSchedule"   [compareWith]="compareFn"  [(ngModel)]="workOrder.ProductionSchedule">
+						@for (productionSchedule of productionSchedules; track productionSchedule.productionScheduleId) {
+							<mat-option name="workOrder.ProductionSchedule" ngDefaultControl
+							            [value]="productionSchedule.productionScheduleId">
+								{{productionSchedule.scheduleNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>SalesOrder</mat-label>
+					<mat-select placeholder="SalesOrder"   [compareWith]="compareFn"  [(ngModel)]="workOrder.SalesOrder">
+						@for (salesOrder of salesOrders; track salesOrder.salesOrderId) {
+							<mat-option name="workOrder.SalesOrder" ngDefaultControl
+							            [value]="salesOrder.salesOrderId">
+								{{salesOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="workOrder.Status" [(ngModel)]="workOrder.Status">
+							@for (WorkOrderStatus of WorkOrderStatuss; track WorkOrderStatus) {
+								<mat-option ngDefaultControl [value]="WorkOrderStatus">
+									{{WorkOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateWorkOrder(workOrder.workOrderNumber, workOrder.plannedStart, workOrder.plannedEnd, workOrder.quantity, workOrder.priority, workOrder.Item, workOrder.Plant, workOrder.Routing, workOrder.Bom, workOrder.ProductionSchedule, workOrder.SalesOrder, workOrder.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

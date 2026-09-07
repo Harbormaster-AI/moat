@@ -1,0 +1,185 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="lead.firstName" [(ngModel)]="lead.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="lead.lastName" [(ngModel)]="lead.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>company</mat-label>
+								<input matInput ngDefaultControl placeholder="company" name="lead.company" [(ngModel)]="lead.company">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>email</mat-label>
+								<input matInput ngDefaultControl placeholder="email" name="lead.email" [(ngModel)]="lead.email">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>phone</mat-label>
+								<input matInput ngDefaultControl placeholder="phone" name="lead.phone" [(ngModel)]="lead.phone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="lead.converted" ngDefaultControl [(ngModel)]="lead.converted">converted</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="lead.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="lead.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"  [(ngModel)]="lead.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="lead.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Activities</mat-label>
+					<mat-select placeholder="Activities" multiple [(ngModel)]="lead.Activities">
+						@for (activity of activitys; track activity.activityId) {
+							<mat-option name="lead.Activities" ngDefaultControl
+							            [value]="activity.activityId">
+								{{activity.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Campaigns</mat-label>
+					<mat-select placeholder="Campaigns" multiple [(ngModel)]="lead.Campaigns">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="lead.Campaigns" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ConvertedAccount</mat-label>
+					<mat-select placeholder="ConvertedAccount"  [(ngModel)]="lead.ConvertedAccount">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="lead.ConvertedAccount" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ConvertedContact</mat-label>
+					<mat-select placeholder="ConvertedContact"  [(ngModel)]="lead.ConvertedContact">
+						@for (contact of contacts; track contact.contactId) {
+							<mat-option name="lead.ConvertedContact" ngDefaultControl
+							            [value]="contact.contactId">
+								{{contact.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ConvertedOpportunity</mat-label>
+					<mat-select placeholder="ConvertedOpportunity"  [(ngModel)]="lead.ConvertedOpportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="lead.ConvertedOpportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Notes</mat-label>
+					<mat-select placeholder="Notes" multiple [(ngModel)]="lead.Notes">
+						@for (note of notes; track note.noteId) {
+							<mat-option name="lead.Notes" ngDefaultControl
+							            [value]="note.noteId">
+								{{note.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>EmailMessages</mat-label>
+					<mat-select placeholder="EmailMessages" multiple [(ngModel)]="lead.EmailMessages">
+						@for (emailMessage of emailMessages; track emailMessage.emailMessageId) {
+							<mat-option name="lead.EmailMessages" ngDefaultControl
+							            [value]="emailMessage.emailMessageId">
+								{{emailMessage.subject}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="lead.Status" [(ngModel)]="lead.Status">
+							@for (LeadStatus of LeadStatuss; track LeadStatus) {
+								<mat-option ngDefaultControl [value]="LeadStatus">
+									{{LeadStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Source</mat-label>
+						<mat-select placeholder="Source" name="lead.Source" [(ngModel)]="lead.Source">
+							@for (LeadSource of LeadSources; track LeadSource) {
+								<mat-option ngDefaultControl [value]="LeadSource">
+									{{LeadSource}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Rating</mat-label>
+						<mat-select placeholder="Rating" name="lead.Rating" [(ngModel)]="lead.Rating">
+							@for (LeadRating of LeadRatings; track LeadRating) {
+								<mat-option ngDefaultControl [value]="LeadRating">
+									{{LeadRating}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																																																	 																										 																										 																										 																										 																										 																										 																										 																										 																							 																							 																							 										<button
+				(click)="addLead(lead.firstName, lead.lastName, lead.company, lead.email, lead.phone, lead.converted == true ? true : false, lead.Organization, lead.Owner, lead.Activities, lead.Campaigns, lead.ConvertedAccount, lead.ConvertedContact, lead.ConvertedOpportunity, lead.Notes, lead.EmailMessages, lead.Status, lead.Source, lead.Rating)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

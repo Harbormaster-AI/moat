@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Reservation List</h5>
+
+    <a
+            [routerLink]="['/createReservation']"
+            class="btn btn-primary btn-sm">
+        Create Reservation
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">referenceNumber</th>
+                        <th scope="col">reservedQuantity</th>
+                        <th scope="col">promisedDate</th>
+                        <th scope="col">ReservationStatus</th>
+                        <th scope="col">ReservationType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (reservation of reservations; track reservation.reservationId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ reservation.referenceNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ reservation.reservedQuantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ reservation.promisedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ reservation.ReservationStatus }}
+                </td>
+                                <td class="align-middle">
+                    {{ reservation.ReservationType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadReservation', reservation.reservationId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteReservation(reservation.reservationId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (reservations?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No reservations found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,99 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="contract.title" [(ngModel)]="contract.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="contract.effectiveDate" [(ngModel)]="contract.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>expiryDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="expiryDate" name="contract.expiryDate" [(ngModel)]="contract.expiryDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>repositoryUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="repositoryUrl" name="contract.repositoryUrl" [(ngModel)]="contract.repositoryUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ThirdParty</mat-label>
+					<mat-select placeholder="ThirdParty"   [compareWith]="compareFn"  [(ngModel)]="contract.ThirdParty">
+						@for (thirdParty of thirdPartys; track thirdParty.thirdPartyId) {
+							<mat-option name="contract.ThirdParty" ngDefaultControl
+							            [value]="thirdParty.thirdPartyId">
+								{{thirdParty.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Obligations</mat-label>
+					<mat-select placeholder="Obligations" multiple  [compareWith]="compareFn"  [(ngModel)]="contract.Obligations">
+						@for (obligation of obligations; track obligation.obligationId) {
+							<mat-option name="contract.Obligations" ngDefaultControl
+							            [value]="obligation.obligationId">
+								{{obligation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>DataProcessingActivities</mat-label>
+					<mat-select placeholder="DataProcessingActivities" multiple  [compareWith]="compareFn"  [(ngModel)]="contract.DataProcessingActivities">
+						@for (dataProcessingActivity of dataProcessingActivitys; track dataProcessingActivity.dataProcessingActivityId) {
+							<mat-option name="contract.DataProcessingActivities" ngDefaultControl
+							            [value]="dataProcessingActivity.dataProcessingActivityId">
+								{{dataProcessingActivity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Matter</mat-label>
+					<mat-select placeholder="Matter"   [compareWith]="compareFn"  [(ngModel)]="contract.Matter">
+						@for (matter of matters; track matter.matterId) {
+							<mat-option name="contract.Matter" ngDefaultControl
+							            [value]="matter.matterId">
+								{{matter.matterName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="contract.Status" [(ngModel)]="contract.Status">
+							@for (ContractStatus of ContractStatuss; track ContractStatus) {
+								<mat-option ngDefaultControl [value]="ContractStatus">
+									{{ContractStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateContract(contract.title, contract.effectiveDate, contract.expiryDate, contract.repositoryUrl, contract.ThirdParty, contract.Obligations, contract.DataProcessingActivities, contract.Matter, contract.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

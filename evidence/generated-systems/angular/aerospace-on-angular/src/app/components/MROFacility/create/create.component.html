@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="mROFacility.name" [(ngModel)]="mROFacility.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>approvalScope</mat-label>
+								<input matInput ngDefaultControl placeholder="approvalScope" name="mROFacility.approvalScope" [(ngModel)]="mROFacility.approvalScope">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="mROFacility.address" [(ngModel)]="mROFacility.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Appointments</mat-label>
+					<mat-select placeholder="Appointments" multiple [(ngModel)]="mROFacility.Appointments">
+						@for (maintenanceAppointment of maintenanceAppointments; track maintenanceAppointment.maintenanceAppointmentId) {
+							<mat-option name="mROFacility.Appointments" ngDefaultControl
+							            [value]="maintenanceAppointment.maintenanceAppointmentId">
+								{{maintenanceAppointment.appointmentDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>WorkOrders</mat-label>
+					<mat-select placeholder="WorkOrders" multiple [(ngModel)]="mROFacility.WorkOrders">
+						@for (maintenanceWorkOrder of maintenanceWorkOrders; track maintenanceWorkOrder.maintenanceWorkOrderId) {
+							<mat-option name="mROFacility.WorkOrders" ngDefaultControl
+							            [value]="maintenanceWorkOrder.maintenanceWorkOrderId">
+								{{maintenanceWorkOrder.workOrderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 										<button
+				(click)="addMROFacility(mROFacility.name, mROFacility.approvalScope, mROFacility.address, mROFacility.Appointments, mROFacility.WorkOrders)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

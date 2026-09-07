@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="plant.name" [(ngModel)]="plant.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>plantCode</mat-label>
+								<input matInput ngDefaultControl placeholder="plantCode" name="plant.plantCode" [(ngModel)]="plant.plantCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="plant.address" [(ngModel)]="plant.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Manufacturer</mat-label>
+					<mat-select placeholder="Manufacturer"  [(ngModel)]="plant.Manufacturer">
+						@for (aerospaceManufacturer of aerospaceManufacturers; track aerospaceManufacturer.aerospaceManufacturerId) {
+							<mat-option name="plant.Manufacturer" ngDefaultControl
+							            [value]="aerospaceManufacturer.aerospaceManufacturerId">
+								{{aerospaceManufacturer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ProductionLines</mat-label>
+					<mat-select placeholder="ProductionLines" multiple [(ngModel)]="plant.ProductionLines">
+						@for (productionLine of productionLines; track productionLine.productionLineId) {
+							<mat-option name="plant.ProductionLines" ngDefaultControl
+							            [value]="productionLine.productionLineId">
+								{{productionLine.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Warehouses</mat-label>
+					<mat-select placeholder="Warehouses" multiple [(ngModel)]="plant.Warehouses">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="plant.Warehouses" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 																										 										<button
+				(click)="addPlant(plant.name, plant.plantCode, plant.address, plant.Manufacturer, plant.ProductionLines, plant.Warehouses)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

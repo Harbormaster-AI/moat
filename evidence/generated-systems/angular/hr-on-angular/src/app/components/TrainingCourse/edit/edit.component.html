@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="trainingCourse.code" [(ngModel)]="trainingCourse.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="trainingCourse.title" [(ngModel)]="trainingCourse.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>durationHours</mat-label>
+								<input matInput ngDefaultControl placeholder="durationHours" name="trainingCourse.durationHours" [(ngModel)]="trainingCourse.durationHours">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Prerequisites</mat-label>
+					<mat-select placeholder="Prerequisites" multiple  [compareWith]="compareFn"  [(ngModel)]="trainingCourse.Prerequisites">
+						@for (trainingCourse of trainingCourses; track trainingCourse.trainingCourseId) {
+							<mat-option name="trainingCourse.Prerequisites" ngDefaultControl
+							            [value]="trainingCourse.trainingCourseId">
+								{{trainingCourse.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Enrollments</mat-label>
+					<mat-select placeholder="Enrollments" multiple  [compareWith]="compareFn"  [(ngModel)]="trainingCourse.Enrollments">
+						@for (trainingEnrollment of trainingEnrollments; track trainingEnrollment.trainingEnrollmentId) {
+							<mat-option name="trainingCourse.Enrollments" ngDefaultControl
+							            [value]="trainingEnrollment.trainingEnrollmentId">
+								{{trainingEnrollment.enrollmentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>JobProfiles</mat-label>
+					<mat-select placeholder="JobProfiles" multiple  [compareWith]="compareFn"  [(ngModel)]="trainingCourse.JobProfiles">
+						@for (jobProfile of jobProfiles; track jobProfile.jobProfileId) {
+							<mat-option name="trainingCourse.JobProfiles" ngDefaultControl
+							            [value]="jobProfile.jobProfileId">
+								{{jobProfile.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>DeliveryMethod</mat-label>
+						<mat-select placeholder="DeliveryMethod" name="trainingCourse.DeliveryMethod" [(ngModel)]="trainingCourse.DeliveryMethod">
+							@for (DeliveryMethod of DeliveryMethods; track DeliveryMethod) {
+								<mat-option ngDefaultControl [value]="DeliveryMethod">
+									{{DeliveryMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateTrainingCourse(trainingCourse.code, trainingCourse.title, trainingCourse.durationHours, trainingCourse.Prerequisites, trainingCourse.Enrollments, trainingCourse.JobProfiles, trainingCourse.DeliveryMethod)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

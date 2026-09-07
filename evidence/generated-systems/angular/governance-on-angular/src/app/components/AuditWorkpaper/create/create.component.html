@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>workpaperRef</mat-label>
+								<input matInput ngDefaultControl placeholder="workpaperRef" name="auditWorkpaper.workpaperRef" [(ngModel)]="auditWorkpaper.workpaperRef">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>subject</mat-label>
+								<input matInput ngDefaultControl placeholder="subject" name="auditWorkpaper.subject" [(ngModel)]="auditWorkpaper.subject">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>workpaperUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="workpaperUrl" name="auditWorkpaper.workpaperUrl" [(ngModel)]="auditWorkpaper.workpaperUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Engagement</mat-label>
+					<mat-select placeholder="Engagement"  [(ngModel)]="auditWorkpaper.Engagement">
+						@for (auditEngagement of auditEngagements; track auditEngagement.auditEngagementId) {
+							<mat-option name="auditWorkpaper.Engagement" ngDefaultControl
+							            [value]="auditEngagement.auditEngagementId">
+								{{auditEngagement.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Evidence</mat-label>
+					<mat-select placeholder="Evidence" multiple [(ngModel)]="auditWorkpaper.Evidence">
+						@for (evidence of evidences; track evidence.evidenceId) {
+							<mat-option name="auditWorkpaper.Evidence" ngDefaultControl
+							            [value]="evidence.evidenceId">
+								{{evidence.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Findings</mat-label>
+					<mat-select placeholder="Findings" multiple [(ngModel)]="auditWorkpaper.Findings">
+						@for (auditFinding of auditFindings; track auditFinding.auditFindingId) {
+							<mat-option name="auditWorkpaper.Findings" ngDefaultControl
+							            [value]="auditFinding.auditFindingId">
+								{{auditFinding.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 																										 										<button
+				(click)="addAuditWorkpaper(auditWorkpaper.workpaperRef, auditWorkpaper.subject, auditWorkpaper.workpaperUrl, auditWorkpaper.Engagement, auditWorkpaper.Evidence, auditWorkpaper.Findings)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

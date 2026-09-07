@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="productionOrder.orderNumber" [(ngModel)]="productionOrder.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Variant</mat-label>
+					<mat-select placeholder="Variant"   [compareWith]="compareFn"  [(ngModel)]="productionOrder.Variant">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="productionOrder.Variant" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Plant</mat-label>
+					<mat-select placeholder="Plant"   [compareWith]="compareFn"  [(ngModel)]="productionOrder.Plant">
+						@for (plant of plants; track plant.plantId) {
+							<mat-option name="productionOrder.Plant" ngDefaultControl
+							            [value]="plant.plantId">
+								{{plant.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>AircraftOrder</mat-label>
+					<mat-select placeholder="AircraftOrder"   [compareWith]="compareFn"  [(ngModel)]="productionOrder.AircraftOrder">
+						@for (aircraftOrder of aircraftOrders; track aircraftOrder.aircraftOrderId) {
+							<mat-option name="productionOrder.AircraftOrder" ngDefaultControl
+							            [value]="aircraftOrder.aircraftOrderId">
+								{{aircraftOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="productionOrder.Status" [(ngModel)]="productionOrder.Status">
+							@for (ProductionOrderStatus of ProductionOrderStatuss; track ProductionOrderStatus) {
+								<mat-option ngDefaultControl [value]="ProductionOrderStatus">
+									{{ProductionOrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateProductionOrder(productionOrder.orderNumber, productionOrder.Variant, productionOrder.Plant, productionOrder.AircraftOrder, productionOrder.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

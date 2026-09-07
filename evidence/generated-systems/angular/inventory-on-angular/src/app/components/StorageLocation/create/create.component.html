@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="storageLocation.code" [(ngModel)]="storageLocation.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="storageLocation.temperatureControlled" ngDefaultControl [(ngModel)]="storageLocation.temperatureControlled">temperatureControlled</mat-checkbox>
+																																																								<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>capacity</mat-label>
+								<input matInput ngDefaultControl placeholder="capacity" name="storageLocation.capacity" [(ngModel)]="storageLocation.capacity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>capacityUnit</mat-label>
+								<input matInput ngDefaultControl placeholder="capacityUnit" name="storageLocation.capacityUnit" [(ngModel)]="storageLocation.capacityUnit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Warehouse</mat-label>
+					<mat-select placeholder="Warehouse"  [(ngModel)]="storageLocation.Warehouse">
+						@for (warehouse of warehouses; track warehouse.warehouseId) {
+							<mat-option name="storageLocation.Warehouse" ngDefaultControl
+							            [value]="warehouse.warehouseId">
+								{{warehouse.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ParentLocation</mat-label>
+					<mat-select placeholder="ParentLocation"  [(ngModel)]="storageLocation.ParentLocation">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="storageLocation.ParentLocation" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ChildLocations</mat-label>
+					<mat-select placeholder="ChildLocations" multiple [(ngModel)]="storageLocation.ChildLocations">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="storageLocation.ChildLocations" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple [(ngModel)]="storageLocation.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="storageLocation.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>LocationType</mat-label>
+						<mat-select placeholder="LocationType" name="storageLocation.LocationType" [(ngModel)]="storageLocation.LocationType">
+							@for (LocationType of LocationTypes; track LocationType) {
+								<mat-option ngDefaultControl [value]="LocationType">
+									{{LocationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																																														 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addStorageLocation(storageLocation.code, storageLocation.temperatureControlled == true ? true : false, storageLocation.capacity, storageLocation.capacityUnit, storageLocation.Warehouse, storageLocation.ParentLocation, storageLocation.ChildLocations, storageLocation.InventoryItems, storageLocation.LocationType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

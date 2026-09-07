@@ -1,0 +1,48 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="businessUnit.name" [(ngModel)]="businessUnit.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>leader</mat-label>
+								<input matInput ngDefaultControl placeholder="leader" name="businessUnit.leader" [(ngModel)]="businessUnit.leader">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="businessUnit.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="businessUnit.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Audits</mat-label>
+					<mat-select placeholder="Audits" multiple  [compareWith]="compareFn"  [(ngModel)]="businessUnit.Audits">
+						@for (auditEngagement of auditEngagements; track auditEngagement.auditEngagementId) {
+							<mat-option name="businessUnit.Audits" ngDefaultControl
+							            [value]="auditEngagement.auditEngagementId">
+								{{auditEngagement.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateBusinessUnit(businessUnit.name, businessUnit.leader, businessUnit.Organization, businessUnit.Audits)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

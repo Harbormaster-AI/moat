@@ -1,0 +1,112 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="supplier.name" [(ngModel)]="supplier.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Manufacturers</mat-label>
+					<mat-select placeholder="Manufacturers" multiple  [compareWith]="compareFn"  [(ngModel)]="supplier.Manufacturers">
+						@for (aerospaceManufacturer of aerospaceManufacturers; track aerospaceManufacturer.aerospaceManufacturerId) {
+							<mat-option name="supplier.Manufacturers" ngDefaultControl
+							            [value]="aerospaceManufacturer.aerospaceManufacturerId">
+								{{aerospaceManufacturer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Components</mat-label>
+					<mat-select placeholder="Components" multiple  [compareWith]="compareFn"  [(ngModel)]="supplier.Components">
+						@for (component_ of component_s; track component_.component_Id) {
+							<mat-option name="supplier.Components" ngDefaultControl
+							            [value]="component_.component_Id">
+								{{component_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>EngineTypes</mat-label>
+					<mat-select placeholder="EngineTypes" multiple  [compareWith]="compareFn"  [(ngModel)]="supplier.EngineTypes">
+						@for (engineType of engineTypes; track engineType.engineTypeId) {
+							<mat-option name="supplier.EngineTypes" ngDefaultControl
+							            [value]="engineType.engineTypeId">
+								{{engineType.engineModelCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>AvionicsSuites</mat-label>
+					<mat-select placeholder="AvionicsSuites" multiple  [compareWith]="compareFn"  [(ngModel)]="supplier.AvionicsSuites">
+						@for (avionicsSuite of avionicsSuites; track avionicsSuite.avionicsSuiteId) {
+							<mat-option name="supplier.AvionicsSuites" ngDefaultControl
+							            [value]="avionicsSuite.avionicsSuiteId">
+								{{avionicsSuite.suiteName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Apus</mat-label>
+					<mat-select placeholder="Apus" multiple  [compareWith]="compareFn"  [(ngModel)]="supplier.Apus">
+						@for (aPU of aPUs; track aPU.aPUId) {
+							<mat-option name="supplier.Apus" ngDefaultControl
+							            [value]="aPU.aPUId">
+								{{aPU.model_}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>LandingGears</mat-label>
+					<mat-select placeholder="LandingGears" multiple  [compareWith]="compareFn"  [(ngModel)]="supplier.LandingGears">
+						@for (landingGear of landingGears; track landingGear.landingGearId) {
+							<mat-option name="supplier.LandingGears" ngDefaultControl
+							            [value]="landingGear.landingGearId">
+								{{landingGear.supplierPartNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>SupplierType</mat-label>
+						<mat-select placeholder="SupplierType" name="supplier.SupplierType" [(ngModel)]="supplier.SupplierType">
+							@for (SupplierType of SupplierTypes; track SupplierType) {
+								<mat-option ngDefaultControl [value]="SupplierType">
+									{{SupplierType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ApprovalStatus</mat-label>
+						<mat-select placeholder="ApprovalStatus" name="supplier.ApprovalStatus" [(ngModel)]="supplier.ApprovalStatus">
+							@for (SupplierApprovalStatus of SupplierApprovalStatuss; track SupplierApprovalStatus) {
+								<mat-option ngDefaultControl [value]="SupplierApprovalStatus">
+									{{SupplierApprovalStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateSupplier(supplier.name, supplier.Manufacturers, supplier.Components, supplier.EngineTypes, supplier.AvionicsSuites, supplier.Apus, supplier.LandingGears, supplier.SupplierType, supplier.ApprovalStatus)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,61 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>country</mat-label>
+								<input matInput ngDefaultControl placeholder="country" name="workAuthorization.country" [(ngModel)]="workAuthorization.country">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>expirationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="expirationDate" name="workAuthorization.expirationDate" [(ngModel)]="workAuthorization.expirationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="workAuthorization.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="workAuthorization.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Documents</mat-label>
+					<mat-select placeholder="Documents" multiple [(ngModel)]="workAuthorization.Documents">
+						@for (document of documents; track document.documentId) {
+							<mat-option name="workAuthorization.Documents" ngDefaultControl
+							            [value]="document.documentId">
+								{{document.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="workAuthorization.Status" [(ngModel)]="workAuthorization.Status">
+							@for (WorkAuthorizationStatus of WorkAuthorizationStatuss; track WorkAuthorizationStatus) {
+								<mat-option ngDefaultControl [value]="WorkAuthorizationStatus">
+									{{WorkAuthorizationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 										<button
+				(click)="addWorkAuthorization(workAuthorization.country, workAuthorization.expirationDate, workAuthorization.Employee, workAuthorization.Documents, workAuthorization.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

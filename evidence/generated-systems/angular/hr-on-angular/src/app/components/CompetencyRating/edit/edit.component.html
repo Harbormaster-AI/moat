@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>comment</mat-label>
+								<input matInput ngDefaultControl placeholder="comment" name="competencyRating.comment" [(ngModel)]="competencyRating.comment">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Review</mat-label>
+					<mat-select placeholder="Review"   [compareWith]="compareFn"  [(ngModel)]="competencyRating.Review">
+						@for (performanceReview of performanceReviews; track performanceReview.performanceReviewId) {
+							<mat-option name="competencyRating.Review" ngDefaultControl
+							            [value]="performanceReview.performanceReviewId">
+								{{performanceReview.reviewNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Competency</mat-label>
+					<mat-select placeholder="Competency"   [compareWith]="compareFn"  [(ngModel)]="competencyRating.Competency">
+						@for (competency of competencys; track competency.competencyId) {
+							<mat-option name="competencyRating.Competency" ngDefaultControl
+							            [value]="competency.competencyId">
+								{{competency.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Rating</mat-label>
+						<mat-select placeholder="Rating" name="competencyRating.Rating" [(ngModel)]="competencyRating.Rating">
+							@for (PerformanceRating of PerformanceRatings; track PerformanceRating) {
+								<mat-option ngDefaultControl [value]="PerformanceRating">
+									{{PerformanceRating}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateCompetencyRating(competencyRating.comment, competencyRating.Review, competencyRating.Competency, competencyRating.Rating)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

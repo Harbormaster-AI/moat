@@ -1,0 +1,90 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>term</mat-label>
+								<input matInput ngDefaultControl placeholder="term" name="businessGlossaryTerm.term" [(ngModel)]="businessGlossaryTerm.term">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>definition</mat-label>
+								<input matInput ngDefaultControl placeholder="definition" name="businessGlossaryTerm.definition" [(ngModel)]="businessGlossaryTerm.definition">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>steward</mat-label>
+								<input matInput ngDefaultControl placeholder="steward" name="businessGlossaryTerm.steward" [(ngModel)]="businessGlossaryTerm.steward">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RelatedTerms</mat-label>
+					<mat-select placeholder="RelatedTerms" multiple [(ngModel)]="businessGlossaryTerm.RelatedTerms">
+						@for (businessGlossaryTerm of businessGlossaryTerms; track businessGlossaryTerm.businessGlossaryTermId) {
+							<mat-option name="businessGlossaryTerm.RelatedTerms" ngDefaultControl
+							            [value]="businessGlossaryTerm.businessGlossaryTermId">
+								{{businessGlossaryTerm.term}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Metrics</mat-label>
+					<mat-select placeholder="Metrics" multiple [(ngModel)]="businessGlossaryTerm.Metrics">
+						@for (metric of metrics; track metric.metricId) {
+							<mat-option name="businessGlossaryTerm.Metrics" ngDefaultControl
+							            [value]="metric.metricId">
+								{{metric.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Datasets</mat-label>
+					<mat-select placeholder="Datasets" multiple [(ngModel)]="businessGlossaryTerm.Datasets">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="businessGlossaryTerm.Datasets" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Dimensions</mat-label>
+					<mat-select placeholder="Dimensions" multiple [(ngModel)]="businessGlossaryTerm.Dimensions">
+						@for (dimension of dimensions; track dimension.dimensionId) {
+							<mat-option name="businessGlossaryTerm.Dimensions" ngDefaultControl
+							            [value]="dimension.dimensionId">
+								{{dimension.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Measures</mat-label>
+					<mat-select placeholder="Measures" multiple [(ngModel)]="businessGlossaryTerm.Measures">
+						@for (measure of measures; track measure.measureId) {
+							<mat-option name="businessGlossaryTerm.Measures" ngDefaultControl
+							            [value]="measure.measureId">
+								{{measure.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																										 																										 																										 																										 																										 										<button
+				(click)="addBusinessGlossaryTerm(businessGlossaryTerm.term, businessGlossaryTerm.definition, businessGlossaryTerm.steward, businessGlossaryTerm.RelatedTerms, businessGlossaryTerm.Metrics, businessGlossaryTerm.Datasets, businessGlossaryTerm.Dimensions, businessGlossaryTerm.Measures)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

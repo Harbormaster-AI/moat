@@ -1,0 +1,134 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>skuCode</mat-label>
+								<input matInput ngDefaultControl placeholder="skuCode" name="stockKeepingUnit.skuCode" [(ngModel)]="stockKeepingUnit.skuCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="stockKeepingUnit.name" [(ngModel)]="stockKeepingUnit.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>weight</mat-label>
+								<input matInput ngDefaultControl placeholder="weight" name="stockKeepingUnit.weight" [(ngModel)]="stockKeepingUnit.weight">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>weightUnit</mat-label>
+								<input matInput ngDefaultControl placeholder="weightUnit" name="stockKeepingUnit.weightUnit" [(ngModel)]="stockKeepingUnit.weightUnit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>volume</mat-label>
+								<input matInput ngDefaultControl placeholder="volume" name="stockKeepingUnit.volume" [(ngModel)]="stockKeepingUnit.volume">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>volumeUnit</mat-label>
+								<input matInput ngDefaultControl placeholder="volumeUnit" name="stockKeepingUnit.volumeUnit" [(ngModel)]="stockKeepingUnit.volumeUnit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="shelfLifeDays" name="stockKeepingUnit.shelfLifeDays" [(ngModel)]="stockKeepingUnit.shelfLifeDays">
+																																																																	<p>
+																																																																													<mat-checkbox name="stockKeepingUnit.hazardousMaterial" ngDefaultControl [(ngModel)]="stockKeepingUnit.hazardousMaterial">hazardousMaterial</mat-checkbox>
+																																																								<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple [(ngModel)]="stockKeepingUnit.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="stockKeepingUnit.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>UomConversions</mat-label>
+					<mat-select placeholder="UomConversions" multiple [(ngModel)]="stockKeepingUnit.UomConversions">
+						@for (uoMConversion of uoMConversions; track uoMConversion.uoMConversionId) {
+							<mat-option name="stockKeepingUnit.UomConversions" ngDefaultControl
+							            [value]="uoMConversion.uoMConversionId">
+								{{uoMConversion.factor}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ReplenishmentPolicies</mat-label>
+					<mat-select placeholder="ReplenishmentPolicies" multiple [(ngModel)]="stockKeepingUnit.ReplenishmentPolicies">
+						@for (replenishmentPolicy of replenishmentPolicys; track replenishmentPolicy.replenishmentPolicyId) {
+							<mat-option name="stockKeepingUnit.ReplenishmentPolicies" ngDefaultControl
+							            [value]="replenishmentPolicy.replenishmentPolicyId">
+								{{replenishmentPolicy.minLevel}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Lots</mat-label>
+					<mat-select placeholder="Lots" multiple [(ngModel)]="stockKeepingUnit.Lots">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="stockKeepingUnit.Lots" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple [(ngModel)]="stockKeepingUnit.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="stockKeepingUnit.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ItemType</mat-label>
+						<mat-select placeholder="ItemType" name="stockKeepingUnit.ItemType" [(ngModel)]="stockKeepingUnit.ItemType">
+							@for (ItemType of ItemTypes; track ItemType) {
+								<mat-option ngDefaultControl [value]="ItemType">
+									{{ItemType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>UnitOfMeasure</mat-label>
+						<mat-select placeholder="UnitOfMeasure" name="stockKeepingUnit.UnitOfMeasure" [(ngModel)]="stockKeepingUnit.UnitOfMeasure">
+							@for (UnitOfMeasure of UnitOfMeasures; track UnitOfMeasure) {
+								<mat-option ngDefaultControl [value]="UnitOfMeasure">
+									{{UnitOfMeasure}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																							 																							 																																																	 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addStockKeepingUnit(stockKeepingUnit.skuCode, stockKeepingUnit.name, stockKeepingUnit.weight, stockKeepingUnit.weightUnit, stockKeepingUnit.volume, stockKeepingUnit.volumeUnit, stockKeepingUnit.shelfLifeDays, stockKeepingUnit.hazardousMaterial == true ? true : false, stockKeepingUnit.InventoryItems, stockKeepingUnit.UomConversions, stockKeepingUnit.ReplenishmentPolicies, stockKeepingUnit.Lots, stockKeepingUnit.SerialNumbers, stockKeepingUnit.ItemType, stockKeepingUnit.UnitOfMeasure)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

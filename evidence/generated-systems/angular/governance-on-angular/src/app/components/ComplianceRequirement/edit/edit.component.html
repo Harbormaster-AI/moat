@@ -1,0 +1,100 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="complianceRequirement.name" [(ngModel)]="complianceRequirement.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>source</mat-label>
+								<input matInput ngDefaultControl placeholder="source" name="complianceRequirement.source" [(ngModel)]="complianceRequirement.source">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>citation</mat-label>
+								<input matInput ngDefaultControl placeholder="citation" name="complianceRequirement.citation" [(ngModel)]="complianceRequirement.citation">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ComplianceProgram</mat-label>
+					<mat-select placeholder="ComplianceProgram"   [compareWith]="compareFn"  [(ngModel)]="complianceRequirement.ComplianceProgram">
+						@for (complianceProgram of compliancePrograms; track complianceProgram.complianceProgramId) {
+							<mat-option name="complianceRequirement.ComplianceProgram" ngDefaultControl
+							            [value]="complianceProgram.complianceProgramId">
+								{{complianceProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple  [compareWith]="compareFn"  [(ngModel)]="complianceRequirement.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="complianceRequirement.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Controls</mat-label>
+					<mat-select placeholder="Controls" multiple  [compareWith]="compareFn"  [(ngModel)]="complianceRequirement.Controls">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="complianceRequirement.Controls" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Obligations</mat-label>
+					<mat-select placeholder="Obligations" multiple  [compareWith]="compareFn"  [(ngModel)]="complianceRequirement.Obligations">
+						@for (obligation of obligations; track obligation.obligationId) {
+							<mat-option name="complianceRequirement.Obligations" ngDefaultControl
+							            [value]="obligation.obligationId">
+								{{obligation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Applicability</mat-label>
+						<mat-select placeholder="Applicability" name="complianceRequirement.Applicability" [(ngModel)]="complianceRequirement.Applicability">
+							@for (Applicability of Applicabilitys; track Applicability) {
+								<mat-option ngDefaultControl [value]="Applicability">
+									{{Applicability}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="complianceRequirement.Status" [(ngModel)]="complianceRequirement.Status">
+							@for (ComplianceStatus of ComplianceStatuss; track ComplianceStatus) {
+								<mat-option ngDefaultControl [value]="ComplianceStatus">
+									{{ComplianceStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateComplianceRequirement(complianceRequirement.name, complianceRequirement.source, complianceRequirement.citation, complianceRequirement.ComplianceProgram, complianceRequirement.Policies, complianceRequirement.Controls, complianceRequirement.Obligations, complianceRequirement.Applicability, complianceRequirement.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

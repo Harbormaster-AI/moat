@@ -1,0 +1,105 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="auditEngagement.title" [(ngModel)]="auditEngagement.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>startDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="startDate" name="auditEngagement.startDate" [(ngModel)]="auditEngagement.startDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>endDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="endDate" name="auditEngagement.endDate" [(ngModel)]="auditEngagement.endDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>AuditProgram</mat-label>
+					<mat-select placeholder="AuditProgram"   [compareWith]="compareFn"  [(ngModel)]="auditEngagement.AuditProgram">
+						@for (auditProgram of auditPrograms; track auditProgram.auditProgramId) {
+							<mat-option name="auditEngagement.AuditProgram" ngDefaultControl
+							            [value]="auditProgram.auditProgramId">
+								{{auditProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>BusinessUnits</mat-label>
+					<mat-select placeholder="BusinessUnits" multiple  [compareWith]="compareFn"  [(ngModel)]="auditEngagement.BusinessUnits">
+						@for (businessUnit of businessUnits; track businessUnit.businessUnitId) {
+							<mat-option name="auditEngagement.BusinessUnits" ngDefaultControl
+							            [value]="businessUnit.businessUnitId">
+								{{businessUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ControlTests</mat-label>
+					<mat-select placeholder="ControlTests" multiple  [compareWith]="compareFn"  [(ngModel)]="auditEngagement.ControlTests">
+						@for (controlTest_ of controlTest_s; track controlTest_.controlTest_Id) {
+							<mat-option name="auditEngagement.ControlTests" ngDefaultControl
+							            [value]="controlTest_.controlTest_Id">
+								{{controlTest_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Workpapers</mat-label>
+					<mat-select placeholder="Workpapers" multiple  [compareWith]="compareFn"  [(ngModel)]="auditEngagement.Workpapers">
+						@for (auditWorkpaper of auditWorkpapers; track auditWorkpaper.auditWorkpaperId) {
+							<mat-option name="auditEngagement.Workpapers" ngDefaultControl
+							            [value]="auditWorkpaper.auditWorkpaperId">
+								{{auditWorkpaper.workpaperRef}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Findings</mat-label>
+					<mat-select placeholder="Findings" multiple  [compareWith]="compareFn"  [(ngModel)]="auditEngagement.Findings">
+						@for (auditFinding of auditFindings; track auditFinding.auditFindingId) {
+							<mat-option name="auditEngagement.Findings" ngDefaultControl
+							            [value]="auditFinding.auditFindingId">
+								{{auditFinding.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="auditEngagement.Status" [(ngModel)]="auditEngagement.Status">
+							@for (AuditStatus of AuditStatuss; track AuditStatus) {
+								<mat-option ngDefaultControl [value]="AuditStatus">
+									{{AuditStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAuditEngagement(auditEngagement.title, auditEngagement.startDate, auditEngagement.endDate, auditEngagement.AuditProgram, auditEngagement.BusinessUnits, auditEngagement.ControlTests, auditEngagement.Workpapers, auditEngagement.Findings, auditEngagement.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

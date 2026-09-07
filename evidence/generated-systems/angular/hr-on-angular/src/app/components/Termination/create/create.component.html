@@ -1,0 +1,80 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>terminationNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="terminationNumber" name="termination.terminationNumber" [(ngModel)]="termination.terminationNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>terminationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="terminationDate" name="termination.terminationDate" [(ngModel)]="termination.terminationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>notes</mat-label>
+								<input matInput ngDefaultControl placeholder="notes" name="termination.notes" [(ngModel)]="termination.notes">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="termination.eligibleForRehire" ngDefaultControl [(ngModel)]="termination.eligibleForRehire">eligibleForRehire</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="termination.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="termination.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Assignment</mat-label>
+					<mat-select placeholder="Assignment"  [(ngModel)]="termination.Assignment">
+						@for (employmentAssignment of employmentAssignments; track employmentAssignment.employmentAssignmentId) {
+							<mat-option name="termination.Assignment" ngDefaultControl
+							            [value]="employmentAssignment.employmentAssignmentId">
+								{{employmentAssignment.startDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Reason</mat-label>
+						<mat-select placeholder="Reason" name="termination.Reason" [(ngModel)]="termination.Reason">
+							@for (TerminationReason of TerminationReasons; track TerminationReason) {
+								<mat-option ngDefaultControl [value]="TerminationReason">
+									{{TerminationReason}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Type</mat-label>
+						<mat-select placeholder="Type" name="termination.Type" [(ngModel)]="termination.Type">
+							@for (TerminationType of TerminationTypes; track TerminationType) {
+								<mat-option ngDefaultControl [value]="TerminationType">
+									{{TerminationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																																																	 																										 																							 																							 										<button
+				(click)="addTermination(termination.terminationNumber, termination.terminationDate, termination.notes, termination.eligibleForRehire == true ? true : false, termination.Employee, termination.Assignment, termination.Reason, termination.Type)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">LineageNode List</h5>
+
+    <a
+            [routerLink]="['/createLineageNode']"
+            class="btn btn-primary btn-sm">
+        Create LineageNode
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">qualifiedName</th>
+                        <th scope="col">NodeType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (lineageNode of lineageNodes; track lineageNode.lineageNodeId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ lineageNode.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ lineageNode.qualifiedName }}
+                </td>
+                                <td class="align-middle">
+                    {{ lineageNode.NodeType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadLineageNode', lineageNode.lineageNodeId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteLineageNode(lineageNode.lineageNodeId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (lineageNodes?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No lineageNodes found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

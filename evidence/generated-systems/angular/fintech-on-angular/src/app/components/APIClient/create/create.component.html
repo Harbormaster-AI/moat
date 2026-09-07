@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="aPIClient.name" [(ngModel)]="aPIClient.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>clientId</mat-label>
+								<input matInput ngDefaultControl placeholder="clientId" name="aPIClient.clientId" [(ngModel)]="aPIClient.clientId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>redirectUri</mat-label>
+								<input matInput ngDefaultControl placeholder="redirectUri" name="aPIClient.redirectUri" [(ngModel)]="aPIClient.redirectUri">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Consents</mat-label>
+					<mat-select placeholder="Consents" multiple [(ngModel)]="aPIClient.Consents">
+						@for (consent of consents; track consent.consentId) {
+							<mat-option name="aPIClient.Consents" ngDefaultControl
+							            [value]="consent.consentId">
+								{{consent.grantedAt}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ClientType</mat-label>
+						<mat-select placeholder="ClientType" name="aPIClient.ClientType" [(ngModel)]="aPIClient.ClientType">
+							@for (ClientType of ClientTypes; track ClientType) {
+								<mat-option ngDefaultControl [value]="ClientType">
+									{{ClientType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 										<button
+				(click)="addAPIClient(aPIClient.name, aPIClient.clientId, aPIClient.redirectUri, aPIClient.Consents, aPIClient.ClientType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<ngb-timepicker [(ngModel)]="opportunityStageHistory.changedAt" class="form-control" name="opportunityStageHistory.changedAt" #opportunityStageHistory.changedAt ></ngb-timepicker>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>comment</mat-label>
+								<input matInput ngDefaultControl placeholder="comment" name="opportunityStageHistory.comment" [(ngModel)]="opportunityStageHistory.comment">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Opportunity</mat-label>
+					<mat-select placeholder="Opportunity"  [(ngModel)]="opportunityStageHistory.Opportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="opportunityStageHistory.Opportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ChangedBy</mat-label>
+					<mat-select placeholder="ChangedBy"  [(ngModel)]="opportunityStageHistory.ChangedBy">
+						@for (user of users; track user.userId) {
+							<mat-option name="opportunityStageHistory.ChangedBy" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>FromStage</mat-label>
+						<mat-select placeholder="FromStage" name="opportunityStageHistory.FromStage" [(ngModel)]="opportunityStageHistory.FromStage">
+							@for (OpportunityStage of OpportunityStages; track OpportunityStage) {
+								<mat-option ngDefaultControl [value]="OpportunityStage">
+									{{OpportunityStage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ToStage</mat-label>
+						<mat-select placeholder="ToStage" name="opportunityStageHistory.ToStage" [(ngModel)]="opportunityStageHistory.ToStage">
+							@for (OpportunityStage of OpportunityStages; track OpportunityStage) {
+								<mat-option ngDefaultControl [value]="OpportunityStage">
+									{{OpportunityStage}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 																							 										<button
+				(click)="addOpportunityStageHistory(opportunityStageHistory.changedAt, opportunityStageHistory.comment, opportunityStageHistory.Opportunity, opportunityStageHistory.ChangedBy, opportunityStageHistory.FromStage, opportunityStageHistory.ToStage)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

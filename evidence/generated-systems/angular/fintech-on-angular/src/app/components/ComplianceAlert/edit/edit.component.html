@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>alertCode</mat-label>
+								<input matInput ngDefaultControl placeholder="alertCode" name="complianceAlert.alertCode" [(ngModel)]="complianceAlert.alertCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="complianceAlert.raisedAt" class="form-control" name="complianceAlert.raisedAt" #complianceAlert.raisedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>notes</mat-label>
+								<input matInput ngDefaultControl placeholder="notes" name="complianceAlert.notes" [(ngModel)]="complianceAlert.notes">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Screening</mat-label>
+					<mat-select placeholder="Screening"   [compareWith]="compareFn"  [(ngModel)]="complianceAlert.Screening">
+						@for (screening of screenings; track screening.screeningId) {
+							<mat-option name="complianceAlert.Screening" ngDefaultControl
+							            [value]="screening.screeningId">
+								{{screening.score}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Transaction</mat-label>
+					<mat-select placeholder="Transaction"   [compareWith]="compareFn"  [(ngModel)]="complianceAlert.Transaction">
+						@for (transaction of transactions; track transaction.transactionId) {
+							<mat-option name="complianceAlert.Transaction" ngDefaultControl
+							            [value]="transaction.transactionId">
+								{{transaction.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Severity</mat-label>
+						<mat-select placeholder="Severity" name="complianceAlert.Severity" [(ngModel)]="complianceAlert.Severity">
+							@for (AlertSeverity of AlertSeveritys; track AlertSeverity) {
+								<mat-option ngDefaultControl [value]="AlertSeverity">
+									{{AlertSeverity}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="complianceAlert.Status" [(ngModel)]="complianceAlert.Status">
+							@for (AlertStatus of AlertStatuss; track AlertStatus) {
+								<mat-option ngDefaultControl [value]="AlertStatus">
+									{{AlertStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateComplianceAlert(complianceAlert.alertCode, complianceAlert.raisedAt, complianceAlert.notes, complianceAlert.Screening, complianceAlert.Transaction, complianceAlert.Severity, complianceAlert.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

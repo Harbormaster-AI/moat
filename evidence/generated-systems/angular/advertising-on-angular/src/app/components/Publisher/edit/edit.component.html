@@ -1,0 +1,95 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="publisher.name" [(ngModel)]="publisher.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>website</mat-label>
+								<input matInput ngDefaultControl placeholder="website" name="publisher.website" [(ngModel)]="publisher.website">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InventorySources</mat-label>
+					<mat-select placeholder="InventorySources" multiple  [compareWith]="compareFn"  [(ngModel)]="publisher.InventorySources">
+						@for (inventorySource of inventorySources; track inventorySource.inventorySourceId) {
+							<mat-option name="publisher.InventorySources" ngDefaultControl
+							            [value]="inventorySource.inventorySourceId">
+								{{inventorySource.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Deals</mat-label>
+					<mat-select placeholder="Deals" multiple  [compareWith]="compareFn"  [(ngModel)]="publisher.Deals">
+						@for (deal of deals; track deal.dealId) {
+							<mat-option name="publisher.Deals" ngDefaultControl
+							            [value]="deal.dealId">
+								{{deal.floorPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CreativeApprovals</mat-label>
+					<mat-select placeholder="CreativeApprovals" multiple  [compareWith]="compareFn"  [(ngModel)]="publisher.CreativeApprovals">
+						@for (creativeApproval of creativeApprovals; track creativeApproval.creativeApprovalId) {
+							<mat-option name="publisher.CreativeApprovals" ngDefaultControl
+							            [value]="creativeApproval.creativeApprovalId">
+								{{creativeApproval.reviewer}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InsertionOrders</mat-label>
+					<mat-select placeholder="InsertionOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="publisher.InsertionOrders">
+						@for (insertionOrder of insertionOrders; track insertionOrder.insertionOrderId) {
+							<mat-option name="publisher.InsertionOrders" ngDefaultControl
+							            [value]="insertionOrder.insertionOrderId">
+								{{insertionOrder.ioNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>RateCards</mat-label>
+					<mat-select placeholder="RateCards" multiple  [compareWith]="compareFn"  [(ngModel)]="publisher.RateCards">
+						@for (rateCard of rateCards; track rateCard.rateCardId) {
+							<mat-option name="publisher.RateCards" ngDefaultControl
+							            [value]="rateCard.rateCardId">
+								{{rateCard.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PublisherType</mat-label>
+						<mat-select placeholder="PublisherType" name="publisher.PublisherType" [(ngModel)]="publisher.PublisherType">
+							@for (PublisherType of PublisherTypes; track PublisherType) {
+								<mat-option ngDefaultControl [value]="PublisherType">
+									{{PublisherType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updatePublisher(publisher.name, publisher.website, publisher.InventorySources, publisher.Deals, publisher.CreativeApprovals, publisher.InsertionOrders, publisher.RateCards, publisher.PublisherType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

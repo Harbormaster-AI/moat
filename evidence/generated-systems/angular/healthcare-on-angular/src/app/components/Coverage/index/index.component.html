@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Coverage List</h5>
+
+    <a
+            [routerLink]="['/createCoverage']"
+            class="btn btn-primary btn-sm">
+        Create Coverage
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">memberId</th>
+                        <th scope="col">groupNumber</th>
+                        <th scope="col">effectiveDate</th>
+                        <th scope="col">endDate</th>
+                        <th scope="col">CoverageType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (coverage of coverages; track coverage.coverageId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ coverage.memberId }}
+                </td>
+                                <td class="align-middle">
+                    {{ coverage.groupNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ coverage.effectiveDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ coverage.endDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ coverage.CoverageType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCoverage', coverage.coverageId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCoverage(coverage.coverageId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (coverages?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No coverages found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

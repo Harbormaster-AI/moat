@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>mandateId</mat-label>
+								<input matInput ngDefaultControl placeholder="mandateId" name="directDebitMandate.mandateId" [(ngModel)]="directDebitMandate.mandateId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="directDebitMandate.signedAt" class="form-control" name="directDebitMandate.signedAt" #directDebitMandate.signedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"   [compareWith]="compareFn"  [(ngModel)]="directDebitMandate.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="directDebitMandate.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Creditor</mat-label>
+					<mat-select placeholder="Creditor"   [compareWith]="compareFn"  [(ngModel)]="directDebitMandate.Creditor">
+						@for (creditor of creditors; track creditor.creditorId) {
+							<mat-option name="directDebitMandate.Creditor" ngDefaultControl
+							            [value]="creditor.creditorId">
+								{{creditor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Scheme</mat-label>
+						<mat-select placeholder="Scheme" name="directDebitMandate.Scheme" [(ngModel)]="directDebitMandate.Scheme">
+							@for (DirectDebitScheme of DirectDebitSchemes; track DirectDebitScheme) {
+								<mat-option ngDefaultControl [value]="DirectDebitScheme">
+									{{DirectDebitScheme}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="directDebitMandate.Status" [(ngModel)]="directDebitMandate.Status">
+							@for (MandateStatus of MandateStatuss; track MandateStatus) {
+								<mat-option ngDefaultControl [value]="MandateStatus">
+									{{MandateStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateDirectDebitMandate(directDebitMandate.mandateId, directDebitMandate.signedAt, directDebitMandate.Account, directDebitMandate.Creditor, directDebitMandate.Scheme, directDebitMandate.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

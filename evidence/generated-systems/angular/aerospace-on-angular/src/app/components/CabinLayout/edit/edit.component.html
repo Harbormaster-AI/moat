@@ -1,0 +1,62 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>layoutCode</mat-label>
+								<input matInput ngDefaultControl placeholder="layoutCode" name="cabinLayout.layoutCode" [(ngModel)]="cabinLayout.layoutCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="totalSeats" name="cabinLayout.totalSeats" [(ngModel)]="cabinLayout.totalSeats">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>classLayout</mat-label>
+								<input matInput ngDefaultControl placeholder="classLayout" name="cabinLayout.classLayout" [(ngModel)]="cabinLayout.classLayout">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Variant</mat-label>
+					<mat-select placeholder="Variant"   [compareWith]="compareFn"  [(ngModel)]="cabinLayout.Variant">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="cabinLayout.Variant" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Aircraft</mat-label>
+					<mat-select placeholder="Aircraft" multiple  [compareWith]="compareFn"  [(ngModel)]="cabinLayout.Aircraft">
+						@for (aircraft of aircrafts; track aircraft.aircraftId) {
+							<mat-option name="cabinLayout.Aircraft" ngDefaultControl
+							            [value]="aircraft.aircraftId">
+								{{aircraft.msn}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Options</mat-label>
+					<mat-select placeholder="Options" multiple  [compareWith]="compareFn"  [(ngModel)]="cabinLayout.Options">
+						@for (aircraftOption of aircraftOptions; track aircraftOption.aircraftOptionId) {
+							<mat-option name="cabinLayout.Options" ngDefaultControl
+							            [value]="aircraftOption.aircraftOptionId">
+								{{aircraftOption.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateCabinLayout(cabinLayout.layoutCode, cabinLayout.totalSeats, cabinLayout.classLayout, cabinLayout.Variant, cabinLayout.Aircraft, cabinLayout.Options)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,97 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="goal.title" [(ngModel)]="goal.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="goal.description" [(ngModel)]="goal.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>targetDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="targetDate" name="goal.targetDate" [(ngModel)]="goal.targetDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>weight</mat-label>
+								<input matInput ngDefaultControl placeholder="weight" name="goal.weight" [(ngModel)]="goal.weight">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Employee</mat-label>
+					<mat-select placeholder="Employee"  [(ngModel)]="goal.Employee">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="goal.Employee" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Cycle</mat-label>
+					<mat-select placeholder="Cycle"  [(ngModel)]="goal.Cycle">
+						@for (performanceCycle of performanceCycles; track performanceCycle.performanceCycleId) {
+							<mat-option name="goal.Cycle" ngDefaultControl
+							            [value]="performanceCycle.performanceCycleId">
+								{{performanceCycle.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ParentGoal</mat-label>
+					<mat-select placeholder="ParentGoal"  [(ngModel)]="goal.ParentGoal">
+						@for (goal of goals; track goal.goalId) {
+							<mat-option name="goal.ParentGoal" ngDefaultControl
+							            [value]="goal.goalId">
+								{{goal.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ChildGoals</mat-label>
+					<mat-select placeholder="ChildGoals" multiple [(ngModel)]="goal.ChildGoals">
+						@for (goal of goals; track goal.goalId) {
+							<mat-option name="goal.ChildGoals" ngDefaultControl
+							            [value]="goal.goalId">
+								{{goal.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="goal.Status" [(ngModel)]="goal.Status">
+							@for (GoalStatus of GoalStatuss; track GoalStatus) {
+								<mat-option ngDefaultControl [value]="GoalStatus">
+									{{GoalStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addGoal(goal.title, goal.description, goal.targetDate, goal.weight, goal.Employee, goal.Cycle, goal.ParentGoal, goal.ChildGoals, goal.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

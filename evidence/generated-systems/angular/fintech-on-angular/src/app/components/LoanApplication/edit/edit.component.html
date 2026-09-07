@@ -1,0 +1,97 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>applicationNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="applicationNumber" name="loanApplication.applicationNumber" [(ngModel)]="loanApplication.applicationNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>amountRequested</mat-label>
+								<input matInput ngDefaultControl placeholder="amountRequested" name="loanApplication.amountRequested" [(ngModel)]="loanApplication.amountRequested">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="termMonths" name="loanApplication.termMonths" [(ngModel)]="loanApplication.termMonths">
+																																																																	<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="loanApplication.submittedAt" class="form-control" name="loanApplication.submittedAt" #loanApplication.submittedAt ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="loanApplication.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="loanApplication.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>RiskAssessment</mat-label>
+					<mat-select placeholder="RiskAssessment"   [compareWith]="compareFn"  [(ngModel)]="loanApplication.RiskAssessment">
+						@for (riskAssessment of riskAssessments; track riskAssessment.riskAssessmentId) {
+							<mat-option name="loanApplication.RiskAssessment" ngDefaultControl
+							            [value]="riskAssessment.riskAssessmentId">
+								{{riskAssessment.score}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Loan</mat-label>
+					<mat-select placeholder="Loan"   [compareWith]="compareFn"  [(ngModel)]="loanApplication.Loan">
+						@for (loan of loans; track loan.loanId) {
+							<mat-option name="loanApplication.Loan" ngDefaultControl
+							            [value]="loan.loanId">
+								{{loan.loanNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Product</mat-label>
+						<mat-select placeholder="Product" name="loanApplication.Product" [(ngModel)]="loanApplication.Product">
+							@for (LoanProductType of LoanProductTypes; track LoanProductType) {
+								<mat-option ngDefaultControl [value]="LoanProductType">
+									{{LoanProductType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Purpose</mat-label>
+						<mat-select placeholder="Purpose" name="loanApplication.Purpose" [(ngModel)]="loanApplication.Purpose">
+							@for (LoanPurpose of LoanPurposes; track LoanPurpose) {
+								<mat-option ngDefaultControl [value]="LoanPurpose">
+									{{LoanPurpose}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="loanApplication.Status" [(ngModel)]="loanApplication.Status">
+							@for (ApplicationStatus of ApplicationStatuss; track ApplicationStatus) {
+								<mat-option ngDefaultControl [value]="ApplicationStatus">
+									{{ApplicationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateLoanApplication(loanApplication.applicationNumber, loanApplication.amountRequested, loanApplication.termMonths, loanApplication.submittedAt, loanApplication.Customer, loanApplication.RiskAssessment, loanApplication.Loan, loanApplication.Product, loanApplication.Purpose, loanApplication.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

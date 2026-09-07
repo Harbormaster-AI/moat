@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Notebook List</h5>
+
+    <a
+            [routerLink]="['/createNotebook']"
+            class="btn btn-primary btn-sm">
+        Create Notebook
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">title</th>
+                        <th scope="col">repository</th>
+                        <th scope="col">Language</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (notebook of notebooks; track notebook.notebookId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ notebook.title }}
+                </td>
+                                <td class="align-middle">
+                    {{ notebook.repository }}
+                </td>
+                                <td class="align-middle">
+                    {{ notebook.Language }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadNotebook', notebook.notebookId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteNotebook(notebook.notebookId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (notebooks?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No notebooks found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

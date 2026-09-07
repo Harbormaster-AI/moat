@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>firstName</mat-label>
+								<input matInput ngDefaultControl placeholder="firstName" name="adjuster.firstName" [(ngModel)]="adjuster.firstName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lastName</mat-label>
+								<input matInput ngDefaultControl placeholder="lastName" name="adjuster.lastName" [(ngModel)]="adjuster.lastName">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>licenseNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="licenseNumber" name="adjuster.licenseNumber" [(ngModel)]="adjuster.licenseNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Claims</mat-label>
+					<mat-select placeholder="Claims" multiple  [compareWith]="compareFn"  [(ngModel)]="adjuster.Claims">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="adjuster.Claims" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ServiceProviders</mat-label>
+					<mat-select placeholder="ServiceProviders" multiple  [compareWith]="compareFn"  [(ngModel)]="adjuster.ServiceProviders">
+						@for (serviceProvider of serviceProviders; track serviceProvider.serviceProviderId) {
+							<mat-option name="adjuster.ServiceProviders" ngDefaultControl
+							            [value]="serviceProvider.serviceProviderId">
+								{{serviceProvider.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>AdjusterType</mat-label>
+						<mat-select placeholder="AdjusterType" name="adjuster.AdjusterType" [(ngModel)]="adjuster.AdjusterType">
+							@for (AdjusterType of AdjusterTypes; track AdjusterType) {
+								<mat-option ngDefaultControl [value]="AdjusterType">
+									{{AdjusterType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAdjuster(adjuster.firstName, adjuster.lastName, adjuster.licenseNumber, adjuster.Claims, adjuster.ServiceProviders, adjuster.AdjusterType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

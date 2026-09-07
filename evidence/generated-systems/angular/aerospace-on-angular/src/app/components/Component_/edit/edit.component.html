@@ -1,0 +1,58 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>partNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="partNumber" name="component_.partNumber" [(ngModel)]="component_.partNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="component_.name" [(ngModel)]="component_.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Supplier</mat-label>
+					<mat-select placeholder="Supplier"   [compareWith]="compareFn"  [(ngModel)]="component_.Supplier">
+						@for (supplier of suppliers; track supplier.supplierId) {
+							<mat-option name="component_.Supplier" ngDefaultControl
+							            [value]="supplier.supplierId">
+								{{supplier.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>ComponentCategory</mat-label>
+						<mat-select placeholder="ComponentCategory" name="component_.ComponentCategory" [(ngModel)]="component_.ComponentCategory">
+							@for (ComponentCategory of ComponentCategorys; track ComponentCategory) {
+								<mat-option ngDefaultControl [value]="ComponentCategory">
+									{{ComponentCategory}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>SerializationMethod</mat-label>
+						<mat-select placeholder="SerializationMethod" name="component_.SerializationMethod" [(ngModel)]="component_.SerializationMethod">
+							@for (SerializationMethod of SerializationMethods; track SerializationMethod) {
+								<mat-option ngDefaultControl [value]="SerializationMethod">
+									{{SerializationMethod}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																	 						 																	 						 										<button
+				(click)="updateComponent_(component_.partNumber, component_.name, component_.Supplier, component_.ComponentCategory, component_.SerializationMethod)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

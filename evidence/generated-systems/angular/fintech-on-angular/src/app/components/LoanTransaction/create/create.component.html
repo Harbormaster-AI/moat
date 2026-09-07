@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>transactionId</mat-label>
+								<input matInput ngDefaultControl placeholder="transactionId" name="loanTransaction.transactionId" [(ngModel)]="loanTransaction.transactionId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="loanTransaction.amount" [(ngModel)]="loanTransaction.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>postingDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="postingDate" name="loanTransaction.postingDate" [(ngModel)]="loanTransaction.postingDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Loan</mat-label>
+					<mat-select placeholder="Loan"  [(ngModel)]="loanTransaction.Loan">
+						@for (loan of loans; track loan.loanId) {
+							<mat-option name="loanTransaction.Loan" ngDefaultControl
+							            [value]="loan.loanId">
+								{{loan.loanNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Type</mat-label>
+						<mat-select placeholder="Type" name="loanTransaction.Type" [(ngModel)]="loanTransaction.Type">
+							@for (LoanTransactionType of LoanTransactionTypes; track LoanTransactionType) {
+								<mat-option ngDefaultControl [value]="LoanTransactionType">
+									{{LoanTransactionType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="loanTransaction.Status" [(ngModel)]="loanTransaction.Status">
+							@for (PostingStatus of PostingStatuss; track PostingStatus) {
+								<mat-option ngDefaultControl [value]="PostingStatus">
+									{{PostingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 																							 										<button
+				(click)="addLoanTransaction(loanTransaction.transactionId, loanTransaction.amount, loanTransaction.postingDate, loanTransaction.Loan, loanTransaction.Type, loanTransaction.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

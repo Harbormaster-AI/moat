@@ -1,0 +1,65 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>floorPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="floorPrice" name="deal.floorPrice" [(ngModel)]="deal.floorPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Publisher</mat-label>
+					<mat-select placeholder="Publisher"  [(ngModel)]="deal.Publisher">
+						@for (publisher of publishers; track publisher.publisherId) {
+							<mat-option name="deal.Publisher" ngDefaultControl
+							            [value]="publisher.publisherId">
+								{{publisher.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>InventorySources</mat-label>
+					<mat-select placeholder="InventorySources" multiple [(ngModel)]="deal.InventorySources">
+						@for (inventorySource of inventorySources; track inventorySource.inventorySourceId) {
+							<mat-option name="deal.InventorySources" ngDefaultControl
+							            [value]="inventorySource.inventorySourceId">
+								{{inventorySource.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Placements</mat-label>
+					<mat-select placeholder="Placements" multiple [(ngModel)]="deal.Placements">
+						@for (placement of placements; track placement.placementId) {
+							<mat-option name="deal.Placements" ngDefaultControl
+							            [value]="placement.placementId">
+								{{placement.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>DealType</mat-label>
+						<mat-select placeholder="DealType" name="deal.DealType" [(ngModel)]="deal.DealType">
+							@for (DealType of DealTypes; track DealType) {
+								<mat-option ngDefaultControl [value]="DealType">
+									{{DealType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																										 																							 										<button
+				(click)="addDeal(deal.floorPrice, deal.Publisher, deal.InventorySources, deal.Placements, deal.DealType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

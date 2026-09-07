@@ -1,0 +1,78 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="targetingProfile.name" [(ngModel)]="targetingProfile.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>AudienceSegments</mat-label>
+					<mat-select placeholder="AudienceSegments" multiple [(ngModel)]="targetingProfile.AudienceSegments">
+						@for (audienceSegment of audienceSegments; track audienceSegment.audienceSegmentId) {
+							<mat-option name="targetingProfile.AudienceSegments" ngDefaultControl
+							            [value]="audienceSegment.audienceSegmentId">
+								{{audienceSegment.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>GeoRegions</mat-label>
+					<mat-select placeholder="GeoRegions" multiple [(ngModel)]="targetingProfile.GeoRegions">
+						@for (geoRegion of geoRegions; track geoRegion.geoRegionId) {
+							<mat-option name="targetingProfile.GeoRegions" ngDefaultControl
+							            [value]="geoRegion.geoRegionId">
+								{{geoRegion.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>ContentCategories</mat-label>
+					<mat-select placeholder="ContentCategories" multiple [(ngModel)]="targetingProfile.ContentCategories">
+						@for (contentCategory of contentCategorys; track contentCategory.contentCategoryId) {
+							<mat-option name="targetingProfile.ContentCategories" ngDefaultControl
+							            [value]="contentCategory.contentCategoryId">
+								{{contentCategory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>BrandSafetyPolicy</mat-label>
+					<mat-select placeholder="BrandSafetyPolicy"  [(ngModel)]="targetingProfile.BrandSafetyPolicy">
+						@for (brandSafetyPolicy of brandSafetyPolicys; track brandSafetyPolicy.brandSafetyPolicyId) {
+							<mat-option name="targetingProfile.BrandSafetyPolicy" ngDefaultControl
+							            [value]="brandSafetyPolicy.brandSafetyPolicyId">
+								{{brandSafetyPolicy.TargetingProfiles}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DeviceCriteria</mat-label>
+					<mat-select placeholder="DeviceCriteria" multiple [(ngModel)]="targetingProfile.DeviceCriteria">
+						@for (deviceCriterion of deviceCriterions; track deviceCriterion.deviceCriterionId) {
+							<mat-option name="targetingProfile.DeviceCriteria" ngDefaultControl
+							            [value]="deviceCriterion.deviceCriterionId">
+								{{deviceCriterion.TargetingProfile}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																										 																										 																										 																										 																										 										<button
+				(click)="addTargetingProfile(targetingProfile.name, targetingProfile.AudienceSegments, targetingProfile.GeoRegions, targetingProfile.ContentCategories, targetingProfile.BrandSafetyPolicy, targetingProfile.DeviceCriteria)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

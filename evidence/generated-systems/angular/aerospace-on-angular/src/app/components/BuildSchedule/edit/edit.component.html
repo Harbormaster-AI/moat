@@ -1,0 +1,41 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>scheduleNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="scheduleNumber" name="buildSchedule.scheduleNumber" [(ngModel)]="buildSchedule.scheduleNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ProductionOrders</mat-label>
+					<mat-select placeholder="ProductionOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="buildSchedule.ProductionOrders">
+						@for (productionOrder of productionOrders; track productionOrder.productionOrderId) {
+							<mat-option name="buildSchedule.ProductionOrders" ngDefaultControl
+							            [value]="productionOrder.productionOrderId">
+								{{productionOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="buildSchedule.Status" [(ngModel)]="buildSchedule.Status">
+							@for (ScheduleStatus of ScheduleStatuss; track ScheduleStatus) {
+								<mat-option ngDefaultControl [value]="ScheduleStatus">
+									{{ScheduleStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																	 						 										<button
+				(click)="updateBuildSchedule(buildSchedule.scheduleNumber, buildSchedule.ProductionOrders, buildSchedule.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

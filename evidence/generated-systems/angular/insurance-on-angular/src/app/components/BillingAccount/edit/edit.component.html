@@ -1,0 +1,83 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>accountNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="accountNumber" name="billingAccount.accountNumber" [(ngModel)]="billingAccount.accountNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>balance</mat-label>
+								<input matInput ngDefaultControl placeholder="balance" name="billingAccount.balance" [(ngModel)]="billingAccount.balance">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="billingAccount.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="billingAccount.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple  [compareWith]="compareFn"  [(ngModel)]="billingAccount.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="billingAccount.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.policyNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Invoices</mat-label>
+					<mat-select placeholder="Invoices" multiple  [compareWith]="compareFn"  [(ngModel)]="billingAccount.Invoices">
+						@for (invoice of invoices; track invoice.invoiceId) {
+							<mat-option name="billingAccount.Invoices" ngDefaultControl
+							            [value]="invoice.invoiceId">
+								{{invoice.invoiceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Payments</mat-label>
+					<mat-select placeholder="Payments" multiple  [compareWith]="compareFn"  [(ngModel)]="billingAccount.Payments">
+						@for (payment of payments; track payment.paymentId) {
+							<mat-option name="billingAccount.Payments" ngDefaultControl
+							            [value]="payment.paymentId">
+								{{payment.paymentReference}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="billingAccount.Status" [(ngModel)]="billingAccount.Status">
+							@for (BillingStatus of BillingStatuss; track BillingStatus) {
+								<mat-option ngDefaultControl [value]="BillingStatus">
+									{{BillingStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateBillingAccount(billingAccount.accountNumber, billingAccount.balance, billingAccount.Customer, billingAccount.Policies, billingAccount.Invoices, billingAccount.Payments, billingAccount.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

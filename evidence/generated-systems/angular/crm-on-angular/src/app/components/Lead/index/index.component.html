@@ -1,0 +1,95 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Lead List</h5>
+
+    <a
+            [routerLink]="['/createLead']"
+            class="btn btn-primary btn-sm">
+        Create Lead
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">firstName</th>
+                        <th scope="col">lastName</th>
+                        <th scope="col">company</th>
+                        <th scope="col">email</th>
+                        <th scope="col">phone</th>
+                        <th scope="col">converted</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Source</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (lead of leads; track lead.leadId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ lead.firstName }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.lastName }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.company }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.email }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.phone }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.converted }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.Source }}
+                </td>
+                                <td class="align-middle">
+                    {{ lead.Rating }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadLead', lead.leadId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteLead(lead.leadId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (leads?.length === 0) {
+            <tr>
+                <td
+                        colspan="11"
+                        class="text-center">
+                    No leads found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Operator List</h5>
+
+    <a
+            [routerLink]="['/createOperator']"
+            class="btn btn-primary btn-sm">
+        Create Operator
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">icaoDesignator</th>
+                        <th scope="col">OperatorType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (operator of operators; track operator.operatorId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ operator.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ operator.icaoDesignator }}
+                </td>
+                                <td class="align-middle">
+                    {{ operator.OperatorType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadOperator', operator.operatorId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteOperator(operator.operatorId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (operators?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No operators found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

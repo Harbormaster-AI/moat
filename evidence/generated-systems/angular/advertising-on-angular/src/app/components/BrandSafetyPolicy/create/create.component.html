@@ -1,0 +1,46 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																			<mat-form-field appearance="outline">
+					<mat-label>TargetingProfiles</mat-label>
+					<mat-select placeholder="TargetingProfiles" multiple [(ngModel)]="brandSafetyPolicy.TargetingProfiles">
+						@for (targetingProfile of targetingProfiles; track targetingProfile.targetingProfileId) {
+							<mat-option name="brandSafetyPolicy.TargetingProfiles" ngDefaultControl
+							            [value]="targetingProfile.targetingProfileId">
+								{{targetingProfile.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Level</mat-label>
+						<mat-select placeholder="Level" name="brandSafetyPolicy.Level" [(ngModel)]="brandSafetyPolicy.Level">
+							@for (BrandSafetyLevel of BrandSafetyLevels; track BrandSafetyLevel) {
+								<mat-option ngDefaultControl [value]="BrandSafetyLevel">
+									{{BrandSafetyLevel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ContentRatingThreshold</mat-label>
+						<mat-select placeholder="ContentRatingThreshold" name="brandSafetyPolicy.ContentRatingThreshold" [(ngModel)]="brandSafetyPolicy.ContentRatingThreshold">
+							@for (ContentRating of ContentRatings; track ContentRating) {
+								<mat-option ngDefaultControl [value]="ContentRating">
+									{{ContentRating}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																									 																							 																							 										<button
+				(click)="addBrandSafetyPolicy(brandSafetyPolicy.TargetingProfiles, brandSafetyPolicy.Level, brandSafetyPolicy.ContentRatingThreshold)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

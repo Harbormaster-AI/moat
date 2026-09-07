@@ -1,0 +1,91 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>title</mat-label>
+								<input matInput ngDefaultControl placeholder="title" name="evidence.title" [(ngModel)]="evidence.title">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>locationUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="locationUrl" name="evidence.locationUrl" [(ngModel)]="evidence.locationUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>receivedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="receivedDate" name="evidence.receivedDate" [(ngModel)]="evidence.receivedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ControlTest</mat-label>
+					<mat-select placeholder="ControlTest"  [(ngModel)]="evidence.ControlTest">
+						@for (controlTest_ of controlTest_s; track controlTest_.controlTest_Id) {
+							<mat-option name="evidence.ControlTest" ngDefaultControl
+							            [value]="controlTest_.controlTest_Id">
+								{{controlTest_.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Control</mat-label>
+					<mat-select placeholder="Control"  [(ngModel)]="evidence.Control">
+						@for (control of controls; track control.controlId) {
+							<mat-option name="evidence.Control" ngDefaultControl
+							            [value]="control.controlId">
+								{{control.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Obligation</mat-label>
+					<mat-select placeholder="Obligation"  [(ngModel)]="evidence.Obligation">
+						@for (obligation of obligations; track obligation.obligationId) {
+							<mat-option name="evidence.Obligation" ngDefaultControl
+							            [value]="obligation.obligationId">
+								{{obligation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Workpaper</mat-label>
+					<mat-select placeholder="Workpaper"  [(ngModel)]="evidence.Workpaper">
+						@for (auditWorkpaper of auditWorkpapers; track auditWorkpaper.auditWorkpaperId) {
+							<mat-option name="evidence.Workpaper" ngDefaultControl
+							            [value]="auditWorkpaper.auditWorkpaperId">
+								{{auditWorkpaper.workpaperRef}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>EvidenceType</mat-label>
+						<mat-select placeholder="EvidenceType" name="evidence.EvidenceType" [(ngModel)]="evidence.EvidenceType">
+							@for (EvidenceType of EvidenceTypes; track EvidenceType) {
+								<mat-option ngDefaultControl [value]="EvidenceType">
+									{{EvidenceType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																										 																							 										<button
+				(click)="addEvidence(evidence.title, evidence.locationUrl, evidence.receivedDate, evidence.ControlTest, evidence.Control, evidence.Obligation, evidence.Workpaper, evidence.EvidenceType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

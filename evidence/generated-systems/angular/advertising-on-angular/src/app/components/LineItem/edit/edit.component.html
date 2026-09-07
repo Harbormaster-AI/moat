@@ -1,0 +1,152 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="lineItem.name" [(ngModel)]="lineItem.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>bidAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="bidAmount" name="lineItem.bidAmount" [(ngModel)]="lineItem.bidAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>dailyBudget</mat-label>
+								<input matInput ngDefaultControl placeholder="dailyBudget" name="lineItem.dailyBudget" [(ngModel)]="lineItem.dailyBudget">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>frequencyCap</mat-label>
+								<input matInput ngDefaultControl placeholder="frequencyCap" name="lineItem.frequencyCap" [(ngModel)]="lineItem.frequencyCap">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Campaign</mat-label>
+					<mat-select placeholder="Campaign"   [compareWith]="compareFn"  [(ngModel)]="lineItem.Campaign">
+						@for (campaign of campaigns; track campaign.campaignId) {
+							<mat-option name="lineItem.Campaign" ngDefaultControl
+							            [value]="campaign.campaignId">
+								{{campaign.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Placements</mat-label>
+					<mat-select placeholder="Placements" multiple  [compareWith]="compareFn"  [(ngModel)]="lineItem.Placements">
+						@for (placement of placements; track placement.placementId) {
+							<mat-option name="lineItem.Placements" ngDefaultControl
+							            [value]="placement.placementId">
+								{{placement.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>TargetingProfile</mat-label>
+					<mat-select placeholder="TargetingProfile"   [compareWith]="compareFn"  [(ngModel)]="lineItem.TargetingProfile">
+						@for (targetingProfile of targetingProfiles; track targetingProfile.targetingProfileId) {
+							<mat-option name="lineItem.TargetingProfile" ngDefaultControl
+							            [value]="targetingProfile.targetingProfileId">
+								{{targetingProfile.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Deal</mat-label>
+					<mat-select placeholder="Deal"   [compareWith]="compareFn"  [(ngModel)]="lineItem.Deal">
+						@for (deal of deals; track deal.dealId) {
+							<mat-option name="lineItem.Deal" ngDefaultControl
+							            [value]="deal.dealId">
+								{{deal.floorPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Creatives</mat-label>
+					<mat-select placeholder="Creatives" multiple  [compareWith]="compareFn"  [(ngModel)]="lineItem.Creatives">
+						@for (creativeAsset of creativeAssets; track creativeAsset.creativeAssetId) {
+							<mat-option name="lineItem.Creatives" ngDefaultControl
+							            [value]="creativeAsset.creativeAssetId">
+								{{creativeAsset.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>PerformanceMetrics</mat-label>
+					<mat-select placeholder="PerformanceMetrics" multiple  [compareWith]="compareFn"  [(ngModel)]="lineItem.PerformanceMetrics">
+						@for (performanceMetric of performanceMetrics; track performanceMetric.performanceMetricId) {
+							<mat-option name="lineItem.PerformanceMetrics" ngDefaultControl
+							            [value]="performanceMetric.performanceMetricId">
+								{{performanceMetric.date}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="lineItem.Status" [(ngModel)]="lineItem.Status">
+							@for (LineItemStatus of LineItemStatuss; track LineItemStatus) {
+								<mat-option ngDefaultControl [value]="LineItemStatus">
+									{{LineItemStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PricingModel</mat-label>
+						<mat-select placeholder="PricingModel" name="lineItem.PricingModel" [(ngModel)]="lineItem.PricingModel">
+							@for (PricingModel of PricingModels; track PricingModel) {
+								<mat-option ngDefaultControl [value]="PricingModel">
+									{{PricingModel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>BidStrategy</mat-label>
+						<mat-select placeholder="BidStrategy" name="lineItem.BidStrategy" [(ngModel)]="lineItem.BidStrategy">
+							@for (BidStrategyType of BidStrategyTypes; track BidStrategyType) {
+								<mat-option ngDefaultControl [value]="BidStrategyType">
+									{{BidStrategyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Pacing</mat-label>
+						<mat-select placeholder="Pacing" name="lineItem.Pacing" [(ngModel)]="lineItem.Pacing">
+							@for (PacingType of PacingTypes; track PacingType) {
+								<mat-option ngDefaultControl [value]="PacingType">
+									{{PacingType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateLineItem(lineItem.name, lineItem.bidAmount, lineItem.dailyBudget, lineItem.frequencyCap, lineItem.Campaign, lineItem.Placements, lineItem.TargetingProfile, lineItem.Deal, lineItem.Creatives, lineItem.PerformanceMetrics, lineItem.Status, lineItem.PricingModel, lineItem.BidStrategy, lineItem.Pacing)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

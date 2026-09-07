@@ -1,0 +1,53 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="aircraftPackage.name" [(ngModel)]="aircraftPackage.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Options</mat-label>
+					<mat-select placeholder="Options" multiple  [compareWith]="compareFn"  [(ngModel)]="aircraftPackage.Options">
+						@for (aircraftOption of aircraftOptions; track aircraftOption.aircraftOptionId) {
+							<mat-option name="aircraftPackage.Options" ngDefaultControl
+							            [value]="aircraftOption.aircraftOptionId">
+								{{aircraftOption.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Variants</mat-label>
+					<mat-select placeholder="Variants" multiple  [compareWith]="compareFn"  [(ngModel)]="aircraftPackage.Variants">
+						@for (aircraftVariant of aircraftVariants; track aircraftVariant.aircraftVariantId) {
+							<mat-option name="aircraftPackage.Variants" ngDefaultControl
+							            [value]="aircraftVariant.aircraftVariantId">
+								{{aircraftVariant.variantCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PackageType</mat-label>
+						<mat-select placeholder="PackageType" name="aircraftPackage.PackageType" [(ngModel)]="aircraftPackage.PackageType">
+							@for (PackageType of PackageTypes; track PackageType) {
+								<mat-option ngDefaultControl [value]="PackageType">
+									{{PackageType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateAircraftPackage(aircraftPackage.name, aircraftPackage.Options, aircraftPackage.Variants, aircraftPackage.PackageType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

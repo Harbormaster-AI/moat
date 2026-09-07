@@ -1,0 +1,82 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveFrom</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveFrom" name="compensationPackage.effectiveFrom" [(ngModel)]="compensationPackage.effectiveFrom">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveTo</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveTo" name="compensationPackage.effectiveTo" [(ngModel)]="compensationPackage.effectiveTo">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>currency</mat-label>
+								<input matInput ngDefaultControl placeholder="currency" name="compensationPackage.currency" [(ngModel)]="compensationPackage.currency">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Contract</mat-label>
+					<mat-select placeholder="Contract"   [compareWith]="compareFn"  [(ngModel)]="compensationPackage.Contract">
+						@for (employmentContract of employmentContracts; track employmentContract.employmentContractId) {
+							<mat-option name="compensationPackage.Contract" ngDefaultControl
+							            [value]="employmentContract.employmentContractId">
+								{{employmentContract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>SalaryComponents</mat-label>
+					<mat-select placeholder="SalaryComponents" multiple  [compareWith]="compareFn"  [(ngModel)]="compensationPackage.SalaryComponents">
+						@for (salaryComponent of salaryComponents; track salaryComponent.salaryComponentId) {
+							<mat-option name="compensationPackage.SalaryComponents" ngDefaultControl
+							            [value]="salaryComponent.salaryComponentId">
+								{{salaryComponent.amount}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>BonusPlans</mat-label>
+					<mat-select placeholder="BonusPlans" multiple  [compareWith]="compareFn"  [(ngModel)]="compensationPackage.BonusPlans">
+						@for (bonusPlan of bonusPlans; track bonusPlan.bonusPlanId) {
+							<mat-option name="compensationPackage.BonusPlans" ngDefaultControl
+							            [value]="bonusPlan.bonusPlanId">
+								{{bonusPlan.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>EquityGrants</mat-label>
+					<mat-select placeholder="EquityGrants" multiple  [compareWith]="compareFn"  [(ngModel)]="compensationPackage.EquityGrants">
+						@for (equityGrant of equityGrants; track equityGrant.equityGrantId) {
+							<mat-option name="compensationPackage.EquityGrants" ngDefaultControl
+							            [value]="equityGrant.equityGrantId">
+								{{equityGrant.grantId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateCompensationPackage(compensationPackage.effectiveFrom, compensationPackage.effectiveTo, compensationPackage.currency, compensationPackage.Contract, compensationPackage.SalaryComponents, compensationPackage.BonusPlans, compensationPackage.EquityGrants)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="creativeVariation.name" [(ngModel)]="creativeVariation.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>language</mat-label>
+								<input matInput ngDefaultControl placeholder="language" name="creativeVariation.language" [(ngModel)]="creativeVariation.language">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>headline</mat-label>
+								<input matInput ngDefaultControl placeholder="headline" name="creativeVariation.headline" [(ngModel)]="creativeVariation.headline">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>bodyText</mat-label>
+								<input matInput ngDefaultControl placeholder="bodyText" name="creativeVariation.bodyText" [(ngModel)]="creativeVariation.bodyText">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>callToAction</mat-label>
+								<input matInput ngDefaultControl placeholder="callToAction" name="creativeVariation.callToAction" [(ngModel)]="creativeVariation.callToAction">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CreativeAsset</mat-label>
+					<mat-select placeholder="CreativeAsset"  [(ngModel)]="creativeVariation.CreativeAsset">
+						@for (creativeAsset of creativeAssets; track creativeAsset.creativeAssetId) {
+							<mat-option name="creativeVariation.CreativeAsset" ngDefaultControl
+							            [value]="creativeAsset.creativeAssetId">
+								{{creativeAsset.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																							 																										 										<button
+				(click)="addCreativeVariation(creativeVariation.name, creativeVariation.language, creativeVariation.headline, creativeVariation.bodyText, creativeVariation.callToAction, creativeVariation.CreativeAsset)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

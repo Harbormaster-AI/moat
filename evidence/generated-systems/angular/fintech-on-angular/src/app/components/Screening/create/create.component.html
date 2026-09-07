@@ -1,0 +1,66 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>score</mat-label>
+								<input matInput ngDefaultControl placeholder="score" name="screening.score" [(ngModel)]="screening.score">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="screening.screenedAt" class="form-control" name="screening.screenedAt" #screening.screenedAt ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>KycProfile</mat-label>
+					<mat-select placeholder="KycProfile"  [(ngModel)]="screening.KycProfile">
+						@for (kYCProfile of kYCProfiles; track kYCProfile.kYCProfileId) {
+							<mat-option name="screening.KycProfile" ngDefaultControl
+							            [value]="kYCProfile.kYCProfileId">
+								{{kYCProfile.profileId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Alerts</mat-label>
+					<mat-select placeholder="Alerts" multiple [(ngModel)]="screening.Alerts">
+						@for (complianceAlert of complianceAlerts; track complianceAlert.complianceAlertId) {
+							<mat-option name="screening.Alerts" ngDefaultControl
+							            [value]="complianceAlert.complianceAlertId">
+								{{complianceAlert.alertCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ScreeningType</mat-label>
+						<mat-select placeholder="ScreeningType" name="screening.ScreeningType" [(ngModel)]="screening.ScreeningType">
+							@for (ScreeningType of ScreeningTypes; track ScreeningType) {
+								<mat-option ngDefaultControl [value]="ScreeningType">
+									{{ScreeningType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="screening.Status" [(ngModel)]="screening.Status">
+							@for (ScreeningStatus of ScreeningStatuss; track ScreeningStatus) {
+								<mat-option ngDefaultControl [value]="ScreeningStatus">
+									{{ScreeningStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																							 																							 										<button
+				(click)="addScreening(screening.score, screening.screenedAt, screening.KycProfile, screening.Alerts, screening.ScreeningType, screening.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

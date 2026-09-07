@@ -1,0 +1,151 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>orderNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="orderNumber" name="order.orderNumber" [(ngModel)]="order.orderNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>orderDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="orderDate" name="order.orderDate" [(ngModel)]="order.orderDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>totalAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="totalAmount" name="order.totalAmount" [(ngModel)]="order.totalAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>taxAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="taxAmount" name="order.taxAmount" [(ngModel)]="order.taxAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>shippingAmount</mat-label>
+								<input matInput ngDefaultControl placeholder="shippingAmount" name="order.shippingAmount" [(ngModel)]="order.shippingAmount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="order.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="order.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Account</mat-label>
+					<mat-select placeholder="Account"  [(ngModel)]="order.Account">
+						@for (account of accounts; track account.accountId) {
+							<mat-option name="order.Account" ngDefaultControl
+							            [value]="account.accountId">
+								{{account.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Opportunity</mat-label>
+					<mat-select placeholder="Opportunity"  [(ngModel)]="order.Opportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="order.Opportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Quote</mat-label>
+					<mat-select placeholder="Quote"  [(ngModel)]="order.Quote">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="order.Quote" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Owner</mat-label>
+					<mat-select placeholder="Owner"  [(ngModel)]="order.Owner">
+						@for (user of users; track user.userId) {
+							<mat-option name="order.Owner" ngDefaultControl
+							            [value]="user.userId">
+								{{user.username}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Items</mat-label>
+					<mat-select placeholder="Items" multiple [(ngModel)]="order.Items">
+						@for (orderItem of orderItems; track orderItem.orderItemId) {
+							<mat-option name="order.Items" ngDefaultControl
+							            [value]="orderItem.orderItemId">
+								{{orderItem.quantity}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Contract</mat-label>
+					<mat-select placeholder="Contract"  [(ngModel)]="order.Contract">
+						@for (contract of contracts; track contract.contractId) {
+							<mat-option name="order.Contract" ngDefaultControl
+							            [value]="contract.contractId">
+								{{contract.contractNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>PriceBook</mat-label>
+					<mat-select placeholder="PriceBook"  [(ngModel)]="order.PriceBook">
+						@for (priceBook of priceBooks; track priceBook.priceBookId) {
+							<mat-option name="order.PriceBook" ngDefaultControl
+							            [value]="priceBook.priceBookId">
+								{{priceBook.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="order.Status" [(ngModel)]="order.Status">
+							@for (OrderStatus of OrderStatuss; track OrderStatus) {
+								<mat-option ngDefaultControl [value]="OrderStatus">
+									{{OrderStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addOrder(order.orderNumber, order.orderDate, order.totalAmount, order.taxAmount, order.shippingAmount, order.Organization, order.Account, order.Opportunity, order.Quote, order.Owner, order.Items, order.Contract, order.PriceBook, order.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

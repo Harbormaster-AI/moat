@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>planNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="planNumber" name="maintenancePlan.planNumber" [(ngModel)]="maintenancePlan.planNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>interval</mat-label>
+								<input matInput ngDefaultControl placeholder="interval" name="maintenancePlan.interval" [(ngModel)]="maintenancePlan.interval">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lastServiceDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="lastServiceDate" name="maintenancePlan.lastServiceDate" [(ngModel)]="maintenancePlan.lastServiceDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Asset</mat-label>
+					<mat-select placeholder="Asset"   [compareWith]="compareFn"  [(ngModel)]="maintenancePlan.Asset">
+						@for (asset of assets; track asset.assetId) {
+							<mat-option name="maintenancePlan.Asset" ngDefaultControl
+							            [value]="asset.assetId">
+								{{asset.assetName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>MaintenanceOrders</mat-label>
+					<mat-select placeholder="MaintenanceOrders" multiple  [compareWith]="compareFn"  [(ngModel)]="maintenancePlan.MaintenanceOrders">
+						@for (maintenanceOrder of maintenanceOrders; track maintenanceOrder.maintenanceOrderId) {
+							<mat-option name="maintenancePlan.MaintenanceOrders" ngDefaultControl
+							            [value]="maintenanceOrder.maintenanceOrderId">
+								{{maintenanceOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Strategy</mat-label>
+						<mat-select placeholder="Strategy" name="maintenancePlan.Strategy" [(ngModel)]="maintenancePlan.Strategy">
+							@for (MaintenanceStrategy of MaintenanceStrategys; track MaintenanceStrategy) {
+								<mat-option ngDefaultControl [value]="MaintenanceStrategy">
+									{{MaintenanceStrategy}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateMaintenancePlan(maintenancePlan.planNumber, maintenancePlan.interval, maintenancePlan.lastServiceDate, maintenancePlan.Asset, maintenancePlan.MaintenanceOrders, maintenancePlan.Strategy)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

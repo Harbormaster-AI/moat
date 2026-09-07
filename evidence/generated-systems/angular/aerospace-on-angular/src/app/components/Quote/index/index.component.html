@@ -1,0 +1,67 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Quote List</h5>
+
+    <a
+            [routerLink]="['/createQuote']"
+            class="btn btn-primary btn-sm">
+        Create Quote
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">quoteNumber</th>
+                        <th scope="col">totalAmount</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (quote of quotes; track quote.quoteId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ quote.quoteNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ quote.totalAmount }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadQuote', quote.quoteId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteQuote(quote.quoteId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (quotes?.length === 0) {
+            <tr>
+                <td
+                        colspan="4"
+                        class="text-center">
+                    No quotes found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

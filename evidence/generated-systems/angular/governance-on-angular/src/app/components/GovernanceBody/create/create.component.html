@@ -1,0 +1,77 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="governanceBody.name" [(ngModel)]="governanceBody.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>charterUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="charterUrl" name="governanceBody.charterUrl" [(ngModel)]="governanceBody.charterUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>chair</mat-label>
+								<input matInput ngDefaultControl placeholder="chair" name="governanceBody.chair" [(ngModel)]="governanceBody.chair">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"  [(ngModel)]="governanceBody.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="governanceBody.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>RoleAssignments</mat-label>
+					<mat-select placeholder="RoleAssignments" multiple [(ngModel)]="governanceBody.RoleAssignments">
+						@for (roleAssignment of roleAssignments; track roleAssignment.roleAssignmentId) {
+							<mat-option name="governanceBody.RoleAssignments" ngDefaultControl
+							            [value]="roleAssignment.roleAssignmentId">
+								{{roleAssignment.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Policies</mat-label>
+					<mat-select placeholder="Policies" multiple [(ngModel)]="governanceBody.Policies">
+						@for (policy of policys; track policy.policyId) {
+							<mat-option name="governanceBody.Policies" ngDefaultControl
+							            [value]="policy.policyId">
+								{{policy.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>BodyType</mat-label>
+						<mat-select placeholder="BodyType" name="governanceBody.BodyType" [(ngModel)]="governanceBody.BodyType">
+							@for (GovernanceBodyType of GovernanceBodyTypes; track GovernanceBodyType) {
+								<mat-option ngDefaultControl [value]="GovernanceBodyType">
+									{{GovernanceBodyType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addGovernanceBody(governanceBody.name, governanceBody.charterUrl, governanceBody.chair, governanceBody.Organization, governanceBody.RoleAssignments, governanceBody.Policies, governanceBody.BodyType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

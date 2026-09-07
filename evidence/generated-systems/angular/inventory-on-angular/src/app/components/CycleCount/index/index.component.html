@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">CycleCount List</h5>
+
+    <a
+            [routerLink]="['/createCycleCount']"
+            class="btn btn-primary btn-sm">
+        Create CycleCount
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">countNumber</th>
+                        <th scope="col">scheduledDate</th>
+                        <th scope="col">performedDate</th>
+                        <th scope="col">approvedBy</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (cycleCount of cycleCounts; track cycleCount.cycleCountId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ cycleCount.countNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCount.scheduledDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCount.performedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCount.approvedBy }}
+                </td>
+                                <td class="align-middle">
+                    {{ cycleCount.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCycleCount', cycleCount.cycleCountId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCycleCount(cycleCount.cycleCountId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (cycleCounts?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No cycleCounts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

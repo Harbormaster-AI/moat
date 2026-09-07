@@ -1,0 +1,84 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="department.name" [(ngModel)]="department.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="department.code" [(ngModel)]="department.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="department.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="department.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Manager</mat-label>
+					<mat-select placeholder="Manager"   [compareWith]="compareFn"  [(ngModel)]="department.Manager">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="department.Manager" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Positions</mat-label>
+					<mat-select placeholder="Positions" multiple  [compareWith]="compareFn"  [(ngModel)]="department.Positions">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="department.Positions" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Employees</mat-label>
+					<mat-select placeholder="Employees" multiple  [compareWith]="compareFn"  [(ngModel)]="department.Employees">
+						@for (employee of employees; track employee.employeeId) {
+							<mat-option name="department.Employees" ngDefaultControl
+							            [value]="employee.employeeId">
+								{{employee.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>CostCenter</mat-label>
+					<mat-select placeholder="CostCenter"   [compareWith]="compareFn"  [(ngModel)]="department.CostCenter">
+						@for (costCenter of costCenters; track costCenter.costCenterId) {
+							<mat-option name="department.CostCenter" ngDefaultControl
+							            [value]="costCenter.costCenterId">
+								{{costCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateDepartment(department.name, department.code, department.Organization, department.Manager, department.Positions, department.Employees, department.CostCenter)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

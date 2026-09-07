@@ -1,0 +1,69 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>procedureCode</mat-label>
+								<input matInput ngDefaultControl placeholder="procedureCode" name="procedure.procedureCode" [(ngModel)]="procedure.procedureCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="procedure.startDateTime" class="form-control" name="procedure.startDateTime" #procedure.startDateTime ></ngb-timepicker>
+																																																																	<p>
+					 																																																																															<ngb-timepicker [(ngModel)]="procedure.endDateTime" class="form-control" name="procedure.endDateTime" #procedure.endDateTime ></ngb-timepicker>
+																																																																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"   [compareWith]="compareFn"  [(ngModel)]="procedure.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="procedure.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Performer</mat-label>
+					<mat-select placeholder="Performer"   [compareWith]="compareFn"  [(ngModel)]="procedure.Performer">
+						@for (clinician of clinicians; track clinician.clinicianId) {
+							<mat-option name="procedure.Performer" ngDefaultControl
+							            [value]="clinician.clinicianId">
+								{{clinician.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>ProcedureOrder</mat-label>
+					<mat-select placeholder="ProcedureOrder"   [compareWith]="compareFn"  [(ngModel)]="procedure.ProcedureOrder">
+						@for (procedureOrder of procedureOrders; track procedureOrder.procedureOrderId) {
+							<mat-option name="procedure.ProcedureOrder" ngDefaultControl
+							            [value]="procedureOrder.procedureOrderId">
+								{{procedureOrder.procedureCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="procedure.Status" [(ngModel)]="procedure.Status">
+							@for (ProcedureStatus of ProcedureStatuss; track ProcedureStatus) {
+								<mat-option ngDefaultControl [value]="ProcedureStatus">
+									{{ProcedureStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateProcedure(procedure.procedureCode, procedure.startDateTime, procedure.endDateTime, procedure.Encounter, procedure.Performer, procedure.ProcedureOrder, procedure.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

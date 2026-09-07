@@ -1,0 +1,74 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<input matInput placeholder="lineNumber" name="goodsReceiptLine.lineNumber" [(ngModel)]="goodsReceiptLine.lineNumber">
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>receivedQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="receivedQuantity" name="goodsReceiptLine.receivedQuantity" [(ngModel)]="goodsReceiptLine.receivedQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>acceptedQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="acceptedQuantity" name="goodsReceiptLine.acceptedQuantity" [(ngModel)]="goodsReceiptLine.acceptedQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>rejectedQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="rejectedQuantity" name="goodsReceiptLine.rejectedQuantity" [(ngModel)]="goodsReceiptLine.rejectedQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>lot</mat-label>
+								<input matInput ngDefaultControl placeholder="lot" name="goodsReceiptLine.lot" [(ngModel)]="goodsReceiptLine.lot">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>GoodsReceipt</mat-label>
+					<mat-select placeholder="GoodsReceipt"   [compareWith]="compareFn"  [(ngModel)]="goodsReceiptLine.GoodsReceipt">
+						@for (goodsReceipt of goodsReceipts; track goodsReceipt.goodsReceiptId) {
+							<mat-option name="goodsReceiptLine.GoodsReceipt" ngDefaultControl
+							            [value]="goodsReceipt.goodsReceiptId">
+								{{goodsReceipt.receiptNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Item</mat-label>
+					<mat-select placeholder="Item"   [compareWith]="compareFn"  [(ngModel)]="goodsReceiptLine.Item">
+						@for (item of items; track item.itemId) {
+							<mat-option name="goodsReceiptLine.Item" ngDefaultControl
+							            [value]="item.itemId">
+								{{item.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>InventoryTransaction</mat-label>
+					<mat-select placeholder="InventoryTransaction"   [compareWith]="compareFn"  [(ngModel)]="goodsReceiptLine.InventoryTransaction">
+						@for (inventoryTransaction of inventoryTransactions; track inventoryTransaction.inventoryTransactionId) {
+							<mat-option name="goodsReceiptLine.InventoryTransaction" ngDefaultControl
+							            [value]="inventoryTransaction.inventoryTransactionId">
+								{{inventoryTransaction.transactionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateGoodsReceiptLine(goodsReceiptLine.lineNumber, goodsReceiptLine.receivedQuantity, goodsReceiptLine.acceptedQuantity, goodsReceiptLine.rejectedQuantity, goodsReceiptLine.lot, goodsReceiptLine.GoodsReceipt, goodsReceiptLine.Item, goodsReceiptLine.InventoryTransaction)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

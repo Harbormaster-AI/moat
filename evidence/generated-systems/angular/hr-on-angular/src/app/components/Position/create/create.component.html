@@ -1,0 +1,130 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>positionCode</mat-label>
+								<input matInput ngDefaultControl placeholder="positionCode" name="position.positionCode" [(ngModel)]="position.positionCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>fte</mat-label>
+								<input matInput ngDefaultControl placeholder="fte" name="position.fte" [(ngModel)]="position.fte">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Department</mat-label>
+					<mat-select placeholder="Department"  [(ngModel)]="position.Department">
+						@for (department of departments; track department.departmentId) {
+							<mat-option name="position.Department" ngDefaultControl
+							            [value]="department.departmentId">
+								{{department.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>JobProfile</mat-label>
+					<mat-select placeholder="JobProfile"  [(ngModel)]="position.JobProfile">
+						@for (jobProfile of jobProfiles; track jobProfile.jobProfileId) {
+							<mat-option name="position.JobProfile" ngDefaultControl
+							            [value]="jobProfile.jobProfileId">
+								{{jobProfile.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CostCenter</mat-label>
+					<mat-select placeholder="CostCenter"  [(ngModel)]="position.CostCenter">
+						@for (costCenter of costCenters; track costCenter.costCenterId) {
+							<mat-option name="position.CostCenter" ngDefaultControl
+							            [value]="costCenter.costCenterId">
+								{{costCenter.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="position.Location">
+						@for (location of locations; track location.locationId) {
+							<mat-option name="position.Location" ngDefaultControl
+							            [value]="location.locationId">
+								{{location.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ManagerPosition</mat-label>
+					<mat-select placeholder="ManagerPosition"  [(ngModel)]="position.ManagerPosition">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="position.ManagerPosition" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>DirectReports</mat-label>
+					<mat-select placeholder="DirectReports" multiple [(ngModel)]="position.DirectReports">
+						@for (position of positions; track position.positionId) {
+							<mat-option name="position.DirectReports" ngDefaultControl
+							            [value]="position.positionId">
+								{{position.positionCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Assignments</mat-label>
+					<mat-select placeholder="Assignments" multiple [(ngModel)]="position.Assignments">
+						@for (employmentAssignment of employmentAssignments; track employmentAssignment.employmentAssignmentId) {
+							<mat-option name="position.Assignments" ngDefaultControl
+							            [value]="employmentAssignment.employmentAssignmentId">
+								{{employmentAssignment.startDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="position.Status" [(ngModel)]="position.Status">
+							@for (PositionStatus of PositionStatuss; track PositionStatus) {
+								<mat-option ngDefaultControl [value]="PositionStatus">
+									{{PositionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>WorkLocationType</mat-label>
+						<mat-select placeholder="WorkLocationType" name="position.WorkLocationType" [(ngModel)]="position.WorkLocationType">
+							@for (WorkLocationType of WorkLocationTypes; track WorkLocationType) {
+								<mat-option ngDefaultControl [value]="WorkLocationType">
+									{{WorkLocationType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addPosition(position.positionCode, position.fte, position.Department, position.JobProfile, position.CostCenter, position.Location, position.ManagerPosition, position.DirectReports, position.Assignments, position.Status, position.WorkLocationType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

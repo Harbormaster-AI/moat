@@ -1,0 +1,97 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>applicationNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="applicationNumber" name="application.applicationNumber" [(ngModel)]="application.applicationNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>submissionDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="submissionDate" name="application.submissionDate" [(ngModel)]="application.submissionDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="application.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="application.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"  [(ngModel)]="application.Product">
+						@for (insuranceProduct of insuranceProducts; track insuranceProduct.insuranceProductId) {
+							<mat-option name="application.Product" ngDefaultControl
+							            [value]="insuranceProduct.insuranceProductId">
+								{{insuranceProduct.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Distributor</mat-label>
+					<mat-select placeholder="Distributor"  [(ngModel)]="application.Distributor">
+						@for (distributor of distributors; track distributor.distributorId) {
+							<mat-option name="application.Distributor" ngDefaultControl
+							            [value]="distributor.distributorId">
+								{{distributor.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Quotes</mat-label>
+					<mat-select placeholder="Quotes" multiple [(ngModel)]="application.Quotes">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="application.Quotes" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>SelectedQuote</mat-label>
+					<mat-select placeholder="SelectedQuote"  [(ngModel)]="application.SelectedQuote">
+						@for (quote of quotes; track quote.quoteId) {
+							<mat-option name="application.SelectedQuote" ngDefaultControl
+							            [value]="quote.quoteId">
+								{{quote.quoteNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="application.Status" [(ngModel)]="application.Status">
+							@for (ApplicationStatus of ApplicationStatuss; track ApplicationStatus) {
+								<mat-option ngDefaultControl [value]="ApplicationStatus">
+									{{ApplicationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																										 																										 																							 										<button
+				(click)="addApplication(application.applicationNumber, application.submissionDate, application.Customer, application.Product, application.Distributor, application.Quotes, application.SelectedQuote, application.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

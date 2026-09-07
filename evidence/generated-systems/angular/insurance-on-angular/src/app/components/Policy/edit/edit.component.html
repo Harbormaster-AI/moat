@@ -1,0 +1,184 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>policyNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="policyNumber" name="policy.policyNumber" [(ngModel)]="policy.policyNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectivePeriod</mat-label>
+								<input matInput ngDefaultControl placeholder="effectivePeriod" name="policy.effectivePeriod" [(ngModel)]="policy.effectivePeriod">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalPremium</mat-label>
+								<input matInput ngDefaultControl placeholder="totalPremium" name="policy.totalPremium" [(ngModel)]="policy.totalPremium">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Insurer</mat-label>
+					<mat-select placeholder="Insurer"   [compareWith]="compareFn"  [(ngModel)]="policy.Insurer">
+						@for (insurer of insurers; track insurer.insurerId) {
+							<mat-option name="policy.Insurer" ngDefaultControl
+							            [value]="insurer.insurerId">
+								{{insurer.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"   [compareWith]="compareFn"  [(ngModel)]="policy.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="policy.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"   [compareWith]="compareFn"  [(ngModel)]="policy.Product">
+						@for (insuranceProduct of insuranceProducts; track insuranceProduct.insuranceProductId) {
+							<mat-option name="policy.Product" ngDefaultControl
+							            [value]="insuranceProduct.insuranceProductId">
+								{{insuranceProduct.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Agent</mat-label>
+					<mat-select placeholder="Agent"   [compareWith]="compareFn"  [(ngModel)]="policy.Agent">
+						@for (agent of agents; track agent.agentId) {
+							<mat-option name="policy.Agent" ngDefaultControl
+							            [value]="agent.agentId">
+								{{agent.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Coverages</mat-label>
+					<mat-select placeholder="Coverages" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Coverages">
+						@for (policyCoverage of policyCoverages; track policyCoverage.policyCoverageId) {
+							<mat-option name="policy.Coverages" ngDefaultControl
+							            [value]="policyCoverage.policyCoverageId">
+								{{policyCoverage.limit}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InsuredObjects</mat-label>
+					<mat-select placeholder="InsuredObjects" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.InsuredObjects">
+						@for (insuredObject of insuredObjects; track insuredObject.insuredObjectId) {
+							<mat-option name="policy.InsuredObjects" ngDefaultControl
+							            [value]="insuredObject.insuredObjectId">
+								{{insuredObject.description}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Endorsements</mat-label>
+					<mat-select placeholder="Endorsements" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Endorsements">
+						@for (endorsement of endorsements; track endorsement.endorsementId) {
+							<mat-option name="policy.Endorsements" ngDefaultControl
+							            [value]="endorsement.endorsementId">
+								{{endorsement.endorsementNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>BillingAccount</mat-label>
+					<mat-select placeholder="BillingAccount"   [compareWith]="compareFn"  [(ngModel)]="policy.BillingAccount">
+						@for (billingAccount of billingAccounts; track billingAccount.billingAccountId) {
+							<mat-option name="policy.BillingAccount" ngDefaultControl
+							            [value]="billingAccount.billingAccountId">
+								{{billingAccount.accountNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Beneficiaries</mat-label>
+					<mat-select placeholder="Beneficiaries" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Beneficiaries">
+						@for (beneficiary of beneficiarys; track beneficiary.beneficiaryId) {
+							<mat-option name="policy.Beneficiaries" ngDefaultControl
+							            [value]="beneficiary.beneficiaryId">
+								{{beneficiary.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Claims</mat-label>
+					<mat-select placeholder="Claims" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.Claims">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="policy.Claims" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>ReinsuranceAgreements</mat-label>
+					<mat-select placeholder="ReinsuranceAgreements" multiple  [compareWith]="compareFn"  [(ngModel)]="policy.ReinsuranceAgreements">
+						@for (reinsuranceAgreement of reinsuranceAgreements; track reinsuranceAgreement.reinsuranceAgreementId) {
+							<mat-option name="policy.ReinsuranceAgreements" ngDefaultControl
+							            [value]="reinsuranceAgreement.reinsuranceAgreementId">
+								{{reinsuranceAgreement.agreementNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="policy.Status" [(ngModel)]="policy.Status">
+							@for (PolicyStatus of PolicyStatuss; track PolicyStatus) {
+								<mat-option ngDefaultControl [value]="PolicyStatus">
+									{{PolicyStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>PaymentPlan</mat-label>
+						<mat-select placeholder="PaymentPlan" name="policy.PaymentPlan" [(ngModel)]="policy.PaymentPlan">
+							@for (PaymentPlanType of PaymentPlanTypes; track PaymentPlanType) {
+								<mat-option ngDefaultControl [value]="PaymentPlanType">
+									{{PaymentPlanType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 										<button
+				(click)="updatePolicy(policy.policyNumber, policy.effectivePeriod, policy.totalPremium, policy.Insurer, policy.Customer, policy.Product, policy.Agent, policy.Coverages, policy.InsuredObjects, policy.Endorsements, policy.BillingAccount, policy.Beneficiaries, policy.Claims, policy.ReinsuranceAgreements, policy.Status, policy.PaymentPlan)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

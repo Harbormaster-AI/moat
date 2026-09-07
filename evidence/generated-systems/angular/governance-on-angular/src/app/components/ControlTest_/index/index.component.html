@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">ControlTest_ List</h5>
+
+    <a
+            [routerLink]="['/createControlTest_']"
+            class="btn btn-primary btn-sm">
+        Create ControlTest_
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">testPeriodStart</th>
+                        <th scope="col">testPeriodEnd</th>
+                        <th scope="col">sampleSize</th>
+                        <th scope="col">TestType</th>
+                        <th scope="col">Effectiveness</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (controlTest_ of controlTest_s; track controlTest_.controlTest_Id) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ controlTest_.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ controlTest_.testPeriodStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ controlTest_.testPeriodEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ controlTest_.sampleSize }}
+                </td>
+                                <td class="align-middle">
+                    {{ controlTest_.TestType }}
+                </td>
+                                <td class="align-middle">
+                    {{ controlTest_.Effectiveness }}
+                </td>
+                                <td class="align-middle">
+                    {{ controlTest_.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadControlTest_', controlTest_.controlTest_Id]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteControlTest_(controlTest_.controlTest_Id)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (controlTest_s?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No controlTest_s found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

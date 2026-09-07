@@ -1,0 +1,73 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>dispenseNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="dispenseNumber" name="medicationDispense.dispenseNumber" [(ngModel)]="medicationDispense.dispenseNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="medicationDispense.quantity" [(ngModel)]="medicationDispense.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<ngb-timepicker [(ngModel)]="medicationDispense.whenPrepared" class="form-control" name="medicationDispense.whenPrepared" #medicationDispense.whenPrepared ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>MedicationOrder</mat-label>
+					<mat-select placeholder="MedicationOrder"  [(ngModel)]="medicationDispense.MedicationOrder">
+						@for (medicationOrder of medicationOrders; track medicationOrder.medicationOrderId) {
+							<mat-option name="medicationDispense.MedicationOrder" ngDefaultControl
+							            [value]="medicationOrder.medicationOrderId">
+								{{medicationOrder.medicationCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Pharmacy</mat-label>
+					<mat-select placeholder="Pharmacy"  [(ngModel)]="medicationDispense.Pharmacy">
+						@for (pharmacy of pharmacys; track pharmacy.pharmacyId) {
+							<mat-option name="medicationDispense.Pharmacy" ngDefaultControl
+							            [value]="pharmacy.pharmacyId">
+								{{pharmacy.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Patient</mat-label>
+					<mat-select placeholder="Patient"  [(ngModel)]="medicationDispense.Patient">
+						@for (patient of patients; track patient.patientId) {
+							<mat-option name="medicationDispense.Patient" ngDefaultControl
+							            [value]="patient.patientId">
+								{{patient.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="medicationDispense.Status" [(ngModel)]="medicationDispense.Status">
+							@for (DispenseStatus of DispenseStatuss; track DispenseStatus) {
+								<mat-option ngDefaultControl [value]="DispenseStatus">
+									{{DispenseStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addMedicationDispense(medicationDispense.dispenseNumber, medicationDispense.quantity, medicationDispense.whenPrepared, medicationDispense.MedicationOrder, medicationDispense.Pharmacy, medicationDispense.Patient, medicationDispense.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

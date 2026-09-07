@@ -1,0 +1,59 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>location</mat-label>
+								<input matInput ngDefaultControl placeholder="location" name="incident.location" [(ngModel)]="incident.location">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="incident.description" [(ngModel)]="incident.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"   [compareWith]="compareFn"  [(ngModel)]="incident.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="incident.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InsuredObjects</mat-label>
+					<mat-select placeholder="InsuredObjects" multiple  [compareWith]="compareFn"  [(ngModel)]="incident.InsuredObjects">
+						@for (insuredObject of insuredObjects; track insuredObject.insuredObjectId) {
+							<mat-option name="incident.InsuredObjects" ngDefaultControl
+							            [value]="insuredObject.insuredObjectId">
+								{{insuredObject.description}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>IncidentType</mat-label>
+						<mat-select placeholder="IncidentType" name="incident.IncidentType" [(ngModel)]="incident.IncidentType">
+							@for (PerilType of PerilTypes; track PerilType) {
+								<mat-option ngDefaultControl [value]="PerilType">
+									{{PerilType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																	 						 										<button
+				(click)="updateIncident(incident.location, incident.description, incident.Claim, incident.InsuredObjects, incident.IncidentType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

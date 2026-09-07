@@ -1,0 +1,55 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="coverageDefinition.name" [(ngModel)]="coverageDefinition.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>defaultLimit</mat-label>
+								<input matInput ngDefaultControl placeholder="defaultLimit" name="coverageDefinition.defaultLimit" [(ngModel)]="coverageDefinition.defaultLimit">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>defaultDeductible</mat-label>
+								<input matInput ngDefaultControl placeholder="defaultDeductible" name="coverageDefinition.defaultDeductible" [(ngModel)]="coverageDefinition.defaultDeductible">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="coverageDefinition.asMandatory" ngDefaultControl [(ngModel)]="coverageDefinition.asMandatory">asMandatory</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"   [compareWith]="compareFn"  [(ngModel)]="coverageDefinition.Product">
+						@for (insuranceProduct of insuranceProducts; track insuranceProduct.insuranceProductId) {
+							<mat-option name="coverageDefinition.Product" ngDefaultControl
+							            [value]="insuranceProduct.insuranceProductId">
+								{{insuranceProduct.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>CoverageType</mat-label>
+						<mat-select placeholder="CoverageType" name="coverageDefinition.CoverageType" [(ngModel)]="coverageDefinition.CoverageType">
+							@for (CoverageType of CoverageTypes; track CoverageType) {
+								<mat-option ngDefaultControl [value]="CoverageType">
+									{{CoverageType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																	 						 																	 																										 						 																	 						 										<button
+				(click)="updateCoverageDefinition(coverageDefinition.name, coverageDefinition.defaultLimit, coverageDefinition.defaultDeductible, coverageDefinition.asMandatory == true ? true : false, coverageDefinition.Product, coverageDefinition.CoverageType)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

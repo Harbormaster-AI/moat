@@ -1,0 +1,54 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="beneficiary.name" [(ngModel)]="beneficiary.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>accountIdentifier</mat-label>
+								<input matInput ngDefaultControl placeholder="accountIdentifier" name="beneficiary.accountIdentifier" [(ngModel)]="beneficiary.accountIdentifier">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>iban</mat-label>
+								<input matInput ngDefaultControl placeholder="iban" name="beneficiary.iban" [(ngModel)]="beneficiary.iban">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>bic</mat-label>
+								<input matInput ngDefaultControl placeholder="bic" name="beneficiary.bic" [(ngModel)]="beneficiary.bic">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="beneficiary.address" [(ngModel)]="beneficiary.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="beneficiary.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="beneficiary.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																							 																										 										<button
+				(click)="addBeneficiary(beneficiary.name, beneficiary.accountIdentifier, beneficiary.iban, beneficiary.bic, beneficiary.address, beneficiary.Customer)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,116 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>loanNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="loanNumber" name="loan.loanNumber" [(ngModel)]="loan.loanNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>principal</mat-label>
+								<input matInput ngDefaultControl placeholder="principal" name="loan.principal" [(ngModel)]="loan.principal">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>interestRate</mat-label>
+								<input matInput ngDefaultControl placeholder="interestRate" name="loan.interestRate" [(ngModel)]="loan.interestRate">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>originationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="originationDate" name="loan.originationDate" [(ngModel)]="loan.originationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>maturityDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="maturityDate" name="loan.maturityDate" [(ngModel)]="loan.maturityDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Customer</mat-label>
+					<mat-select placeholder="Customer"  [(ngModel)]="loan.Customer">
+						@for (customer of customers; track customer.customerId) {
+							<mat-option name="loan.Customer" ngDefaultControl
+							            [value]="customer.customerId">
+								{{customer.firstName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Schedule</mat-label>
+					<mat-select placeholder="Schedule" multiple [(ngModel)]="loan.Schedule">
+						@for (repaymentSchedule of repaymentSchedules; track repaymentSchedule.repaymentScheduleId) {
+							<mat-option name="loan.Schedule" ngDefaultControl
+							            [value]="repaymentSchedule.repaymentScheduleId">
+								{{repaymentSchedule.installmentNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Collateral</mat-label>
+					<mat-select placeholder="Collateral" multiple [(ngModel)]="loan.Collateral">
+						@for (collateral of collaterals; track collateral.collateralId) {
+							<mat-option name="loan.Collateral" ngDefaultControl
+							            [value]="collateral.collateralId">
+								{{collateral.description}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Transactions</mat-label>
+					<mat-select placeholder="Transactions" multiple [(ngModel)]="loan.Transactions">
+						@for (loanTransaction of loanTransactions; track loanTransaction.loanTransactionId) {
+							<mat-option name="loan.Transactions" ngDefaultControl
+							            [value]="loanTransaction.loanTransactionId">
+								{{loanTransaction.transactionId}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>RateType</mat-label>
+						<mat-select placeholder="RateType" name="loan.RateType" [(ngModel)]="loan.RateType">
+							@for (InterestRateType of InterestRateTypes; track InterestRateType) {
+								<mat-option ngDefaultControl [value]="InterestRateType">
+									{{InterestRateType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="loan.Status" [(ngModel)]="loan.Status">
+							@for (LoanStatus of LoanStatuss; track LoanStatus) {
+								<mat-option ngDefaultControl [value]="LoanStatus">
+									{{LoanStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																							 																										 																										 																										 																										 																							 																							 										<button
+				(click)="addLoan(loan.loanNumber, loan.principal, loan.interestRate, loan.originationDate, loan.maturityDate, loan.Customer, loan.Schedule, loan.Collateral, loan.Transactions, loan.RateType, loan.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

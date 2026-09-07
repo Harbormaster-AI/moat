@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Report List</h5>
+
+    <a
+            [routerLink]="['/createReport']"
+            class="btn btn-primary btn-sm">
+        Create Report
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">reportName</th>
+                        <th scope="col">generatedAt</th>
+                        <th scope="col">fileUrl</th>
+                        <th scope="col">ReportType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (report of reports; track report.reportId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ report.reportName }}
+                </td>
+                                <td class="align-middle">
+                    {{ report.generatedAt }}
+                </td>
+                                <td class="align-middle">
+                    {{ report.fileUrl }}
+                </td>
+                                <td class="align-middle">
+                    {{ report.ReportType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadReport', report.reportId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteReport(report.reportId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (reports?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No reports found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

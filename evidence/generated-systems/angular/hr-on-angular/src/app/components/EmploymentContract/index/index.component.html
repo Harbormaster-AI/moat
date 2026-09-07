@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">EmploymentContract List</h5>
+
+    <a
+            [routerLink]="['/createEmploymentContract']"
+            class="btn btn-primary btn-sm">
+        Create EmploymentContract
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">contractNumber</th>
+                        <th scope="col">startDate</th>
+                        <th scope="col">endDate</th>
+                        <th scope="col">workHoursPerWeek</th>
+                        <th scope="col">EmploymentType</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">PayFrequency</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (employmentContract of employmentContracts; track employmentContract.employmentContractId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ employmentContract.contractNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentContract.startDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentContract.endDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentContract.workHoursPerWeek }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentContract.EmploymentType }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentContract.Status }}
+                </td>
+                                <td class="align-middle">
+                    {{ employmentContract.PayFrequency }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadEmploymentContract', employmentContract.employmentContractId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteEmploymentContract(employmentContract.employmentContractId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (employmentContracts?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No employmentContracts found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

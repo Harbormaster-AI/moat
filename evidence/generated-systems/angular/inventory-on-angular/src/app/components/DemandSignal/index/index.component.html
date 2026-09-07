@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">DemandSignal List</h5>
+
+    <a
+            [routerLink]="['/createDemandSignal']"
+            class="btn btn-primary btn-sm">
+        Create DemandSignal
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">externalReference</th>
+                        <th scope="col">requestedDate</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">DemandType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (demandSignal of demandSignals; track demandSignal.demandSignalId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ demandSignal.externalReference }}
+                </td>
+                                <td class="align-middle">
+                    {{ demandSignal.requestedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ demandSignal.quantity }}
+                </td>
+                                <td class="align-middle">
+                    {{ demandSignal.DemandType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadDemandSignal', demandSignal.demandSignalId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteDemandSignal(demandSignal.demandSignalId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (demandSignals?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No demandSignals found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

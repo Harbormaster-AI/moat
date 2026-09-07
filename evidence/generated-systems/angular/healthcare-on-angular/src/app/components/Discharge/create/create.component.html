@@ -1,0 +1,37 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<ngb-timepicker [(ngModel)]="discharge.dischargeDateTime" class="form-control" name="discharge.dischargeDateTime" #discharge.dischargeDateTime ></ngb-timepicker>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Encounter</mat-label>
+					<mat-select placeholder="Encounter"  [(ngModel)]="discharge.Encounter">
+						@for (encounter of encounters; track encounter.encounterId) {
+							<mat-option name="discharge.Encounter" ngDefaultControl
+							            [value]="encounter.encounterId">
+								{{encounter.encounterNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Disposition</mat-label>
+						<mat-select placeholder="Disposition" name="discharge.Disposition" [(ngModel)]="discharge.Disposition">
+							@for (DischargeDisposition of DischargeDispositions; track DischargeDisposition) {
+								<mat-option ngDefaultControl [value]="DischargeDisposition">
+									{{DischargeDisposition}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																							 										<button
+				(click)="addDischarge(discharge.dischargeDateTime, discharge.Encounter, discharge.Disposition)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,72 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>quantity</mat-label>
+								<input matInput ngDefaultControl placeholder="quantity" name="opportunityLineItem.quantity" [(ngModel)]="opportunityLineItem.quantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>unitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="unitPrice" name="opportunityLineItem.unitPrice" [(ngModel)]="opportunityLineItem.unitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>discountPercent</mat-label>
+								<input matInput ngDefaultControl placeholder="discountPercent" name="opportunityLineItem.discountPercent" [(ngModel)]="opportunityLineItem.discountPercent">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>totalPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="totalPrice" name="opportunityLineItem.totalPrice" [(ngModel)]="opportunityLineItem.totalPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Opportunity</mat-label>
+					<mat-select placeholder="Opportunity"   [compareWith]="compareFn"  [(ngModel)]="opportunityLineItem.Opportunity">
+						@for (opportunity of opportunitys; track opportunity.opportunityId) {
+							<mat-option name="opportunityLineItem.Opportunity" ngDefaultControl
+							            [value]="opportunity.opportunityId">
+								{{opportunity.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"   [compareWith]="compareFn"  [(ngModel)]="opportunityLineItem.Product">
+						@for (product of products; track product.productId) {
+							<mat-option name="opportunityLineItem.Product" ngDefaultControl
+							            [value]="product.productId">
+								{{product.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PriceBookEntry</mat-label>
+					<mat-select placeholder="PriceBookEntry"   [compareWith]="compareFn"  [(ngModel)]="opportunityLineItem.PriceBookEntry">
+						@for (priceBookEntry of priceBookEntrys; track priceBookEntry.priceBookEntryId) {
+							<mat-option name="opportunityLineItem.PriceBookEntry" ngDefaultControl
+							            [value]="priceBookEntry.priceBookEntryId">
+								{{priceBookEntry.unitPrice}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateOpportunityLineItem(opportunityLineItem.quantity, opportunityLineItem.unitPrice, opportunityLineItem.discountPercent, opportunityLineItem.totalPrice, opportunityLineItem.Opportunity, opportunityLineItem.Product, opportunityLineItem.PriceBookEntry)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

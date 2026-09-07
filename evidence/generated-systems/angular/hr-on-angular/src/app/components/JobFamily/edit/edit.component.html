@@ -1,0 +1,48 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="jobFamily.name" [(ngModel)]="jobFamily.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>description</mat-label>
+								<input matInput ngDefaultControl placeholder="description" name="jobFamily.description" [(ngModel)]="jobFamily.description">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Organization</mat-label>
+					<mat-select placeholder="Organization"   [compareWith]="compareFn"  [(ngModel)]="jobFamily.Organization">
+						@for (organization of organizations; track organization.organizationId) {
+							<mat-option name="jobFamily.Organization" ngDefaultControl
+							            [value]="organization.organizationId">
+								{{organization.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>JobProfiles</mat-label>
+					<mat-select placeholder="JobProfiles" multiple  [compareWith]="compareFn"  [(ngModel)]="jobFamily.JobProfiles">
+						@for (jobProfile of jobProfiles; track jobProfile.jobProfileId) {
+							<mat-option name="jobFamily.JobProfiles" ngDefaultControl
+							            [value]="jobProfile.jobProfileId">
+								{{jobProfile.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																				 						 																				 						 										<button
+				(click)="updateJobFamily(jobFamily.name, jobFamily.description, jobFamily.Organization, jobFamily.JobProfiles)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

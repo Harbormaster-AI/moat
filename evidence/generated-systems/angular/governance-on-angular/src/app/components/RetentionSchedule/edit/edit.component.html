@@ -1,0 +1,101 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="retentionSchedule.name" [(ngModel)]="retentionSchedule.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<input matInput placeholder="retentionPeriodMonths" name="retentionSchedule.retentionPeriodMonths" [(ngModel)]="retentionSchedule.retentionPeriodMonths">
+																																																																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Repositories</mat-label>
+					<mat-select placeholder="Repositories" multiple  [compareWith]="compareFn"  [(ngModel)]="retentionSchedule.Repositories">
+						@for (recordsRepository of recordsRepositorys; track recordsRepository.recordsRepositoryId) {
+							<mat-option name="retentionSchedule.Repositories" ngDefaultControl
+							            [value]="recordsRepository.recordsRepositoryId">
+								{{recordsRepository.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Records</mat-label>
+					<mat-select placeholder="Records" multiple  [compareWith]="compareFn"  [(ngModel)]="retentionSchedule.Records">
+						@for (record_ of record_s; track record_.record_Id) {
+							<mat-option name="retentionSchedule.Records" ngDefaultControl
+							            [value]="record_.record_Id">
+								{{record_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>Exceptions</mat-label>
+					<mat-select placeholder="Exceptions" multiple  [compareWith]="compareFn"  [(ngModel)]="retentionSchedule.Exceptions">
+						@for (exception_ of exception_s; track exception_.exception_Id) {
+							<mat-option name="retentionSchedule.Exceptions" ngDefaultControl
+							            [value]="exception_.exception_Id">
+								{{exception_.title}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>DispositionReviews</mat-label>
+					<mat-select placeholder="DispositionReviews" multiple  [compareWith]="compareFn"  [(ngModel)]="retentionSchedule.DispositionReviews">
+						@for (dispositionReview of dispositionReviews; track dispositionReview.dispositionReviewId) {
+							<mat-option name="retentionSchedule.DispositionReviews" ngDefaultControl
+							            [value]="dispositionReview.dispositionReviewId">
+								{{dispositionReview.reviewDate}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>RetentionTrigger</mat-label>
+						<mat-select placeholder="RetentionTrigger" name="retentionSchedule.RetentionTrigger" [(ngModel)]="retentionSchedule.RetentionTrigger">
+							@for (RetentionTrigger of RetentionTriggers; track RetentionTrigger) {
+								<mat-option ngDefaultControl [value]="RetentionTrigger">
+									{{RetentionTrigger}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>DispositionAction</mat-label>
+						<mat-select placeholder="DispositionAction" name="retentionSchedule.DispositionAction" [(ngModel)]="retentionSchedule.DispositionAction">
+							@for (DispositionAction of DispositionActions; track DispositionAction) {
+								<mat-option ngDefaultControl [value]="DispositionAction">
+									{{DispositionAction}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+					 																																				<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="retentionSchedule.Status" [(ngModel)]="retentionSchedule.Status">
+							@for (RetentionStatus of RetentionStatuss; track RetentionStatus) {
+								<mat-option ngDefaultControl [value]="RetentionStatus">
+									{{RetentionStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																 						 																	 						 																				 						 																				 						 																				 						 																				 						 																	 						 																	 						 																	 						 										<button
+				(click)="updateRetentionSchedule(retentionSchedule.name, retentionSchedule.retentionPeriodMonths, retentionSchedule.Repositories, retentionSchedule.Records, retentionSchedule.Exceptions, retentionSchedule.DispositionReviews, retentionSchedule.RetentionTrigger, retentionSchedule.DispositionAction, retentionSchedule.Status)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

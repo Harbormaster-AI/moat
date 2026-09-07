@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>unitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="unitPrice" name="priceBookEntry.unitPrice" [(ngModel)]="priceBookEntry.unitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>effectiveDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="effectiveDate" name="priceBookEntry.effectiveDate" [(ngModel)]="priceBookEntry.effectiveDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>expirationDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="expirationDate" name="priceBookEntry.expirationDate" [(ngModel)]="priceBookEntry.expirationDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+					 																																																																								<mat-checkbox name="priceBookEntry.asActive" ngDefaultControl [(ngModel)]="priceBookEntry.asActive">asActive</mat-checkbox>
+																																																								<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>PriceBook</mat-label>
+					<mat-select placeholder="PriceBook"   [compareWith]="compareFn"  [(ngModel)]="priceBookEntry.PriceBook">
+						@for (priceBook of priceBooks; track priceBook.priceBookId) {
+							<mat-option name="priceBookEntry.PriceBook" ngDefaultControl
+							            [value]="priceBook.priceBookId">
+								{{priceBook.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																							 								 								<mat-form-field appearance="outline">
+					<mat-label>Product</mat-label>
+					<mat-select placeholder="Product"   [compareWith]="compareFn"  [(ngModel)]="priceBookEntry.Product">
+						@for (product of products; track product.productId) {
+							<mat-option name="priceBookEntry.Product" ngDefaultControl
+							            [value]="product.productId">
+								{{product.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 																										 						 																				 						 										<button
+				(click)="updatePriceBookEntry(priceBookEntry.unitPrice, priceBookEntry.effectiveDate, priceBookEntry.expirationDate, priceBookEntry.asActive == true ? true : false, priceBookEntry.PriceBook, priceBookEntry.Product)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

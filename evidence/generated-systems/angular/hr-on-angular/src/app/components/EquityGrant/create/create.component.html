@@ -1,0 +1,51 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>grantId</mat-label>
+								<input matInput ngDefaultControl placeholder="grantId" name="equityGrant.grantId" [(ngModel)]="equityGrant.grantId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<input matInput placeholder="grantedUnits" name="equityGrant.grantedUnits" [(ngModel)]="equityGrant.grantedUnits">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>vestingStart</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="vestingStart" name="equityGrant.vestingStart" [(ngModel)]="equityGrant.vestingStart">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CompensationPackage</mat-label>
+					<mat-select placeholder="CompensationPackage"  [(ngModel)]="equityGrant.CompensationPackage">
+						@for (compensationPackage of compensationPackages; track compensationPackage.compensationPackageId) {
+							<mat-option name="equityGrant.CompensationPackage" ngDefaultControl
+							            [value]="compensationPackage.compensationPackageId">
+								{{compensationPackage.effectiveFrom}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>GrantType</mat-label>
+						<mat-select placeholder="GrantType" name="equityGrant.GrantType" [(ngModel)]="equityGrant.GrantType">
+							@for (EquityType of EquityTypes; track EquityType) {
+								<mat-option ngDefaultControl [value]="EquityType">
+									{{EquityType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																							 										<button
+				(click)="addEquityGrant(equityGrant.grantId, equityGrant.grantedUnits, equityGrant.vestingStart, equityGrant.CompensationPackage, equityGrant.GrantType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

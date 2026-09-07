@@ -1,0 +1,71 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="fraudSignal.name" [(ngModel)]="fraudSignal.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>ruleLogic</mat-label>
+								<input matInput ngDefaultControl placeholder="ruleLogic" name="fraudSignal.ruleLogic" [(ngModel)]="fraudSignal.ruleLogic">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Scenario</mat-label>
+					<mat-select placeholder="Scenario"  [(ngModel)]="fraudSignal.Scenario">
+						@for (fraudScenario of fraudScenarios; track fraudScenario.fraudScenarioId) {
+							<mat-option name="fraudSignal.Scenario" ngDefaultControl
+							            [value]="fraudScenario.fraudScenarioId">
+								{{fraudScenario.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Dataset</mat-label>
+					<mat-select placeholder="Dataset"  [(ngModel)]="fraudSignal.Dataset">
+						@for (dataSet of dataSets; track dataSet.dataSetId) {
+							<mat-option name="fraudSignal.Dataset" ngDefaultControl
+							            [value]="dataSet.dataSetId">
+								{{dataSet.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>ModelVersion</mat-label>
+					<mat-select placeholder="ModelVersion"  [(ngModel)]="fraudSignal.ModelVersion">
+						@for (modelVersion of modelVersions; track modelVersion.modelVersionId) {
+							<mat-option name="fraudSignal.ModelVersion" ngDefaultControl
+							            [value]="modelVersion.modelVersionId">
+								{{modelVersion.version}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>SignalType</mat-label>
+						<mat-select placeholder="SignalType" name="fraudSignal.SignalType" [(ngModel)]="fraudSignal.SignalType">
+							@for (FraudSignalType of FraudSignalTypes; track FraudSignalType) {
+								<mat-option ngDefaultControl [value]="FraudSignalType">
+									{{FraudSignalType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																										 																										 																							 										<button
+				(click)="addFraudSignal(fraudSignal.name, fraudSignal.ruleLogic, fraudSignal.Scenario, fraudSignal.Dataset, fraudSignal.ModelVersion, fraudSignal.SignalType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

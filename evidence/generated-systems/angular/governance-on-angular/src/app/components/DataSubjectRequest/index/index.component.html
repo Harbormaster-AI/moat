@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">DataSubjectRequest List</h5>
+
+    <a
+            [routerLink]="['/createDataSubjectRequest']"
+            class="btn btn-primary btn-sm">
+        Create DataSubjectRequest
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">receivedDate</th>
+                        <th scope="col">dueDate</th>
+                        <th scope="col">requesterCountry</th>
+                        <th scope="col">RequestType</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (dataSubjectRequest of dataSubjectRequests; track dataSubjectRequest.dataSubjectRequestId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ dataSubjectRequest.receivedDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ dataSubjectRequest.dueDate }}
+                </td>
+                                <td class="align-middle">
+                    {{ dataSubjectRequest.requesterCountry }}
+                </td>
+                                <td class="align-middle">
+                    {{ dataSubjectRequest.RequestType }}
+                </td>
+                                <td class="align-middle">
+                    {{ dataSubjectRequest.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadDataSubjectRequest', dataSubjectRequest.dataSubjectRequestId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteDataSubjectRequest(dataSubjectRequest.dataSubjectRequestId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (dataSubjectRequests?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No dataSubjectRequests found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

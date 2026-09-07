@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>applicationNumber</mat-label>
+								<input matInput ngDefaultControl placeholder="applicationNumber" name="jobApplication.applicationNumber" [(ngModel)]="jobApplication.applicationNumber">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>appliedDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="appliedDate" name="jobApplication.appliedDate" [(ngModel)]="jobApplication.appliedDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>resumeUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="resumeUrl" name="jobApplication.resumeUrl" [(ngModel)]="jobApplication.resumeUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Candidate</mat-label>
+					<mat-select placeholder="Candidate"  [(ngModel)]="jobApplication.Candidate">
+						@for (candidate of candidates; track candidate.candidateId) {
+							<mat-option name="jobApplication.Candidate" ngDefaultControl
+							            [value]="candidate.candidateId">
+								{{candidate.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Requisition</mat-label>
+					<mat-select placeholder="Requisition"  [(ngModel)]="jobApplication.Requisition">
+						@for (jobRequisition of jobRequisitions; track jobRequisition.jobRequisitionId) {
+							<mat-option name="jobApplication.Requisition" ngDefaultControl
+							            [value]="jobRequisition.jobRequisitionId">
+								{{jobRequisition.requisitionNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Screenings</mat-label>
+					<mat-select placeholder="Screenings" multiple [(ngModel)]="jobApplication.Screenings">
+						@for (screening of screenings; track screening.screeningId) {
+							<mat-option name="jobApplication.Screenings" ngDefaultControl
+							            [value]="screening.screeningId">
+								{{screening.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="jobApplication.Status" [(ngModel)]="jobApplication.Status">
+							@for (ApplicationStatus of ApplicationStatuss; track ApplicationStatus) {
+								<mat-option ngDefaultControl [value]="ApplicationStatus">
+									{{ApplicationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addJobApplication(jobApplication.applicationNumber, jobApplication.appliedDate, jobApplication.resumeUrl, jobApplication.Candidate, jobApplication.Requisition, jobApplication.Screenings, jobApplication.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

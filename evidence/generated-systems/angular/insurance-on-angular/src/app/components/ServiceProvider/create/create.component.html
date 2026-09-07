@@ -1,0 +1,58 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="serviceProvider.name" [(ngModel)]="serviceProvider.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>taxId</mat-label>
+								<input matInput ngDefaultControl placeholder="taxId" name="serviceProvider.taxId" [(ngModel)]="serviceProvider.taxId">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Claims</mat-label>
+					<mat-select placeholder="Claims" multiple [(ngModel)]="serviceProvider.Claims">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="serviceProvider.Claims" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>ProviderType</mat-label>
+						<mat-select placeholder="ProviderType" name="serviceProvider.ProviderType" [(ngModel)]="serviceProvider.ProviderType">
+							@for (ServiceProviderType of ServiceProviderTypes; track ServiceProviderType) {
+								<mat-option ngDefaultControl [value]="ServiceProviderType">
+									{{ServiceProviderType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>NetworkStatus</mat-label>
+						<mat-select placeholder="NetworkStatus" name="serviceProvider.NetworkStatus" [(ngModel)]="serviceProvider.NetworkStatus">
+							@for (NetworkStatus of NetworkStatuss; track NetworkStatus) {
+								<mat-option ngDefaultControl [value]="NetworkStatus">
+									{{NetworkStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																										 																							 																							 										<button
+				(click)="addServiceProvider(serviceProvider.name, serviceProvider.taxId, serviceProvider.Claims, serviceProvider.ProviderType, serviceProvider.NetworkStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

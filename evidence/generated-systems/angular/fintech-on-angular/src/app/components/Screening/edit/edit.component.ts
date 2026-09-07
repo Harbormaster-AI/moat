@@ -1,0 +1,62 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { ScreeningService } from '../../../services/Screening.service';
+import { SubBaseComponent } from '../../Screening/sub.base.component';
+
+
+@Component({
+    selector: 'app-edit-screening',
+    standalone: false,
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.css']
+})
+export class EditScreeningComponent extends SubBaseComponent implements OnInit {
+
+    title = 'Edit Screening';
+
+    screeningForm: FormGroup;
+    screening: any;
+
+    constructor( http: HttpClient,
+        private route: ActivatedRoute,
+        private router: Router,
+        private service: ScreeningService,
+        private fb: FormBuilder
+) {
+        super(http);
+        this.screeningForm = this.createForm();
+    }
+
+    createForm(): FormGroup {
+        return this.fb.group({
+                  score: ['', Validators.required],
+      screenedAt: ['', Validators.required],
+      KycProfile: ['', ],
+      Alerts: ['', ],
+      ScreeningType: ['', ],
+      Status: ['', ]
+        });
+    }
+
+    
+    updateScreening(score, screenedAt, KycProfile, Alerts, ScreeningType, Status): void {
+        this.route.params.subscribe((params) => {
+
+                        this.service.updateScreening(score, screenedAt, KycProfile, Alerts, ScreeningType, Status, params['id'])
+                            .subscribe(() => {
+                    this.router.navigate(['/indexScreening']);
+                });
+        });
+    }
+
+    ngOnInit(): void {
+        this.route.params.subscribe((params) => {
+            this.service.getScreening(params['id']).subscribe(res => {
+                this.screening = res;
+            });
+        });
+    }
+}

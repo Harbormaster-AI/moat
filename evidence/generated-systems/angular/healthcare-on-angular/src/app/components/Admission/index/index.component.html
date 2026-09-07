@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Admission List</h5>
+
+    <a
+            [routerLink]="['/createAdmission']"
+            class="btn btn-primary btn-sm">
+        Create Admission
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">admitDateTime</th>
+                        <th scope="col">bed</th>
+                        <th scope="col">AdmissionType</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (admission of admissions; track admission.admissionId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ admission.admitDateTime }}
+                </td>
+                                <td class="align-middle">
+                    {{ admission.bed }}
+                </td>
+                                <td class="align-middle">
+                    {{ admission.AdmissionType }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAdmission', admission.admissionId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAdmission(admission.admissionId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (admissions?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No admissions found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

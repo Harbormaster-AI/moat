@@ -1,0 +1,122 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																	 																																																																															<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="warehouse.name" [(ngModel)]="warehouse.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>code</mat-label>
+								<input matInput ngDefaultControl placeholder="code" name="warehouse.code" [(ngModel)]="warehouse.code">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>address</mat-label>
+								<input matInput ngDefaultControl placeholder="address" name="warehouse.address" [(ngModel)]="warehouse.address">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																															<mat-form-field appearance="outline">
+								<mat-label>timeZone</mat-label>
+								<input matInput ngDefaultControl placeholder="timeZone" name="warehouse.timeZone" [(ngModel)]="warehouse.timeZone">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+					 																																																																								<mat-checkbox name="warehouse.allowsOverAllocation" ngDefaultControl [(ngModel)]="warehouse.allowsOverAllocation">allowsOverAllocation</mat-checkbox>
+																																																								<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>StorageLocations</mat-label>
+					<mat-select placeholder="StorageLocations" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.StorageLocations">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="warehouse.StorageLocations" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InventoryItems</mat-label>
+					<mat-select placeholder="InventoryItems" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.InventoryItems">
+						@for (inventoryItem of inventoryItems; track inventoryItem.inventoryItemId) {
+							<mat-option name="warehouse.InventoryItems" ngDefaultControl
+							            [value]="inventoryItem.inventoryItemId">
+								{{inventoryItem.quantityOnHand}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>InboundShipments</mat-label>
+					<mat-select placeholder="InboundShipments" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.InboundShipments">
+						@for (inboundShipment of inboundShipments; track inboundShipment.inboundShipmentId) {
+							<mat-option name="warehouse.InboundShipments" ngDefaultControl
+							            [value]="inboundShipment.inboundShipmentId">
+								{{inboundShipment.carrierName}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>OutboundAllocations</mat-label>
+					<mat-select placeholder="OutboundAllocations" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.OutboundAllocations">
+						@for (outboundAllocation of outboundAllocations; track outboundAllocation.outboundAllocationId) {
+							<mat-option name="warehouse.OutboundAllocations" ngDefaultControl
+							            [value]="outboundAllocation.outboundAllocationId">
+								{{outboundAllocation.allocationNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>OriginTransfers</mat-label>
+					<mat-select placeholder="OriginTransfers" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.OriginTransfers">
+						@for (transferOrder of transferOrders; track transferOrder.transferOrderId) {
+							<mat-option name="warehouse.OriginTransfers" ngDefaultControl
+							            [value]="transferOrder.transferOrderId">
+								{{transferOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>DestinationTransfers</mat-label>
+					<mat-select placeholder="DestinationTransfers" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.DestinationTransfers">
+						@for (transferOrder of transferOrders; track transferOrder.transferOrderId) {
+							<mat-option name="warehouse.DestinationTransfers" ngDefaultControl
+							            [value]="transferOrder.transferOrderId">
+								{{transferOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+					 																																																						 								 								<mat-form-field appearance="outline">
+					<mat-label>CycleCounts</mat-label>
+					<mat-select placeholder="CycleCounts" multiple  [compareWith]="compareFn"  [(ngModel)]="warehouse.CycleCounts">
+						@for (cycleCount of cycleCounts; track cycleCount.cycleCountId) {
+							<mat-option name="warehouse.CycleCounts" ngDefaultControl
+							            [value]="cycleCount.cycleCountId">
+								{{cycleCount.countNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																 						 																	 						 																	 						 																	 						 																	 																										 						 																				 						 																				 						 																				 						 																				 						 																				 						 																				 						 										<button
+				(click)="updateWarehouse(warehouse.name, warehouse.code, warehouse.address, warehouse.timeZone, warehouse.allowsOverAllocation == true ? true : false, warehouse.StorageLocations, warehouse.InventoryItems, warehouse.InboundShipments, warehouse.OutboundAllocations, warehouse.OriginTransfers, warehouse.DestinationTransfers, warehouse.CycleCounts)"
+							class="btn btn-primary">update
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

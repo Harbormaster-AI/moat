@@ -1,0 +1,79 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>recoveryReference</mat-label>
+								<input matInput ngDefaultControl placeholder="recoveryReference" name="subrogationRecovery.recoveryReference" [(ngModel)]="subrogationRecovery.recoveryReference">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>amount</mat-label>
+								<input matInput ngDefaultControl placeholder="amount" name="subrogationRecovery.amount" [(ngModel)]="subrogationRecovery.amount">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>recoveryDate</mat-label>
+								<input matInput ngDefaultControl [matDatepicker]="picker" placeholder="recoveryDate" name="subrogationRecovery.recoveryDate" [(ngModel)]="subrogationRecovery.recoveryDate">
+								<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								<mat-datepicker #picker></mat-datepicker>
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																																																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Claim</mat-label>
+					<mat-select placeholder="Claim"  [(ngModel)]="subrogationRecovery.Claim">
+						@for (claim of claims; track claim.claimId) {
+							<mat-option name="subrogationRecovery.Claim" ngDefaultControl
+							            [value]="claim.claimId">
+								{{claim.claimNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Exposure</mat-label>
+					<mat-select placeholder="Exposure"  [(ngModel)]="subrogationRecovery.Exposure">
+						@for (exposure of exposures; track exposure.exposureId) {
+							<mat-option name="subrogationRecovery.Exposure" ngDefaultControl
+							            [value]="exposure.exposureId">
+								{{exposure.Claim}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Counterparty</mat-label>
+					<mat-select placeholder="Counterparty"  [(ngModel)]="subrogationRecovery.Counterparty">
+						@for (thirdParty of thirdPartys; track thirdParty.thirdPartyId) {
+							<mat-option name="subrogationRecovery.Counterparty" ngDefaultControl
+							            [value]="thirdParty.thirdPartyId">
+								{{thirdParty.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>Status</mat-label>
+						<mat-select placeholder="Status" name="subrogationRecovery.Status" [(ngModel)]="subrogationRecovery.Status">
+							@for (SubrogationStatus of SubrogationStatuss; track SubrogationStatus) {
+								<mat-option ngDefaultControl [value]="SubrogationStatus">
+									{{SubrogationStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																										 																										 																										 																							 										<button
+				(click)="addSubrogationRecovery(subrogationRecovery.recoveryReference, subrogationRecovery.amount, subrogationRecovery.recoveryDate, subrogationRecovery.Claim, subrogationRecovery.Exposure, subrogationRecovery.Counterparty, subrogationRecovery.Status)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

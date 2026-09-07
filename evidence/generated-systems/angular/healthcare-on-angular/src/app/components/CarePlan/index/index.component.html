@@ -1,0 +1,71 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">CarePlan List</h5>
+
+    <a
+            [routerLink]="['/createCarePlan']"
+            class="btn btn-primary btn-sm">
+        Create CarePlan
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">planNumber</th>
+                        <th scope="col">goalSummary</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (carePlan of carePlans; track carePlan.carePlanId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ carePlan.planNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ carePlan.goalSummary }}
+                </td>
+                                <td class="align-middle">
+                    {{ carePlan.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadCarePlan', carePlan.carePlanId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteCarePlan(carePlan.carePlanId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (carePlans?.length === 0) {
+            <tr>
+                <td
+                        colspan="5"
+                        class="text-center">
+                    No carePlans found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

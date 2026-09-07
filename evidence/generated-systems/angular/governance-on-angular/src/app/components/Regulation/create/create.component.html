@@ -1,0 +1,60 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>name</mat-label>
+								<input matInput ngDefaultControl placeholder="name" name="regulation.name" [(ngModel)]="regulation.name">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>citation</mat-label>
+								<input matInput ngDefaultControl placeholder="citation" name="regulation.citation" [(ngModel)]="regulation.citation">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>jurisdiction</mat-label>
+								<input matInput ngDefaultControl placeholder="jurisdiction" name="regulation.jurisdiction" [(ngModel)]="regulation.jurisdiction">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>publicationUrl</mat-label>
+								<input matInput ngDefaultControl placeholder="publicationUrl" name="regulation.publicationUrl" [(ngModel)]="regulation.publicationUrl">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Obligations</mat-label>
+					<mat-select placeholder="Obligations" multiple [(ngModel)]="regulation.Obligations">
+						@for (obligation of obligations; track obligation.obligationId) {
+							<mat-option name="regulation.Obligations" ngDefaultControl
+							            [value]="obligation.obligationId">
+								{{obligation.referenceNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>CompliancePrograms</mat-label>
+					<mat-select placeholder="CompliancePrograms" multiple [(ngModel)]="regulation.CompliancePrograms">
+						@for (complianceProgram of compliancePrograms; track complianceProgram.complianceProgramId) {
+							<mat-option name="regulation.CompliancePrograms" ngDefaultControl
+							            [value]="complianceProgram.complianceProgramId">
+								{{complianceProgram.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																						 																							 																							 																							 																										 																										 										<button
+				(click)="addRegulation(regulation.name, regulation.citation, regulation.jurisdiction, regulation.publicationUrl, regulation.Obligations, regulation.CompliancePrograms)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

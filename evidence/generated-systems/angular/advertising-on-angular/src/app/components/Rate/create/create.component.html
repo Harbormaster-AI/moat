@@ -1,0 +1,64 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>unitPrice</mat-label>
+								<input matInput ngDefaultControl placeholder="unitPrice" name="rate.unitPrice" [(ngModel)]="rate.unitPrice">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>RateCard</mat-label>
+					<mat-select placeholder="RateCard"  [(ngModel)]="rate.RateCard">
+						@for (rateCard of rateCards; track rateCard.rateCardId) {
+							<mat-option name="rate.RateCard" ngDefaultControl
+							            [value]="rateCard.rateCardId">
+								{{rateCard.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>AdSlot</mat-label>
+					<mat-select placeholder="AdSlot"  [(ngModel)]="rate.AdSlot">
+						@for (adSlot of adSlots; track adSlot.adSlotId) {
+							<mat-option name="rate.AdSlot" ngDefaultControl
+							            [value]="adSlot.adSlotId">
+								{{adSlot.slotCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>AdFormat</mat-label>
+						<mat-select placeholder="AdFormat" name="rate.AdFormat" [(ngModel)]="rate.AdFormat">
+							@for (AdFormat of AdFormats; track AdFormat) {
+								<mat-option ngDefaultControl [value]="AdFormat">
+									{{AdFormat}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>PricingModel</mat-label>
+						<mat-select placeholder="PricingModel" name="rate.PricingModel" [(ngModel)]="rate.PricingModel">
+							@for (PricingModel of PricingModels; track PricingModel) {
+								<mat-option ngDefaultControl [value]="PricingModel">
+									{{PricingModel}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																										 																										 																							 																							 										<button
+				(click)="addRate(rate.unitPrice, rate.RateCard, rate.AdSlot, rate.AdFormat, rate.PricingModel)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

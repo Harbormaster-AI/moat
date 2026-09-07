@@ -1,0 +1,79 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">BOM List</h5>
+
+    <a
+            [routerLink]="['/createBOM']"
+            class="btn btn-primary btn-sm">
+        Create BOM
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">bomNumber</th>
+                        <th scope="col">revision</th>
+                        <th scope="col">effectivityStart</th>
+                        <th scope="col">effectivityEnd</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (bOM of bOMs; track bOM.bOMId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ bOM.bomNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ bOM.revision }}
+                </td>
+                                <td class="align-middle">
+                    {{ bOM.effectivityStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ bOM.effectivityEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ bOM.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadBOM', bOM.bOMId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteBOM(bOM.bOMId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (bOMs?.length === 0) {
+            <tr>
+                <td
+                        colspan="7"
+                        class="text-center">
+                    No bOMs found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

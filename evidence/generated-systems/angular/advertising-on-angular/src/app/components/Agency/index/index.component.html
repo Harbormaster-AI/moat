@@ -1,0 +1,75 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Agency List</h5>
+
+    <a
+            [routerLink]="['/createAgency']"
+            class="btn btn-primary btn-sm">
+        Create Agency
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">legalName</th>
+                        <th scope="col">headquartersCountry</th>
+                        <th scope="col">website</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (agency of agencys; track agency.agencyId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ agency.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ agency.legalName }}
+                </td>
+                                <td class="align-middle">
+                    {{ agency.headquartersCountry }}
+                </td>
+                                <td class="align-middle">
+                    {{ agency.website }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadAgency', agency.agencyId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteAgency(agency.agencyId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (agencys?.length === 0) {
+            <tr>
+                <td
+                        colspan="6"
+                        class="text-center">
+                    No agencys found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

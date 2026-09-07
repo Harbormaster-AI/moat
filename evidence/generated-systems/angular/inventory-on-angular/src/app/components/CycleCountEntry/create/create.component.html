@@ -1,0 +1,105 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<input matInput placeholder="lineNumber" name="cycleCountEntry.lineNumber" [(ngModel)]="cycleCountEntry.lineNumber">
+																																																																	<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>systemQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="systemQuantity" name="cycleCountEntry.systemQuantity" [(ngModel)]="cycleCountEntry.systemQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>countedQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="countedQuantity" name="cycleCountEntry.countedQuantity" [(ngModel)]="cycleCountEntry.countedQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																																				<mat-form-field appearance="outline">
+								<mat-label>varianceQuantity</mat-label>
+								<input matInput ngDefaultControl placeholder="varianceQuantity" name="cycleCountEntry.varianceQuantity" [(ngModel)]="cycleCountEntry.varianceQuantity">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="cycleCountEntry.recountRequired" ngDefaultControl [(ngModel)]="cycleCountEntry.recountRequired">recountRequired</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>CycleCount</mat-label>
+					<mat-select placeholder="CycleCount"  [(ngModel)]="cycleCountEntry.CycleCount">
+						@for (cycleCount of cycleCounts; track cycleCount.cycleCountId) {
+							<mat-option name="cycleCountEntry.CycleCount" ngDefaultControl
+							            [value]="cycleCount.cycleCountId">
+								{{cycleCount.countNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Sku</mat-label>
+					<mat-select placeholder="Sku"  [(ngModel)]="cycleCountEntry.Sku">
+						@for (stockKeepingUnit of stockKeepingUnits; track stockKeepingUnit.stockKeepingUnitId) {
+							<mat-option name="cycleCountEntry.Sku" ngDefaultControl
+							            [value]="stockKeepingUnit.stockKeepingUnitId">
+								{{stockKeepingUnit.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Lot</mat-label>
+					<mat-select placeholder="Lot"  [(ngModel)]="cycleCountEntry.Lot">
+						@for (lot of lots; track lot.lotId) {
+							<mat-option name="cycleCountEntry.Lot" ngDefaultControl
+							            [value]="lot.lotId">
+								{{lot.batchNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Location</mat-label>
+					<mat-select placeholder="Location"  [(ngModel)]="cycleCountEntry.Location">
+						@for (storageLocation of storageLocations; track storageLocation.storageLocationId) {
+							<mat-option name="cycleCountEntry.Location" ngDefaultControl
+							            [value]="storageLocation.storageLocationId">
+								{{storageLocation.code}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>SerialNumbers</mat-label>
+					<mat-select placeholder="SerialNumbers" multiple [(ngModel)]="cycleCountEntry.SerialNumbers">
+						@for (serialNumber of serialNumbers; track serialNumber.serialNumberId) {
+							<mat-option name="cycleCountEntry.SerialNumbers" ngDefaultControl
+							            [value]="serialNumber.serialNumberId">
+								{{serialNumber.serial}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>StockStatus</mat-label>
+						<mat-select placeholder="StockStatus" name="cycleCountEntry.StockStatus" [(ngModel)]="cycleCountEntry.StockStatus">
+							@for (StockStatus of StockStatuss; track StockStatus) {
+								<mat-option ngDefaultControl [value]="StockStatus">
+									{{StockStatus}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																							 																							 																							 																																																	 																										 																										 																										 																										 																							 										<button
+				(click)="addCycleCountEntry(cycleCountEntry.lineNumber, cycleCountEntry.systemQuantity, cycleCountEntry.countedQuantity, cycleCountEntry.varianceQuantity, cycleCountEntry.recountRequired == true ? true : false, cycleCountEntry.CycleCount, cycleCountEntry.Sku, cycleCountEntry.Lot, cycleCountEntry.Location, cycleCountEntry.SerialNumbers, cycleCountEntry.StockStatus)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->

@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">FeeSchedule List</h5>
+
+    <a
+            [routerLink]="['/createFeeSchedule']"
+            class="btn btn-primary btn-sm">
+        Create FeeSchedule
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">name</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">percentage</th>
+                        <th scope="col">minimum</th>
+                        <th scope="col">maximum</th>
+                        <th scope="col">FeeType</th>
+                        <th scope="col">CalculationMethod</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (feeSchedule of feeSchedules; track feeSchedule.feeScheduleId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ feeSchedule.name }}
+                </td>
+                                <td class="align-middle">
+                    {{ feeSchedule.amount }}
+                </td>
+                                <td class="align-middle">
+                    {{ feeSchedule.percentage }}
+                </td>
+                                <td class="align-middle">
+                    {{ feeSchedule.minimum }}
+                </td>
+                                <td class="align-middle">
+                    {{ feeSchedule.maximum }}
+                </td>
+                                <td class="align-middle">
+                    {{ feeSchedule.FeeType }}
+                </td>
+                                <td class="align-middle">
+                    {{ feeSchedule.CalculationMethod }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadFeeSchedule', feeSchedule.feeScheduleId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteFeeSchedule(feeSchedule.feeScheduleId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (feeSchedules?.length === 0) {
+            <tr>
+                <td
+                        colspan="9"
+                        class="text-center">
+                    No feeSchedules found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

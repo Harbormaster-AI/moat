@@ -1,0 +1,53 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PolicyService } from '../../../services/Policy.service';
+import { Policy } from '../../../models/Policy';
+import { SubBaseComponent } from '../../Policy/sub.base.component';
+
+@Component({
+    selector: 'app-create-policy',
+    standalone: false,
+    templateUrl: './create.component.html',
+    styleUrls: ['./create.component.css']
+})
+export class CreatePolicyComponent extends SubBaseComponent implements OnInit {
+
+    title = 'Add Policy';
+
+    policyForm: FormGroup;
+    policy: Policy;
+
+    constructor( http: HttpClient,
+        private policyService: PolicyService,
+        private fb: FormBuilder,
+        private router: Router
+) {
+        super(http);
+        this.policyForm = this.createForm();
+    }
+
+    createForm(): FormGroup {
+        return this.fb.group({
+                  policyNumber: ['', Validators.required],
+      name: ['', Validators.required],
+      effectiveDate: ['', Validators.required],
+      description: ['', Validators.required],
+      Organization: ['', ],
+      Acknowledgements: ['', ]
+        });
+    }
+
+    
+    addPolicy(policyNumber, name, effectiveDate, description, Organization, Acknowledgements): void {
+        this.policyService
+        .addPolicy(policyNumber, name, effectiveDate, description, Organization, Acknowledgements)
+            .subscribe(() => {
+                this.router.navigate(['/indexPolicy']);
+            });
+    }
+
+    ngOnInit(): void {
+    }
+}

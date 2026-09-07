@@ -1,0 +1,83 @@
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Routing List</h5>
+
+    <a
+            [routerLink]="['/createRouting']"
+            class="btn btn-primary btn-sm">
+        Create Routing
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+        <tr class="table-dark text-center">
+                                    <th scope="col">routingNumber</th>
+                        <th scope="col">revision</th>
+                        <th scope="col">effectivityStart</th>
+                        <th scope="col">effectivityEnd</th>
+                        <th scope="col">RoutingType</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @for (routing of routings; track routing.routingId) {
+            <tr
+                    class="text-center">
+
+                                <td class="align-middle">
+                    {{ routing.routingNumber }}
+                </td>
+                                <td class="align-middle">
+                    {{ routing.revision }}
+                </td>
+                                <td class="align-middle">
+                    {{ routing.effectivityStart }}
+                </td>
+                                <td class="align-middle">
+                    {{ routing.effectivityEnd }}
+                </td>
+                                <td class="align-middle">
+                    {{ routing.RoutingType }}
+                </td>
+                                <td class="align-middle">
+                    {{ routing.Status }}
+                </td>
+                
+                <td class="align-middle">
+                    <a
+                            [routerLink]="['/loadRouting', routing.routingId]"
+                            class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="align-middle">
+                    <button
+                            type="button"
+                            (click)="deleteRouting(routing.routingId)"
+                            class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+
+        
+        @if (routings?.length === 0) {
+            <tr>
+                <td
+                        colspan="8"
+                        class="text-center">
+                    No routings found.
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,67 @@
+<div class="card">
+	<div class="card-header">
+		<h5 class="mb-0">{{ title }}</h5>
+	</div>
+
+	<div class="card-body">
+																																																																																																<mat-form-field appearance="outline">
+								<mat-label>testCode</mat-label>
+								<input matInput ngDefaultControl placeholder="testCode" name="laboratoryOrder.testCode" [(ngModel)]="laboratoryOrder.testCode">
+								<mat-hint></mat-hint>
+							</mat-form-field>
+																																												<p>
+																																																																													<mat-checkbox name="laboratoryOrder.fastingRequired" ngDefaultControl [(ngModel)]="laboratoryOrder.fastingRequired">fastingRequired</mat-checkbox>
+																																																								<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Order</mat-label>
+					<mat-select placeholder="Order"  [(ngModel)]="laboratoryOrder.Order">
+						@for (clinicalOrder of clinicalOrders; track clinicalOrder.clinicalOrderId) {
+							<mat-option name="laboratoryOrder.Order" ngDefaultControl
+							            [value]="clinicalOrder.clinicalOrderId">
+								{{clinicalOrder.orderNumber}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																								<mat-form-field appearance="outline">
+					<mat-label>Laboratory</mat-label>
+					<mat-select placeholder="Laboratory"  [(ngModel)]="laboratoryOrder.Laboratory">
+						@for (laboratory of laboratorys; track laboratory.laboratoryId) {
+							<mat-option name="laboratoryOrder.Laboratory" ngDefaultControl
+							            [value]="laboratory.laboratoryId">
+								{{laboratory.name}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																																																							<mat-form-field appearance="outline">
+					<mat-label>Results</mat-label>
+					<mat-select placeholder="Results" multiple [(ngModel)]="laboratoryOrder.Results">
+						@for (labResult of labResults; track labResult.labResultId) {
+							<mat-option name="laboratoryOrder.Results" ngDefaultControl
+							            [value]="labResult.labResultId">
+								{{labResult.resultCode}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+																	<p>
+																																									<mat-form-field appearance="outline">
+						<mat-label>SpecimenType</mat-label>
+						<mat-select placeholder="SpecimenType" name="laboratoryOrder.SpecimenType" [(ngModel)]="laboratoryOrder.SpecimenType">
+							@for (SpecimenType of SpecimenTypes; track SpecimenType) {
+								<mat-option ngDefaultControl [value]="SpecimenType">
+									{{SpecimenType}}
+								</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+																																	<p>
+																						 																																																	 																										 																										 																							 										<button
+				(click)="addLaboratoryOrder(laboratoryOrder.testCode, laboratoryOrder.fastingRequired == true ? true : false, laboratoryOrder.Order, laboratoryOrder.Laboratory, laboratoryOrder.Results, laboratoryOrder.SpecimenType)"
+							class="btn btn-primary">add
+		</button>
+	</div> <!-- panel body -->
+</div> <!-- panel panel-primary -->
