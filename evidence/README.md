@@ -26,6 +26,65 @@ The following table are 5 points of friction to help demonstrate how each is ove
 | Angular         | Healthcare |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
 -->
 
+## Points of Value
+
+
+#1 — Blueprint certification
+
+#2 — Runtime verification
+
+#3 — Enterprise system completeness
+
+Not code snippets.
+
+Not boilerplate.
+
+A complete deployable system.
+
+#4 — Productivity measurement
+
+Demonstrate:
+
+Traditional delivery: X people / Y months
+
+versus
+
+Harbormaster: X' people / Y' months.
+
+
+#5 — Cloud/platform deployment
+
+Prove:
+
+Generates workloads that actually run on OpenShift, AWS, Azure, etc.
+
+#6 — Industry applicability
+
+## Proof Points
+Offer real world examples where the platform and approach offered real measurable value.
+
+### Wells Fargo Microservice Enterprise Strategy
+
+#### Problem: Microservice enterprise adoption stalled
+
+#### Before HM:
+
+#### With HM:
+
+### AxonIQ Flagship Product Migration
+
+Problem: Version migration too difficult 
+
+Before HM:  
+AxonIQ introduces a new version (v5) of its framework and server product.  The difference between it and the previous version (v4) proved challenging for developers.  AxonIQ created AI skills to assist, but migration was still unsuccessful.
+
+The AxonIQ team then used their v4 GitHub demo as a prompt for Claude, but Claude didn't have enough detail to create a migration path to v5.
+
+With Harbormaster:
+Harbormaster created a blueprint for the AxonIQ Framework v4, chose an industry domain model from our library, and generated a system.
+
+Once generated, the system was validated for build, runtime, and deployment integrity.  Next, the AxonIQ team used the system's source code as a prompt for Claude, along with other prompts. With over 75,000 LOCs, the generated system was a rich representation of v4, allowing Claude to create a solution to migrate the system to v5.
+
 ## System Component Details
 
 ### [Blueprints](./blueprints/READ.md) 

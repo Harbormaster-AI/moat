@@ -1,0 +1,33 @@
+from django.urls import path
+from crmOnDjango.views import UserView
+
+urlpatterns = [
+    path('', UserView.index, name='index'),
+	path('create', UserView.get, name='create'),
+	path('get/<int:userId>/', UserView.get, name='get'),
+	path('save', UserView.save, name='save'),
+	path('getAll', UserView.getAll, name='getAll'),
+	path('delete/<int:userId>/', UserView.delete, name='delete'),
+	path('assignOrganization/<int:userId>/<int:OrganizationId>/', UserView.assignOrganization, name='assignOrganization'),
+	path('unassignOrganization/<int:userId>/', UserView.unassignOrganization, name='unassignOrganization'),
+	path('addTeams/<int:userId>/<TeamsIds>/', UserView.addTeams, name='addTeams'),
+	path('removeTeams/<int:userId>/<TeamsIds>/', UserView.removeTeams, name='removeTeams'),
+	path('addActivities/<int:userId>/<ActivitiesIds>/', UserView.addActivities, name='addActivities'),
+	path('removeActivities/<int:userId>/<ActivitiesIds>/', UserView.removeActivities, name='removeActivities'),
+	path('addOwnedAccounts/<int:userId>/<OwnedAccountsIds>/', UserView.addOwnedAccounts, name='addOwnedAccounts'),
+	path('removeOwnedAccounts/<int:userId>/<OwnedAccountsIds>/', UserView.removeOwnedAccounts, name='removeOwnedAccounts'),
+	path('addOwnedLeads/<int:userId>/<OwnedLeadsIds>/', UserView.addOwnedLeads, name='addOwnedLeads'),
+	path('removeOwnedLeads/<int:userId>/<OwnedLeadsIds>/', UserView.removeOwnedLeads, name='removeOwnedLeads'),
+	path('addOwnedOpportunities/<int:userId>/<OwnedOpportunitiesIds>/', UserView.addOwnedOpportunities, name='addOwnedOpportunities'),
+	path('removeOwnedOpportunities/<int:userId>/<OwnedOpportunitiesIds>/', UserView.removeOwnedOpportunities, name='removeOwnedOpportunities'),
+	path('addOwnedCases/<int:userId>/<OwnedCasesIds>/', UserView.addOwnedCases, name='addOwnedCases'),
+	path('removeOwnedCases/<int:userId>/<OwnedCasesIds>/', UserView.removeOwnedCases, name='removeOwnedCases'),
+	path('addQuotes/<int:userId>/<QuotesIds>/', UserView.addQuotes, name='addQuotes'),
+	path('removeQuotes/<int:userId>/<QuotesIds>/', UserView.removeQuotes, name='removeQuotes'),
+	path('addOrders/<int:userId>/<OrdersIds>/', UserView.addOrders, name='addOrders'),
+	path('removeOrders/<int:userId>/<OrdersIds>/', UserView.removeOrders, name='removeOrders'),
+	path('addContracts/<int:userId>/<ContractsIds>/', UserView.addContracts, name='addContracts'),
+	path('removeContracts/<int:userId>/<ContractsIds>/', UserView.removeContracts, name='removeContracts'),
+	path('addEmailMessages/<int:userId>/<EmailMessagesIds>/', UserView.addEmailMessages, name='addEmailMessages'),
+	path('removeEmailMessages/<int:userId>/<EmailMessagesIds>/', UserView.removeEmailMessages, name='removeEmailMessages'),
+]

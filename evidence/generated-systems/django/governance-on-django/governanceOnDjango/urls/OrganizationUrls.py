@@ -1,0 +1,33 @@
+from django.urls import path
+from governanceOnDjango.views import OrganizationView
+
+urlpatterns = [
+    path('', OrganizationView.index, name='index'),
+	path('create', OrganizationView.get, name='create'),
+	path('get/<int:organizationId>/', OrganizationView.get, name='get'),
+	path('save', OrganizationView.save, name='save'),
+	path('getAll', OrganizationView.getAll, name='getAll'),
+	path('delete/<int:organizationId>/', OrganizationView.delete, name='delete'),
+	path('addGovernanceBodies/<int:organizationId>/<GovernanceBodiesIds>/', OrganizationView.addGovernanceBodies, name='addGovernanceBodies'),
+	path('removeGovernanceBodies/<int:organizationId>/<GovernanceBodiesIds>/', OrganizationView.removeGovernanceBodies, name='removeGovernanceBodies'),
+	path('addPolicies/<int:organizationId>/<PoliciesIds>/', OrganizationView.addPolicies, name='addPolicies'),
+	path('removePolicies/<int:organizationId>/<PoliciesIds>/', OrganizationView.removePolicies, name='removePolicies'),
+	path('addRisks/<int:organizationId>/<RisksIds>/', OrganizationView.addRisks, name='addRisks'),
+	path('removeRisks/<int:organizationId>/<RisksIds>/', OrganizationView.removeRisks, name='removeRisks'),
+	path('addThirdParties/<int:organizationId>/<ThirdPartiesIds>/', OrganizationView.addThirdParties, name='addThirdParties'),
+	path('removeThirdParties/<int:organizationId>/<ThirdPartiesIds>/', OrganizationView.removeThirdParties, name='removeThirdParties'),
+	path('addRecordsRepositories/<int:organizationId>/<RecordsRepositoriesIds>/', OrganizationView.addRecordsRepositories, name='addRecordsRepositories'),
+	path('removeRecordsRepositories/<int:organizationId>/<RecordsRepositoriesIds>/', OrganizationView.removeRecordsRepositories, name='removeRecordsRepositories'),
+	path('addDataProcessingActivities/<int:organizationId>/<DataProcessingActivitiesIds>/', OrganizationView.addDataProcessingActivities, name='addDataProcessingActivities'),
+	path('removeDataProcessingActivities/<int:organizationId>/<DataProcessingActivitiesIds>/', OrganizationView.removeDataProcessingActivities, name='removeDataProcessingActivities'),
+	path('addCompliancePrograms/<int:organizationId>/<ComplianceProgramsIds>/', OrganizationView.addCompliancePrograms, name='addCompliancePrograms'),
+	path('removeCompliancePrograms/<int:organizationId>/<ComplianceProgramsIds>/', OrganizationView.removeCompliancePrograms, name='removeCompliancePrograms'),
+	path('addAuditPrograms/<int:organizationId>/<AuditProgramsIds>/', OrganizationView.addAuditPrograms, name='addAuditPrograms'),
+	path('removeAuditPrograms/<int:organizationId>/<AuditProgramsIds>/', OrganizationView.removeAuditPrograms, name='removeAuditPrograms'),
+	path('addBusinessUnits/<int:organizationId>/<BusinessUnitsIds>/', OrganizationView.addBusinessUnits, name='addBusinessUnits'),
+	path('removeBusinessUnits/<int:organizationId>/<BusinessUnitsIds>/', OrganizationView.removeBusinessUnits, name='removeBusinessUnits'),
+	path('addMatters/<int:organizationId>/<MattersIds>/', OrganizationView.addMatters, name='addMatters'),
+	path('removeMatters/<int:organizationId>/<MattersIds>/', OrganizationView.removeMatters, name='removeMatters'),
+	path('addDataBreaches/<int:organizationId>/<DataBreachesIds>/', OrganizationView.addDataBreaches, name='addDataBreaches'),
+	path('removeDataBreaches/<int:organizationId>/<DataBreachesIds>/', OrganizationView.removeDataBreaches, name='removeDataBreaches'),
+]

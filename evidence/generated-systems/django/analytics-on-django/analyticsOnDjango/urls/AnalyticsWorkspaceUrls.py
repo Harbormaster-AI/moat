@@ -1,0 +1,31 @@
+from django.urls import path
+from analyticsOnDjango.views import AnalyticsWorkspaceView
+
+urlpatterns = [
+    path('', AnalyticsWorkspaceView.index, name='index'),
+	path('create', AnalyticsWorkspaceView.get, name='create'),
+	path('get/<int:analyticsWorkspaceId>/', AnalyticsWorkspaceView.get, name='get'),
+	path('save', AnalyticsWorkspaceView.save, name='save'),
+	path('getAll', AnalyticsWorkspaceView.getAll, name='getAll'),
+	path('delete/<int:analyticsWorkspaceId>/', AnalyticsWorkspaceView.delete, name='delete'),
+	path('addDatasets/<int:analyticsWorkspaceId>/<DatasetsIds>/', AnalyticsWorkspaceView.addDatasets, name='addDatasets'),
+	path('removeDatasets/<int:analyticsWorkspaceId>/<DatasetsIds>/', AnalyticsWorkspaceView.removeDatasets, name='removeDatasets'),
+	path('addDataSources/<int:analyticsWorkspaceId>/<DataSourcesIds>/', AnalyticsWorkspaceView.addDataSources, name='addDataSources'),
+	path('removeDataSources/<int:analyticsWorkspaceId>/<DataSourcesIds>/', AnalyticsWorkspaceView.removeDataSources, name='removeDataSources'),
+	path('addPipelines/<int:analyticsWorkspaceId>/<PipelinesIds>/', AnalyticsWorkspaceView.addPipelines, name='addPipelines'),
+	path('removePipelines/<int:analyticsWorkspaceId>/<PipelinesIds>/', AnalyticsWorkspaceView.removePipelines, name='removePipelines'),
+	path('addDashboards/<int:analyticsWorkspaceId>/<DashboardsIds>/', AnalyticsWorkspaceView.addDashboards, name='addDashboards'),
+	path('removeDashboards/<int:analyticsWorkspaceId>/<DashboardsIds>/', AnalyticsWorkspaceView.removeDashboards, name='removeDashboards'),
+	path('addReports/<int:analyticsWorkspaceId>/<ReportsIds>/', AnalyticsWorkspaceView.addReports, name='addReports'),
+	path('removeReports/<int:analyticsWorkspaceId>/<ReportsIds>/', AnalyticsWorkspaceView.removeReports, name='removeReports'),
+	path('addNotebooks/<int:analyticsWorkspaceId>/<NotebooksIds>/', AnalyticsWorkspaceView.addNotebooks, name='addNotebooks'),
+	path('removeNotebooks/<int:analyticsWorkspaceId>/<NotebooksIds>/', AnalyticsWorkspaceView.removeNotebooks, name='removeNotebooks'),
+	path('addModels/<int:analyticsWorkspaceId>/<ModelsIds>/', AnalyticsWorkspaceView.addModels, name='addModels'),
+	path('removeModels/<int:analyticsWorkspaceId>/<ModelsIds>/', AnalyticsWorkspaceView.removeModels, name='removeModels'),
+	path('addFeatureSets/<int:analyticsWorkspaceId>/<FeatureSetsIds>/', AnalyticsWorkspaceView.addFeatureSets, name='addFeatureSets'),
+	path('removeFeatureSets/<int:analyticsWorkspaceId>/<FeatureSetsIds>/', AnalyticsWorkspaceView.removeFeatureSets, name='removeFeatureSets'),
+	path('addPolicies/<int:analyticsWorkspaceId>/<PoliciesIds>/', AnalyticsWorkspaceView.addPolicies, name='addPolicies'),
+	path('removePolicies/<int:analyticsWorkspaceId>/<PoliciesIds>/', AnalyticsWorkspaceView.removePolicies, name='removePolicies'),
+	path('addLineageNodes/<int:analyticsWorkspaceId>/<LineageNodesIds>/', AnalyticsWorkspaceView.addLineageNodes, name='addLineageNodes'),
+	path('removeLineageNodes/<int:analyticsWorkspaceId>/<LineageNodesIds>/', AnalyticsWorkspaceView.removeLineageNodes, name='removeLineageNodes'),
+]

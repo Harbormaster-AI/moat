@@ -1,0 +1,31 @@
+from django.urls import path
+from analyticsOnDjango.views import DataSetView
+
+urlpatterns = [
+    path('', DataSetView.index, name='index'),
+	path('create', DataSetView.get, name='create'),
+	path('get/<int:dataSetId>/', DataSetView.get, name='get'),
+	path('save', DataSetView.save, name='save'),
+	path('getAll', DataSetView.getAll, name='getAll'),
+	path('delete/<int:dataSetId>/', DataSetView.delete, name='delete'),
+	path('assignWorkspace/<int:dataSetId>/<int:WorkspaceId>/', DataSetView.assignWorkspace, name='assignWorkspace'),
+	path('unassignWorkspace/<int:dataSetId>/', DataSetView.unassignWorkspace, name='unassignWorkspace'),
+	path('assignLineageNode/<int:dataSetId>/<int:LineageNodeId>/', DataSetView.assignLineageNode, name='assignLineageNode'),
+	path('unassignLineageNode/<int:dataSetId>/', DataSetView.unassignLineageNode, name='unassignLineageNode'),
+	path('addSources/<int:dataSetId>/<SourcesIds>/', DataSetView.addSources, name='addSources'),
+	path('removeSources/<int:dataSetId>/<SourcesIds>/', DataSetView.removeSources, name='removeSources'),
+	path('addPipelines/<int:dataSetId>/<PipelinesIds>/', DataSetView.addPipelines, name='addPipelines'),
+	path('removePipelines/<int:dataSetId>/<PipelinesIds>/', DataSetView.removePipelines, name='removePipelines'),
+	path('addSemanticModels/<int:dataSetId>/<SemanticModelsIds>/', DataSetView.addSemanticModels, name='addSemanticModels'),
+	path('removeSemanticModels/<int:dataSetId>/<SemanticModelsIds>/', DataSetView.removeSemanticModels, name='removeSemanticModels'),
+	path('addDimensions/<int:dataSetId>/<DimensionsIds>/', DataSetView.addDimensions, name='addDimensions'),
+	path('removeDimensions/<int:dataSetId>/<DimensionsIds>/', DataSetView.removeDimensions, name='removeDimensions'),
+	path('addMeasures/<int:dataSetId>/<MeasuresIds>/', DataSetView.addMeasures, name='addMeasures'),
+	path('removeMeasures/<int:dataSetId>/<MeasuresIds>/', DataSetView.removeMeasures, name='removeMeasures'),
+	path('addMetrics/<int:dataSetId>/<MetricsIds>/', DataSetView.addMetrics, name='addMetrics'),
+	path('removeMetrics/<int:dataSetId>/<MetricsIds>/', DataSetView.removeMetrics, name='removeMetrics'),
+	path('addQualityRules/<int:dataSetId>/<QualityRulesIds>/', DataSetView.addQualityRules, name='addQualityRules'),
+	path('removeQualityRules/<int:dataSetId>/<QualityRulesIds>/', DataSetView.removeQualityRules, name='removeQualityRules'),
+	path('addTags/<int:dataSetId>/<TagsIds>/', DataSetView.addTags, name='addTags'),
+	path('removeTags/<int:dataSetId>/<TagsIds>/', DataSetView.removeTags, name='removeTags'),
+]

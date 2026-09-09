@@ -1,0 +1,31 @@
+from django.urls import path
+from crmOnDjango.views import CampaignView
+
+urlpatterns = [
+    path('', CampaignView.index, name='index'),
+	path('create', CampaignView.get, name='create'),
+	path('get/<int:campaignId>/', CampaignView.get, name='get'),
+	path('save', CampaignView.save, name='save'),
+	path('getAll', CampaignView.getAll, name='getAll'),
+	path('delete/<int:campaignId>/', CampaignView.delete, name='delete'),
+	path('assignOrganization/<int:campaignId>/<int:OrganizationId>/', CampaignView.assignOrganization, name='assignOrganization'),
+	path('unassignOrganization/<int:campaignId>/', CampaignView.unassignOrganization, name='unassignOrganization'),
+	path('assignParentCampaign/<int:campaignId>/<int:ParentCampaignId>/', CampaignView.assignParentCampaign, name='assignParentCampaign'),
+	path('unassignParentCampaign/<int:campaignId>/', CampaignView.unassignParentCampaign, name='unassignParentCampaign'),
+	path('addChildCampaigns/<int:campaignId>/<ChildCampaignsIds>/', CampaignView.addChildCampaigns, name='addChildCampaigns'),
+	path('removeChildCampaigns/<int:campaignId>/<ChildCampaignsIds>/', CampaignView.removeChildCampaigns, name='removeChildCampaigns'),
+	path('addMembers/<int:campaignId>/<MembersIds>/', CampaignView.addMembers, name='addMembers'),
+	path('removeMembers/<int:campaignId>/<MembersIds>/', CampaignView.removeMembers, name='removeMembers'),
+	path('addOpportunities/<int:campaignId>/<OpportunitiesIds>/', CampaignView.addOpportunities, name='addOpportunities'),
+	path('removeOpportunities/<int:campaignId>/<OpportunitiesIds>/', CampaignView.removeOpportunities, name='removeOpportunities'),
+	path('addAccounts/<int:campaignId>/<AccountsIds>/', CampaignView.addAccounts, name='addAccounts'),
+	path('removeAccounts/<int:campaignId>/<AccountsIds>/', CampaignView.removeAccounts, name='removeAccounts'),
+	path('addLeads/<int:campaignId>/<LeadsIds>/', CampaignView.addLeads, name='addLeads'),
+	path('removeLeads/<int:campaignId>/<LeadsIds>/', CampaignView.removeLeads, name='removeLeads'),
+	path('addContacts/<int:campaignId>/<ContactsIds>/', CampaignView.addContacts, name='addContacts'),
+	path('removeContacts/<int:campaignId>/<ContactsIds>/', CampaignView.removeContacts, name='removeContacts'),
+	path('addTeams/<int:campaignId>/<TeamsIds>/', CampaignView.addTeams, name='addTeams'),
+	path('removeTeams/<int:campaignId>/<TeamsIds>/', CampaignView.removeTeams, name='removeTeams'),
+	path('addActivities/<int:campaignId>/<ActivitiesIds>/', CampaignView.addActivities, name='addActivities'),
+	path('removeActivities/<int:campaignId>/<ActivitiesIds>/', CampaignView.removeActivities, name='removeActivities'),
+]

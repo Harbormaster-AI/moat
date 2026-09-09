@@ -1,0 +1,33 @@
+from django.urls import path
+from fintechOnDjango.views import CustomerView
+
+urlpatterns = [
+    path('', CustomerView.index, name='index'),
+	path('create', CustomerView.get, name='create'),
+	path('get/<int:customerId>/', CustomerView.get, name='get'),
+	path('save', CustomerView.save, name='save'),
+	path('getAll', CustomerView.getAll, name='getAll'),
+	path('delete/<int:customerId>/', CustomerView.delete, name='delete'),
+	path('assignInstitution/<int:customerId>/<int:InstitutionId>/', CustomerView.assignInstitution, name='assignInstitution'),
+	path('unassignInstitution/<int:customerId>/', CustomerView.unassignInstitution, name='unassignInstitution'),
+	path('addAccounts/<int:customerId>/<AccountsIds>/', CustomerView.addAccounts, name='addAccounts'),
+	path('removeAccounts/<int:customerId>/<AccountsIds>/', CustomerView.removeAccounts, name='removeAccounts'),
+	path('addWallets/<int:customerId>/<WalletsIds>/', CustomerView.addWallets, name='addWallets'),
+	path('removeWallets/<int:customerId>/<WalletsIds>/', CustomerView.removeWallets, name='removeWallets'),
+	path('addCards/<int:customerId>/<CardsIds>/', CustomerView.addCards, name='addCards'),
+	path('removeCards/<int:customerId>/<CardsIds>/', CustomerView.removeCards, name='removeCards'),
+	path('addKycProfiles/<int:customerId>/<KycProfilesIds>/', CustomerView.addKycProfiles, name='addKycProfiles'),
+	path('removeKycProfiles/<int:customerId>/<KycProfilesIds>/', CustomerView.removeKycProfiles, name='removeKycProfiles'),
+	path('addConsents/<int:customerId>/<ConsentsIds>/', CustomerView.addConsents, name='addConsents'),
+	path('removeConsents/<int:customerId>/<ConsentsIds>/', CustomerView.removeConsents, name='removeConsents'),
+	path('addAgreements/<int:customerId>/<AgreementsIds>/', CustomerView.addAgreements, name='addAgreements'),
+	path('removeAgreements/<int:customerId>/<AgreementsIds>/', CustomerView.removeAgreements, name='removeAgreements'),
+	path('addLoanApplications/<int:customerId>/<LoanApplicationsIds>/', CustomerView.addLoanApplications, name='addLoanApplications'),
+	path('removeLoanApplications/<int:customerId>/<LoanApplicationsIds>/', CustomerView.removeLoanApplications, name='removeLoanApplications'),
+	path('addLoans/<int:customerId>/<LoansIds>/', CustomerView.addLoans, name='addLoans'),
+	path('removeLoans/<int:customerId>/<LoansIds>/', CustomerView.removeLoans, name='removeLoans'),
+	path('addPortfolios/<int:customerId>/<PortfoliosIds>/', CustomerView.addPortfolios, name='addPortfolios'),
+	path('removePortfolios/<int:customerId>/<PortfoliosIds>/', CustomerView.removePortfolios, name='removePortfolios'),
+	path('addDisputes/<int:customerId>/<DisputesIds>/', CustomerView.addDisputes, name='addDisputes'),
+	path('removeDisputes/<int:customerId>/<DisputesIds>/', CustomerView.removeDisputes, name='removeDisputes'),
+]

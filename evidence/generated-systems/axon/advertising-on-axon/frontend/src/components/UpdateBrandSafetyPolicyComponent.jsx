@@ -1,0 +1,114 @@
+import React, { Component } from 'react'
+import BrandSafetyPolicyService from '../services/BrandSafetyPolicyService';
+
+class UpdateBrandSafetyPolicyComponent extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            id: this.props.match.params.id,
+                level: '',
+                contentRatingThreshold: ''
+        }
+        this.updateBrandSafetyPolicy = this.updateBrandSafetyPolicy.bind(this);
+
+        this.changeLevelHandler = this.changeLevelHandler.bind(this);
+        this.changeContentRatingThresholdHandler = this.changeContentRatingThresholdHandler.bind(this);
+    }
+
+    componentDidMount(){
+        BrandSafetyPolicyService.getBrandSafetyPolicyById(this.state.id).then( (res) =>{
+            let brandSafetyPolicy = res.data;
+            this.setState({
+                level: brandSafetyPolicy.level,
+                contentRatingThreshold: brandSafetyPolicy.contentRatingThreshold
+            });
+        });
+    }
+
+    updateBrandSafetyPolicy = (e) => {
+        e.preventDefault();
+        let brandSafetyPolicy = {
+            brandSafetyPolicyId: this.state.id,
+            level: this.state.level,
+            contentRatingThreshold: this.state.contentRatingThreshold
+        };
+        console.log('brandSafetyPolicy => ' + JSON.stringify(brandSafetyPolicy));
+        console.log('id => ' + JSON.stringify(this.state.id));
+        BrandSafetyPolicyService.updateBrandSafetyPolicy(brandSafetyPolicy).then( res => {
+            this.props.history.push('/brandSafetyPolicys');
+        });
+    }
+
+    changeLevelHandler= (event) => {
+        this.setState({level: event.target.value});
+    }
+    changeContentRatingThresholdHandler= (event) => {
+        this.setState({contentRatingThreshold: event.target.value});
+    }
+
+    cancel(){
+        this.props.history.push('/brandSafetyPolicys');
+    }
+
+    render() {
+        return (
+            <div>
+                <br></br>
+                   <div className = "container">
+                        <div className = "row">
+                            <div className = "card col-md-6 offset-md-3 offset-md-3">
+                                <h3 className="text-center">Update BrandSafetyPolicy</h3>
+                                <div className = "card-body">
+                                    <form>
+                                        <div className = "form-group">
+                                            <label> Level: </label>
+                                                <select value={this.state.level} onChange={this.changeLevelHandler}>
+                      <option name="Level" className="form-control" >
+                          None
+                      </option>
+                      <option name="Level" className="form-control" >
+                          Moderate
+                      </option>
+                      <option name="Level" className="form-control" >
+                          Strict
+                      </option>
+                    </select>
+
+                                            <label> ContentRatingThreshold: </label>
+                                                <select value={this.state.contentRatingThreshold} onChange={this.changeContentRatingThresholdHandler}>
+                      <option name="ContentRatingThreshold" className="form-control" >
+                          G
+                      </option>
+                      <option name="ContentRatingThreshold" className="form-control" >
+                          PG
+                      </option>
+                      <option name="ContentRatingThreshold" className="form-control" >
+                          PGThirteen
+                      </option>
+                      <option name="ContentRatingThreshold" className="form-control" >
+                          R
+                      </option>
+                      <option name="ContentRatingThreshold" className="form-control" >
+                          Mature
+                      </option>
+                      <option name="ContentRatingThreshold" className="form-control" >
+                          Unrated
+                      </option>
+                    </select>
+
+                                        </div>
+                                        <button className="btn btn-success" onClick={this.updateBrandSafetyPolicy}>Save</button>
+                                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                   </div>
+            </div>
+        )
+    }
+}
+
+export default UpdateBrandSafetyPolicyComponent

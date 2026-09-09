@@ -1,0 +1,33 @@
+from django.urls import path
+from insuranceOnDjango.views import PolicyView
+
+urlpatterns = [
+    path('', PolicyView.index, name='index'),
+	path('create', PolicyView.get, name='create'),
+	path('get/<int:policyId>/', PolicyView.get, name='get'),
+	path('save', PolicyView.save, name='save'),
+	path('getAll', PolicyView.getAll, name='getAll'),
+	path('delete/<int:policyId>/', PolicyView.delete, name='delete'),
+	path('assignInsurer/<int:policyId>/<int:InsurerId>/', PolicyView.assignInsurer, name='assignInsurer'),
+	path('unassignInsurer/<int:policyId>/', PolicyView.unassignInsurer, name='unassignInsurer'),
+	path('assignCustomer/<int:policyId>/<int:CustomerId>/', PolicyView.assignCustomer, name='assignCustomer'),
+	path('unassignCustomer/<int:policyId>/', PolicyView.unassignCustomer, name='unassignCustomer'),
+	path('assignProduct/<int:policyId>/<int:ProductId>/', PolicyView.assignProduct, name='assignProduct'),
+	path('unassignProduct/<int:policyId>/', PolicyView.unassignProduct, name='unassignProduct'),
+	path('assignAgent/<int:policyId>/<int:AgentId>/', PolicyView.assignAgent, name='assignAgent'),
+	path('unassignAgent/<int:policyId>/', PolicyView.unassignAgent, name='unassignAgent'),
+	path('assignBillingAccount/<int:policyId>/<int:BillingAccountId>/', PolicyView.assignBillingAccount, name='assignBillingAccount'),
+	path('unassignBillingAccount/<int:policyId>/', PolicyView.unassignBillingAccount, name='unassignBillingAccount'),
+	path('addCoverages/<int:policyId>/<CoveragesIds>/', PolicyView.addCoverages, name='addCoverages'),
+	path('removeCoverages/<int:policyId>/<CoveragesIds>/', PolicyView.removeCoverages, name='removeCoverages'),
+	path('addInsuredObjects/<int:policyId>/<InsuredObjectsIds>/', PolicyView.addInsuredObjects, name='addInsuredObjects'),
+	path('removeInsuredObjects/<int:policyId>/<InsuredObjectsIds>/', PolicyView.removeInsuredObjects, name='removeInsuredObjects'),
+	path('addEndorsements/<int:policyId>/<EndorsementsIds>/', PolicyView.addEndorsements, name='addEndorsements'),
+	path('removeEndorsements/<int:policyId>/<EndorsementsIds>/', PolicyView.removeEndorsements, name='removeEndorsements'),
+	path('addBeneficiaries/<int:policyId>/<BeneficiariesIds>/', PolicyView.addBeneficiaries, name='addBeneficiaries'),
+	path('removeBeneficiaries/<int:policyId>/<BeneficiariesIds>/', PolicyView.removeBeneficiaries, name='removeBeneficiaries'),
+	path('addClaims/<int:policyId>/<ClaimsIds>/', PolicyView.addClaims, name='addClaims'),
+	path('removeClaims/<int:policyId>/<ClaimsIds>/', PolicyView.removeClaims, name='removeClaims'),
+	path('addReinsuranceAgreements/<int:policyId>/<ReinsuranceAgreementsIds>/', PolicyView.addReinsuranceAgreements, name='addReinsuranceAgreements'),
+	path('removeReinsuranceAgreements/<int:policyId>/<ReinsuranceAgreementsIds>/', PolicyView.removeReinsuranceAgreements, name='removeReinsuranceAgreements'),
+]

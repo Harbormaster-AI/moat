@@ -89,6 +89,43 @@ Deployment - Kubernetes on AWS using Terraform
 | iot           | 2026-09-07T17:10:12 | `de65215864c5a1efa564ef3a7c7dea56e33196d3` | GEN-73222576  | `a1ad4173-49e1-4d5f-b057-a6249e239ff4` | Harbormaster-AI/iot-on-angular           |         650 |     43,608 |
 | manufacturing | 2026-09-07T17:16:55 | `0f117d076c1e3f9dbcf23a11b79877cf94efec78` | GEN-39193861  | `5f27c1f6-7cad-4994-b7e5-8843553d84f5` | Harbormaster-AI/manufacturing-on-angular |         698 |     46,490 |
 
+### Django
+| Domain Model  | Datetime            | Commit SHA                                 | Generation ID | Certification ID                       | Git Repo                                | Total Files | Total LOCs |
+| ------------- | ------------------- | ------------------------------------------ | ------------- | -------------------------------------- | --------------------------------------- | ----------: | ---------: |
+| advertising   | 2026-09-08T19:39:58 | `761f607fe906905f07a33721fe6d213dfd3cc676` | GEN-35953547  | `54cb2d0c-2d61-406c-b2e1-825a35f16144` | Harbormaster-AI/advertising-on-django   |         262 |     17,976 |
+| aerospace     | 2026-09-08T20:04:08 | `cddf0f96a7176fc6002874ad1ad3c8a392587d21` | GEN-96260352  | `529676bc-89ec-4bd8-843c-ec9b9264e2f5` | Harbormaster-AI/aerospace-on-django     |         273 |     18,095 |
+| analytics     | 2026-09-08T20:16:42 | `7fedbee18a418c7a4d9b3247a8fe28d85c0f7250` | GEN-89171801  | `8bb29104-9f39-46fb-a188-897fc2877153` | Harbormaster-AI/analytics-on-django     |         281 |     24,561 |
+| crm           | 2026-09-08T20:30:21 | `372a1919be10a8c7a38b6037d461b01ffc694166` | GEN-52390340  | `54282cc5-03a5-42fa-a835-1f5607d037c8` | Harbormaster-AI/crm-on-django           |         201 |     19,379 |
+| ecommerce     | 2026-09-08T20:31:35 | `ad82862ddd7fa4ba7ccbf084626cee3186d71c3c` | GEN-17341101  | `3ba147e7-3c58-40c8-89c6-8014c4d01311` | Harbormaster-AI/ecommerce-on-django     |         282 |     21,453 |
+| fintech       | 2026-09-09T15:55:13 | `fc814a1a88747eb26b655f5483fbb57e9961349f` | GEN-09021686  | `b5801b70-3ca9-43ad-856b-752edbdaca88` | Harbormaster-AI/fintech-on-django       |         370 |     24,310 |
+| governance    | 2026-09-09T15:56:43 | `207a6635355332e581ea3fa1a1067f5cb416f029` | GEN-24214354  | `aab2187f-4b0f-4ee1-af4f-414cd3ffb9f7` | Harbormaster-AI/governance-on-django    |         307 |     24,217 |
+| healthcare    | 2026-09-09T16:02:24 | `61c363e7129ea25d2845992309f7d600909c206e` | GEN-21958298  | `a5474f43-4511-4413-bf6f-6f307b1a5a45` | Harbormaster-AI/healthcare-on-django    |         285 |     20,823 |
+| hr            | 2026-09-09T16:05:14 | `12f34e85c2bd06e3ba18a9c463f3a5aca000f1ff` | GEN-23530577  | `727d7ec6-59b7-4211-9933-87eac1f60d66` | Harbormaster-AI/hr-on-django            |         359 |     25,804 |
+| insurance     | 2026-09-09T16:09:11 | `1302590fbe85e09f7cc42be4ff1a8f80176ec60e` | GEN-31180771  | `0f20a1f8-57b4-43c8-8c0c-eb42d9b59f2e` | Harbormaster-AI/insurance-on-django     |         226 |     15,694 |
+| inventory     | 2026-09-09T16:14:51 | `18ddbb153d81a89df561e431c8eb603b3d854abc` | GEN-75665019  | `fb3388c5-4147-41e3-a343-ae595afdb5f8` | Harbormaster-AI/inventory-on-django     |         187 |     14,524 |
+| iot           | 2026-09-09T16:17:11 | `4347a76bf0cd9d17de13ea831717e00b236f1d95` | GEN-58277957  | `efff8870-9e9e-4093-a77c-7608a1ca53f3` | Harbormaster-AI/iot-on-django           |         264 |     19,237 |
+| manufacturing | 2026-09-08T20:43:14 | `172f2af748cfe9cfc1598a03d832f017f9aa9194` | GEN-44740153  | `047f37a5-a202-4924-a91b-4e127c5f2ba6` | Harbormaster-AI/manufacturing-on-django |         298 |     20,091 |
+
+
+### Axon Framework/Server 4
+
+| Domain Model  | Datetime            | Commit SHA                                 | Generation ID | Certification ID                       | Git Repo                              | Total Files | Total LOCs |
+| ------------- | ------------------- | ------------------------------------------ | ------------- | -------------------------------------- | ------------------------------------- | ----------: | ---------: |
+| advertising   | 2026-09-09T14:57:26 | `9fdd1b162312ed3354b7fec91d4d7f948d73d97e` | GEN-73928823  | `c40226d5-cc2b-4355-be9f-65ebd7740a8b` | Harbormaster-AI/advertising-on-axon   |         949 |    218,680 |
+| aerospace     | 2026-09-09T15:02:07 | `0305e5f17c18debb5414780dc875eb4c67be1686` | GEN-81255076  | `c9e8f5a3-5915-4c8b-8ef9-b5942d5a783c` | Harbormaster-AI/aerospace-on-axon     |       1,041 |    230,170 |
+| analytics     | 2026-09-09T15:04:00 | `ea1347cd17f85bc37ce221003680bb7037623439` | GEN-75867196  | `2eeb4cee-97e9-40d0-a689-05b3e0ec2234` | Harbormaster-AI/analytics-on-axon     |       1,018 |    256,873 |
+| banking       | 2026-09-09T15:05:55 | `6b0e9a79d45fcb1beac1d24751357f243141512e` | GEN-49660697  | `9119ee9c-9b9a-4f68-8497-93661d3b6826` | Harbormaster-AI/banking-on-axon       |         719 |    176,092 |
+| crm           | 2026-09-09T15:12:37 | `d084702366510ded8d4bc7e1e29a13e4fb699954` | GEN-71432301  | `4d449e44-86be-4603-b7e7-000551f341c8` | Harbormaster-AI/crm-on-axon           |         673 |    191,794 |
+| ecommerce     | 2026-09-09T15:14:23 | `34c44d2bca52dad03f499b2888fe06fdd5468555` | GEN-94802115  | `21c3cf72-a5bd-4ca3-9045-999f5388e547` | Harbormaster-AI/ecommerce-on-axon     |       1,041 |    249,413 |
+| fintech       | 2026-09-09T15:16:12 | `7ea7f1faf579f67e0bcc9c95f1ab199026a451d3` | GEN-69294877  | `ceef30d7-3406-40f8-ab65-e08c38668c4f` | Harbormaster-AI/fintech-on-axon       |       1,294 |    297,185 |
+| governance    | 2026-09-09T15:17:54 | `4b932347c643c866407cb3c85bd3ac6ec532b750` | GEN-37848952  | `e627f71d-1c67-4b49-b484-900d32890fce` | Harbormaster-AI/governance-on-axon    |       1,064 |    262,158 |
+| healthcare    | 2026-09-09T15:19:52 | `b1717d96ad7293e002c229f35acc10362f572995` | GEN-05654901  | `7f795079-565b-4643-8727-6e16be2d60dd` | Harbormaster-AI/healthcare-on-axon    |       1,018 |    241,524 |
+| hr            | 2026-09-09T15:21:42 | `5630684c56efbedbf20ade37b747dccc4eaba948` | GEN-85831018  | `2aa7109b-6184-4b51-8aa4-7e0f6a26aca6` | Harbormaster-AI/hr-on-axon            |       1,317 |    306,635 |
+| insurance     | 2026-09-09T15:25:06 | `17198ee7622bb9a0023704f54512a8f2aad80e1c` | GEN-56631240  | `f6dbf7e6-438b-4e81-aa62-a6154334b36a` | Harbormaster-AI/insurance-on-axon     |         788 |    187,066 |
+| inventory     | 2026-09-09T15:27:04 | `660ea7f68312b684ca27276d2720f33b8c851510` | GEN-42839328  | `4fd6040d-4800-4fbf-aa56-ac2022dbf124` | Harbormaster-AI/inventory-on-axon     |         650 |    164,946 |
+| iot           | 2026-09-09T15:28:54 | `0302adbefd78d5d4c16af58c1acfb83bdbd3dc10` | GEN-63673989  | `00aaf39d-4bd5-4a54-9066-bf60d0c7eb40` | Harbormaster-AI/iot-on-axon           |         995 |    231,411 |
+| manufacturing | 2026-09-09T15:30:53 | `ad3234cce0771455e1c2d78f9cc8d51cd287b20c` | GEN-30716174  | `6a5f407e-7731-4ee2-9be9-892d3729f369` | Harbormaster-AI/manufacturing-on-axon |       1,064 |    245,919 |
+
 
 ## Why It Matters
 

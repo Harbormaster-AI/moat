@@ -1,0 +1,14 @@
+gitRepo:
+  gitProvider: 
+  path: /manufacturing-on-axon
+  TestDBUrl: 
+  TestDBName: manufacturingOnAxon_test_db
+  TestDBPassword: 
+  TestDBDialect: org.hibernate.dialect.MySQL8Dialect 
+  TestDBDriver: com.mysql.cj.jdbc.Driver
+  DockerUserName: tylertravismya
+  DockerPassword: 69Cutlass
+  DockerOrgName: theharbormaster
+  DockerRepo: manufacturing-on-axon
+  DockerHost: docker.io
+  DockerTag: latest

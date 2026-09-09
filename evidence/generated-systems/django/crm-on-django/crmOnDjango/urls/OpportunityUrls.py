@@ -1,0 +1,33 @@
+from django.urls import path
+from crmOnDjango.views import OpportunityView
+
+urlpatterns = [
+    path('', OpportunityView.index, name='index'),
+	path('create', OpportunityView.get, name='create'),
+	path('get/<int:opportunityId>/', OpportunityView.get, name='get'),
+	path('save', OpportunityView.save, name='save'),
+	path('getAll', OpportunityView.getAll, name='getAll'),
+	path('delete/<int:opportunityId>/', OpportunityView.delete, name='delete'),
+	path('assignOrganization/<int:opportunityId>/<int:OrganizationId>/', OpportunityView.assignOrganization, name='assignOrganization'),
+	path('unassignOrganization/<int:opportunityId>/', OpportunityView.unassignOrganization, name='unassignOrganization'),
+	path('assignAccount/<int:opportunityId>/<int:AccountId>/', OpportunityView.assignAccount, name='assignAccount'),
+	path('unassignAccount/<int:opportunityId>/', OpportunityView.unassignAccount, name='unassignAccount'),
+	path('assignOwner/<int:opportunityId>/<int:OwnerId>/', OpportunityView.assignOwner, name='assignOwner'),
+	path('unassignOwner/<int:opportunityId>/', OpportunityView.unassignOwner, name='unassignOwner'),
+	path('addContacts/<int:opportunityId>/<ContactsIds>/', OpportunityView.addContacts, name='addContacts'),
+	path('removeContacts/<int:opportunityId>/<ContactsIds>/', OpportunityView.removeContacts, name='removeContacts'),
+	path('addLineItems/<int:opportunityId>/<LineItemsIds>/', OpportunityView.addLineItems, name='addLineItems'),
+	path('removeLineItems/<int:opportunityId>/<LineItemsIds>/', OpportunityView.removeLineItems, name='removeLineItems'),
+	path('addStageHistory/<int:opportunityId>/<StageHistoryIds>/', OpportunityView.addStageHistory, name='addStageHistory'),
+	path('removeStageHistory/<int:opportunityId>/<StageHistoryIds>/', OpportunityView.removeStageHistory, name='removeStageHistory'),
+	path('addQuotes/<int:opportunityId>/<QuotesIds>/', OpportunityView.addQuotes, name='addQuotes'),
+	path('removeQuotes/<int:opportunityId>/<QuotesIds>/', OpportunityView.removeQuotes, name='removeQuotes'),
+	path('addOrders/<int:opportunityId>/<OrdersIds>/', OpportunityView.addOrders, name='addOrders'),
+	path('removeOrders/<int:opportunityId>/<OrdersIds>/', OpportunityView.removeOrders, name='removeOrders'),
+	path('addCampaigns/<int:opportunityId>/<CampaignsIds>/', OpportunityView.addCampaigns, name='addCampaigns'),
+	path('removeCampaigns/<int:opportunityId>/<CampaignsIds>/', OpportunityView.removeCampaigns, name='removeCampaigns'),
+	path('addActivities/<int:opportunityId>/<ActivitiesIds>/', OpportunityView.addActivities, name='addActivities'),
+	path('removeActivities/<int:opportunityId>/<ActivitiesIds>/', OpportunityView.removeActivities, name='removeActivities'),
+	path('addTeams/<int:opportunityId>/<TeamsIds>/', OpportunityView.addTeams, name='addTeams'),
+	path('removeTeams/<int:opportunityId>/<TeamsIds>/', OpportunityView.removeTeams, name='removeTeams'),
+]

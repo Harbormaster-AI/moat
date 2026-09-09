@@ -1,0 +1,14 @@
+gitRepo:
+  gitProvider: 
+  path: /advertising-on-axon
+  TestDBUrl: 
+  TestDBName: advertisingOnAxon_test_db
+  TestDBPassword: 
+  TestDBDialect: org.hibernate.dialect.MySQL8Dialect 
+  TestDBDriver: com.mysql.cj.jdbc.Driver
+  DockerUserName: tylertravismya
+  DockerPassword: 69Cutlass
+  DockerOrgName: theharbormaster
+  DockerRepo: advertising-on-axon
+  DockerHost: docker.io
+  DockerTag: latest

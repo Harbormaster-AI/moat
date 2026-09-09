@@ -1,0 +1,31 @@
+from django.urls import path
+from healthcareOnDjango.views import EncounterView
+
+urlpatterns = [
+    path('', EncounterView.index, name='index'),
+	path('create', EncounterView.get, name='create'),
+	path('get/<int:encounterId>/', EncounterView.get, name='get'),
+	path('save', EncounterView.save, name='save'),
+	path('getAll', EncounterView.getAll, name='getAll'),
+	path('delete/<int:encounterId>/', EncounterView.delete, name='delete'),
+	path('assignPatient/<int:encounterId>/<int:PatientId>/', EncounterView.assignPatient, name='assignPatient'),
+	path('unassignPatient/<int:encounterId>/', EncounterView.unassignPatient, name='unassignPatient'),
+	path('assignClinician/<int:encounterId>/<int:ClinicianId>/', EncounterView.assignClinician, name='assignClinician'),
+	path('unassignClinician/<int:encounterId>/', EncounterView.unassignClinician, name='unassignClinician'),
+	path('assignFacility/<int:encounterId>/<int:FacilityId>/', EncounterView.assignFacility, name='assignFacility'),
+	path('unassignFacility/<int:encounterId>/', EncounterView.unassignFacility, name='unassignFacility'),
+	path('assignAppointment/<int:encounterId>/<int:AppointmentId>/', EncounterView.assignAppointment, name='assignAppointment'),
+	path('unassignAppointment/<int:encounterId>/', EncounterView.unassignAppointment, name='unassignAppointment'),
+	path('assignAdmission/<int:encounterId>/<int:AdmissionId>/', EncounterView.assignAdmission, name='assignAdmission'),
+	path('unassignAdmission/<int:encounterId>/', EncounterView.unassignAdmission, name='unassignAdmission'),
+	path('assignDischarge/<int:encounterId>/<int:DischargeId>/', EncounterView.assignDischarge, name='assignDischarge'),
+	path('unassignDischarge/<int:encounterId>/', EncounterView.unassignDischarge, name='unassignDischarge'),
+	path('addDiagnoses/<int:encounterId>/<DiagnosesIds>/', EncounterView.addDiagnoses, name='addDiagnoses'),
+	path('removeDiagnoses/<int:encounterId>/<DiagnosesIds>/', EncounterView.removeDiagnoses, name='removeDiagnoses'),
+	path('addProcedures/<int:encounterId>/<ProceduresIds>/', EncounterView.addProcedures, name='addProcedures'),
+	path('removeProcedures/<int:encounterId>/<ProceduresIds>/', EncounterView.removeProcedures, name='removeProcedures'),
+	path('addObservations/<int:encounterId>/<ObservationsIds>/', EncounterView.addObservations, name='addObservations'),
+	path('removeObservations/<int:encounterId>/<ObservationsIds>/', EncounterView.removeObservations, name='removeObservations'),
+	path('addOrders/<int:encounterId>/<OrdersIds>/', EncounterView.addOrders, name='addOrders'),
+	path('removeOrders/<int:encounterId>/<OrdersIds>/', EncounterView.removeOrders, name='removeOrders'),
+]
