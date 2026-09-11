@@ -22,6 +22,23 @@ Harbormaster was preconceived based on a simple assumptions:
 
 ---
 
+# Quick Links
+
+
+### Evidence
+[Taxonomy](./evidence/taxonomy/README.md)
+[History](./evidence/history/README.md)
+[Measurements](./evidence/measurements/README.md)
+[Generated Systems](./evidence/generated-systems/README.md)
+
+### Targets
+
+[Enterprise](./enterprise/README.md)
+[Public Cloud Provider](./cloud-provider/README.md)
+[GSI](./gsi/README.md)
+[GSI with Cloud](./hybrid/README.md)
+[Managed Service Provider](./msp/README.md)
+
 # Audience
 
 This content is meant to inform and be shared with senior leadership.  If the platform is as transformational as the thesis and hypotheses will try to reveal, it should effortlessly align with a CIO's goals.
