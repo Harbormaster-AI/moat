@@ -1,12 +1,62 @@
 # Measurement Framework
 
+Of all the points of consideration when comparing this platform type to others in the space, a measurement framework is among the greatest differentiators.
+
 A system creation platform has a measurement framework that establishes a hierarchy of evidence for understanding the transformation from human knowledge and assumptions into production-ready systems and, ultimately, operational and economic outcomes.
 
-The objective is not simply to measure how much code is generated. It is to measure how much software-production knowledge has been captured, how much production effort it replaces, how much of a system it can produce, how reliably it produces it, how often that knowledge is reused, and what operational and economic outcomes result.
+The objective is not simply to measure how much code is generated. It is to  
+- measure how much software-production knowledge has been captured  
+- how much production effort it replaces 
+- how much of a system it can produce 
+- how reliably it produces it 
+- how often that knowledge is reused
+- what operational and economic outcomes result
 
-## Measurement Categories
+Ultimately these measures and results must observable to effectively gauge the overall operation value of  
+- the knowledge being captured
+- the system being compiled
+- the system creation platform itself
 
-<!-- ![](./assets/measurement.categories.png) -->
+Unlike any other system available today, this category makes technical knowledge measurable and visible, offering a 
+superior means of communicating of intent and their outcome.  It allows ua to move beyond lines of code generated to understanding
+value across the spectrum of software delivery.
+
+---
+
+# The Measurement Stack
+
+The categories form a hierarchy of evidence:
+
+![](./assets/measurement.stack.png)
+
+Each level provides evidence for the level above it.
+
+Production volume establishes output.
+
+Production effort establishes the resources required to create that output.
+
+Generated asset coverage establishes how much of the system is produced automatically.
+
+Knowledge coverage and assumptions captured establish how much production knowledge has become explicit and reusable.
+
+Reuse establishes whether that knowledge compounds across systems.
+
+Quality and validation establish whether generated systems are credible.
+
+Delivery performance establishes project-level productivity.
+
+Operational impact establishes what happens after systems are produced and deployed.
+
+Economic value establishes the resulting business impact.
+
+Production intelligence represents the long-term accumulation and increasing usefulness of the entire knowledge base.
+
+---
+
+
+![](./assets/measurement.categories.png)
+
+---
 
 | Category | What It Measures | Importance |
 |---|---|---|
@@ -32,9 +82,19 @@ Production volume measures the tangible software and technology artifacts produc
 
 The following table represents the production values for the [system generation sessions](../generated-systems/README.md) created for this thesis exercise. 
 
-Generation Constants:
+### Generation Constants
 Source - Harbormaster CLI v1.2.0
 Deployment - Kubernetes on AWS using Terraform
+
+### Generation Summary
+```text
+Total Time -            < 4 Hours  
+Systems Generated -     94   
+Systems Validated -     94  
+Systems Containerized - 94  
+Total Files -           39,761  
+Total LOC -             6,188,132
+```
 
 ### Blueprint : Spring Boot 3.5
 | Domain Model  | Datetime            | Commit SHA                                 | Generation ID | Certification ID                       | Git Repo                                    | Total Files | Total LOCs |
@@ -89,7 +149,7 @@ Deployment - Kubernetes on AWS using Terraform
 | iot           | 2026-09-07T17:10:12 | `de65215864c5a1efa564ef3a7c7dea56e33196d3` | GEN-73222576  | `a1ad4173-49e1-4d5f-b057-a6249e239ff4` | Harbormaster-AI/iot-on-angular           |         650 |     43,608 |
 | manufacturing | 2026-09-07T17:16:55 | `0f117d076c1e3f9dbcf23a11b79877cf94efec78` | GEN-39193861  | `5f27c1f6-7cad-4994-b7e5-8843553d84f5` | Harbormaster-AI/manufacturing-on-angular |         698 |     46,490 |
 
-### Django
+### Blueprint : Django
 | Domain Model  | Datetime            | Commit SHA                                 | Generation ID | Certification ID                       | Git Repo                                | Total Files | Total LOCs |
 | ------------- | ------------------- | ------------------------------------------ | ------------- | -------------------------------------- | --------------------------------------- | ----------: | ---------: |
 | advertising   | 2026-09-08T19:39:58 | `761f607fe906905f07a33721fe6d213dfd3cc676` | GEN-35953547  | `54cb2d0c-2d61-406c-b2e1-825a35f16144` | Harbormaster-AI/advertising-on-django   |         262 |     17,976 |
@@ -107,7 +167,7 @@ Deployment - Kubernetes on AWS using Terraform
 | manufacturing | 2026-09-08T20:43:14 | `172f2af748cfe9cfc1598a03d832f017f9aa9194` | GEN-44740153  | `047f37a5-a202-4924-a91b-4e127c5f2ba6` | Harbormaster-AI/manufacturing-on-django |         298 |     20,091 |
 
 
-### Axon Framework/Server 4
+### Blueprint : Axon Framework/Server 4
 
 | Domain Model  | Datetime            | Commit SHA                                 | Generation ID | Certification ID                       | Git Repo                              | Total Files | Total LOCs |
 | ------------- | ------------------- | ------------------------------------------ | ------------- | -------------------------------------- | ------------------------------------- | ----------: | ---------: |
@@ -126,6 +186,63 @@ Deployment - Kubernetes on AWS using Terraform
 | iot           | 2026-09-09T15:28:54 | `0302adbefd78d5d4c16af58c1acfb83bdbd3dc10` | GEN-63673989  | `00aaf39d-4bd5-4a54-9066-bf60d0c7eb40` | Harbormaster-AI/iot-on-axon           |         995 |    231,411 |
 | manufacturing | 2026-09-09T15:30:53 | `ad3234cce0771455e1c2d78f9cc8d51cd287b20c` | GEN-30716174  | `6a5f407e-7731-4ee2-9be9-892d3729f369` | Harbormaster-AI/manufacturing-on-axon |       1,064 |    245,919 |
 
+### Blueprint : Ruby on Rails
+
+| Domain Model  | Datetime            | Commit SHA                                 | Generation ID | Certification ID                       | Git Repo                               | Total Files | Total LOCs |
+| ------------- | ------------------- | ------------------------------------------ | ------------- | -------------------------------------- | -------------------------------------- | ----------: | ---------: |
+| advertising   | 2026-09-12T09:23:28 | `060bce048ad9d5a535abc89d44cdd55238910590` | GEN-43962785  | `04aaa4d0-cce7-4258-8aa7-be2ad60554d3` | Harbormaster-AI/advertising-on-rails   |         461 |     10,684 |
+| aerospace     | 2026-09-12T09:24:20 | `a9335f20b4139ae55901b8bb674be9b76700b8ce` | GEN-14610808  | `7f9f3b17-b107-42b4-a82b-ef1fcca3b14a` | Harbormaster-AI/aerospace-on-rails     |         505 |     10,875 |
+| analytics     | 2026-09-12T09:25:12 | `459e0584a89b57025f74b28d1e8e680770bb3849` | GEN-07055026  | `44d4efa1-2894-4742-bfb6-46c8f9288f43` | Harbormaster-AI/analytics-on-rails     |         494 |     11,416 |
+| banking       | 2026-09-12T09:25:57 | `b0699cf55a844bb4164f2b9dd7b0f206eff8d79d` | GEN-48347520  | `9a51fdb0-3b00-4a8a-a788-e9807a1d6056` | Harbormaster-AI/banking-on-rails       |         351 |      9,058 |
+| crm           | 2026-09-12T09:26:41 | `20585a7c6bce66551d5d3e703f32b11c7a927cde` | GEN-75201261  | `b22cc429-2682-4e3d-916b-17f5099fc954` | Harbormaster-AI/crm-on-rails           |         329 |      8,954 |
+| ecommerce     | 2026-09-12T09:27:34 | `84f789698f016ea2909c0b7bcfd78047fae12276` | GEN-36972941  | `51814746-8d3d-424d-a635-3773f961bc50` | Harbormaster-AI/ecommerce-on-rails     |         505 |     12,211 |
+| fintech       | 2026-09-12T09:28:31 | `5ece585f6e9067d9c2e8ba3a492db1d22a28400e` | GEN-67628427  | `24dc8e53-9004-4327-9789-8b17218f8054` | Harbormaster-AI/fintech-on-rails       |         626 |     15,326 |
+| governance    | 2026-09-12T09:29:25 | `16caf1e6999c4a480afc07dd1d301a82d4334629` | GEN-98904934  | `938953a8-a433-4dd7-9bf8-777361733d7b` | Harbormaster-AI/governance-on-rails    |         516 |     12,326 |
+| healthcare    | 2026-09-12T09:30:19 | `478ca6a4a0396785462e0eb52f996e930a528053` | GEN-18957880  | `1ad90a43-4706-4e5e-a9ba-389fedd82385` | Harbormaster-AI/healthcare-on-rails    |         494 |     11,371 |
+| hr            | 2026-09-12T09:31:15 | `c43c28491388cada89d48ef18395c722b8d709cd` | GEN-15649007  | `91308d1d-4af0-40e7-8240-5aaa8e97ddc6` | Harbormaster-AI/hr-on-rails            |         637 |     14,655 |
+| insurance     | 2026-09-12T09:32:09 | `d3c7766caad080f294242de2942d7b4e214226b5` | GEN-38564665  | `15a67c0c-2a99-4b80-b4a6-0678dabbdff3` | Harbormaster-AI/insurance-on-rails     |         384 |      9,318 |
+| inventory     | 2026-09-12T09:33:00 | `0e2bc81f9ebf97508ae969ba20dca6768ca2e345` | GEN-32273450  | `36be72a6-612c-4805-af89-c5b893d595a7` | Harbormaster-AI/inventory-on-rails     |         318 |      8,062 |
+| iot           | 2026-09-12T09:33:54 | `0626be9dfb6bdec0a33e255a84d8c337c8f65a30` | GEN-96288312  | `d58a33e5-5adb-48dd-8db0-d3673d7fddd6` | Harbormaster-AI/iot-on-rails           |         483 |     11,033 |
+| manufacturing | 2026-09-12T09:34:41 | `56a9eb6e6ec23f228b7f3af75182b69550c8dd3c` | GEN-00651684  | `d8065da9-4a91-4fe8-9a45-4e64527841ff` | Harbormaster-AI/manufacturing-on-rails |         516 |     12,306 |
+
+### Blueprint : Apollo
+| Domain Model  | Files |   LOCs | Generation ID | Certification ID                     | Repository                              |
+| ------------- | ----: | -----: | ------------- | ------------------------------------ | --------------------------------------- |
+| advertising   |    45 | 16,342 | GEN-13544789  | ecb2a41d-6cec-4539-ab83-cb7339ed7a48 | Harbormaster-AI/advertising-on-apollo   |
+| aerospace     |    45 | 16,201 | GEN-95421036  | 99ef90e8-6746-40e2-a876-4d97d3142ddd | Harbormaster-AI/aerospace-on-apollo     |
+| analytics     |    45 | 21,054 | GEN-04965157  | 913df446-398b-4484-ad50-b2e4ffa1b439 | Harbormaster-AI/analytics-on-apollo     |
+| banking       |    45 | 14,551 | GEN-75456619  | 5dfb1334-44ba-494d-a14a-98873a5f1e22 | Harbormaster-AI/banking-on-apollo       |
+| crm           |    45 | 18,247 | GEN-02264190  | 123359a8-5820-4d78-b486-832efdafce68 | Harbormaster-AI/crm-on-apollo           |
+| ecommerce     |    45 | 19,299 | GEN-56544182  | 19cb58a2-15b5-4a98-998e-72ab590849ca | Harbormaster-AI/ecommerce-on-apollo     |
+| fintech       |    45 | 21,569 | GEN-61720317  | 704e42fe-6ce8-4853-8033-916bd4521226 | Harbormaster-AI/fintech-on-apollo       |
+| governance    |    45 | 20,997 | GEN-79449699  | f22cb871-1c8a-4e56-89d9-37a4adf2e683 | Harbormaster-AI/governance-on-apollo    |
+| healthcare    |    45 | 18,821 | GEN-09411543  | 88835926-e28f-405e-901f-12985f37962f | Harbormaster-AI/healthcare-on-apollo    |
+| hr            |    45 | 22,862 | GEN-33408499  | a4da3dd0-7d75-4ce3-bdb7-5011b4c4c6c5 | Harbormaster-AI/hr-on-apollo            |
+| insurance     |    45 | 14,750 | GEN-73783288  | 526532c5-dcf0-474a-abf2-635ae382bc6c | Harbormaster-AI/insurance-on-apollo     |
+| inventory     |    45 | 14,266 | GEN-98955510  | 1424b7f5-9174-4a4c-b177-77608e64f2da | Harbormaster-AI/inventory-on-apollo     |
+| iot           |    45 | 17,383 | GEN-48866956  | 35a8993f-c571-4cba-a22e-e5cc6cf8af91 | Harbormaster-AI/iot-on-apollo           |
+| manufacturing |    45 | 18,397 | GEN-11261412  | b29cf66d-cca9-4a81-ba5f-16d16b3a248c | Harbormaster-AI/manufacturing-on-apollo |
+
+## Production Totals
+
+| Domain Model  | Total Files |    Total LOCs | Total Generation Systems |
+| ------------- | ----------: | ------------: | -----------------------: |
+| advertising   |       2,850 |       420,209 |                        7 |
+| aerospace     |       3,101 |       437,878 |                        7 |
+| analytics     |       3,049 |       506,340 |                        7 |
+| banking       |       1,867 |       299,012 |                        5 |
+| crm           |       2,069 |       386,112 |                        7 |
+| ecommerce     |       2,265 |       393,308 |                        5 |
+| fintech       |       3,858 |       570,481 |                        7 |
+| governance    |       3,195 |       513,574 |                        7 |
+| healthcare    |       3,053 |       467,569 |                        7 |
+| hr            |       3,907 |       590,663 |                        7 |
+| insurance     |       2,394 |       362,046 |                        7 |
+| inventory     |       1,995 |       323,042 |                        7 |
+| iot           |       2,972 |       445,309 |                        7 |
+| manufacturing |       3,186 |       472,589 |                        7 |
+| **TOTAL**     |  **39,761** | **6,188,132** |                   **94** |
+
 
 ## Why It Matters
 
@@ -133,7 +250,7 @@ Lines of code and total number of files are not the ultimate measure of value, b
 
 Production volume establishes:
 
-> **How much software and technology did Harbormaster actually produce?**
+> **How much software and technology does a system creation platform actually produce?**
 
 When combined with production effort, volume becomes a basis for measuring production leverage.
 
@@ -145,7 +262,7 @@ When combined with production effort, volume becomes a basis for measuring produ
 
 Production effort measures the human resources required to produce a system.
 
-Possible measurements include:
+Measurements include:
 
 - Developer hours
 - Architect hours
@@ -164,19 +281,51 @@ Production volume alone does not demonstrate productivity.
 
 The meaningful measurement is the relationship between output and effort.
 
-For example:
+Using the [system generation outcomes](../generated-systems/README.md) offered for this thesis:
 
-```text
-Harbormaster:
-47,000 lines / 32 human hours
+| Metric                             | Conventional Project Assumption |
+| ---------------------------------- | ------------------------------: |
+| Project duration                   |                        6 months |
+| Delivery team                      |                    6 developers |
+| Developer effort                   |              1,040 hours/person |
+| Total development hours            |                           6,240 |
+| Blended billable rate              |                       $110/hour |
+| Conventional project value         |                    **$686,400** |
+| Harbormaster generation effort     |                           1 day |
+| Harbormaster delivery team         |                      1–2 people |
+| Estimated HM implementation effort |                        80 hours |
+| HM delivery cost/value @ $110/hr   |                      **$8,800** |
+| Estimated customer savings         |                    **$677,600** |
+| Savings percentage                 |                       **98.7%** |
+| Conventional delivery time         |                        6 months |
+| HM generation time                 |                          ~1 day |
 
-Traditional production:
-47,000 lines / 1,200 human hours
-```
 
 This establishes **production leverage**.
 
 The objective is to measure how much production output can be created for a defined amount of human effort.
+
+### Applying that to the 94 generated systems
+
+The conventional model represents:
+
+* **94 × 6 months = 564 project-months**
+* or approximately **47 project-years** of sequential delivery effort.
+
+### How much software-delivery capacity was created?
+
+If a conventional 6-person team takes six months to deliver one of these systems, then 94 systems represent roughly:
+
+**564 person-months × 6 developers = 3,384 person-months**
+
+or approximately:
+
+#### 282 developer-years of conventional delivery effort
+
+```
+Compress hundreds of developer-years of conventional implementation effort into a repeatable generation process.
+```
+And importantly, this isn't theoretical output: the data contains a **Generation ID and Certification ID for each system**, giving each generated system an auditable identity.
 
 ---
 
@@ -186,15 +335,20 @@ The objective is to measure how much production output can be created for a defi
 
 A modern system contains much more than application code.
 
-Harbormaster can measure the percentage of each production artifact generated automatically.
+Seek to measure the percentage of each production artifact generated automatically.
+
+The measure of system coverage is the summation of what can be produced and what was not produced requiring non-system effort. This becomes important to 
+determine the trajectory of coverage a blueprint, a domain model, and system compilation are applying overtime.  
+
+The goal is to be constantly moving in a positive, offering more and more contextual data for SMEs and AI to learn from and contribute to.  
 
 Example:
 
 ```text
-Application code             92%
-Database                    100%
-REST APIs                   100%
-Tests                        85%
+Application code             65%
+Database                     85%
+REST APIs                    75%
+Tests                        75%
 Docker                      100%
 CI/CD                       100%
 Infrastructure               95%
@@ -207,7 +361,7 @@ Security configuration       80%
 
 This creates a stronger measurement than lines of code:
 
-> **What percentage of the production artifact did Harbormaster actually create?**
+> **What percentage of the production artifact was actually create?**
 
 This can become a key **Production Coverage** metric.
 
@@ -251,20 +405,16 @@ Generated System
 ## Blueprint Coverage
 
 A useful measurement is the percentage of required production knowledge already represented in reusable blueprints.
+This is easiest measured post-production of a system when the level of effort post system creation is known.  The more new blueprints that are authored and the more systems generated, the better opportunity for increasing required system coverage.
 
-Example:
+The goal is leverage AI throughout the lifecycle of a blueprint.  With enough blueprint history and related context, AI will mature from assisting an SME to becoming a near peer.
 
-```text
-Year 1   50%
-Year 2   62%
-Year 3   73%
-Year 4   82%
-Year 5   90%
-```
+![](./assets/ai.maturing.with.blueprints.png)
+
 
 ## Why It Matters
 
-Knowledge coverage measures the expansion of what Harbormaster knows how to produce.
+Knowledge coverage measures the expansion of what system creation platform knows how to produce.
 
 It shifts measurement from:
 
@@ -362,15 +512,25 @@ Blueprint C
 Used in 23 systems
 ```
 
+Since a Blueprint is effectively the capture of knowledge, and knowledge is compoundable, so to are Blueprints.  
+
+Effectively, Blueprint B can be made up of Blueprint A while adding knowledge to enhance Blueprint A while overriding knowledge from Blueprint A.
+
 ## Reuse Ratio
 
 A useful aggregate measure is the percentage of production that comes from previously created knowledge.
 
-Example:
+Example: Single Blueprint
 
 ```text
 New production knowledge       30%
 Previously created knowledge   70%
+```
+
+Example: Blueprint Family
+```text
+# of Derivatives                5
+Total Contribution              X%
 ```
 
 ## Why It Matters
@@ -408,8 +568,8 @@ Example:
 Generated systems              100
 Compile successfully            98
 Pass automated tests            94
-Deploy successfully              92
-Runtime validated                90
+Deploy successfully             92
+Runtime validated               90
 ```
 
 ## Why It Matters
@@ -469,7 +629,9 @@ The central delivery measurement is:
 
 > **Time and effort required to produce a system of defined scope.**
 
-This provides the bridge between technical production measurements and business economics.
+This provides the bridge between technical production measurements and business economics.  
+
+Equally important is to establish proof a system creation platform allows the composition of a traditional development to be changed with total team size reduced.  
 
 ---
 
@@ -535,61 +697,26 @@ and:
 
 Economic value converts the preceding technical and operational measurements into business outcomes.
 
-### Enterprise
+Returning to the system generation outcome for this thesis and the project related assumptions applied earlier:
 
-```text
-Cost to produce a system ↓
-Time to production ↓
-Production capacity ↑
-```
 
-### GSI
-
-```text
-Delivery capacity ↑
-Cost per engagement ↓
-Margin opportunity ↑
-```
-
-### Cloud Provider
-
-```text
-Systems deployed ↑
-Workloads ↑
-Platform consumption ↑
-```
-
-### Managed Service Provider
-
-```text
-Managed workloads ↑
-Recurring operational demand ↑
-Operational opportunity ↑
-```
-
-### Hybrid GSI
-
-```text
-Production
-    ↓
-Deployment
-    ↓
-Managed operation
-```
-
-## Why It Matters
-
-Economic measurement establishes the business value of system creation.
-
-It allows technical measurements to be connected to:
-
-- Cost reduction
-- Capacity expansion
-- Margin improvement
-- Revenue opportunity
-- Cloud consumption
-- Infrastructure consumption
-- Managed-services opportunity
+| Domain Model  | Systems |      Files |          LOCs | Conventional Project Value | 
+| ------------- | ------: | ---------: | ------------: | -------------------------: | 
+| advertising   |       7 |      2,850 |       420,209 |                 $4,804,800 | 
+| aerospace     |       7 |      3,101 |       437,878 |                 $4,804,800 | 
+| analytics     |       7 |      3,049 |       506,340 |                 $4,804,800 | 
+| banking       |       5 |      1,867 |       299,012 |                 $3,432,000 | 
+| crm           |       7 |      2,069 |       386,112 |                 $4,804,800 | 
+| ecommerce     |       5 |      2,265 |       393,308 |                 $3,432,000 | 
+| fintech       |       7 |      3,858 |       570,481 |                 $4,804,800 | 
+| governance    |       7 |      3,195 |       513,574 |                 $4,804,800 | 
+| healthcare    |       7 |      3,053 |       467,569 |                 $4,804,800 | 
+| hr            |       7 |      3,907 |       590,663 |                 $4,804,800 | 
+| insurance     |       7 |      2,394 |       362,046 |                 $4,804,800 | 
+| inventory     |       7 |      1,995 |       323,042 |                 $4,804,800 | 
+| iot           |       7 |      2,972 |       445,309 |                 $4,804,800 | 
+| manufacturing |       7 |      3,186 |       472,589 |                 $4,804,800 | 
+| **TOTAL**     |  **94** | **39,761** | **6,188,132** |            **$64,531,200** | 
 
 ---
 
@@ -597,7 +724,7 @@ It allows technical measurements to be connected to:
 
 ## What It Measures
 
-Production intelligence measures the structured body of production knowledge available forsystem creation and the degree to which that knowledge can support increasingly intelligent production.
+Production intelligence measures the structured body of production knowledge available for system creation and the degree to which that knowledge can support increasingly intelligent production.
 
 Possible measurements include:
 
@@ -666,94 +793,13 @@ This creates the foundation for increasingly intelligent software production.
 
 ---
 
-# The Measurement Stack
-
-The categories form a hierarchy of evidence:
-
-```text
-                         ECONOMIC VALUE
-                              ▲
-                              │
-                     Operational Impact
-                              ▲
-                              │
-                     Delivery Performance
-                              ▲
-                              │
-                    Quality / Validation
-                              ▲
-                              │
-                           Reuse
-                              ▲
-                              │
-                    Knowledge Coverage
-                              ▲
-                              │
-                    Assumptions Captured
-                              ▲
-                              │
-                    Generated Production
-                              ▲
-                              │
-                       Production Effort
-                              ▲
-                              │
-                       Production Volume
-```
-
-Each level provides evidence for the level above it.
-
-Production volume establishes output.
-
-Production effort establishes the resources required to create that output.
-
-Generated asset coverage establishes how much of the system is produced automatically.
-
-Knowledge coverage and assumptions captured establish how much production knowledge has become explicit and reusable.
-
-Reuse establishes whether that knowledge compounds across systems.
-
-Quality and validation establish whether generated systems are credible.
-
-Delivery performance establishes project-level productivity.
-
-Operational impact establishes what happens after systems are produced and deployed.
-
-Economic value establishes the resulting business impact.
-
-Production intelligence represents the long-term accumulation and increasing usefulness of the entire knowledge base.
-
----
 
 # The Production Knowledge Continuum
 
 A second dimension runs through the entire measurement framework:
 
-```text
-             STRUCTURED PRODUCTION KNOWLEDGE
-                           │
-                           ▼
-                      BLUEPRINTS
-                           │
-                           ▼
-                         MODELS
-                           │
-                           ▼
-                    PRODUCTION RULES
-                           │
-                           ▼
-                  GENERATED SYSTEMS
-                           │
-                           ▼
-                     VALIDATION
-                           │
-                           ▼
-                  OPERATIONAL OUTCOMES
-                           │
-                           └──────────────┐
-                                          ▼
-                               BETTER KNOWLEDGE
-```
+![](./assets/perpetual.learning.system.png)
+
 
 The resulting measurement objective is therefore not simply:
 
@@ -769,24 +815,7 @@ It is:
 
 These measurements ultimately demonstrate a progression:
 
-```text
-OUTPUT
-  ↓
-PRODUCTION CAPABILITY
-  ↓
-PRODUCTION LEVERAGE
-  ↓
-ACCUMULATED PRODUCTION KNOWLEDGE
-  ↓
-COMPOUNDING REUSE
-  ↓
-PRODUCTION INTELLIGENCE
-  ↓
-OPERATIONAL IMPACT
-  ↓
-ECONOMIC VALUE
-```
-
+![](./assets/strategic.measurement.model.png)
 The purpose of the measurement framework is to make this progression observable and measurable rather than dependent on qualitative claims.
 
-> **A system creation platform can progressively demonstrate the transformation of software-production knowledge into measurable production capability, reusable intellectual capital, operational impact and economic value.**
+> **A system creation platform can progressively demonstrate the transformation of software-production knowledge into measurable observable production capability, reusable intellectual capital, operational impact and economic value.**
