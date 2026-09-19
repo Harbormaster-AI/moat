@@ -26,18 +26,18 @@ Harbormaster was preconceived based on a simple assumptions:
 
 
 ### Evidence
-[Taxonomy](./evidence/taxonomy/README.md)
-[History](./evidence/history/README.md)
-[Measurement Framework](./evidence/measurements/README.md)
-[Generated Systems](./evidence/generated-systems/README.md)
+[Taxonomy - Terms and Statements](./evidence/taxonomy/README.md)  
+[History](./evidence/history/README.md)  
+[Measurement Framework](./evidence/measurements/README.md)  
+[Generated Systems](./evidence/generated-systems/README.md)  
 
 ### Targets
 
-[Enterprise](./enterprise/README.md)
-[Public Cloud Provider](./cloud-provider/README.md)
-[GSI](./gsi/README.md)
-[GSI with Cloud](./hybrid/README.md)
-[Managed Service Provider](./msp/README.md)
+[Enterprise](./enterprise/README.md)  
+[Public Cloud Provider](./cloud-provider/README.md)  
+[GSI](./gsi/README.md)  
+[GSI with Cloud](./hybrid/README.md)  
+[Managed Service Provider](./msp/README.md)  
 
 # Audience
 
