@@ -26,10 +26,10 @@ Harbormaster was preconceived based on a simple assumptions:
 
 
 ### Evidence
-[Taxonomy - Terms and Statements](./evidence/taxonomy/README.md)  
-[History](./evidence/history/README.md)  
-[Measurement Framework](./evidence/measurements/README.md)  
-[Generated Systems](./evidence/generated-systems/README.md)  
+[Taxonomy](./evidence/taxonomy/README.md) - Important Terms and Statements   
+[History](./evidence/history/README.md) - 3 Events of Interest  
+[Measurement Framework](./evidence/measurements/README.md) - Creating new metrics for new insight
+[Generated Systems](./evidence/generated-systems/README.md) - System related files (source code, configuration, etc...)
 
 ### Targets
 
