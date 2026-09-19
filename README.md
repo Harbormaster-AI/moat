@@ -73,9 +73,8 @@ The fundamental question is:
 
 > **What if that accumulated knowledge could become reusable, executable production capability?**
 
-Harbormaster is built around that premise.
 
-To capture software expertise in blueprints and domain models, combine that knowledge with configuration and policies, and compile it into complete system.
+Create a platform to capture software expertise in blueprints and domain models, combine that knowledge with configuration and policies, and compile it into complete system.
 
 The objective is not simply to generate code.
 
@@ -95,7 +94,7 @@ Software SMEs traditionally create **static content**:
 - deployment instructions
 - other forms of institutional knowledge
 
-The thesis contends the role of their expertise must change. Instead of  documenting **how a system should be built**, SMEs should encode that knowledge into **reusable, executable blueprints** that can participate directly in system production.
+The thesis contends the role of their expertise must change. Instead of documenting **how a system should be built**, SMEs should encode that knowledge into **reusable, executable blueprints** that can participate directly in system production.
 
 The blueprint becomes a living representation of enterprise knowledge—capturing architecture, technology choices, policies, configuration and proven implementation patterns.
 
