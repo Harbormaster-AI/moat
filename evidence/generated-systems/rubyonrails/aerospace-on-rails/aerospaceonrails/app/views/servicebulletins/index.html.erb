@@ -1,0 +1,31 @@
+<div class="title text-center">
+  List of ServiceBulletins
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">bulletinNumber</th>
+			<th style="text-align:center">Category</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @serviceBulletins.each do |serviceBulletin| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= serviceBulletin.bulletinNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= serviceBulletin.Category %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_serviceBulletin_path(serviceBulletin), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', serviceBulletin_path(serviceBulletin), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ServiceBulletin', new_serviceBulletin_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of document found in  insuranceonrails/test/controllers
+
+one:
+  fileName: test string for fileName
+  uploadedDate: 2020-10-15
+  DocumentType: 0
+
+two:
+  fileName: test string for fileName
+  uploadedDate: 2020-10-15
+  DocumentType: 0
+
+

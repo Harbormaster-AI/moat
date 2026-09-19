@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of GoodsReceipts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">receiptNumber</th>
+			<th style="text-align:center">receiptDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @goodsReceipts.each do |goodsReceipt| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= goodsReceipt.receiptNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= goodsReceipt.receiptDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= goodsReceipt.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_goodsReceipt_path(goodsReceipt), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', goodsReceipt_path(goodsReceipt), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New GoodsReceipt', new_goodsReceipt_path, :method => :get, :class => "btn btn-success btn-sm" %>

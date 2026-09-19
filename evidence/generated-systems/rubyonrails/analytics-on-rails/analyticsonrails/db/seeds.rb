@@ -1,0 +1,50 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  AnalyticsWorkspace.create( name:"test string for name", businessDomain:"test string for businessDomain", ownerTeam:"test string for ownerTeam", GovernanceTier:0 )
+  DataSource.create( name:"test string for name", connection:"test value", streaming:true, SourceType:0, Format:0 )
+  DataSet.create( name:"test string for name", schemaVersion:"test string for schemaVersion", refreshSchedule:"test value", sensitive:true, DataFormat:0 )
+  DataPipeline.create( name:"test string for name", schedule:"test value", TriggerType:0, Status:0 )
+  DataTask.create( name:"test string for name", command:"test string for command", retries:100, TaskType:0 )
+  SemanticModel.create( name:"test string for name", version:"test string for version", grain:"test string for grain" )
+  Dimension.create( name:"test string for name", typeTime:true, DimensionType:0 )
+  Measure.create( name:"test string for name", format:"test string for format", Aggregation:0 )
+  Metric.create( name:"test string for name", expression:"test string for expression", unit:"test string for unit", MetricType:0 )
+  Report.create( title:"test string for title", audience:"test string for audience", Status:0 )
+  Dashboard.create( title:"test string for title", theme:"test string for theme", Status:0 )
+  Visualization.create( title:"test string for title", options:"test value", ChartType:0 )
+  Notebook.create( title:"test string for title", repository:"test value", Language:0 )
+  BIQuery.create( name:"test string for name", text:"test string for text", Dialect:0 )
+  Experiment.create( name:"test string for name", objective:"test string for objective", Status:0 )
+  TrainingRun.create( runLabel:"test string for runLabel", startedAt:1.week.ago, completedAt:1.week.ago, Status:0 )
+  RunMetric.create( name:"test string for name", value:"test value" )
+  RunParameter.create( name:"test string for name", value:"test string for value" )
+  Model.create( name:"test string for name", taskDescription:"test string for taskDescription", ModelType:0 )
+  ModelVersion.create( version:"test string for version", Lifecycle:0, TrainingStatus:0 )
+  EvaluationMetric.create( name:"test string for name", value:"test value" )
+  FeatureSet.create( name:"test string for name", refreshSchedule:"test value", StoreType:0 )
+  Feature.create( name:"test string for name", description:"test string for description", DataType:0 )
+  InferenceEndpoint.create( name:"test string for name", endpointUrl:"test string for endpointUrl", trafficShare:"test value", Mode:0 )
+  Prediction.create( referenceKey:"test string for referenceKey", predictedAt:1.week.ago, score:"test value" )
+  Forecast.create( name:"test string for name", horizon:100, Granularity:0 )
+  TimeSeries.create( name:"test string for name", timezone:"test string for timezone", Granularity:0 )
+  Anomaly.create( occurredAt:1.week.ago, details:"test string for details", AnomalyType:0, Severity:0 )
+  QualityRule.create( name:"test string for name", threshold:"test value", targetField:"test string for targetField", Dimension:0, Operator:0 )
+  QualityCheck.create( checkedAt:1.week.ago, observedValue:"test value", sampleSize:100, Status:0 )
+  LineageNode.create( name:"test string for name", qualifiedName:"test string for qualifiedName", NodeType:0 )
+  Tag.create( name:"test string for name", Category:0 )
+  AccessPolicy.create( name:"test string for name", subjectName:"test string for subjectName", AccessLevel:0, SubjectType:0 )
+  Alert.create( title:"test string for title", createdAt:1.week.ago, Severity:0, Status:0 )
+  Subscriber.create( name:"test string for name", address:"test string for address", Channel:0 )
+  BusinessGlossaryTerm.create( term:"test string for term", definition:"test string for definition", steward:"test string for steward" )
+  RecommendationScenario.create( name:"test string for name", objective:"test string for objective", RecommendationType:0 )
+  FraudScenario.create( name:"test string for name", riskAppetite:"test string for riskAppetite", DetectionType:0 )
+  FraudSignal.create( name:"test string for name", ruleLogic:"test string for ruleLogic", SignalType:0 )
+end

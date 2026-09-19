@@ -1,0 +1,2 @@
+module JobFamilyHelper
+end

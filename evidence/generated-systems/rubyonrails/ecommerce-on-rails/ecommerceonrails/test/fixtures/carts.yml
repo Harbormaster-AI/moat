@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of cart found in  ecommerceonrails/test/controllers
+
+one:
+  cartNumber: test string for cartNumber
+  createdAt: 2020-10-15
+  currency: test string for currency
+  shippingAddress: "test value"
+  billingAddress: "test value"
+  Status: 0
+
+two:
+  cartNumber: test string for cartNumber
+  createdAt: 2020-10-15
+  currency: test string for currency
+  shippingAddress: "test value"
+  billingAddress: "test value"
+  Status: 0
+
+

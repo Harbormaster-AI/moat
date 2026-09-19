@@ -1,0 +1,46 @@
+<%= form_with model: @opportunityStageHistory, local: true do |form| %>
+ 
+  <% if @opportunityStageHistory.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@opportunityStageHistory.errors.count, "error") %> prohibited
+        this opportunityStageHistory from being saved:
+      </h2>
+      <ul>
+        <% @opportunityStageHistory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :changedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :changedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :comment, { class: 'form-label'} %><br>
+	<%= form.text_field :comment, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :FromStage, { class: 'form-label'} %><br>
+   <%= form.select :FromStage, OpportunityStageHistory.FromStages.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :ToStage, { class: 'form-label'} %><br>
+   <%= form.select :ToStage, OpportunityStageHistory.ToStages.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

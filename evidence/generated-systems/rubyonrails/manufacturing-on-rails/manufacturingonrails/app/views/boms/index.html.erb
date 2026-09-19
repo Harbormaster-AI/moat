@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of BOMs
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">bomNumber</th>
+			<th style="text-align:center">revision</th>
+			<th style="text-align:center">effectivityStart</th>
+			<th style="text-align:center">effectivityEnd</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @bOMs.each do |bOM| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= bOM.bomNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bOM.revision %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bOM.effectivityStart %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bOM.effectivityEnd %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bOM.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_bOM_path(bOM), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', bOM_path(bOM), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New BOM', new_bOM_path, :method => :get, :class => "btn btn-success btn-sm" %>

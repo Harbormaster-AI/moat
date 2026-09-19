@@ -1,0 +1,2 @@
+module EmploymentAssignmentHelper
+end

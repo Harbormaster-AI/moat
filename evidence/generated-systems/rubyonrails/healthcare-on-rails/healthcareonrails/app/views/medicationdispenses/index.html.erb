@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of MedicationDispenses
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">dispenseNumber</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">whenPrepared</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @medicationDispenses.each do |medicationDispense| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= medicationDispense.dispenseNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationDispense.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationDispense.whenPrepared %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationDispense.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_medicationDispense_path(medicationDispense), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', medicationDispense_path(medicationDispense), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New MedicationDispense', new_medicationDispense_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Payouts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">payoutNumber</th>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">scheduledDate</th>
+			<th style="text-align:center">paidDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @payouts.each do |payout| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= payout.payoutNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= payout.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= payout.scheduledDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= payout.paidDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= payout.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_payout_path(payout), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', payout_path(payout), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Payout', new_payout_path, :method => :get, :class => "btn btn-success btn-sm" %>

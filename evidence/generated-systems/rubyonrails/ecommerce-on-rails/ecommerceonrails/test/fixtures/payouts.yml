@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of payout found in  ecommerceonrails/test/controllers
+
+one:
+  payoutNumber: test string for payoutNumber
+  amount: "test value"
+  scheduledDate: 2020-10-15
+  paidDate: 2020-10-15
+  Status: 0
+
+two:
+  payoutNumber: test string for payoutNumber
+  amount: "test value"
+  scheduledDate: 2020-10-15
+  paidDate: 2020-10-15
+  Status: 0
+
+

@@ -1,0 +1,2 @@
+module ClinicalOrderHelper
+end

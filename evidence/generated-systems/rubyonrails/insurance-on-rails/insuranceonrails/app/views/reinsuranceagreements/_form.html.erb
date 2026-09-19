@@ -1,0 +1,58 @@
+<%= form_with model: @reinsuranceAgreement, local: true do |form| %>
+ 
+  <% if @reinsuranceAgreement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@reinsuranceAgreement.errors.count, "error") %> prohibited
+        this reinsuranceAgreement from being saved:
+      </h2>
+      <ul>
+        <% @reinsuranceAgreement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :agreementNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :agreementNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectivePeriod, { class: 'form-label'} %><br>
+	<%= form.text_field :effectivePeriod, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :retention, { class: 'form-label'} %><br>
+	<%= form.text_field :retention, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :limit, { class: 'form-label'} %><br>
+	<%= form.text_field :limit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :cessionPercentage, { class: 'form-label'} %><br>
+	<%= form.text_field :cessionPercentage, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ReinsuranceType, { class: 'form-label'} %><br>
+   <%= form.select :ReinsuranceType, ReinsuranceAgreement.ReinsuranceTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :TreatyType, { class: 'form-label'} %><br>
+   <%= form.select :TreatyType, ReinsuranceAgreement.TreatyTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

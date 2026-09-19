@@ -1,0 +1,44 @@
+<%= form_with model: @goodsReceipt, local: true do |form| %>
+ 
+  <% if @goodsReceipt.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@goodsReceipt.errors.count, "error") %> prohibited
+        this goodsReceipt from being saved:
+      </h2>
+      <ul>
+        <% @goodsReceipt.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :receiptNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :receiptNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :receiptDate, { class: 'form-label'} %><br>
+    <%= form.date_field :receiptDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, GoodsReceipt.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

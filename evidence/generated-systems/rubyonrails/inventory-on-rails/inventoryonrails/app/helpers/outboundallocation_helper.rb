@@ -1,0 +1,2 @@
+module OutboundAllocationHelper
+end

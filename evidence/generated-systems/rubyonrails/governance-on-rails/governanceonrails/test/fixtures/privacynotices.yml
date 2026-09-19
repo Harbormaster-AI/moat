@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of privacyNotice found in  governanceonrails/test/controllers
+
+one:
+  title: test string for title
+  audience: test string for audience
+  versionLabel: test string for versionLabel
+  publicationDate: 2020-10-15
+  publicationUrl: "test value"
+  Status: 0
+
+two:
+  title: test string for title
+  audience: test string for audience
+  versionLabel: test string for versionLabel
+  publicationDate: 2020-10-15
+  publicationUrl: "test value"
+  Status: 0
+
+

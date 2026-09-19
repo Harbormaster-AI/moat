@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of Activitys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">subject</th>
+			<th style="text-align:center">dueDate</th>
+			<th style="text-align:center">startAt</th>
+			<th style="text-align:center">endAt</th>
+			<th style="text-align:center">location</th>
+			<th style="text-align:center">ActivityType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">Priority</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @activitys.each do |activity| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= activity.subject %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.dueDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.startAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.endAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.location %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.ActivityType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= activity.Priority %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_activity_path(activity), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', activity_path(activity), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Activity', new_activity_path, :method => :get, :class => "btn btn-success btn-sm" %>

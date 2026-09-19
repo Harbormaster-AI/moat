@@ -1,0 +1,2 @@
+module FXDealHelper
+end

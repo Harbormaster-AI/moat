@@ -1,0 +1,48 @@
+<%= form_with model: @invoice, local: true do |form| %>
+ 
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@invoice.errors.count, "error") %> prohibited
+        this invoice from being saved:
+      </h2>
+      <ul>
+        <% @invoice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :invoiceNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :invoiceNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dueDate, { class: 'form-label'} %><br>
+    <%= form.date_field :dueDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalDue, { class: 'form-label'} %><br>
+	<%= form.text_field :totalDue, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Invoice.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

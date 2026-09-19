@@ -1,0 +1,76 @@
+<%= form_with model: @inventoryTransaction, local: true do |form| %>
+ 
+  <% if @inventoryTransaction.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inventoryTransaction.errors.count, "error") %> prohibited
+        this inventoryTransaction from being saved:
+      </h2>
+      <ul>
+        <% @inventoryTransaction.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :transactionNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :transactionNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unitCost, { class: 'form-label'} %><br>
+	<%= form.text_field :unitCost, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :transactionDate, { class: 'form-label'} %><br>
+    <%= form.date_field :transactionDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reasonCode, { class: 'form-label'} %><br>
+	<%= form.text_field :reasonCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :TransactionType, { class: 'form-label'} %><br>
+   <%= form.select :TransactionType, InventoryTransaction.TransactionTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :UnitOfMeasure, { class: 'form-label'} %><br>
+   <%= form.select :UnitOfMeasure, InventoryTransaction.UnitOfMeasures.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InventoryTransaction.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

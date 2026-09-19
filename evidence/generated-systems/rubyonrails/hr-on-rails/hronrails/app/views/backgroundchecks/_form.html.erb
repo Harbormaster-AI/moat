@@ -1,0 +1,48 @@
+<%= form_with model: @backgroundCheck, local: true do |form| %>
+ 
+  <% if @backgroundCheck.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@backgroundCheck.errors.count, "error") %> prohibited
+        this backgroundCheck from being saved:
+      </h2>
+      <ul>
+        <% @backgroundCheck.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :checkNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :checkNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :provider, { class: 'form-label'} %><br>
+	<%= form.text_field :provider, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :completedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :completedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, BackgroundCheck.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

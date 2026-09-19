@@ -1,0 +1,36 @@
+<%= form_with model: @discharge, local: true do |form| %>
+ 
+  <% if @discharge.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@discharge.errors.count, "error") %> prohibited
+        this discharge from being saved:
+      </h2>
+      <ul>
+        <% @discharge.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :dischargeDateTime, { class: 'form-label'} %><br>
+    <%= form.time_field :dischargeDateTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Disposition, { class: 'form-label'} %><br>
+   <%= form.select :Disposition, Discharge.Dispositions.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

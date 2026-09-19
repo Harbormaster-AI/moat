@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of InspectionLots
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">lotNumber</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">sampleSize</th>
+			<th style="text-align:center">createdOn</th>
+			<th style="text-align:center">InspectionType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @inspectionLots.each do |inspectionLot| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= inspectionLot.lotNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionLot.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionLot.sampleSize %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionLot.createdOn %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionLot.InspectionType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionLot.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_inspectionLot_path(inspectionLot), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', inspectionLot_path(inspectionLot), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New InspectionLot', new_inspectionLot_path, :method => :get, :class => "btn btn-success btn-sm" %>

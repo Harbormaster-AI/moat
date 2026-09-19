@@ -1,0 +1,60 @@
+<%= form_with model: @controlTest_, local: true do |form| %>
+ 
+  <% if @controlTest_.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@controlTest_.errors.count, "error") %> prohibited
+        this controlTest_ from being saved:
+      </h2>
+      <ul>
+        <% @controlTest_.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :testPeriodStart, { class: 'form-label'} %><br>
+    <%= form.date_field :testPeriodStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :testPeriodEnd, { class: 'form-label'} %><br>
+    <%= form.date_field :testPeriodEnd, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :sampleSize, { class: 'form-label'} %><br>
+	<%= form.text_field :sampleSize, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :TestType, { class: 'form-label'} %><br>
+   <%= form.select :TestType, ControlTest_.TestTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Effectiveness, { class: 'form-label'} %><br>
+   <%= form.select :Effectiveness, ControlTest_.Effectivenesss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, ControlTest_.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

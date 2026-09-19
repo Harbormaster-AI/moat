@@ -1,0 +1,2 @@
+module OnboardingTaskHelper
+end

@@ -1,0 +1,44 @@
+<%= form_with model: @labResult, local: true do |form| %>
+ 
+  <% if @labResult.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@labResult.errors.count, "error") %> prohibited
+        this labResult from being saved:
+      </h2>
+      <ul>
+        <% @labResult.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :resultCode, { class: 'form-label'} %><br>
+	<%= form.text_field :resultCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :issuedDate, { class: 'form-label'} %><br>
+    <%= form.time_field :issuedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, LabResult.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

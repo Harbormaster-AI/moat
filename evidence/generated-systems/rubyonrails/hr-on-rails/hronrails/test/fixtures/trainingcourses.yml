@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of trainingCourse found in  hronrails/test/controllers
+
+one:
+  code: test string for code
+  title: test string for title
+  durationHours: "test value"
+  DeliveryMethod: 0
+
+two:
+  code: test string for code
+  title: test string for title
+  durationHours: "test value"
+  DeliveryMethod: 0
+
+

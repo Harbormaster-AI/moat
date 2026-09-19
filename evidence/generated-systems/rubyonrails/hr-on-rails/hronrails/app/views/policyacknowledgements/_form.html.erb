@@ -1,0 +1,38 @@
+<%= form_with model: @policyAcknowledgement, local: true do |form| %>
+ 
+  <% if @policyAcknowledgement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@policyAcknowledgement.errors.count, "error") %> prohibited
+        this policyAcknowledgement from being saved:
+      </h2>
+      <ul>
+        <% @policyAcknowledgement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :acknowledgementDate, { class: 'form-label'} %><br>
+    <%= form.date_field :acknowledgementDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PolicyAcknowledgement.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

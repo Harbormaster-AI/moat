@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of labResult found in  healthcareonrails/test/controllers
+
+one:
+  resultCode: test string for resultCode
+  issuedDate: 2020-10-15
+  Status: 0
+
+two:
+  resultCode: test string for resultCode
+  issuedDate: 2020-10-15
+  Status: 0
+
+

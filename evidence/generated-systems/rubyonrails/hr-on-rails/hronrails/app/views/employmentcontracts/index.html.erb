@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of EmploymentContracts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">contractNumber</th>
+			<th style="text-align:center">startDate</th>
+			<th style="text-align:center">endDate</th>
+			<th style="text-align:center">workHoursPerWeek</th>
+			<th style="text-align:center">EmploymentType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">PayFrequency</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @employmentContracts.each do |employmentContract| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= employmentContract.contractNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= employmentContract.startDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= employmentContract.endDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= employmentContract.workHoursPerWeek %>
+			</td>
+			<td style="text-align:center">
+	  			<%= employmentContract.EmploymentType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= employmentContract.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= employmentContract.PayFrequency %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_employmentContract_path(employmentContract), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', employmentContract_path(employmentContract), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New EmploymentContract', new_employmentContract_path, :method => :get, :class => "btn btn-success btn-sm" %>

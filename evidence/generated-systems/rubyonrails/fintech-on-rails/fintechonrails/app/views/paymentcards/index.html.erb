@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of PaymentCards
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">cardToken</th>
+			<th style="text-align:center">maskedPan</th>
+			<th style="text-align:center">expiryMonth</th>
+			<th style="text-align:center">expiryYear</th>
+			<th style="text-align:center">cardholderName</th>
+			<th style="text-align:center">Scheme</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @paymentCards.each do |paymentCard| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= paymentCard.cardToken %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentCard.maskedPan %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentCard.expiryMonth %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentCard.expiryYear %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentCard.cardholderName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentCard.Scheme %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentCard.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_paymentCard_path(paymentCard), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', paymentCard_path(paymentCard), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New PaymentCard', new_paymentCard_path, :method => :get, :class => "btn btn-success btn-sm" %>

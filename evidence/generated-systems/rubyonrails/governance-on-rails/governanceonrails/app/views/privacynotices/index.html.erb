@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of PrivacyNotices
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">audience</th>
+			<th style="text-align:center">versionLabel</th>
+			<th style="text-align:center">publicationDate</th>
+			<th style="text-align:center">publicationUrl</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @privacyNotices.each do |privacyNotice| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= privacyNotice.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= privacyNotice.audience %>
+			</td>
+			<td style="text-align:center">
+	  			<%= privacyNotice.versionLabel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= privacyNotice.publicationDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= privacyNotice.publicationUrl %>
+			</td>
+			<td style="text-align:center">
+	  			<%= privacyNotice.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_privacyNotice_path(privacyNotice), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', privacyNotice_path(privacyNotice), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New PrivacyNotice', new_privacyNotice_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,50 @@
+<%= form_with model: @evidence, local: true do |form| %>
+ 
+  <% if @evidence.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@evidence.errors.count, "error") %> prohibited
+        this evidence from being saved:
+      </h2>
+      <ul>
+        <% @evidence.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :locationUrl, { class: 'form-label'} %><br>
+	<%= form.text_field :locationUrl, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :receivedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :receivedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :EvidenceType, { class: 'form-label'} %><br>
+   <%= form.select :EvidenceType, Evidence.EvidenceTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

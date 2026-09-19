@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of storageLocation found in  inventoryonrails/test/controllers
+
+one:
+  code: test string for code
+  temperatureControlled: true
+  capacity: "test value"
+  capacityUnit: test string for capacityUnit
+  LocationType: 0
+
+two:
+  code: test string for code
+  temperatureControlled: true
+  capacity: "test value"
+  capacityUnit: test string for capacityUnit
+  LocationType: 0
+
+

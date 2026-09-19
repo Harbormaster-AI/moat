@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>ecommerceonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>ecommerceonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'Merchants', merchants_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Channels', channels_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Brands', brands_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Catalogs', catalogs_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Categorys', categorys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Products', products_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ProductVariants', productVariants_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ProductPricings', productPricings_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MediaAssets', mediaAssets_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'FulfillmentCenters', fulfillmentCenters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryItems', inventoryItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Suppliers', suppliers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Sellers', sellers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Customers', customers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CustomerAddresss', customerAddresss_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Wishlists', wishlists_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'WishlistItems', wishlistItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Carts', carts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CartItems', cartItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Orders', orders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'OrderLines', orderLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Payments', payments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Refunds', refunds_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Shipments', shipments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ShipmentItems', shipmentItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ReturnRequests', returnRequests_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ReturnItems', returnItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Promotions', promotions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Coupons', coupons_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CouponRedemptions', couponRedemptions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TaxRules', taxRules_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ShippingMethods', shippingMethods_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CarrierServices', carrierServices_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Reviews', reviews_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Subscriptions', subscriptions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PaymentProviders', paymentProviders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Invoices', invoices_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'GiftCards', giftCards_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'GiftCardRedemptions', giftCardRedemptions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Payouts', payouts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

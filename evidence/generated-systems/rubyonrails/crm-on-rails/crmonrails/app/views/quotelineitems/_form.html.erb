@@ -1,0 +1,54 @@
+<%= form_with model: @quoteLineItem, local: true do |form| %>
+ 
+  <% if @quoteLineItem.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@quoteLineItem.errors.count, "error") %> prohibited
+        this quoteLineItem from being saved:
+      </h2>
+      <ul>
+        <% @quoteLineItem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unitPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :unitPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :discountAmount, { class: 'form-label'} %><br>
+	<%= form.text_field :discountAmount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :taxAmount, { class: 'form-label'} %><br>
+	<%= form.text_field :taxAmount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalAmount, { class: 'form-label'} %><br>
+	<%= form.text_field :totalAmount, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

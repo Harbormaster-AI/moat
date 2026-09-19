@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Predictions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">referenceKey</th>
+			<th style="text-align:center">predictedAt</th>
+			<th style="text-align:center">score</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @predictions.each do |prediction| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= prediction.referenceKey %>
+			</td>
+			<td style="text-align:center">
+	  			<%= prediction.predictedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= prediction.score %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_prediction_path(prediction), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', prediction_path(prediction), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Prediction', new_prediction_path, :method => :get, :class => "btn btn-success btn-sm" %>

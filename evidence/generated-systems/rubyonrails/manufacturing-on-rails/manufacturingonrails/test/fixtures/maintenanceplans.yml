@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of maintenancePlan found in  manufacturingonrails/test/controllers
+
+one:
+  planNumber: test string for planNumber
+  interval: 2020-10-15
+  lastServiceDate: 2020-10-15
+  Strategy: 0
+
+two:
+  planNumber: test string for planNumber
+  interval: 2020-10-15
+  lastServiceDate: 2020-10-15
+  Strategy: 0
+
+

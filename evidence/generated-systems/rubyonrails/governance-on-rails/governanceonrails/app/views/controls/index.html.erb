@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Controls
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">objective</th>
+			<th style="text-align:center">ownerDepartment</th>
+			<th style="text-align:center">ControlType</th>
+			<th style="text-align:center">Frequency</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @controls.each do |control| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= control.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= control.objective %>
+			</td>
+			<td style="text-align:center">
+	  			<%= control.ownerDepartment %>
+			</td>
+			<td style="text-align:center">
+	  			<%= control.ControlType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= control.Frequency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= control.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_control_path(control), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', control_path(control), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Control', new_control_path, :method => :get, :class => "btn btn-success btn-sm" %>

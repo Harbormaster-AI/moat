@@ -1,0 +1,27 @@
+<div class="title text-center">
+  List of ShiftAssignments
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">assignmentDate</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @shiftAssignments.each do |shiftAssignment| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= shiftAssignment.assignmentDate %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_shiftAssignment_path(shiftAssignment), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', shiftAssignment_path(shiftAssignment), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ShiftAssignment', new_shiftAssignment_path, :method => :get, :class => "btn btn-success btn-sm" %>

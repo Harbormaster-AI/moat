@@ -1,0 +1,46 @@
+<%= form_with model: @carePlan, local: true do |form| %>
+ 
+  <% if @carePlan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@carePlan.errors.count, "error") %> prohibited
+        this carePlan from being saved:
+      </h2>
+      <ul>
+        <% @carePlan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :planNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :planNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :goalSummary, { class: 'form-label'} %><br>
+	<%= form.text_field :goalSummary, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, CarePlan.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,50 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  HealthSystem.create( name:"test string for name", legalName:"test string for legalName", headquartersCountry:"test string for headquartersCountry", website:"test string for website" )
+  Facility.create( name:"test string for name", facilityCode:"test string for facilityCode", address:"test value", FacilityType:0 )
+  Department.create( name:"test string for name", DepartmentType:0 )
+  CareTeam.create( name:"test string for name", CareSetting:0 )
+  Clinician.create( firstName:"test string for firstName", lastName:"test string for lastName", licenseNumber:"test string for licenseNumber", ClinicianType:0, Specialty:0 )
+  Patient.create( firstName:"test string for firstName", lastName:"test string for lastName", mrn:"test value", dateOfBirth:1.week.ago, address:"test value", primaryLanguage:"test string for primaryLanguage", SexAtBirth:0, BloodType:0 )
+  Appointment.create( appointmentDate:1.week.ago, reason:"test string for reason", Status:0, Priority:0 )
+  Encounter.create( encounterNumber:"test string for encounterNumber", startDateTime:1.week.ago, endDateTime:1.week.ago, Status:0, EncounterType:0 )
+  Admission.create( admitDateTime:1.week.ago, bed:"test string for bed", AdmissionType:0 )
+  Discharge.create( dischargeDateTime:1.week.ago, Disposition:0 )
+  ClinicalOrder.create( orderNumber:"test string for orderNumber", Status:0, OrderType:0, Priority:0 )
+  MedicationOrder.create( medicationCode:"test string for medicationCode", dose:"test value", frequency:"test string for frequency", duration:"test string for duration", Route:0 )
+  Laboratory.create( name:"test string for name", cliaNumber:"test string for cliaNumber" )
+  LaboratoryOrder.create( testCode:"test string for testCode", fastingRequired:true, SpecimenType:0 )
+  LabResult.create( resultCode:"test string for resultCode", issuedDate:1.week.ago, Status:0 )
+  ImagingCenter.create( name:"test string for name" )
+  ImagingOrder.create( bodySite:"test string for bodySite", contrast:true, Modality:0 )
+  ImagingReport.create( reportNumber:"test string for reportNumber", impression:"test string for impression", reportedDate:1.week.ago, Status:0 )
+  ProcedureOrder.create( procedureCode:"test string for procedureCode", consentObtained:true, AnesthesiaType:0 )
+  Procedure.create( procedureCode:"test string for procedureCode", startDateTime:1.week.ago, endDateTime:1.week.ago, Status:0 )
+  Pharmacy.create( name:"test string for name" )
+  MedicationDispense.create( dispenseNumber:"test string for dispenseNumber", quantity:"test value", whenPrepared:1.week.ago, Status:0 )
+  Diagnosis.create( code:"test string for code", description:"test string for description", onsetDate:1.week.ago, Certainty:0 )
+  Observation.create( code:"test string for code", value:"test string for value", unit:"test string for unit", effectiveDateTime:1.week.ago, Interpretation:0 )
+  CarePlan.create( planNumber:"test string for planNumber", goalSummary:"test string for goalSummary", Status:0 )
+  CareTask.create( description:"test string for description", dueDate:1.week.ago, Status:0, Priority:0 )
+  Allergy.create( substance:"test string for substance", reaction:"test string for reaction", Severity:0, Status:0 )
+  Condition.create( code:"test string for code", onsetDate:1.week.ago, abatementDate:1.week.ago, ClinicalStatus:0, VerificationStatus:0 )
+  InsurancePayer.create( name:"test string for name", website:"test string for website", PayerType:0 )
+  InsurancePlan.create( name:"test string for name", planCode:"test string for planCode", PlanType:0 )
+  Coverage.create( memberId:"test string for memberId", groupNumber:"test string for groupNumber", effectiveDate:1.week.ago, endDate:1.week.ago, CoverageType:0 )
+  Claim.create( claimNumber:"test string for claimNumber", totalAmount:"test value", Status:0 )
+  Authorization.create( authNumber:"test string for authNumber", requestedService:"test string for requestedService", Status:0 )
+  Invoice.create( invoiceNumber:"test string for invoiceNumber", totalAmount:"test value", dueDate:1.week.ago, Status:0 )
+  Payment.create( paymentNumber:"test string for paymentNumber", amount:"test value", paymentDate:1.week.ago, Method:0 )
+  MedicalDevice.create( udi:"test string for udi", manufacturer:"test string for manufacturer", DeviceType:0, ConnectivityStatus:0 )
+  SoftwareUpdate.create( version:"test string for version", appliedDate:1.week.ago, UpdateType:0 )
+  MedicalSupplier.create( name:"test string for name", website:"test string for website", SupplierTier:0 )
+  InventoryItem.create( sku:"test string for sku", name:"test string for name", quantityOnHand:100, quantityReserved:100 )
+end

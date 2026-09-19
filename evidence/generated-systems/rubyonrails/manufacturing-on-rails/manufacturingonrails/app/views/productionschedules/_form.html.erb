@@ -1,0 +1,46 @@
+<%= form_with model: @productionSchedule, local: true do |form| %>
+ 
+  <% if @productionSchedule.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@productionSchedule.errors.count, "error") %> prohibited
+        this productionSchedule from being saved:
+      </h2>
+      <ul>
+        <% @productionSchedule.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :scheduleNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :scheduleNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :horizonStart, { class: 'form-label'} %><br>
+    <%= form.date_field :horizonStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :horizonEnd, { class: 'form-label'} %><br>
+    <%= form.date_field :horizonEnd, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, ProductionSchedule.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

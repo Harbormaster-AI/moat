@@ -1,0 +1,2 @@
+module ProductOfferingHelper
+end

@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of quote found in  crmonrails/test/controllers
+
+one:
+  quoteNumber: test string for quoteNumber
+  validityStart: 2020-10-15
+  validityEnd: 2020-10-15
+  totalAmount: "test value"
+  discountPercent: "test value"
+  taxAmount: "test value"
+  shippingAmount: "test value"
+  Status: 0
+
+two:
+  quoteNumber: test string for quoteNumber
+  validityStart: 2020-10-15
+  validityEnd: 2020-10-15
+  totalAmount: "test value"
+  discountPercent: "test value"
+  taxAmount: "test value"
+  shippingAmount: "test value"
+  Status: 0
+
+

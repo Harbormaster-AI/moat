@@ -1,0 +1,44 @@
+<%= form_with model: @riskAssessment, local: true do |form| %>
+ 
+  <% if @riskAssessment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@riskAssessment.errors.count, "error") %> prohibited
+        this riskAssessment from being saved:
+      </h2>
+      <ul>
+        <% @riskAssessment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :assessmentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :assessmentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :assessor, { class: 'form-label'} %><br>
+	<%= form.text_field :assessor, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :summary, { class: 'form-label'} %><br>
+	<%= form.text_field :summary, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AssessmentType, { class: 'form-label'} %><br>
+   <%= form.select :AssessmentType, RiskAssessment.AssessmentTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

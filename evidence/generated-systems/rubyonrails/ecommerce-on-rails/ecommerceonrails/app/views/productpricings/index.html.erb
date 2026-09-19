@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of ProductPricings
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">listPrice</th>
+			<th style="text-align:center">salePrice</th>
+			<th style="text-align:center">validFrom</th>
+			<th style="text-align:center">validTo</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @productPricings.each do |productPricing| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= productPricing.listPrice %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productPricing.salePrice %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productPricing.validFrom %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productPricing.validTo %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_productPricing_path(productPricing), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', productPricing_path(productPricing), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ProductPricing', new_productPricing_path, :method => :get, :class => "btn btn-success btn-sm" %>

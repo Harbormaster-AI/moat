@@ -1,0 +1,51 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  AerospaceManufacturer.create( name:"test string for name", legalName:"test string for legalName", headquartersCountry:"test string for headquartersCountry", website:"test string for website" )
+  AircraftProgram.create( name:"test string for name", programCode:"test string for programCode", entryIntoServiceYear:100, Status:0 )
+  AircraftFamily.create( name:"test string for name", familyCode:"test string for familyCode" )
+  AircraftModel.create( name:"test string for name", modelDesignation:"test string for modelDesignation", AircraftType:0 )
+  EngineType.create( engineModelCode:"test string for engineModelCode", maxThrustKn:"test value", Category:0 )
+  AircraftVariant.create( variantCode:"test string for variantCode", rangeNm:100, maxTakeoffWeightKg:"test value" )
+  AvionicsSuite.create( suiteName:"test string for suiteName", softwareBaseline:"test string for softwareBaseline" )
+  APU.create( model:"test string for model" )
+  LandingGear.create( supplierPartNumber:"test string for supplierPartNumber", GearType:0 )
+  AircraftOption.create( code:"test string for code", name:"test string for name", OptionCategory:0 )
+  AircraftPackage.create( name:"test string for name", PackageType:0 )
+  Supplier.create( name:"test string for name", SupplierType:0, ApprovalStatus:0 )
+  Component_.create( partNumber:"test string for partNumber", name:"test string for name", ComponentCategory:0, SerializationMethod:0 )
+  Plant.create( name:"test string for name", plantCode:"test string for plantCode", address:"test value" )
+  ProductionLine.create( name:"test string for name", LineType:0 )
+  WorkCenter.create( name:"test string for name", capability:"test string for capability" )
+  ProductionOrder.create( orderNumber:"test string for orderNumber", Status:0 )
+  BuildSchedule.create( scheduleNumber:"test string for scheduleNumber", Status:0 )
+  Warehouse.create( name:"test string for name" )
+  InventoryItem.create( quantityOnHand:100, quantityReserved:100, lotNumber:"test string for lotNumber" )
+  Operator.create( name:"test string for name", icaoDesignator:"test string for icaoDesignator", OperatorType:0 )
+  AircraftOrder.create( orderNumber:"test string for orderNumber", totalAmount:"test value", Status:0 )
+  Quote.create( quoteNumber:"test string for quoteNumber", totalAmount:"test value" )
+  PurchaseAgreement.create( agreementNumber:"test string for agreementNumber", effectiveDate:1.week.ago )
+  Aircraft.create( msn:"test value", deliveryDate:1.week.ago )
+  Registration.create( tailNumber:"test value", registryCountry:"test string for registryCountry" )
+  Warranty.create( coverageMonths:100, WarrantyType:0 )
+  CabinLayout.create( layoutCode:"test string for layoutCode", totalSeats:100, classLayout:"test string for classLayout" )
+  MROFacility.create( name:"test string for name", approvalScope:"test string for approvalScope", address:"test value" )
+  MaintenanceAppointment.create( appointmentDate:1.week.ago, Status:0 )
+  MaintenanceWorkOrder.create( workOrderNumber:"test string for workOrderNumber", Status:0 )
+  AirworthinessDirective.create( directiveNumber:"test string for directiveNumber", title:"test string for title" )
+  ServiceBulletin.create( bulletinNumber:"test string for bulletinNumber", Category:0 )
+  ConnectedAircraft.create( communicationsProvider:"test string for communicationsProvider", ConnectivityStatus:0 )
+  FlightHealthEvent.create( eventCode:"test string for eventCode", Severity:0 )
+  SoftwareLoad.create( version:"test string for version", LoadType:0 )
+  TypeCertificate.create( certificateNumber:"test string for certificateNumber", authority:"test string for authority" )
+  ProductionCertificate.create( certificateNumber:"test string for certificateNumber", authority:"test string for authority" )
+  SalesRegion.create( name:"test string for name", regionCode:"test string for regionCode" )
+  SalesCampaign.create( campaignCode:"test string for campaignCode", Status:0 )
+end

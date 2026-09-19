@@ -1,0 +1,48 @@
+<%= form_with model: @pricingPlan, local: true do |form| %>
+ 
+  <% if @pricingPlan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@pricingPlan.errors.count, "error") %> prohibited
+        this pricingPlan from being saved:
+      </h2>
+      <ul>
+        <% @pricingPlan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :planCode, { class: 'form-label'} %><br>
+	<%= form.text_field :planCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :baseCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :baseCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PricingPlan.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

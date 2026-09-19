@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of BusinessGlossaryTerms
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">term</th>
+			<th style="text-align:center">definition</th>
+			<th style="text-align:center">steward</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @businessGlossaryTerms.each do |businessGlossaryTerm| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= businessGlossaryTerm.term %>
+			</td>
+			<td style="text-align:center">
+	  			<%= businessGlossaryTerm.definition %>
+			</td>
+			<td style="text-align:center">
+	  			<%= businessGlossaryTerm.steward %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_businessGlossaryTerm_path(businessGlossaryTerm), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', businessGlossaryTerm_path(businessGlossaryTerm), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New BusinessGlossaryTerm', new_businessGlossaryTerm_path, :method => :get, :class => "btn btn-success btn-sm" %>

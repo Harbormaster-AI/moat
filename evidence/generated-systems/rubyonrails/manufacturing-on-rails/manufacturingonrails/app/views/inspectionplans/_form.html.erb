@@ -1,0 +1,46 @@
+<%= form_with model: @inspectionPlan, local: true do |form| %>
+ 
+  <% if @inspectionPlan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inspectionPlan.errors.count, "error") %> prohibited
+        this inspectionPlan from being saved:
+      </h2>
+      <ul>
+        <% @inspectionPlan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :planNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :planNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :revision, { class: 'form-label'} %><br>
+	<%= form.text_field :revision, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :SamplingPlan, { class: 'form-label'} %><br>
+   <%= form.select :SamplingPlan, InspectionPlan.SamplingPlans.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InspectionPlan.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

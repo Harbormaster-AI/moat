@@ -1,0 +1,54 @@
+<%= form_with model: @offer, local: true do |form| %>
+ 
+  <% if @offer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@offer.errors.count, "error") %> prohibited
+        this offer from being saved:
+      </h2>
+      <ul>
+        <% @offer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :offerNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :offerNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :proposedStartDate, { class: 'form-label'} %><br>
+    <%= form.date_field :proposedStartDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :baseSalary, { class: 'form-label'} %><br>
+	<%= form.text_field :baseSalary, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :signOnBonus, { class: 'form-label'} %><br>
+	<%= form.text_field :signOnBonus, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Offer.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

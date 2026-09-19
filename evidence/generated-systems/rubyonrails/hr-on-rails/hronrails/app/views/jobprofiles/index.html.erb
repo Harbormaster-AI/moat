@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of JobProfiles
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">jobCode</th>
+			<th style="text-align:center">JobLevel</th>
+			<th style="text-align:center">ExemptStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @jobProfiles.each do |jobProfile| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= jobProfile.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobProfile.jobCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobProfile.JobLevel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobProfile.ExemptStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_jobProfile_path(jobProfile), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', jobProfile_path(jobProfile), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New JobProfile', new_jobProfile_path, :method => :get, :class => "btn btn-success btn-sm" %>

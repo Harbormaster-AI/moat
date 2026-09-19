@@ -1,0 +1,48 @@
+<%= form_with model: @attestation, local: true do |form| %>
+ 
+  <% if @attestation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@attestation.errors.count, "error") %> prohibited
+        this attestation from being saved:
+      </h2>
+      <ul>
+        <% @attestation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :statement, { class: 'form-label'} %><br>
+	<%= form.text_field :statement, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :attestor, { class: 'form-label'} %><br>
+	<%= form.text_field :attestor, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dateSigned, { class: 'form-label'} %><br>
+    <%= form.date_field :dateSigned, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Result, { class: 'form-label'} %><br>
+   <%= form.select :Result, Attestation.Results.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

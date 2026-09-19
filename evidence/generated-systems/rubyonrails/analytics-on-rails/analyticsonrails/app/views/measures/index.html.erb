@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Measures
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">format</th>
+			<th style="text-align:center">Aggregation</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @measures.each do |measure| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= measure.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= measure.format %>
+			</td>
+			<td style="text-align:center">
+	  			<%= measure.Aggregation %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_measure_path(measure), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', measure_path(measure), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Measure', new_measure_path, :method => :get, :class => "btn btn-success btn-sm" %>

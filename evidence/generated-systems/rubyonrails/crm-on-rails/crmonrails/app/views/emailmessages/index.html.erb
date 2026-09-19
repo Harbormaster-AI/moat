@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of EmailMessages
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">subject</th>
+			<th style="text-align:center">body</th>
+			<th style="text-align:center">sentAt</th>
+			<th style="text-align:center">messageId</th>
+			<th style="text-align:center">Direction</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @emailMessages.each do |emailMessage| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= emailMessage.subject %>
+			</td>
+			<td style="text-align:center">
+	  			<%= emailMessage.body %>
+			</td>
+			<td style="text-align:center">
+	  			<%= emailMessage.sentAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= emailMessage.messageId %>
+			</td>
+			<td style="text-align:center">
+	  			<%= emailMessage.Direction %>
+			</td>
+			<td style="text-align:center">
+	  			<%= emailMessage.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_emailMessage_path(emailMessage), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', emailMessage_path(emailMessage), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New EmailMessage', new_emailMessage_path, :method => :get, :class => "btn btn-success btn-sm" %>

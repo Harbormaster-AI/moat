@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of reservation found in  inventoryonrails/test/controllers
+
+one:
+  referenceNumber: test string for referenceNumber
+  reservedQuantity: "test value"
+  promisedDate: 2020-10-15
+  ReservationStatus: 0
+  ReservationType: 0
+
+two:
+  referenceNumber: test string for referenceNumber
+  reservedQuantity: "test value"
+  promisedDate: 2020-10-15
+  ReservationStatus: 0
+  ReservationType: 0
+
+

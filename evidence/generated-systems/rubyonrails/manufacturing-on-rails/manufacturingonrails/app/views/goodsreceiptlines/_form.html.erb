@@ -1,0 +1,52 @@
+<%= form_with model: @goodsReceiptLine, local: true do |form| %>
+ 
+  <% if @goodsReceiptLine.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@goodsReceiptLine.errors.count, "error") %> prohibited
+        this goodsReceiptLine from being saved:
+      </h2>
+      <ul>
+        <% @goodsReceiptLine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :lineNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :lineNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :receivedQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :receivedQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :acceptedQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :acceptedQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :rejectedQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :rejectedQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lot, { class: 'form-label'} %><br>
+	<%= form.text_field :lot, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

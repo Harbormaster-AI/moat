@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of TradeOrders
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">orderId</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">limitPrice</th>
+			<th style="text-align:center">placedAt</th>
+			<th style="text-align:center">Side</th>
+			<th style="text-align:center">Type</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">TimeInForce</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @tradeOrders.each do |tradeOrder| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= tradeOrder.orderId %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.limitPrice %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.placedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.Side %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.Type %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= tradeOrder.TimeInForce %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_tradeOrder_path(tradeOrder), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', tradeOrder_path(tradeOrder), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New TradeOrder', new_tradeOrder_path, :method => :get, :class => "btn btn-success btn-sm" %>

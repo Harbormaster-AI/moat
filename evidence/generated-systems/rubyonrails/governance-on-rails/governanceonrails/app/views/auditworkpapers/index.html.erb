@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of AuditWorkpapers
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">workpaperRef</th>
+			<th style="text-align:center">subject</th>
+			<th style="text-align:center">workpaperUrl</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @auditWorkpapers.each do |auditWorkpaper| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= auditWorkpaper.workpaperRef %>
+			</td>
+			<td style="text-align:center">
+	  			<%= auditWorkpaper.subject %>
+			</td>
+			<td style="text-align:center">
+	  			<%= auditWorkpaper.workpaperUrl %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_auditWorkpaper_path(auditWorkpaper), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', auditWorkpaper_path(auditWorkpaper), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New AuditWorkpaper', new_auditWorkpaper_path, :method => :get, :class => "btn btn-success btn-sm" %>

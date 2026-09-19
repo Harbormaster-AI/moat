@@ -1,0 +1,58 @@
+<%= form_with model: @settlementBatch, local: true do |form| %>
+ 
+  <% if @settlementBatch.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@settlementBatch.errors.count, "error") %> prohibited
+        this settlementBatch from being saved:
+      </h2>
+      <ul>
+        <% @settlementBatch.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :batchId, { class: 'form-label'} %><br>
+	<%= form.text_field :batchId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :periodStart, { class: 'form-label'} %><br>
+    <%= form.time_field :periodStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :periodEnd, { class: 'form-label'} %><br>
+    <%= form.time_field :periodEnd, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalVolume, { class: 'form-label'} %><br>
+	<%= form.text_field :totalVolume, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalCount, { class: 'form-label'} %><br>
+	<%= form.text_field :totalCount, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, SettlementBatch.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

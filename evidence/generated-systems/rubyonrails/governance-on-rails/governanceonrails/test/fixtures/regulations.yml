@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of regulation found in  governanceonrails/test/controllers
+
+one:
+  name: test string for name
+  citation: test string for citation
+  jurisdiction: test string for jurisdiction
+  publicationUrl: "test value"
+
+two:
+  name: test string for name
+  citation: test string for citation
+  jurisdiction: test string for jurisdiction
+  publicationUrl: "test value"
+
+

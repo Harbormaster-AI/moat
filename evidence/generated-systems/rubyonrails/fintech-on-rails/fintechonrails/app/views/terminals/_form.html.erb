@@ -1,0 +1,40 @@
+<%= form_with model: @terminal, local: true do |form| %>
+ 
+  <% if @terminal.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@terminal.errors.count, "error") %> prohibited
+        this terminal from being saved:
+      </h2>
+      <ul>
+        <% @terminal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :location, { class: 'form-label'} %><br>
+	<%= form.text_field :location, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Type, { class: 'form-label'} %><br>
+   <%= form.select :Type, Terminal.Types.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Terminal.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

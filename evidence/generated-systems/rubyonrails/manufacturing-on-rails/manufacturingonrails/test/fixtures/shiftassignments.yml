@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of shiftAssignment found in  manufacturingonrails/test/controllers
+
+one:
+  assignmentDate: 2020-10-15
+
+two:
+  assignmentDate: 2020-10-15
+
+

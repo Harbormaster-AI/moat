@@ -1,0 +1,50 @@
+<%= form_with model: @chargeback, local: true do |form| %>
+ 
+  <% if @chargeback.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@chargeback.errors.count, "error") %> prohibited
+        this chargeback from being saved:
+      </h2>
+      <ul>
+        <% @chargeback.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :chargebackReference, { class: 'form-label'} %><br>
+	<%= form.text_field :chargebackReference, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :postedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :postedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Stage, { class: 'form-label'} %><br>
+   <%= form.select :Stage, Chargeback.Stages.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Chargeback.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of campaignMember found in  crmonrails/test/controllers
+
+one:
+  responded: true
+  Status: 0
+  MemberType: 0
+
+two:
+  responded: true
+  Status: 0
+  MemberType: 0
+
+

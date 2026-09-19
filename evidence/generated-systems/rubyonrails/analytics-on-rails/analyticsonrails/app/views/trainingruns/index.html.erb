@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of TrainingRuns
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">runLabel</th>
+			<th style="text-align:center">startedAt</th>
+			<th style="text-align:center">completedAt</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @trainingRuns.each do |trainingRun| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= trainingRun.runLabel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trainingRun.startedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trainingRun.completedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trainingRun.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_trainingRun_path(trainingRun), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', trainingRun_path(trainingRun), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New TrainingRun', new_trainingRun_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,52 @@
+<%= form_with model: @inspectionCharacteristic, local: true do |form| %>
+ 
+  <% if @inspectionCharacteristic.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inspectionCharacteristic.errors.count, "error") %> prohibited
+        this inspectionCharacteristic from being saved:
+      </h2>
+      <ul>
+        <% @inspectionCharacteristic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :characteristicCode, { class: 'form-label'} %><br>
+	<%= form.text_field :characteristicCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lowerSpecLimit, { class: 'form-label'} %><br>
+	<%= form.text_field :lowerSpecLimit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :upperSpecLimit, { class: 'form-label'} %><br>
+	<%= form.text_field :upperSpecLimit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :target, { class: 'form-label'} %><br>
+	<%= form.text_field :target, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :MeasurementType, { class: 'form-label'} %><br>
+   <%= form.select :MeasurementType, InspectionCharacteristic.MeasurementTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,52 @@
+<%= form_with model: @review, local: true do |form| %>
+ 
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@review.errors.count, "error") %> prohibited
+        this review from being saved:
+      </h2>
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :rating, { class: 'form-label'} %><br>
+	<%= form.text_field :rating, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :content, { class: 'form-label'} %><br>
+	<%= form.text_field :content, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.date_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Review.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

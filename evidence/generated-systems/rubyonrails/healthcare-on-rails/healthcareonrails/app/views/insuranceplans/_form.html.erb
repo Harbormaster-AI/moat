@@ -1,0 +1,42 @@
+<%= form_with model: @insurancePlan, local: true do |form| %>
+ 
+  <% if @insurancePlan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@insurancePlan.errors.count, "error") %> prohibited
+        this insurancePlan from being saved:
+      </h2>
+      <ul>
+        <% @insurancePlan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :planCode, { class: 'form-label'} %><br>
+	<%= form.text_field :planCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PlanType, { class: 'form-label'} %><br>
+   <%= form.select :PlanType, InsurancePlan.PlanTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

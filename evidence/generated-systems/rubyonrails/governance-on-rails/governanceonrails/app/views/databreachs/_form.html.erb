@@ -1,0 +1,60 @@
+<%= form_with model: @dataBreach, local: true do |form| %>
+ 
+  <% if @dataBreach.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@dataBreach.errors.count, "error") %> prohibited
+        this dataBreach from being saved:
+      </h2>
+      <ul>
+        <% @dataBreach.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :incidentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :incidentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :recordsAffected, { class: 'form-label'} %><br>
+	<%= form.text_field :recordsAffected, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :notificationRequired, {class: "form-check-input"} %>
+    <%= form.label :notificationRequired, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Severity, { class: 'form-label'} %><br>
+   <%= form.select :Severity, DataBreach.Severitys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, DataBreach.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of policy found in  governanceonrails/test/controllers
+
+one:
+  title: test string for title
+  versionLabel: test string for versionLabel
+  approvalDate: 2020-10-15
+  nextReviewDate: 2020-10-15
+  documentUrl: "test value"
+  PolicyType: 0
+  Status: 0
+
+two:
+  title: test string for title
+  versionLabel: test string for versionLabel
+  approvalDate: 2020-10-15
+  nextReviewDate: 2020-10-15
+  documentUrl: "test value"
+  PolicyType: 0
+  Status: 0
+
+

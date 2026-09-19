@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of risk found in  governanceonrails/test/controllers
+
+one:
+  name: test string for name
+  description: test string for description
+  inherentRiskScore: 100
+  residualRiskScore: 100
+  Category: 0
+  Impact: 0
+  Likelihood: 0
+  Status: 0
+
+two:
+  name: test string for name
+  description: test string for description
+  inherentRiskScore: 100
+  residualRiskScore: 100
+  Category: 0
+  Impact: 0
+  Likelihood: 0
+  Status: 0
+
+

@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of replenishmentPolicy found in  inventoryonrails/test/controllers
+
+one:
+  minLevel: "test value"
+  maxLevel: "test value"
+  reorderPoint: "test value"
+  reorderQuantity: "test value"
+  leadTimeDays: 100
+  reviewPeriodDays: 100
+  PolicyType: 0
+
+two:
+  minLevel: "test value"
+  maxLevel: "test value"
+  reorderPoint: "test value"
+  reorderQuantity: "test value"
+  leadTimeDays: 100
+  reviewPeriodDays: 100
+  PolicyType: 0
+
+

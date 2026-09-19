@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of admission found in  healthcareonrails/test/controllers
+
+one:
+  admitDateTime: 2020-10-15
+  bed: test string for bed
+  AdmissionType: 0
+
+two:
+  admitDateTime: 2020-10-15
+  bed: test string for bed
+  AdmissionType: 0
+
+

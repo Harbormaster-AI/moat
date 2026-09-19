@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>healthcareonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>healthcareonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'HealthSystems', healthSystems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Facilitys', facilitys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Departments', departments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CareTeams', careTeams_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Clinicians', clinicians_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Patients', patients_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Appointments', appointments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Encounters', encounters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Admissions', admissions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Discharges', discharges_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ClinicalOrders', clinicalOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MedicationOrders', medicationOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Laboratorys', laboratorys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'LaboratoryOrders', laboratoryOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'LabResults', labResults_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ImagingCenters', imagingCenters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ImagingOrders', imagingOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ImagingReports', imagingReports_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ProcedureOrders', procedureOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Procedures', procedures_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Pharmacys', pharmacys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MedicationDispenses', medicationDispenses_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Diagnosiss', diagnosiss_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Observations', observations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CarePlans', carePlans_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CareTasks', careTasks_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Allergys', allergys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Conditions', conditions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InsurancePayers', insurancePayers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InsurancePlans', insurancePlans_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Coverages', coverages_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Claims', claims_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Authorizations', authorizations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Invoices', invoices_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Payments', payments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MedicalDevices', medicalDevices_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'SoftwareUpdates', softwareUpdates_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MedicalSuppliers', medicalSuppliers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryItems', inventoryItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

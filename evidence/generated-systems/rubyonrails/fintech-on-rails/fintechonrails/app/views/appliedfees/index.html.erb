@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of AppliedFees
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">FeeType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @appliedFees.each do |appliedFee| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= appliedFee.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= appliedFee.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= appliedFee.FeeType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_appliedFee_path(appliedFee), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', appliedFee_path(appliedFee), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New AppliedFee', new_appliedFee_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,44 @@
+<%= form_with model: @customerAddress, local: true do |form| %>
+ 
+  <% if @customerAddress.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@customerAddress.errors.count, "error") %> prohibited
+        this customerAddress from being saved:
+      </h2>
+      <ul>
+        <% @customerAddress.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :label, { class: 'form-label'} %><br>
+	<%= form.text_field :label, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :address, { class: 'form-label'} %><br>
+	<%= form.text_field :address, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asDefaultShipping, {class: "form-check-input"} %>
+    <%= form.label :asDefaultShipping, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+    <%= form.check_box :asDefaultBilling, {class: "form-check-input"} %>
+    <%= form.label :asDefaultBilling, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

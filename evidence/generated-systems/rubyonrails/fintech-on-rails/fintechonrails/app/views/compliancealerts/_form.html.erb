@@ -1,0 +1,50 @@
+<%= form_with model: @complianceAlert, local: true do |form| %>
+ 
+  <% if @complianceAlert.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@complianceAlert.errors.count, "error") %> prohibited
+        this complianceAlert from being saved:
+      </h2>
+      <ul>
+        <% @complianceAlert.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :alertCode, { class: 'form-label'} %><br>
+	<%= form.text_field :alertCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :raisedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :raisedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :notes, { class: 'form-label'} %><br>
+	<%= form.text_field :notes, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Severity, { class: 'form-label'} %><br>
+   <%= form.select :Severity, ComplianceAlert.Severitys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, ComplianceAlert.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

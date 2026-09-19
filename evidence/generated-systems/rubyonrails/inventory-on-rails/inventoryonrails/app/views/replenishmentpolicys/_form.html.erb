@@ -1,0 +1,60 @@
+<%= form_with model: @replenishmentPolicy, local: true do |form| %>
+ 
+  <% if @replenishmentPolicy.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@replenishmentPolicy.errors.count, "error") %> prohibited
+        this replenishmentPolicy from being saved:
+      </h2>
+      <ul>
+        <% @replenishmentPolicy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :minLevel, { class: 'form-label'} %><br>
+	<%= form.text_field :minLevel, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :maxLevel, { class: 'form-label'} %><br>
+	<%= form.text_field :maxLevel, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reorderPoint, { class: 'form-label'} %><br>
+	<%= form.text_field :reorderPoint, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reorderQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :reorderQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :leadTimeDays, { class: 'form-label'} %><br>
+	<%= form.text_field :leadTimeDays, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reviewPeriodDays, { class: 'form-label'} %><br>
+	<%= form.text_field :reviewPeriodDays, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PolicyType, { class: 'form-label'} %><br>
+   <%= form.select :PolicyType, ReplenishmentPolicy.PolicyTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

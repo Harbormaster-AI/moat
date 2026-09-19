@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of trainingEnrollment found in  hronrails/test/controllers
+
+one:
+  enrollmentNumber: test string for enrollmentNumber
+  completionDate: 2020-10-15
+  score: "test value"
+  Status: 0
+
+two:
+  enrollmentNumber: test string for enrollmentNumber
+  completionDate: 2020-10-15
+  score: "test value"
+  Status: 0
+
+

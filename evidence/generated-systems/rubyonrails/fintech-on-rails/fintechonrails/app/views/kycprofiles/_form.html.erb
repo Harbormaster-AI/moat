@@ -1,0 +1,50 @@
+<%= form_with model: @kYCProfile, local: true do |form| %>
+ 
+  <% if @kYCProfile.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@kYCProfile.errors.count, "error") %> prohibited
+        this kYCProfile from being saved:
+      </h2>
+      <ul>
+        <% @kYCProfile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :profileId, { class: 'form-label'} %><br>
+	<%= form.text_field :profileId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.time_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, KYCProfile.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :VerificationLevel, { class: 'form-label'} %><br>
+   <%= form.select :VerificationLevel, KYCProfile.VerificationLevels.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

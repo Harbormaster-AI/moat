@@ -1,0 +1,52 @@
+<%= form_with model: @inboundShipment, local: true do |form| %>
+ 
+  <% if @inboundShipment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inboundShipment.errors.count, "error") %> prohibited
+        this inboundShipment from being saved:
+      </h2>
+      <ul>
+        <% @inboundShipment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :shipmentNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :shipmentNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expectedArrivalDate, { class: 'form-label'} %><br>
+    <%= form.date_field :expectedArrivalDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :arrivalDate, { class: 'form-label'} %><br>
+    <%= form.date_field :arrivalDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :carrierName, { class: 'form-label'} %><br>
+	<%= form.text_field :carrierName, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InboundShipment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,48 @@
+<%= form_with model: @governanceBody, local: true do |form| %>
+ 
+  <% if @governanceBody.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@governanceBody.errors.count, "error") %> prohibited
+        this governanceBody from being saved:
+      </h2>
+      <ul>
+        <% @governanceBody.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :charterUrl, { class: 'form-label'} %><br>
+	<%= form.text_field :charterUrl, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :chair, { class: 'form-label'} %><br>
+	<%= form.text_field :chair, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :BodyType, { class: 'form-label'} %><br>
+   <%= form.select :BodyType, GovernanceBody.BodyTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

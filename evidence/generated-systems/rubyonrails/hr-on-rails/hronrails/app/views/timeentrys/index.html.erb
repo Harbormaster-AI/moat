@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of TimeEntrys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">entryDate</th>
+			<th style="text-align:center">hoursWorked</th>
+			<th style="text-align:center">EntryType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @timeEntrys.each do |timeEntry| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= timeEntry.entryDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= timeEntry.hoursWorked %>
+			</td>
+			<td style="text-align:center">
+	  			<%= timeEntry.EntryType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_timeEntry_path(timeEntry), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', timeEntry_path(timeEntry), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New TimeEntry', new_timeEntry_path, :method => :get, :class => "btn btn-success btn-sm" %>

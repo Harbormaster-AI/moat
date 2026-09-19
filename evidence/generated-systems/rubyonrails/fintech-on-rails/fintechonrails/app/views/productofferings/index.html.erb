@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of ProductOfferings
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">productCode</th>
+			<th style="text-align:center">Category</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @productOfferings.each do |productOffering| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= productOffering.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productOffering.productCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productOffering.Category %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_productOffering_path(productOffering), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', productOffering_path(productOffering), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ProductOffering', new_productOffering_path, :method => :get, :class => "btn btn-success btn-sm" %>

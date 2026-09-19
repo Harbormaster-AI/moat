@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Positions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">averageCost</th>
+			<th style="text-align:center">marketValue</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @positions.each do |position| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= position.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= position.averageCost %>
+			</td>
+			<td style="text-align:center">
+	  			<%= position.marketValue %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_position_path(position), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', position_path(position), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Position', new_position_path, :method => :get, :class => "btn btn-success btn-sm" %>

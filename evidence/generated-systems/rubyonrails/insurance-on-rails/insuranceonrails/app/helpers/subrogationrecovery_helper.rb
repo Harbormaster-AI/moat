@@ -1,0 +1,2 @@
+module SubrogationRecoveryHelper
+end

@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Coupons
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">code</th>
+			<th style="text-align:center">usageLimit</th>
+			<th style="text-align:center">perCustomerLimit</th>
+			<th style="text-align:center">expirationDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @coupons.each do |coupon| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= coupon.code %>
+			</td>
+			<td style="text-align:center">
+	  			<%= coupon.usageLimit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= coupon.perCustomerLimit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= coupon.expirationDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= coupon.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_coupon_path(coupon), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', coupon_path(coupon), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Coupon', new_coupon_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,44 @@
+<%= form_with model: @cardTokenization, local: true do |form| %>
+ 
+  <% if @cardTokenization.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cardTokenization.errors.count, "error") %> prohibited
+        this cardTokenization from being saved:
+      </h2>
+      <ul>
+        <% @cardTokenization.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :tokenReference, { class: 'form-label'} %><br>
+	<%= form.text_field :tokenReference, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.time_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :WalletProvider, { class: 'form-label'} %><br>
+   <%= form.select :WalletProvider, CardTokenization.WalletProviders.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, CardTokenization.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

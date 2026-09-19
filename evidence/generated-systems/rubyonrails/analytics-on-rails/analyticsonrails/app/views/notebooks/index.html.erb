@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Notebooks
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">repository</th>
+			<th style="text-align:center">Language</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @notebooks.each do |notebook| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= notebook.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= notebook.repository %>
+			</td>
+			<td style="text-align:center">
+	  			<%= notebook.Language %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_notebook_path(notebook), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', notebook_path(notebook), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Notebook', new_notebook_path, :method => :get, :class => "btn btn-success btn-sm" %>

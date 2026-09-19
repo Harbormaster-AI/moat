@@ -1,0 +1,2 @@
+module InventoryTransactionHelper
+end

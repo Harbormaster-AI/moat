@@ -1,0 +1,54 @@
+<%= form_with model: @goal, local: true do |form| %>
+ 
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@goal.errors.count, "error") %> prohibited
+        this goal from being saved:
+      </h2>
+      <ul>
+        <% @goal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :targetDate, { class: 'form-label'} %><br>
+    <%= form.date_field :targetDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :weight, { class: 'form-label'} %><br>
+	<%= form.text_field :weight, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Goal.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

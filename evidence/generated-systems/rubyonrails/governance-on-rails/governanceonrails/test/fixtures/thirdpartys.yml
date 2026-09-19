@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of thirdParty found in  governanceonrails/test/controllers
+
+one:
+  name: test string for name
+  country: test string for country
+  contactEmail: "test value"
+  ThirdPartyType: 0
+  Criticality: 0
+
+two:
+  name: test string for name
+  country: test string for country
+  contactEmail: "test value"
+  ThirdPartyType: 0
+  Criticality: 0
+
+

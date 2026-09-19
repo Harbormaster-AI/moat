@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Diagnosiss
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">code</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">onsetDate</th>
+			<th style="text-align:center">Certainty</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @diagnosiss.each do |diagnosis| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= diagnosis.code %>
+			</td>
+			<td style="text-align:center">
+	  			<%= diagnosis.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= diagnosis.onsetDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= diagnosis.Certainty %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_diagnosis_path(diagnosis), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', diagnosis_path(diagnosis), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Diagnosis', new_diagnosis_path, :method => :get, :class => "btn btn-success btn-sm" %>

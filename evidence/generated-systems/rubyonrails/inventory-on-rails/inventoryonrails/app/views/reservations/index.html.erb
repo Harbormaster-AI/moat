@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Reservations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">referenceNumber</th>
+			<th style="text-align:center">reservedQuantity</th>
+			<th style="text-align:center">promisedDate</th>
+			<th style="text-align:center">ReservationStatus</th>
+			<th style="text-align:center">ReservationType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @reservations.each do |reservation| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= reservation.referenceNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reservation.reservedQuantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reservation.promisedDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reservation.ReservationStatus %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reservation.ReservationType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_reservation_path(reservation), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', reservation_path(reservation), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Reservation', new_reservation_path, :method => :get, :class => "btn btn-success btn-sm" %>

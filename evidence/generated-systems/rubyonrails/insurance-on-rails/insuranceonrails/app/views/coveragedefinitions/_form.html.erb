@@ -1,0 +1,48 @@
+<%= form_with model: @coverageDefinition, local: true do |form| %>
+ 
+  <% if @coverageDefinition.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@coverageDefinition.errors.count, "error") %> prohibited
+        this coverageDefinition from being saved:
+      </h2>
+      <ul>
+        <% @coverageDefinition.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :defaultLimit, { class: 'form-label'} %><br>
+	<%= form.text_field :defaultLimit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :defaultDeductible, { class: 'form-label'} %><br>
+	<%= form.text_field :defaultDeductible, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asMandatory, {class: "form-check-input"} %>
+    <%= form.label :asMandatory, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :CoverageType, { class: 'form-label'} %><br>
+   <%= form.select :CoverageType, CoverageDefinition.CoverageTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

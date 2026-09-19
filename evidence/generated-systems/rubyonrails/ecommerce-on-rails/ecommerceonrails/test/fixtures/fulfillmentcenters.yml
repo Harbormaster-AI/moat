@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of fulfillmentCenter found in  ecommerceonrails/test/controllers
+
+one:
+  name: test string for name
+  centerCode: test string for centerCode
+  address: "test value"
+  timezone: test string for timezone
+  asActive: true
+
+two:
+  name: test string for name
+  centerCode: test string for centerCode
+  address: "test value"
+  timezone: test string for timezone
+  asActive: true
+
+

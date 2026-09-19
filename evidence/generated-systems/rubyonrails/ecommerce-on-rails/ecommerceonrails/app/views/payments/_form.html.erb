@@ -1,0 +1,62 @@
+<%= form_with model: @payment, local: true do |form| %>
+ 
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@payment.errors.count, "error") %> prohibited
+        this payment from being saved:
+      </h2>
+      <ul>
+        <% @payment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :paymentNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :paymentNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :transactionId, { class: 'form-label'} %><br>
+	<%= form.text_field :transactionId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :authorizedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :authorizedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :capturedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :capturedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Payment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :PaymentMethod, { class: 'form-label'} %><br>
+   <%= form.select :PaymentMethod, Payment.PaymentMethods.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

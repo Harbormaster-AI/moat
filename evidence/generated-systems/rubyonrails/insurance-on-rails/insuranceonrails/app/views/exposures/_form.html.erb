@@ -1,0 +1,44 @@
+<%= form_with model: @exposure, local: true do |form| %>
+ 
+  <% if @exposure.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@exposure.errors.count, "error") %> prohibited
+        this exposure from being saved:
+      </h2>
+      <ul>
+        <% @exposure.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ExposureType, { class: 'form-label'} %><br>
+   <%= form.select :ExposureType, Exposure.ExposureTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Exposure.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

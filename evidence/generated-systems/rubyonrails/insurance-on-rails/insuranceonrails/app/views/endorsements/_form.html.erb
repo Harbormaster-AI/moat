@@ -1,0 +1,40 @@
+<%= form_with model: @endorsement, local: true do |form| %>
+ 
+  <% if @endorsement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@endorsement.errors.count, "error") %> prohibited
+        this endorsement from being saved:
+      </h2>
+      <ul>
+        <% @endorsement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :endorsementNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :endorsementNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveDate, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

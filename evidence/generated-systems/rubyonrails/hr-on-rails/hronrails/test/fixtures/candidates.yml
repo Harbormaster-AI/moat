@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of candidate found in  hronrails/test/controllers
+
+one:
+  name: "test value"
+  email: "test value"
+  phone: "test value"
+  Source: 0
+
+two:
+  name: "test value"
+  email: "test value"
+  phone: "test value"
+  Source: 0
+
+

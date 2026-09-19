@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of dataSubjectRequest found in  governanceonrails/test/controllers
+
+one:
+  receivedDate: 2020-10-15
+  dueDate: 2020-10-15
+  requesterCountry: test string for requesterCountry
+  RequestType: 0
+  Status: 0
+
+two:
+  receivedDate: 2020-10-15
+  dueDate: 2020-10-15
+  requesterCountry: test string for requesterCountry
+  RequestType: 0
+  Status: 0
+
+

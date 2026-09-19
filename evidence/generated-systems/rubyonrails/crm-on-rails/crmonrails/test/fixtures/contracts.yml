@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of contract found in  crmonrails/test/controllers
+
+one:
+  contractNumber: test string for contractNumber
+  startDate: 2020-10-15
+  endDate: 2020-10-15
+  renewalTermMonths: 100
+  autoRenew: true
+  Status: 0
+
+two:
+  contractNumber: test string for contractNumber
+  startDate: 2020-10-15
+  endDate: 2020-10-15
+  renewalTermMonths: 100
+  autoRenew: true
+  Status: 0
+
+

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of interview found in  hronrails/test/controllers
+
+one:
+  interviewDate: 2020-10-15
+  feedback: test string for feedback
+  Stage: 0
+  Result: 0
+
+two:
+  interviewDate: 2020-10-15
+  feedback: test string for feedback
+  Stage: 0
+  Result: 0
+
+

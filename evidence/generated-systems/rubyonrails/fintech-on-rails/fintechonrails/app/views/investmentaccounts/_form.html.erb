@@ -1,0 +1,52 @@
+<%= form_with model: @investmentAccount, local: true do |form| %>
+ 
+  <% if @investmentAccount.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@investmentAccount.errors.count, "error") %> prohibited
+        this investmentAccount from being saved:
+      </h2>
+      <ul>
+        <% @investmentAccount.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :accountNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :accountNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :baseCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :baseCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :balance, { class: 'form-label'} %><br>
+	<%= form.text_field :balance, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AccountType, { class: 'form-label'} %><br>
+   <%= form.select :AccountType, InvestmentAccount.AccountTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InvestmentAccount.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

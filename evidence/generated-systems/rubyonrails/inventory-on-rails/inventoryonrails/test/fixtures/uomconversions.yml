@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of uoMConversion found in  inventoryonrails/test/controllers
+
+one:
+  factor: "test value"
+  precision: 100
+  FromUnit: 0
+  ToUnit: 0
+
+two:
+  factor: "test value"
+  precision: 100
+  FromUnit: 0
+  ToUnit: 0
+
+

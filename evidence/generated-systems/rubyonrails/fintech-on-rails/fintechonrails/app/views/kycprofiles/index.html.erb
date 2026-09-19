@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of KYCProfiles
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">profileId</th>
+			<th style="text-align:center">createdAt</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">VerificationLevel</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @kYCProfiles.each do |kYCProfile| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= kYCProfile.profileId %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCProfile.createdAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCProfile.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCProfile.VerificationLevel %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_kYCProfile_path(kYCProfile), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', kYCProfile_path(kYCProfile), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New KYCProfile', new_kYCProfile_path, :method => :get, :class => "btn btn-success btn-sm" %>

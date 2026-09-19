@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of incident found in  insuranceonrails/test/controllers
+
+one:
+  location: "test value"
+  description: test string for description
+  IncidentType: 0
+
+two:
+  location: "test value"
+  description: test string for description
+  IncidentType: 0
+
+

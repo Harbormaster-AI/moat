@@ -1,0 +1,46 @@
+<%= form_with model: @correctiveAction, local: true do |form| %>
+ 
+  <% if @correctiveAction.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@correctiveAction.errors.count, "error") %> prohibited
+        this correctiveAction from being saved:
+      </h2>
+      <ul>
+        <% @correctiveAction.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :actionTitle, { class: 'form-label'} %><br>
+	<%= form.text_field :actionTitle, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :owner, { class: 'form-label'} %><br>
+	<%= form.text_field :owner, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :targetDate, { class: 'form-label'} %><br>
+    <%= form.date_field :targetDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, CorrectiveAction.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

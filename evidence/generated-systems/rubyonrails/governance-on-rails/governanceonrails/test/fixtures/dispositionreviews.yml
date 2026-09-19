@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of dispositionReview found in  governanceonrails/test/controllers
+
+one:
+  reviewDate: 2020-10-15
+  reviewer: test string for reviewer
+  notes: test string for notes
+  Outcome: 0
+
+two:
+  reviewDate: 2020-10-15
+  reviewer: test string for reviewer
+  notes: test string for notes
+  Outcome: 0
+
+

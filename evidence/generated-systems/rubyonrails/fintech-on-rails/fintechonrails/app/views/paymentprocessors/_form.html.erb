@@ -1,0 +1,44 @@
+<%= form_with model: @paymentProcessor, local: true do |form| %>
+ 
+  <% if @paymentProcessor.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@paymentProcessor.errors.count, "error") %> prohibited
+        this paymentProcessor from being saved:
+      </h2>
+      <ul>
+        <% @paymentProcessor.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :processorCode, { class: 'form-label'} %><br>
+	<%= form.text_field :processorCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :networkSupport, { class: 'form-label'} %><br>
+	<%= form.text_field :networkSupport, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

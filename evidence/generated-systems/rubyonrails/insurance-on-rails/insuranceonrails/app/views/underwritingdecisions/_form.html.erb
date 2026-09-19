@@ -1,0 +1,42 @@
+<%= form_with model: @underwritingDecision, local: true do |form| %>
+ 
+  <% if @underwritingDecision.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@underwritingDecision.errors.count, "error") %> prohibited
+        this underwritingDecision from being saved:
+      </h2>
+      <ul>
+        <% @underwritingDecision.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :notes, { class: 'form-label'} %><br>
+	<%= form.text_field :notes, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :decisionDate, { class: 'form-label'} %><br>
+    <%= form.date_field :decisionDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Decision, { class: 'form-label'} %><br>
+   <%= form.select :Decision, UnderwritingDecision.Decisions.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

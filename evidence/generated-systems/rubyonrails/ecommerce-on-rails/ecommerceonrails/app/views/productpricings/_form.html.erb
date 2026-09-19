@@ -1,0 +1,46 @@
+<%= form_with model: @productPricing, local: true do |form| %>
+ 
+  <% if @productPricing.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@productPricing.errors.count, "error") %> prohibited
+        this productPricing from being saved:
+      </h2>
+      <ul>
+        <% @productPricing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :listPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :listPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :salePrice, { class: 'form-label'} %><br>
+	<%= form.text_field :salePrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :validFrom, { class: 'form-label'} %><br>
+    <%= form.date_field :validFrom, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :validTo, { class: 'form-label'} %><br>
+    <%= form.date_field :validTo, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

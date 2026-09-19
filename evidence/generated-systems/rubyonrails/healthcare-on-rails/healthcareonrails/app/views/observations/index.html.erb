@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Observations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">code</th>
+			<th style="text-align:center">value</th>
+			<th style="text-align:center">unit</th>
+			<th style="text-align:center">effectiveDateTime</th>
+			<th style="text-align:center">Interpretation</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @observations.each do |observation| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= observation.code %>
+			</td>
+			<td style="text-align:center">
+	  			<%= observation.value %>
+			</td>
+			<td style="text-align:center">
+	  			<%= observation.unit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= observation.effectiveDateTime %>
+			</td>
+			<td style="text-align:center">
+	  			<%= observation.Interpretation %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_observation_path(observation), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', observation_path(observation), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Observation', new_observation_path, :method => :get, :class => "btn btn-success btn-sm" %>

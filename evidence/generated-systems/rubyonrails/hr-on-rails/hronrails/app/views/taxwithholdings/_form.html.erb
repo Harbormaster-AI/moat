@@ -1,0 +1,44 @@
+<%= form_with model: @taxWithholding, local: true do |form| %>
+ 
+  <% if @taxWithholding.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@taxWithholding.errors.count, "error") %> prohibited
+        this taxWithholding from being saved:
+      </h2>
+      <ul>
+        <% @taxWithholding.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :taxId, { class: 'form-label'} %><br>
+	<%= form.text_field :taxId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :allowances, { class: 'form-label'} %><br>
+	<%= form.text_field :allowances, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :additionalAmount, { class: 'form-label'} %><br>
+	<%= form.text_field :additionalAmount, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :FilingStatus, { class: 'form-label'} %><br>
+   <%= form.select :FilingStatus, TaxWithholding.FilingStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

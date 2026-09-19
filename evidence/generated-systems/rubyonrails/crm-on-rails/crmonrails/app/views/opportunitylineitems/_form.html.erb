@@ -1,0 +1,48 @@
+<%= form_with model: @opportunityLineItem, local: true do |form| %>
+ 
+  <% if @opportunityLineItem.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@opportunityLineItem.errors.count, "error") %> prohibited
+        this opportunityLineItem from being saved:
+      </h2>
+      <ul>
+        <% @opportunityLineItem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unitPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :unitPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :discountPercent, { class: 'form-label'} %><br>
+	<%= form.text_field :discountPercent, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :totalPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

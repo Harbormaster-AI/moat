@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Evidences
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">locationUrl</th>
+			<th style="text-align:center">receivedDate</th>
+			<th style="text-align:center">EvidenceType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @evidences.each do |evidence| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= evidence.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= evidence.locationUrl %>
+			</td>
+			<td style="text-align:center">
+	  			<%= evidence.receivedDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= evidence.EvidenceType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_evidence_path(evidence), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', evidence_path(evidence), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Evidence', new_evidence_path, :method => :get, :class => "btn btn-success btn-sm" %>

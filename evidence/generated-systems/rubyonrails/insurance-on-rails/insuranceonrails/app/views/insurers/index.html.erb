@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Insurers
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">legalName</th>
+			<th style="text-align:center">domicileCountry</th>
+			<th style="text-align:center">naicNumber</th>
+			<th style="text-align:center">website</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @insurers.each do |insurer| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= insurer.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= insurer.legalName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= insurer.domicileCountry %>
+			</td>
+			<td style="text-align:center">
+	  			<%= insurer.naicNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= insurer.website %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_insurer_path(insurer), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', insurer_path(insurer), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Insurer', new_insurer_path, :method => :get, :class => "btn btn-success btn-sm" %>

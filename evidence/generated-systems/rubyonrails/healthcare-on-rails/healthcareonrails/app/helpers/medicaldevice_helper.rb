@@ -1,0 +1,2 @@
+module MedicalDeviceHelper
+end

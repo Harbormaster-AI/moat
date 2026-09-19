@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of InventoryThresholdAlerts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">alertNumber</th>
+			<th style="text-align:center">detectedAt</th>
+			<th style="text-align:center">message</th>
+			<th style="text-align:center">AlertType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @inventoryThresholdAlerts.each do |inventoryThresholdAlert| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= inventoryThresholdAlert.alertNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryThresholdAlert.detectedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryThresholdAlert.message %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryThresholdAlert.AlertType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryThresholdAlert.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_inventoryThresholdAlert_path(inventoryThresholdAlert), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', inventoryThresholdAlert_path(inventoryThresholdAlert), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New InventoryThresholdAlert', new_inventoryThresholdAlert_path, :method => :get, :class => "btn btn-success btn-sm" %>

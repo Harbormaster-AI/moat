@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Locations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">locationCode</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">LocationType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @locations.each do |location| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= location.locationCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= location.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= location.LocationType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_location_path(location), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', location_path(location), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Location', new_location_path, :method => :get, :class => "btn btn-success btn-sm" %>

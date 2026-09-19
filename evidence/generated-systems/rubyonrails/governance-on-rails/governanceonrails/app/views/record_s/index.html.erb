@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Record_s
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">creationDate</th>
+			<th style="text-align:center">RecordType</th>
+			<th style="text-align:center">Classification</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @record_s.each do |record_| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= record_.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= record_.creationDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= record_.RecordType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= record_.Classification %>
+			</td>
+			<td style="text-align:center">
+	  			<%= record_.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_record__path(record_), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', record__path(record_), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Record_', new_record__path, :method => :get, :class => "btn btn-success btn-sm" %>

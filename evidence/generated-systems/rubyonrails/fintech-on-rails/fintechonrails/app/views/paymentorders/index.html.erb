@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of PaymentOrders
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">orderReference</th>
+			<th style="text-align:center">requestedExecutionDate</th>
+			<th style="text-align:center">purpose</th>
+			<th style="text-align:center">PaymentMethod</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">Priority</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @paymentOrders.each do |paymentOrder| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= paymentOrder.orderReference %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentOrder.requestedExecutionDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentOrder.purpose %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentOrder.PaymentMethod %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentOrder.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= paymentOrder.Priority %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_paymentOrder_path(paymentOrder), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', paymentOrder_path(paymentOrder), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New PaymentOrder', new_paymentOrder_path, :method => :get, :class => "btn btn-success btn-sm" %>

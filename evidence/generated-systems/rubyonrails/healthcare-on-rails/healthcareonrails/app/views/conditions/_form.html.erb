@@ -1,0 +1,48 @@
+<%= form_with model: @condition, local: true do |form| %>
+ 
+  <% if @condition.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@condition.errors.count, "error") %> prohibited
+        this condition from being saved:
+      </h2>
+      <ul>
+        <% @condition.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :onsetDate, { class: 'form-label'} %><br>
+    <%= form.date_field :onsetDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :abatementDate, { class: 'form-label'} %><br>
+    <%= form.date_field :abatementDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ClinicalStatus, { class: 'form-label'} %><br>
+   <%= form.select :ClinicalStatus, Condition.ClinicalStatuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :VerificationStatus, { class: 'form-label'} %><br>
+   <%= form.select :VerificationStatus, Condition.VerificationStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

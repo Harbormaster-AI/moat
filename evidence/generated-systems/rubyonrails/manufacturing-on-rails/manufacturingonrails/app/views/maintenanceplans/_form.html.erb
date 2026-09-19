@@ -1,0 +1,46 @@
+<%= form_with model: @maintenancePlan, local: true do |form| %>
+ 
+  <% if @maintenancePlan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@maintenancePlan.errors.count, "error") %> prohibited
+        this maintenancePlan from being saved:
+      </h2>
+      <ul>
+        <% @maintenancePlan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :planNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :planNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :interval, { class: 'form-label'} %><br>
+	<%= form.text_field :interval, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastServiceDate, { class: 'form-label'} %><br>
+    <%= form.date_field :lastServiceDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Strategy, { class: 'form-label'} %><br>
+   <%= form.select :Strategy, MaintenancePlan.Strategys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

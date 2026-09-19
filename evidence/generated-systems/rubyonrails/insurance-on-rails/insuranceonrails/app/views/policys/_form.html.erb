@@ -1,0 +1,68 @@
+<%= form_with model: @policy, local: true do |form| %>
+ 
+  <% if @policy.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@policy.errors.count, "error") %> prohibited
+        this policy from being saved:
+      </h2>
+      <ul>
+        <% @policy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :policyNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :policyNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectivePeriod, { class: 'form-label'} %><br>
+	<%= form.text_field :effectivePeriod, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalPremium, { class: 'form-label'} %><br>
+	<%= form.text_field :totalPremium, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Policy.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :PaymentPlan, { class: 'form-label'} %><br>
+   <%= form.select :PaymentPlan, Policy.PaymentPlans.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

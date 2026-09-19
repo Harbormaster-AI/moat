@@ -1,0 +1,31 @@
+<div class="title text-center">
+  List of Quotes
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">quoteNumber</th>
+			<th style="text-align:center">totalAmount</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @quotes.each do |quote| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= quote.quoteNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.totalAmount %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_quote_path(quote), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', quote_path(quote), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Quote', new_quote_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Forecasts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">forecastNumber</th>
+			<th style="text-align:center">forecastHorizonStart</th>
+			<th style="text-align:center">forecastHorizonEnd</th>
+			<th style="text-align:center">Method</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @forecasts.each do |forecast| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= forecast.forecastNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= forecast.forecastHorizonStart %>
+			</td>
+			<td style="text-align:center">
+	  			<%= forecast.forecastHorizonEnd %>
+			</td>
+			<td style="text-align:center">
+	  			<%= forecast.Method %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_forecast_path(forecast), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', forecast_path(forecast), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Forecast', new_forecast_path, :method => :get, :class => "btn btn-success btn-sm" %>

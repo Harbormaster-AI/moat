@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Admissions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">admitDateTime</th>
+			<th style="text-align:center">bed</th>
+			<th style="text-align:center">AdmissionType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @admissions.each do |admission| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= admission.admitDateTime %>
+			</td>
+			<td style="text-align:center">
+	  			<%= admission.bed %>
+			</td>
+			<td style="text-align:center">
+	  			<%= admission.AdmissionType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_admission_path(admission), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', admission_path(admission), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Admission', new_admission_path, :method => :get, :class => "btn btn-success btn-sm" %>

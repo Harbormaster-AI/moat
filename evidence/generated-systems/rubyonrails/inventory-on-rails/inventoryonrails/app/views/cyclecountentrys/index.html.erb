@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of CycleCountEntrys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">lineNumber</th>
+			<th style="text-align:center">systemQuantity</th>
+			<th style="text-align:center">countedQuantity</th>
+			<th style="text-align:center">varianceQuantity</th>
+			<th style="text-align:center">recountRequired</th>
+			<th style="text-align:center">StockStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @cycleCountEntrys.each do |cycleCountEntry| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= cycleCountEntry.lineNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cycleCountEntry.systemQuantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cycleCountEntry.countedQuantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cycleCountEntry.varianceQuantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cycleCountEntry.recountRequired %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cycleCountEntry.StockStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_cycleCountEntry_path(cycleCountEntry), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', cycleCountEntry_path(cycleCountEntry), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New CycleCountEntry', new_cycleCountEntry_path, :method => :get, :class => "btn btn-success btn-sm" %>

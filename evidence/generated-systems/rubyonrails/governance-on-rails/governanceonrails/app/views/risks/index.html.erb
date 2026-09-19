@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of Risks
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">inherentRiskScore</th>
+			<th style="text-align:center">residualRiskScore</th>
+			<th style="text-align:center">Category</th>
+			<th style="text-align:center">Impact</th>
+			<th style="text-align:center">Likelihood</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @risks.each do |risk| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= risk.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.inherentRiskScore %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.residualRiskScore %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.Category %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.Impact %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.Likelihood %>
+			</td>
+			<td style="text-align:center">
+	  			<%= risk.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_risk_path(risk), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', risk_path(risk), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Risk', new_risk_path, :method => :get, :class => "btn btn-success btn-sm" %>

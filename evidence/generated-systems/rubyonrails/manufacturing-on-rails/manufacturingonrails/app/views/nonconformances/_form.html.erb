@@ -1,0 +1,58 @@
+<%= form_with model: @nonconformance, local: true do |form| %>
+ 
+  <% if @nonconformance.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@nonconformance.errors.count, "error") %> prohibited
+        this nonconformance from being saved:
+      </h2>
+      <ul>
+        <% @nonconformance.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :ncNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :ncNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :containmentAction, { class: 'form-label'} %><br>
+	<%= form.text_field :containmentAction, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :NcType, { class: 'form-label'} %><br>
+   <%= form.select :NcType, Nonconformance.NcTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Severity, { class: 'form-label'} %><br>
+   <%= form.select :Severity, Nonconformance.Severitys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Nonconformance.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

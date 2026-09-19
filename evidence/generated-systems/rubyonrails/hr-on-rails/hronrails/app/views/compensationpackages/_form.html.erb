@@ -1,0 +1,46 @@
+<%= form_with model: @compensationPackage, local: true do |form| %>
+ 
+  <% if @compensationPackage.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@compensationPackage.errors.count, "error") %> prohibited
+        this compensationPackage from being saved:
+      </h2>
+      <ul>
+        <% @compensationPackage.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :effectiveFrom, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveFrom, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveTo, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveTo, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :currency, { class: 'form-label'} %><br>
+	<%= form.text_field :currency, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

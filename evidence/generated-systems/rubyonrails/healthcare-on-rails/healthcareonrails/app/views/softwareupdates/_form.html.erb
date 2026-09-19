@@ -1,0 +1,40 @@
+<%= form_with model: @softwareUpdate, local: true do |form| %>
+ 
+  <% if @softwareUpdate.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@softwareUpdate.errors.count, "error") %> prohibited
+        this softwareUpdate from being saved:
+      </h2>
+      <ul>
+        <% @softwareUpdate.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :version, { class: 'form-label'} %><br>
+	<%= form.text_field :version, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :appliedDate, { class: 'form-label'} %><br>
+    <%= form.time_field :appliedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :UpdateType, { class: 'form-label'} %><br>
+   <%= form.select :UpdateType, SoftwareUpdate.UpdateTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

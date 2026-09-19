@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of investmentAccount found in  fintechonrails/test/controllers
+
+one:
+  accountNumber: "test value"
+  baseCurrency: test string for baseCurrency
+  balance: "test value"
+  AccountType: 0
+  Status: 0
+
+two:
+  accountNumber: "test value"
+  baseCurrency: test string for baseCurrency
+  balance: "test value"
+  AccountType: 0
+  Status: 0
+
+

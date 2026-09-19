@@ -1,0 +1,36 @@
+<%= form_with model: @role, local: true do |form| %>
+ 
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@role.errors.count, "error") %> prohibited
+        this role from being saved:
+      </h2>
+      <ul>
+        <% @role.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :responsibility, { class: 'form-label'} %><br>
+	<%= form.text_field :responsibility, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of operation found in  manufacturingonrails/test/controllers
+
+one:
+  operationNumber: test string for operationNumber
+  name: test string for name
+  setupTime: 2020-10-15
+  standardCycleTime: 2020-10-15
+  OperationType: 0
+
+two:
+  operationNumber: test string for operationNumber
+  name: test string for name
+  setupTime: 2020-10-15
+  standardCycleTime: 2020-10-15
+  OperationType: 0
+
+

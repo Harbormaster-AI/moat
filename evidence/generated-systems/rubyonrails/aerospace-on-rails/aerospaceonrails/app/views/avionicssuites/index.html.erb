@@ -1,0 +1,31 @@
+<div class="title text-center">
+  List of AvionicsSuites
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">suiteName</th>
+			<th style="text-align:center">softwareBaseline</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @avionicsSuites.each do |avionicsSuite| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= avionicsSuite.suiteName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= avionicsSuite.softwareBaseline %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_avionicsSuite_path(avionicsSuite), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', avionicsSuite_path(avionicsSuite), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New AvionicsSuite', new_avionicsSuite_path, :method => :get, :class => "btn btn-success btn-sm" %>

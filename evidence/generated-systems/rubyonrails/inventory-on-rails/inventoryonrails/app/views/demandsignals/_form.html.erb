@@ -1,0 +1,46 @@
+<%= form_with model: @demandSignal, local: true do |form| %>
+ 
+  <% if @demandSignal.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@demandSignal.errors.count, "error") %> prohibited
+        this demandSignal from being saved:
+      </h2>
+      <ul>
+        <% @demandSignal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :externalReference, { class: 'form-label'} %><br>
+	<%= form.text_field :externalReference, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :requestedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :requestedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :DemandType, { class: 'form-label'} %><br>
+   <%= form.select :DemandType, DemandSignal.DemandTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

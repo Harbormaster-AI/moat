@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of paymentOrder found in  fintechonrails/test/controllers
+
+one:
+  orderReference: test string for orderReference
+  requestedExecutionDate: 2020-10-15
+  purpose: test string for purpose
+  PaymentMethod: 0
+  Status: 0
+  Priority: 0
+
+two:
+  orderReference: test string for orderReference
+  requestedExecutionDate: 2020-10-15
+  purpose: test string for purpose
+  PaymentMethod: 0
+  Status: 0
+  Priority: 0
+
+

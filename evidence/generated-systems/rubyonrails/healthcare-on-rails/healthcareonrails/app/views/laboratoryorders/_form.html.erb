@@ -1,0 +1,44 @@
+<%= form_with model: @laboratoryOrder, local: true do |form| %>
+ 
+  <% if @laboratoryOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@laboratoryOrder.errors.count, "error") %> prohibited
+        this laboratoryOrder from being saved:
+      </h2>
+      <ul>
+        <% @laboratoryOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :testCode, { class: 'form-label'} %><br>
+	<%= form.text_field :testCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :fastingRequired, {class: "form-check-input"} %>
+    <%= form.label :fastingRequired, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :SpecimenType, { class: 'form-label'} %><br>
+   <%= form.select :SpecimenType, LaboratoryOrder.SpecimenTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

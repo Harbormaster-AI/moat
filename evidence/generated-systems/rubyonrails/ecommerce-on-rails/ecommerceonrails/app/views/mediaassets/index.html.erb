@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of MediaAssets
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">url</th>
+			<th style="text-align:center">altText</th>
+			<th style="text-align:center">position</th>
+			<th style="text-align:center">MediaType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @mediaAssets.each do |mediaAsset| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= mediaAsset.url %>
+			</td>
+			<td style="text-align:center">
+	  			<%= mediaAsset.altText %>
+			</td>
+			<td style="text-align:center">
+	  			<%= mediaAsset.position %>
+			</td>
+			<td style="text-align:center">
+	  			<%= mediaAsset.MediaType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_mediaAsset_path(mediaAsset), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', mediaAsset_path(mediaAsset), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New MediaAsset', new_mediaAsset_path, :method => :get, :class => "btn btn-success btn-sm" %>

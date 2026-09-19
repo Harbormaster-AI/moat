@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of case_ found in  crmonrails/test/controllers
+
+one:
+  caseNumber: test string for caseNumber
+  subject: test string for subject
+  description: test string for description
+  slaDue: 2020-10-15
+  Status: 0
+  Priority: 0
+  Origin: 0
+  Severity: 0
+
+two:
+  caseNumber: test string for caseNumber
+  subject: test string for subject
+  description: test string for description
+  slaDue: 2020-10-15
+  Status: 0
+  Priority: 0
+  Origin: 0
+  Severity: 0
+
+

@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of reinsuranceAgreement found in  insuranceonrails/test/controllers
+
+one:
+  agreementNumber: test string for agreementNumber
+  effectivePeriod: 2020-10-15
+  retention: "test value"
+  limit: "test value"
+  cessionPercentage: "test value"
+  ReinsuranceType: 0
+  TreatyType: 0
+
+two:
+  agreementNumber: test string for agreementNumber
+  effectivePeriod: 2020-10-15
+  retention: "test value"
+  limit: "test value"
+  cessionPercentage: "test value"
+  ReinsuranceType: 0
+  TreatyType: 0
+
+

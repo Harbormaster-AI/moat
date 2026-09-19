@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of workShift found in  hronrails/test/controllers
+
+one:
+  startTime: 2020-10-15
+  endTime: 2020-10-15
+  breakMinutes: 100
+  DayOfWeek: 0
+
+two:
+  startTime: 2020-10-15
+  endTime: 2020-10-15
+  breakMinutes: 100
+  DayOfWeek: 0
+
+

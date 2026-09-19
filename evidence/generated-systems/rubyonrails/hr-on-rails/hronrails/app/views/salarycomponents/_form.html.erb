@@ -1,0 +1,40 @@
+<%= form_with model: @salaryComponent, local: true do |form| %>
+ 
+  <% if @salaryComponent.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@salaryComponent.errors.count, "error") %> prohibited
+        this salaryComponent from being saved:
+      </h2>
+      <ul>
+        <% @salaryComponent.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :recurring, {class: "form-check-input"} %>
+    <%= form.label :recurring, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ComponentType, { class: 'form-label'} %><br>
+   <%= form.select :ComponentType, SalaryComponent.ComponentTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

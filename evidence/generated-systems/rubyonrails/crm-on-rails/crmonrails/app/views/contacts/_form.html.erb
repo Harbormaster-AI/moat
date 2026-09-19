@@ -1,0 +1,76 @@
+<%= form_with model: @contact, local: true do |form| %>
+ 
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@contact.errors.count, "error") %> prohibited
+        this contact from being saved:
+      </h2>
+      <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :email, { class: 'form-label'} %><br>
+	<%= form.text_field :email, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :phone, { class: 'form-label'} %><br>
+	<%= form.text_field :phone, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :mobile, { class: 'form-label'} %><br>
+	<%= form.text_field :mobile, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :mailingAddress, { class: 'form-label'} %><br>
+	<%= form.text_field :mailingAddress, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PreferredContactMethod, { class: 'form-label'} %><br>
+   <%= form.select :PreferredContactMethod, Contact.PreferredContactMethods.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

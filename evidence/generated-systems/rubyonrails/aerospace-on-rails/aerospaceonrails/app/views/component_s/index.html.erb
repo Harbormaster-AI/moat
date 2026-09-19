@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Component_s
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">partNumber</th>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">ComponentCategory</th>
+			<th style="text-align:center">SerializationMethod</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @component_s.each do |component_| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= component_.partNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= component_.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= component_.ComponentCategory %>
+			</td>
+			<td style="text-align:center">
+	  			<%= component_.SerializationMethod %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_component__path(component_), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', component__path(component_), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Component_', new_component__path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,36 @@
+<%= form_with model: @couponRedemption, local: true do |form| %>
+ 
+  <% if @couponRedemption.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@couponRedemption.errors.count, "error") %> prohibited
+        this couponRedemption from being saved:
+      </h2>
+      <ul>
+        <% @couponRedemption.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :redeemedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :redeemedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

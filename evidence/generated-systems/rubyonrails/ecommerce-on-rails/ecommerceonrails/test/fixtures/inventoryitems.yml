@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of inventoryItem found in  ecommerceonrails/test/controllers
+
+one:
+  quantityOnHand: 100
+  quantityReserved: 100
+  safetyStock: 100
+  Status: 0
+
+two:
+  quantityOnHand: 100
+  quantityReserved: 100
+  safetyStock: 100
+  Status: 0
+
+

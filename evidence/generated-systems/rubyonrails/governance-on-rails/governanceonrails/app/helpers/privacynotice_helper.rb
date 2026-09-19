@@ -1,0 +1,2 @@
+module PrivacyNoticeHelper
+end

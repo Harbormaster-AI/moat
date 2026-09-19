@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of location found in  manufacturingonrails/test/controllers
+
+one:
+  locationCode: test string for locationCode
+  description: test string for description
+  LocationType: 0
+
+two:
+  locationCode: test string for locationCode
+  description: test string for description
+  LocationType: 0
+
+

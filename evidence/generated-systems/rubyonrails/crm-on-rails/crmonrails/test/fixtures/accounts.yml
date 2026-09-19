@@ -1,0 +1,28 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of account found in  crmonrails/test/controllers
+
+one:
+  name: test string for name
+  accountNumber: test string for accountNumber
+  industry: test string for industry
+  billingAddress: "test value"
+  shippingAddress: "test value"
+  website: "test value"
+  phone: "test value"
+  asActive: true
+  AccountType: 0
+  LifecycleStage: 0
+
+two:
+  name: test string for name
+  accountNumber: test string for accountNumber
+  industry: test string for industry
+  billingAddress: "test value"
+  shippingAddress: "test value"
+  website: "test value"
+  phone: "test value"
+  asActive: true
+  AccountType: 0
+  LifecycleStage: 0
+
+

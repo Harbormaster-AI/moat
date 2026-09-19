@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>hronrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>hronrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'Organizations', organizations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Departments', departments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Locations', locations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CostCenters', costCenters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'JobFamilys', jobFamilys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'JobProfiles', jobProfiles_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Competencys', competencys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Positions', positions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Employees', employees_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'EmploymentAssignments', employmentAssignments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'EmploymentContracts', employmentContracts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'WorkSchedules', workSchedules_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'WorkShifts', workShifts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ScheduleExceptions', scheduleExceptions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CompensationPackages', compensationPackages_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'SalaryComponents', salaryComponents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BonusPlans', bonusPlans_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'EquityGrants', equityGrants_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BenefitPlans', benefitPlans_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BenefitEnrollments', benefitEnrollments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Dependents', dependents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PayrollCalendars', payrollCalendars_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PayrollRuns', payrollRuns_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PayrollItems', payrollItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TaxWithholdings', taxWithholdings_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PaymentMethods', paymentMethods_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Timesheets', timesheets_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TimeEntrys', timeEntrys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Approvals', approvals_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'LeavePolicys', leavePolicys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'LeaveRequests', leaveRequests_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PerformanceCycles', performanceCycles_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Goals', goals_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PerformanceReviews', performanceReviews_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CompetencyRatings', competencyRatings_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TrainingCourses', trainingCourses_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TrainingEnrollments', trainingEnrollments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Certifications', certifications_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'JobRequisitions', jobRequisitions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Candidates', candidates_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'JobApplications', jobApplications_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Interviews', interviews_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Screenings', screenings_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Offers', offers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'OnboardingTasks', onboardingTasks_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BackgroundChecks', backgroundChecks_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Documents', documents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Policys', policys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PolicyAcknowledgements', policyAcknowledgements_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Terminations', terminations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'WorkAuthorizations', workAuthorizations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BankAccounts', bankAccounts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of opportunityStageHistory found in  crmonrails/test/controllers
+
+one:
+  changedAt: 2020-10-15
+  comment: test string for comment
+  FromStage: 0
+  ToStage: 0
+
+two:
+  changedAt: 2020-10-15
+  comment: test string for comment
+  FromStage: 0
+  ToStage: 0
+
+

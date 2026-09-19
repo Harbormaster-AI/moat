@@ -1,0 +1,54 @@
+<%= form_with model: @taxRule, local: true do |form| %>
+ 
+  <% if @taxRule.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@taxRule.errors.count, "error") %> prohibited
+        this taxRule from being saved:
+      </h2>
+      <ul>
+        <% @taxRule.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :country, { class: 'form-label'} %><br>
+	<%= form.text_field :country, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :region, { class: 'form-label'} %><br>
+	<%= form.text_field :region, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :rate, { class: 'form-label'} %><br>
+	<%= form.text_field :rate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :taxInclusive, {class: "form-check-input"} %>
+    <%= form.label :taxInclusive, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :TaxClass, { class: 'form-label'} %><br>
+   <%= form.select :TaxClass, TaxRule.TaxClasss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,63 @@
+<div class="title text-center">
+  List of Accounts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">accountNumber</th>
+			<th style="text-align:center">industry</th>
+			<th style="text-align:center">billingAddress</th>
+			<th style="text-align:center">shippingAddress</th>
+			<th style="text-align:center">website</th>
+			<th style="text-align:center">phone</th>
+			<th style="text-align:center">asActive</th>
+			<th style="text-align:center">AccountType</th>
+			<th style="text-align:center">LifecycleStage</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @accounts.each do |account| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= account.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.accountNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.industry %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.billingAddress %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.shippingAddress %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.website %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.phone %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.asActive %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.AccountType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= account.LifecycleStage %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_account_path(account), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', account_path(account), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Account', new_account_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,52 @@
+<%= form_with model: @employmentAssignment, local: true do |form| %>
+ 
+  <% if @employmentAssignment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@employmentAssignment.errors.count, "error") %> prohibited
+        this employmentAssignment from being saved:
+      </h2>
+      <ul>
+        <% @employmentAssignment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDate, { class: 'form-label'} %><br>
+    <%= form.date_field :endDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :primary, {class: "form-check-input"} %>
+    <%= form.label :primary, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AssignmentType, { class: 'form-label'} %><br>
+   <%= form.select :AssignmentType, EmploymentAssignment.AssignmentTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, EmploymentAssignment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

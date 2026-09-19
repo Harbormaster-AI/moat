@@ -1,0 +1,58 @@
+<%= form_with model: @inspectionLot, local: true do |form| %>
+ 
+  <% if @inspectionLot.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inspectionLot.errors.count, "error") %> prohibited
+        this inspectionLot from being saved:
+      </h2>
+      <ul>
+        <% @inspectionLot.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :lotNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :lotNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :sampleSize, { class: 'form-label'} %><br>
+	<%= form.text_field :sampleSize, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdOn, { class: 'form-label'} %><br>
+    <%= form.time_field :createdOn, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :InspectionType, { class: 'form-label'} %><br>
+   <%= form.select :InspectionType, InspectionLot.InspectionTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InspectionLot.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,90 @@
+<%= form_with model: @order, local: true do |form| %>
+ 
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@order.errors.count, "error") %> prohibited
+        this order from being saved:
+      </h2>
+      <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :orderNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :orderNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :placedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :placedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :subtotal, { class: 'form-label'} %><br>
+	<%= form.text_field :subtotal, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :discountTotal, { class: 'form-label'} %><br>
+	<%= form.text_field :discountTotal, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :shippingTotal, { class: 'form-label'} %><br>
+	<%= form.text_field :shippingTotal, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :taxTotal, { class: 'form-label'} %><br>
+	<%= form.text_field :taxTotal, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :grandTotal, { class: 'form-label'} %><br>
+	<%= form.text_field :grandTotal, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :shippingAddress, { class: 'form-label'} %><br>
+	<%= form.text_field :shippingAddress, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :billingAddress, { class: 'form-label'} %><br>
+	<%= form.text_field :billingAddress, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Order.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

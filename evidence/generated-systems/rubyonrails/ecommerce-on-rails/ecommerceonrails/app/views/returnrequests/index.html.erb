@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of ReturnRequests
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">returnNumber</th>
+			<th style="text-align:center">createdAt</th>
+			<th style="text-align:center">refundAmount</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @returnRequests.each do |returnRequest| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= returnRequest.returnNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= returnRequest.createdAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= returnRequest.refundAmount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= returnRequest.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_returnRequest_path(returnRequest), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', returnRequest_path(returnRequest), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ReturnRequest', new_returnRequest_path, :method => :get, :class => "btn btn-success btn-sm" %>

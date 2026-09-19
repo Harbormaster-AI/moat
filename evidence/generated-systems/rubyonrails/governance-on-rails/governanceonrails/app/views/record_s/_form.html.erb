@@ -1,0 +1,58 @@
+<%= form_with model: @record_, local: true do |form| %>
+ 
+  <% if @record_.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@record_.errors.count, "error") %> prohibited
+        this record_ from being saved:
+      </h2>
+      <ul>
+        <% @record_.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :creationDate, { class: 'form-label'} %><br>
+    <%= form.date_field :creationDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :RecordType, { class: 'form-label'} %><br>
+   <%= form.select :RecordType, Record_.RecordTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Classification, { class: 'form-label'} %><br>
+   <%= form.select :Classification, Record_.Classifications.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Record_.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

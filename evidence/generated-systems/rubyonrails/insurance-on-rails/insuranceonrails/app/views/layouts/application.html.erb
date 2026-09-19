@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>insuranceonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>insuranceonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'Insurers', insurers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InsuranceProducts', insuranceProducts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CoverageDefinitions', coverageDefinitions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Distributors', distributors_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Agents', agents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Customers', customers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Applications', applications_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Quotes', quotes_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'UnderwritingDecisions', underwritingDecisions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Underwriters', underwriters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Policys', policys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Endorsements', endorsements_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PolicyCoverages', policyCoverages_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InsuredObjects', insuredObjects_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Beneficiarys', beneficiarys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BillingAccounts', billingAccounts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Invoices', invoices_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Payments', payments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Claims', claims_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Incidents', incidents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Exposures', exposures_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Adjusters', adjusters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ClaimReserves', claimReserves_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ClaimPayments', claimPayments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ServiceProviders', serviceProviders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ReinsuranceAgreements', reinsuranceAgreements_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'SubrogationRecoverys', subrogationRecoverys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ThirdPartys', thirdPartys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Documents', documents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

@@ -1,0 +1,50 @@
+<%= form_with model: @obligation, local: true do |form| %>
+ 
+  <% if @obligation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@obligation.errors.count, "error") %> prohibited
+        this obligation from being saved:
+      </h2>
+      <ul>
+        <% @obligation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :referenceNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :referenceNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :descriptionText, { class: 'form-label'} %><br>
+	<%= form.text_field :descriptionText, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ObligationType, { class: 'form-label'} %><br>
+   <%= form.select :ObligationType, Obligation.ObligationTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :ReviewFrequency, { class: 'form-label'} %><br>
+   <%= form.select :ReviewFrequency, Obligation.ReviewFrequencys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

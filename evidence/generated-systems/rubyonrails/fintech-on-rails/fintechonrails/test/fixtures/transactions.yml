@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of transaction found in  fintechonrails/test/controllers
+
+one:
+  amount: "test value"
+  fee: "test value"
+  exchangeRate: "test value"
+  createdAt: 2020-10-15
+  completedAt: 2020-10-15
+  narrative: test string for narrative
+  TransactionType: 0
+  Status: 0
+
+two:
+  amount: "test value"
+  fee: "test value"
+  exchangeRate: "test value"
+  createdAt: 2020-10-15
+  completedAt: 2020-10-15
+  narrative: test string for narrative
+  TransactionType: 0
+  Status: 0
+
+

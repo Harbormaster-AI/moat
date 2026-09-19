@@ -1,0 +1,63 @@
+<div class="title text-center">
+  List of StockKeepingUnits
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">skuCode</th>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">weight</th>
+			<th style="text-align:center">weightUnit</th>
+			<th style="text-align:center">volume</th>
+			<th style="text-align:center">volumeUnit</th>
+			<th style="text-align:center">shelfLifeDays</th>
+			<th style="text-align:center">hazardousMaterial</th>
+			<th style="text-align:center">ItemType</th>
+			<th style="text-align:center">UnitOfMeasure</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @stockKeepingUnits.each do |stockKeepingUnit| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.skuCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.weight %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.weightUnit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.volume %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.volumeUnit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.shelfLifeDays %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.hazardousMaterial %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.ItemType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockKeepingUnit.UnitOfMeasure %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_stockKeepingUnit_path(stockKeepingUnit), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', stockKeepingUnit_path(stockKeepingUnit), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New StockKeepingUnit', new_stockKeepingUnit_path, :method => :get, :class => "btn btn-success btn-sm" %>

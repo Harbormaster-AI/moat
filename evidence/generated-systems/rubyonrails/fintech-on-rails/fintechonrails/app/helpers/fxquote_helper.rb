@@ -1,0 +1,2 @@
+module FXQuoteHelper
+end

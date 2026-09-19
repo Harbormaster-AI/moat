@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of BenefitEnrollments
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">enrollmentId</th>
+			<th style="text-align:center">effectiveFrom</th>
+			<th style="text-align:center">effectiveTo</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">CoverageLevel</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @benefitEnrollments.each do |benefitEnrollment| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= benefitEnrollment.enrollmentId %>
+			</td>
+			<td style="text-align:center">
+	  			<%= benefitEnrollment.effectiveFrom %>
+			</td>
+			<td style="text-align:center">
+	  			<%= benefitEnrollment.effectiveTo %>
+			</td>
+			<td style="text-align:center">
+	  			<%= benefitEnrollment.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= benefitEnrollment.CoverageLevel %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_benefitEnrollment_path(benefitEnrollment), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', benefitEnrollment_path(benefitEnrollment), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New BenefitEnrollment', new_benefitEnrollment_path, :method => :get, :class => "btn btn-success btn-sm" %>

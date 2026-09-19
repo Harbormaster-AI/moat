@@ -1,0 +1,52 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  Enterprise.create( name:"test string for name", legalName:"test string for legalName", registrationCountry:"test string for registrationCountry", website:"test string for website", taxId:"test string for taxId" )
+  BusinessUnit.create( name:"test string for name", code:"test string for code", Category:0 )
+  Plant.create( name:"test string for name", plantCode:"test string for plantCode", address:"test value", timeZone:"test string for timeZone" )
+  ProductionLine.create( name:"test string for name", lineCode:"test string for lineCode", LineType:0 )
+  WorkCenter.create( name:"test string for name", code:"test string for code", capacityPerHour:100, oeeTarget:"test value", WorkCenterType:0 )
+  Item.create( itemNumber:"test string for itemNumber", name:"test string for name", standardCost:"test value", weight:"test value", asSerialControlled:true, ItemType:0, ProcurementType:0, UnitOfMeasure:0, LifecycleStatus:0 )
+  BOM.create( bomNumber:"test string for bomNumber", revision:"test string for revision", effectivityStart:1.week.ago, effectivityEnd:1.week.ago, Status:0 )
+  BOMItem.create( lineNumber:100, quantity:"test value", scrapPercent:"test value" )
+  Routing.create( routingNumber:"test string for routingNumber", revision:"test string for revision", effectivityStart:1.week.ago, effectivityEnd:1.week.ago, RoutingType:0, Status:0 )
+  Operation.create( operationNumber:"test string for operationNumber", name:"test string for name", setupTime:1.week.ago, standardCycleTime:1.week.ago, OperationType:0 )
+  WorkOrder.create( workOrderNumber:"test string for workOrderNumber", plannedStart:1.week.ago, plannedEnd:1.week.ago, quantity:"test value", priority:100, Status:0 )
+  ProductionSchedule.create( scheduleNumber:"test string for scheduleNumber", horizonStart:1.week.ago, horizonEnd:1.week.ago, Status:0 )
+  Supplier.create( name:"test string for name", supplierCode:"test string for supplierCode", address:"test value", SupplierTier:0, PaymentTerms:0 )
+  PurchaseOrder.create( poNumber:"test string for poNumber", orderDate:1.week.ago, totalAmount:"test value", Status:0 )
+  PurchaseOrderLine.create( lineNumber:100, quantity:"test value", unitPrice:"test value", dueDate:1.week.ago )
+  GoodsReceipt.create( receiptNumber:"test string for receiptNumber", receiptDate:1.week.ago, Status:0 )
+  GoodsReceiptLine.create( lineNumber:100, receivedQuantity:"test value", acceptedQuantity:"test value", rejectedQuantity:"test value", lot:"test value" )
+  Warehouse.create( name:"test string for name", warehouseCode:"test string for warehouseCode", address:"test value", WarehouseType:0 )
+  Location.create( locationCode:"test string for locationCode", description:"test string for description", LocationType:0 )
+  InventoryItem.create( quantityOnHand:"test value", quantityReserved:"test value", lotNumber:"test value", serialNumber:"test value" )
+  InventoryTransaction.create( transactionNumber:"test string for transactionNumber", quantity:"test value", transactionDateTime:1.week.ago, referenceDocument:"test string for referenceDocument", TransactionType:0 )
+  Customer.create( name:"test string for name", customerCode:"test string for customerCode", address:"test value", CustomerType:0 )
+  SalesOrder.create( orderNumber:"test string for orderNumber", orderDate:1.week.ago, totalAmount:"test value", Status:0 )
+  SalesOrderLine.create( lineNumber:100, quantity:"test value", unitPrice:"test value", dueDate:1.week.ago )
+  QualitySpecification.create( specCode:"test string for specCode", name:"test string for name", version:"test string for version" )
+  InspectionPlan.create( planNumber:"test string for planNumber", revision:"test string for revision", SamplingPlan:0, Status:0 )
+  InspectionCharacteristic.create( characteristicCode:"test string for characteristicCode", name:"test string for name", lowerSpecLimit:"test value", upperSpecLimit:"test value", target:"test value", MeasurementType:0 )
+  InspectionLot.create( lotNumber:"test string for lotNumber", quantity:"test value", sampleSize:100, createdOn:1.week.ago, InspectionType:0, Status:0 )
+  InspectionResult.create( resultValue:"test value", recordedOn:1.week.ago, notes:"test string for notes", ResultStatus:0 )
+  Nonconformance.create( ncNumber:"test string for ncNumber", description:"test string for description", containmentAction:"test string for containmentAction", NcType:0, Severity:0, Status:0 )
+  CorrectiveAction.create( capaNumber:"test string for capaNumber", rootCause:"test string for rootCause", correctiveAction:"test string for correctiveAction", verificationDate:1.week.ago, Status:0 )
+  Asset.create( assetTag:"test string for assetTag", assetName:"test string for assetName", commissioningDate:1.week.ago, AssetStatus:0 )
+  MaintenancePlan.create( planNumber:"test string for planNumber", interval:1.week.ago, lastServiceDate:1.week.ago, Strategy:0 )
+  MaintenanceOrder.create( orderNumber:"test string for orderNumber", priority:100, requestedDate:1.week.ago, completionDate:1.week.ago, Status:0 )
+  Employee.create( firstName:"test string for firstName", lastName:"test string for lastName", Role:0, SkillLevel:0 )
+  Shift.create( shiftName:"test string for shiftName", startTime:"test string for startTime", endTime:"test string for endTime", ShiftType:0 )
+  ShiftAssignment.create( assignmentDate:1.week.ago )
+  Forecast.create( forecastNumber:"test string for forecastNumber", forecastHorizonStart:1.week.ago, forecastHorizonEnd:1.week.ago, Method:0 )
+  ForecastLine.create( period:1.week.ago, quantity:"test value", confidence:"test value" )
+  MRPRun.create( runNumber:"test string for runNumber", runDateTime:1.week.ago, planningHorizonDays:100, Status:0 )
+  PlannedOrder.create( plannedOrderNumber:"test string for plannedOrderNumber", quantity:"test value", dueDate:1.week.ago, OrderType:0, Status:0 )
+end

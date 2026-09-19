@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of document found in  hronrails/test/controllers
+
+one:
+  name: test string for name
+  fileUrl: test string for fileUrl
+  uploadedDate: 2020-10-15
+  DocumentType: 0
+
+two:
+  name: test string for name
+  fileUrl: test string for fileUrl
+  uploadedDate: 2020-10-15
+  DocumentType: 0
+
+

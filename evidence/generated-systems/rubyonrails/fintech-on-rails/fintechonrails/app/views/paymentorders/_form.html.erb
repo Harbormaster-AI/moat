@@ -1,0 +1,62 @@
+<%= form_with model: @paymentOrder, local: true do |form| %>
+ 
+  <% if @paymentOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@paymentOrder.errors.count, "error") %> prohibited
+        this paymentOrder from being saved:
+      </h2>
+      <ul>
+        <% @paymentOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :orderReference, { class: 'form-label'} %><br>
+	<%= form.text_field :orderReference, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :requestedExecutionDate, { class: 'form-label'} %><br>
+    <%= form.date_field :requestedExecutionDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :purpose, { class: 'form-label'} %><br>
+	<%= form.text_field :purpose, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PaymentMethod, { class: 'form-label'} %><br>
+   <%= form.select :PaymentMethod, PaymentOrder.PaymentMethods.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PaymentOrder.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Priority, { class: 'form-label'} %><br>
+   <%= form.select :Priority, PaymentOrder.Prioritys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

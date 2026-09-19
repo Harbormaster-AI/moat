@@ -1,0 +1,44 @@
+<%= form_with model: @businessUnit, local: true do |form| %>
+ 
+  <% if @businessUnit.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@businessUnit.errors.count, "error") %> prohibited
+        this businessUnit from being saved:
+      </h2>
+      <ul>
+        <% @businessUnit.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Category, { class: 'form-label'} %><br>
+   <%= form.select :Category, BusinessUnit.Categorys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,66 @@
+<%= form_with model: @emailMessage, local: true do |form| %>
+ 
+  <% if @emailMessage.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@emailMessage.errors.count, "error") %> prohibited
+        this emailMessage from being saved:
+      </h2>
+      <ul>
+        <% @emailMessage.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :subject, { class: 'form-label'} %><br>
+	<%= form.text_field :subject, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :body, { class: 'form-label'} %><br>
+	<%= form.text_field :body, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :sentAt, { class: 'form-label'} %><br>
+    <%= form.time_field :sentAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :messageId, { class: 'form-label'} %><br>
+	<%= form.text_field :messageId, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Direction, { class: 'form-label'} %><br>
+   <%= form.select :Direction, EmailMessage.Directions.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, EmailMessage.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Exception_s
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">justification</th>
+			<th style="text-align:center">startDate</th>
+			<th style="text-align:center">endDate</th>
+			<th style="text-align:center">ExceptionType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @exception_s.each do |exception_| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= exception_.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= exception_.justification %>
+			</td>
+			<td style="text-align:center">
+	  			<%= exception_.startDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= exception_.endDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= exception_.ExceptionType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= exception_.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_exception__path(exception_), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', exception__path(exception_), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Exception_', new_exception__path, :method => :get, :class => "btn btn-success btn-sm" %>

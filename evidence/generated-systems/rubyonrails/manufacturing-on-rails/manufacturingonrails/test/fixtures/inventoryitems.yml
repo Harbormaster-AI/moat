@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of inventoryItem found in  manufacturingonrails/test/controllers
+
+one:
+  quantityOnHand: "test value"
+  quantityReserved: "test value"
+  lotNumber: "test value"
+  serialNumber: "test value"
+
+two:
+  quantityOnHand: "test value"
+  quantityReserved: "test value"
+  lotNumber: "test value"
+  serialNumber: "test value"
+
+

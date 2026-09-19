@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of invoice found in  insuranceonrails/test/controllers
+
+one:
+  invoiceNumber: test string for invoiceNumber
+  dueDate: 2020-10-15
+  totalDue: "test value"
+  Status: 0
+
+two:
+  invoiceNumber: test string for invoiceNumber
+  dueDate: 2020-10-15
+  totalDue: "test value"
+  Status: 0
+
+

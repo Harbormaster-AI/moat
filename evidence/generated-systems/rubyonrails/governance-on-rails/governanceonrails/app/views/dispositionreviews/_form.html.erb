@@ -1,0 +1,46 @@
+<%= form_with model: @dispositionReview, local: true do |form| %>
+ 
+  <% if @dispositionReview.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@dispositionReview.errors.count, "error") %> prohibited
+        this dispositionReview from being saved:
+      </h2>
+      <ul>
+        <% @dispositionReview.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :reviewDate, { class: 'form-label'} %><br>
+    <%= form.date_field :reviewDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reviewer, { class: 'form-label'} %><br>
+	<%= form.text_field :reviewer, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :notes, { class: 'form-label'} %><br>
+	<%= form.text_field :notes, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Outcome, { class: 'form-label'} %><br>
+   <%= form.select :Outcome, DispositionReview.Outcomes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

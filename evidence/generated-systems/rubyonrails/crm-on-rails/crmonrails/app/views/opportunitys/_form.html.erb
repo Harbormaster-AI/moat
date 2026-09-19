@@ -1,0 +1,80 @@
+<%= form_with model: @opportunity, local: true do |form| %>
+ 
+  <% if @opportunity.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@opportunity.errors.count, "error") %> prohibited
+        this opportunity from being saved:
+      </h2>
+      <ul>
+        <% @opportunity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :closeDate, { class: 'form-label'} %><br>
+    <%= form.date_field :closeDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :probability, { class: 'form-label'} %><br>
+	<%= form.text_field :probability, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Stage, { class: 'form-label'} %><br>
+   <%= form.select :Stage, Opportunity.Stages.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Type, { class: 'form-label'} %><br>
+   <%= form.select :Type, Opportunity.Types.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :ForecastCategory, { class: 'form-label'} %><br>
+   <%= form.select :ForecastCategory, Opportunity.ForecastCategorys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

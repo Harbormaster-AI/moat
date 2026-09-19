@@ -1,0 +1,54 @@
+<%= form_with model: @leavePolicy, local: true do |form| %>
+ 
+  <% if @leavePolicy.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@leavePolicy.errors.count, "error") %> prohibited
+        this leavePolicy from being saved:
+      </h2>
+      <ul>
+        <% @leavePolicy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :accrualRate, { class: 'form-label'} %><br>
+	<%= form.text_field :accrualRate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :carryoverAllowed, {class: "form-check-input"} %>
+    <%= form.label :carryoverAllowed, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+    <%= form.label :maxBalance, { class: 'form-label'} %><br>
+	<%= form.text_field :maxBalance, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :LeaveCategory, { class: 'form-label'} %><br>
+   <%= form.select :LeaveCategory, LeavePolicy.LeaveCategorys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :AccrualUnit, { class: 'form-label'} %><br>
+   <%= form.select :AccrualUnit, LeavePolicy.AccrualUnits.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,44 @@
+<%= form_with model: @uoMConversion, local: true do |form| %>
+ 
+  <% if @uoMConversion.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@uoMConversion.errors.count, "error") %> prohibited
+        this uoMConversion from being saved:
+      </h2>
+      <ul>
+        <% @uoMConversion.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :factor, { class: 'form-label'} %><br>
+	<%= form.text_field :factor, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :precision, { class: 'form-label'} %><br>
+	<%= form.text_field :precision, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :FromUnit, { class: 'form-label'} %><br>
+   <%= form.select :FromUnit, UoMConversion.FromUnits.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :ToUnit, { class: 'form-label'} %><br>
+   <%= form.select :ToUnit, UoMConversion.ToUnits.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

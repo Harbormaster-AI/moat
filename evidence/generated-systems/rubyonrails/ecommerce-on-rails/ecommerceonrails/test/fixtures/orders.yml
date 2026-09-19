@@ -1,0 +1,28 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of order found in  ecommerceonrails/test/controllers
+
+one:
+  orderNumber: test string for orderNumber
+  placedDate: 2020-10-15
+  subtotal: "test value"
+  discountTotal: "test value"
+  shippingTotal: "test value"
+  taxTotal: "test value"
+  grandTotal: "test value"
+  shippingAddress: "test value"
+  billingAddress: "test value"
+  Status: 0
+
+two:
+  orderNumber: test string for orderNumber
+  placedDate: 2020-10-15
+  subtotal: "test value"
+  discountTotal: "test value"
+  shippingTotal: "test value"
+  taxTotal: "test value"
+  grandTotal: "test value"
+  shippingAddress: "test value"
+  billingAddress: "test value"
+  Status: 0
+
+

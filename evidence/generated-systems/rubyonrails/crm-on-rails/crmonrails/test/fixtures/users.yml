@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of user found in  crmonrails/test/controllers
+
+one:
+  username: test string for username
+  fullName: test string for fullName
+  email: "test value"
+  locale: "test value"
+  Role: 0
+  Status: 0
+
+two:
+  username: test string for username
+  fullName: test string for fullName
+  email: "test value"
+  locale: "test value"
+  Role: 0
+  Status: 0
+
+

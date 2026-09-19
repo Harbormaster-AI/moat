@@ -1,0 +1,2 @@
+module PriceBookEntryHelper
+end

@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of FXDeals
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">dealReference</th>
+			<th style="text-align:center">baseCurrency</th>
+			<th style="text-align:center">quoteCurrency</th>
+			<th style="text-align:center">rate</th>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">settlementDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @fXDeals.each do |fXDeal| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= fXDeal.dealReference %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXDeal.baseCurrency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXDeal.quoteCurrency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXDeal.rate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXDeal.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXDeal.settlementDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXDeal.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_fXDeal_path(fXDeal), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', fXDeal_path(fXDeal), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New FXDeal', new_fXDeal_path, :method => :get, :class => "btn btn-success btn-sm" %>

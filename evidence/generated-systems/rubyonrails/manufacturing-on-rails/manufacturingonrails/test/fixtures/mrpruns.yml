@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of mRPRun found in  manufacturingonrails/test/controllers
+
+one:
+  runNumber: test string for runNumber
+  runDateTime: 2020-10-15
+  planningHorizonDays: 100
+  Status: 0
+
+two:
+  runNumber: test string for runNumber
+  runDateTime: 2020-10-15
+  planningHorizonDays: 100
+  Status: 0
+
+

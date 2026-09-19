@@ -1,0 +1,42 @@
+<%= form_with model: @beneficiary, local: true do |form| %>
+ 
+  <% if @beneficiary.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@beneficiary.errors.count, "error") %> prohibited
+        this beneficiary from being saved:
+      </h2>
+      <ul>
+        <% @beneficiary.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :share, { class: 'form-label'} %><br>
+	<%= form.text_field :share, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Relationship, { class: 'form-label'} %><br>
+   <%= form.select :Relationship, Beneficiary.Relationships.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

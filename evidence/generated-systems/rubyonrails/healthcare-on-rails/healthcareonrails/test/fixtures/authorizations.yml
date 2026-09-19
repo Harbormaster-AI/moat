@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of authorization found in  healthcareonrails/test/controllers
+
+one:
+  authNumber: test string for authNumber
+  requestedService: test string for requestedService
+  Status: 0
+
+two:
+  authNumber: test string for authNumber
+  requestedService: test string for requestedService
+  Status: 0
+
+

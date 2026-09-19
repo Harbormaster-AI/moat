@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of RetentionSchedules
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">retentionPeriodMonths</th>
+			<th style="text-align:center">RetentionTrigger</th>
+			<th style="text-align:center">DispositionAction</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @retentionSchedules.each do |retentionSchedule| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= retentionSchedule.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= retentionSchedule.retentionPeriodMonths %>
+			</td>
+			<td style="text-align:center">
+	  			<%= retentionSchedule.RetentionTrigger %>
+			</td>
+			<td style="text-align:center">
+	  			<%= retentionSchedule.DispositionAction %>
+			</td>
+			<td style="text-align:center">
+	  			<%= retentionSchedule.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_retentionSchedule_path(retentionSchedule), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', retentionSchedule_path(retentionSchedule), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New RetentionSchedule', new_retentionSchedule_path, :method => :get, :class => "btn btn-success btn-sm" %>

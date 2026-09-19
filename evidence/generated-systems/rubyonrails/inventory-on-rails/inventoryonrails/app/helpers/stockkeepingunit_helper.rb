@@ -1,0 +1,2 @@
+module StockKeepingUnitHelper
+end

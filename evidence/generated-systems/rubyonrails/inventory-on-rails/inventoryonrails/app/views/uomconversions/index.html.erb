@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of UoMConversions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">factor</th>
+			<th style="text-align:center">precision</th>
+			<th style="text-align:center">FromUnit</th>
+			<th style="text-align:center">ToUnit</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @uoMConversions.each do |uoMConversion| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= uoMConversion.factor %>
+			</td>
+			<td style="text-align:center">
+	  			<%= uoMConversion.precision %>
+			</td>
+			<td style="text-align:center">
+	  			<%= uoMConversion.FromUnit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= uoMConversion.ToUnit %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_uoMConversion_path(uoMConversion), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', uoMConversion_path(uoMConversion), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New UoMConversion', new_uoMConversion_path, :method => :get, :class => "btn btn-success btn-sm" %>

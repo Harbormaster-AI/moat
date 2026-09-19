@@ -1,0 +1,46 @@
+<%= form_with model: @salesOrderLine, local: true do |form| %>
+ 
+  <% if @salesOrderLine.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@salesOrderLine.errors.count, "error") %> prohibited
+        this salesOrderLine from being saved:
+      </h2>
+      <ul>
+        <% @salesOrderLine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :lineNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :lineNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unitPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :unitPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dueDate, { class: 'form-label'} %><br>
+    <%= form.date_field :dueDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

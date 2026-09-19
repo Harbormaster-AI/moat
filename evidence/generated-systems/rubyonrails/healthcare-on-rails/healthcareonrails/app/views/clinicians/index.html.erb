@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Clinicians
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">firstName</th>
+			<th style="text-align:center">lastName</th>
+			<th style="text-align:center">licenseNumber</th>
+			<th style="text-align:center">ClinicianType</th>
+			<th style="text-align:center">Specialty</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @clinicians.each do |clinician| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= clinician.firstName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= clinician.lastName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= clinician.licenseNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= clinician.ClinicianType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= clinician.Specialty %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_clinician_path(clinician), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', clinician_path(clinician), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Clinician', new_clinician_path, :method => :get, :class => "btn btn-success btn-sm" %>

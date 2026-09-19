@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of StockAdjustmentLines
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">lineNumber</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">UnitOfMeasure</th>
+			<th style="text-align:center">StockStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @stockAdjustmentLines.each do |stockAdjustmentLine| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= stockAdjustmentLine.lineNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustmentLine.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustmentLine.UnitOfMeasure %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustmentLine.StockStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_stockAdjustmentLine_path(stockAdjustmentLine), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', stockAdjustmentLine_path(stockAdjustmentLine), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New StockAdjustmentLine', new_stockAdjustmentLine_path, :method => :get, :class => "btn btn-success btn-sm" %>

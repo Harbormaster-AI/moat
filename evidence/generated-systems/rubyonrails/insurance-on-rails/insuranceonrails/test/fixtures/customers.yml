@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of customer found in  insuranceonrails/test/controllers
+
+one:
+  firstName: test string for firstName
+  lastName: test string for lastName
+  organizationName: test string for organizationName
+  taxId: test string for taxId
+  dateOfBirth: 2020-10-15
+  primaryAddress: "test value"
+  CustomerType: 0
+
+two:
+  firstName: test string for firstName
+  lastName: test string for lastName
+  organizationName: test string for organizationName
+  taxId: test string for taxId
+  dateOfBirth: 2020-10-15
+  primaryAddress: "test value"
+  CustomerType: 0
+
+

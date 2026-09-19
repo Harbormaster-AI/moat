@@ -1,0 +1,64 @@
+<%= form_with model: @tradeOrder, local: true do |form| %>
+ 
+  <% if @tradeOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@tradeOrder.errors.count, "error") %> prohibited
+        this tradeOrder from being saved:
+      </h2>
+      <ul>
+        <% @tradeOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :orderId, { class: 'form-label'} %><br>
+	<%= form.text_field :orderId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :limitPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :limitPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :placedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :placedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Side, { class: 'form-label'} %><br>
+   <%= form.select :Side, TradeOrder.Sides.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Type, { class: 'form-label'} %><br>
+   <%= form.select :Type, TradeOrder.Types.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, TradeOrder.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :TimeInForce, { class: 'form-label'} %><br>
+   <%= form.select :TimeInForce, TradeOrder.TimeInForces.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

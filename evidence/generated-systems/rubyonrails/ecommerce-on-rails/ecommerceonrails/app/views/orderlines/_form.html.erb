@@ -1,0 +1,52 @@
+<%= form_with model: @orderLine, local: true do |form| %>
+ 
+  <% if @orderLine.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@orderLine.errors.count, "error") %> prohibited
+        this orderLine from being saved:
+      </h2>
+      <ul>
+        <% @orderLine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unitPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :unitPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :totalPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :taxRate, { class: 'form-label'} %><br>
+	<%= form.text_field :taxRate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :LineStatus, { class: 'form-label'} %><br>
+   <%= form.select :LineStatus, OrderLine.LineStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

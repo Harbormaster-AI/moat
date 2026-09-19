@@ -1,0 +1,48 @@
+<%= form_with model: @person, local: true do |form| %>
+ 
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@person.errors.count, "error") %> prohibited
+        this person from being saved:
+      </h2>
+      <ul>
+        <% @person.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :email, { class: 'form-label'} %><br>
+	<%= form.text_field :email, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :department, { class: 'form-label'} %><br>
+	<%= form.text_field :department, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

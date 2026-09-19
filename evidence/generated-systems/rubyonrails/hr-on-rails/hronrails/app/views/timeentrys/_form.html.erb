@@ -1,0 +1,44 @@
+<%= form_with model: @timeEntry, local: true do |form| %>
+ 
+  <% if @timeEntry.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@timeEntry.errors.count, "error") %> prohibited
+        this timeEntry from being saved:
+      </h2>
+      <ul>
+        <% @timeEntry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :entryDate, { class: 'form-label'} %><br>
+    <%= form.date_field :entryDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :hoursWorked, { class: 'form-label'} %><br>
+	<%= form.text_field :hoursWorked, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :EntryType, { class: 'form-label'} %><br>
+   <%= form.select :EntryType, TimeEntry.EntryTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

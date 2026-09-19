@@ -1,0 +1,52 @@
+<%= form_with model: @fXQuote, local: true do |form| %>
+ 
+  <% if @fXQuote.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@fXQuote.errors.count, "error") %> prohibited
+        this fXQuote from being saved:
+      </h2>
+      <ul>
+        <% @fXQuote.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :baseCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :baseCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quoteCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :quoteCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :rate, { class: 'form-label'} %><br>
+	<%= form.text_field :rate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quotedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :quotedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expiresAt, { class: 'form-label'} %><br>
+    <%= form.time_field :expiresAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PriceType, { class: 'form-label'} %><br>
+   <%= form.select :PriceType, FXQuote.PriceTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

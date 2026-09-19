@@ -1,0 +1,60 @@
+<%= form_with model: @reservation, local: true do |form| %>
+ 
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@reservation.errors.count, "error") %> prohibited
+        this reservation from being saved:
+      </h2>
+      <ul>
+        <% @reservation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :referenceNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :referenceNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reservedQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :reservedQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :promisedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :promisedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ReservationStatus, { class: 'form-label'} %><br>
+   <%= form.select :ReservationStatus, Reservation.ReservationStatuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :ReservationType, { class: 'form-label'} %><br>
+   <%= form.select :ReservationType, Reservation.ReservationTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

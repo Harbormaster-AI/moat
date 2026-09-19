@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of Policys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">versionLabel</th>
+			<th style="text-align:center">approvalDate</th>
+			<th style="text-align:center">nextReviewDate</th>
+			<th style="text-align:center">documentUrl</th>
+			<th style="text-align:center">PolicyType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @policys.each do |policy| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= policy.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= policy.versionLabel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= policy.approvalDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= policy.nextReviewDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= policy.documentUrl %>
+			</td>
+			<td style="text-align:center">
+	  			<%= policy.PolicyType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= policy.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_policy_path(policy), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', policy_path(policy), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Policy', new_policy_path, :method => :get, :class => "btn btn-success btn-sm" %>

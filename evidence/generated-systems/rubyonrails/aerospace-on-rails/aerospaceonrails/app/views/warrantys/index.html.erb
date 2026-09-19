@@ -1,0 +1,31 @@
+<div class="title text-center">
+  List of Warrantys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">coverageMonths</th>
+			<th style="text-align:center">WarrantyType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @warrantys.each do |warranty| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= warranty.coverageMonths %>
+			</td>
+			<td style="text-align:center">
+	  			<%= warranty.WarrantyType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_warranty_path(warranty), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', warranty_path(warranty), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Warranty', new_warranty_path, :method => :get, :class => "btn btn-success btn-sm" %>

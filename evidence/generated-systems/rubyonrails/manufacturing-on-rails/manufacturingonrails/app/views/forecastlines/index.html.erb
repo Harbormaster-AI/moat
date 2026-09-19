@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of ForecastLines
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">period</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">confidence</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @forecastLines.each do |forecastLine| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= forecastLine.period %>
+			</td>
+			<td style="text-align:center">
+	  			<%= forecastLine.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= forecastLine.confidence %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_forecastLine_path(forecastLine), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', forecastLine_path(forecastLine), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ForecastLine', new_forecastLine_path, :method => :get, :class => "btn btn-success btn-sm" %>

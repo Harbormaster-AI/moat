@@ -1,0 +1,38 @@
+<%= form_with model: @competencyRating, local: true do |form| %>
+ 
+  <% if @competencyRating.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@competencyRating.errors.count, "error") %> prohibited
+        this competencyRating from being saved:
+      </h2>
+      <ul>
+        <% @competencyRating.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :comment, { class: 'form-label'} %><br>
+	<%= form.text_field :comment, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Rating, { class: 'form-label'} %><br>
+   <%= form.select :Rating, CompetencyRating.Ratings.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

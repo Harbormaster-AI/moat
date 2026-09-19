@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>manufacturingonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>manufacturingonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'Enterprises', enterprises_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BusinessUnits', businessUnits_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Plants', plants_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ProductionLines', productionLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'WorkCenters', workCenters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Items', items_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BOMs', bOMs_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BOMItems', bOMItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Routings', routings_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Operations', operations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'WorkOrders', workOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ProductionSchedules', productionSchedules_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Suppliers', suppliers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PurchaseOrders', purchaseOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PurchaseOrderLines', purchaseOrderLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'GoodsReceipts', goodsReceipts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'GoodsReceiptLines', goodsReceiptLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Warehouses', warehouses_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Locations', locations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryItems', inventoryItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryTransactions', inventoryTransactions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Customers', customers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'SalesOrders', salesOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'SalesOrderLines', salesOrderLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'QualitySpecifications', qualitySpecifications_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InspectionPlans', inspectionPlans_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InspectionCharacteristics', inspectionCharacteristics_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InspectionLots', inspectionLots_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InspectionResults', inspectionResults_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Nonconformances', nonconformances_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CorrectiveActions', correctiveActions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Assets', assets_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MaintenancePlans', maintenancePlans_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MaintenanceOrders', maintenanceOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Employees', employees_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Shifts', shifts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ShiftAssignments', shiftAssignments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Forecasts', forecasts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ForecastLines', forecastLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'MRPRuns', mRPRuns_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PlannedOrders', plannedOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of Loans
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">loanNumber</th>
+			<th style="text-align:center">principal</th>
+			<th style="text-align:center">interestRate</th>
+			<th style="text-align:center">originationDate</th>
+			<th style="text-align:center">maturityDate</th>
+			<th style="text-align:center">RateType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @loans.each do |loan| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= loan.loanNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= loan.principal %>
+			</td>
+			<td style="text-align:center">
+	  			<%= loan.interestRate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= loan.originationDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= loan.maturityDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= loan.RateType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= loan.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_loan_path(loan), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', loan_path(loan), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Loan', new_loan_path, :method => :get, :class => "btn btn-success btn-sm" %>

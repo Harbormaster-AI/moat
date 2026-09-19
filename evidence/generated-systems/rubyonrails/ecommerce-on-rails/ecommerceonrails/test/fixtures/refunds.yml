@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of refund found in  ecommerceonrails/test/controllers
+
+one:
+  refundNumber: test string for refundNumber
+  amount: "test value"
+  reason: test string for reason
+  createdAt: 2020-10-15
+  Status: 0
+
+two:
+  refundNumber: test string for refundNumber
+  amount: "test value"
+  reason: test string for reason
+  createdAt: 2020-10-15
+  Status: 0
+
+

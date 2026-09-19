@@ -1,0 +1,46 @@
+<%= form_with model: @regulation, local: true do |form| %>
+ 
+  <% if @regulation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@regulation.errors.count, "error") %> prohibited
+        this regulation from being saved:
+      </h2>
+      <ul>
+        <% @regulation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :citation, { class: 'form-label'} %><br>
+	<%= form.text_field :citation, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :jurisdiction, { class: 'form-label'} %><br>
+	<%= form.text_field :jurisdiction, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :publicationUrl, { class: 'form-label'} %><br>
+	<%= form.text_field :publicationUrl, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

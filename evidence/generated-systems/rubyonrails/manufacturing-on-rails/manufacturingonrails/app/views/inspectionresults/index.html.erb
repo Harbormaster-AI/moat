@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of InspectionResults
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">resultValue</th>
+			<th style="text-align:center">recordedOn</th>
+			<th style="text-align:center">notes</th>
+			<th style="text-align:center">ResultStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @inspectionResults.each do |inspectionResult| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= inspectionResult.resultValue %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionResult.recordedOn %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionResult.notes %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionResult.ResultStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_inspectionResult_path(inspectionResult), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', inspectionResult_path(inspectionResult), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New InspectionResult', new_inspectionResult_path, :method => :get, :class => "btn btn-success btn-sm" %>

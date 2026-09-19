@@ -1,0 +1,44 @@
+<%= form_with model: @workShift, local: true do |form| %>
+ 
+  <% if @workShift.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@workShift.errors.count, "error") %> prohibited
+        this workShift from being saved:
+      </h2>
+      <ul>
+        <% @workShift.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :startTime, { class: 'form-label'} %><br>
+    <%= form.time_field :startTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endTime, { class: 'form-label'} %><br>
+    <%= form.time_field :endTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :breakMinutes, { class: 'form-label'} %><br>
+	<%= form.text_field :breakMinutes, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :DayOfWeek, { class: 'form-label'} %><br>
+   <%= form.select :DayOfWeek, WorkShift.DayOfWeeks.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

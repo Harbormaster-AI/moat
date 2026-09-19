@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of Patients
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">firstName</th>
+			<th style="text-align:center">lastName</th>
+			<th style="text-align:center">mrn</th>
+			<th style="text-align:center">dateOfBirth</th>
+			<th style="text-align:center">address</th>
+			<th style="text-align:center">primaryLanguage</th>
+			<th style="text-align:center">SexAtBirth</th>
+			<th style="text-align:center">BloodType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @patients.each do |patient| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= patient.firstName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.lastName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.mrn %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.dateOfBirth %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.address %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.primaryLanguage %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.SexAtBirth %>
+			</td>
+			<td style="text-align:center">
+	  			<%= patient.BloodType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_patient_path(patient), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', patient_path(patient), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Patient', new_patient_path, :method => :get, :class => "btn btn-success btn-sm" %>

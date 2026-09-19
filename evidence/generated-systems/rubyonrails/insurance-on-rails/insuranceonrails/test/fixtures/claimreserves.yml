@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of claimReserve found in  insuranceonrails/test/controllers
+
+one:
+  amount: "test value"
+  setDate: 2020-10-15
+  ReserveType: 0
+  Status: 0
+
+two:
+  amount: "test value"
+  setDate: 2020-10-15
+  ReserveType: 0
+  Status: 0
+
+

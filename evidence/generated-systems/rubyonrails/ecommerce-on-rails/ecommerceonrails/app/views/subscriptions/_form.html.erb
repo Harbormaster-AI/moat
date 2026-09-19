@@ -1,0 +1,58 @@
+<%= form_with model: @subscription, local: true do |form| %>
+ 
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@subscription.errors.count, "error") %> prohibited
+        this subscription from being saved:
+      </h2>
+      <ul>
+        <% @subscription.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :subscriptionNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :subscriptionNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :nextBillingDate, { class: 'form-label'} %><br>
+    <%= form.date_field :nextBillingDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDate, { class: 'form-label'} %><br>
+    <%= form.date_field :endDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Subscription.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Interval, { class: 'form-label'} %><br>
+   <%= form.select :Interval, Subscription.Intervals.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

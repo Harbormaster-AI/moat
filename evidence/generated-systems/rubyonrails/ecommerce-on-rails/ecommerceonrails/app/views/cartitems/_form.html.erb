@@ -1,0 +1,44 @@
+<%= form_with model: @cartItem, local: true do |form| %>
+ 
+  <% if @cartItem.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cartItem.errors.count, "error") %> prohibited
+        this cartItem from being saved:
+      </h2>
+      <ul>
+        <% @cartItem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unitPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :unitPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalPrice, { class: 'form-label'} %><br>
+	<%= form.text_field :totalPrice, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

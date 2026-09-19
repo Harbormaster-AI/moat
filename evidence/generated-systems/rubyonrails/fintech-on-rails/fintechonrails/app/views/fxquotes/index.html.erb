@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of FXQuotes
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">baseCurrency</th>
+			<th style="text-align:center">quoteCurrency</th>
+			<th style="text-align:center">rate</th>
+			<th style="text-align:center">quotedAt</th>
+			<th style="text-align:center">expiresAt</th>
+			<th style="text-align:center">PriceType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @fXQuotes.each do |fXQuote| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= fXQuote.baseCurrency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXQuote.quoteCurrency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXQuote.rate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXQuote.quotedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXQuote.expiresAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fXQuote.PriceType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_fXQuote_path(fXQuote), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', fXQuote_path(fXQuote), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New FXQuote', new_fXQuote_path, :method => :get, :class => "btn btn-success btn-sm" %>

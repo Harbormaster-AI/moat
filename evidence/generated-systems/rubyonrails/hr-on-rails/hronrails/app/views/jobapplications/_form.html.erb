@@ -1,0 +1,48 @@
+<%= form_with model: @jobApplication, local: true do |form| %>
+ 
+  <% if @jobApplication.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@jobApplication.errors.count, "error") %> prohibited
+        this jobApplication from being saved:
+      </h2>
+      <ul>
+        <% @jobApplication.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :applicationNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :applicationNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :appliedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :appliedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :resumeUrl, { class: 'form-label'} %><br>
+	<%= form.text_field :resumeUrl, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, JobApplication.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

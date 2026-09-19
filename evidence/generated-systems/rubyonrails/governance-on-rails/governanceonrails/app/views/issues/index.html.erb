@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Issues
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">openedDate</th>
+			<th style="text-align:center">closedDate</th>
+			<th style="text-align:center">IssueType</th>
+			<th style="text-align:center">Priority</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @issues.each do |issue| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= issue.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= issue.openedDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= issue.closedDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= issue.IssueType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= issue.Priority %>
+			</td>
+			<td style="text-align:center">
+	  			<%= issue.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_issue_path(issue), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', issue_path(issue), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Issue', new_issue_path, :method => :get, :class => "btn btn-success btn-sm" %>

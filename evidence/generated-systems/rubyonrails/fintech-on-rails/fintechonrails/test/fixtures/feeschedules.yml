@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of feeSchedule found in  fintechonrails/test/controllers
+
+one:
+  name: test string for name
+  amount: "test value"
+  percentage: "test value"
+  minimum: "test value"
+  maximum: "test value"
+  FeeType: 0
+  CalculationMethod: 0
+
+two:
+  name: test string for name
+  amount: "test value"
+  percentage: "test value"
+  minimum: "test value"
+  maximum: "test value"
+  FeeType: 0
+  CalculationMethod: 0
+
+

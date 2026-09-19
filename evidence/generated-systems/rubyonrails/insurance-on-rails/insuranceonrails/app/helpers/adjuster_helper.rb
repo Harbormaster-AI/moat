@@ -1,0 +1,2 @@
+module AdjusterHelper
+end

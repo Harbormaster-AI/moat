@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of supplier found in  manufacturingonrails/test/controllers
+
+one:
+  name: test string for name
+  supplierCode: test string for supplierCode
+  address: "test value"
+  SupplierTier: 0
+  PaymentTerms: 0
+
+two:
+  name: test string for name
+  supplierCode: test string for supplierCode
+  address: "test value"
+  SupplierTier: 0
+  PaymentTerms: 0
+
+

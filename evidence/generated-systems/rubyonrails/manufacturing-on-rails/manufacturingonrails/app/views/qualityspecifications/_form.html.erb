@@ -1,0 +1,40 @@
+<%= form_with model: @qualitySpecification, local: true do |form| %>
+ 
+  <% if @qualitySpecification.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@qualitySpecification.errors.count, "error") %> prohibited
+        this qualitySpecification from being saved:
+      </h2>
+      <ul>
+        <% @qualitySpecification.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :specCode, { class: 'form-label'} %><br>
+	<%= form.text_field :specCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :version, { class: 'form-label'} %><br>
+	<%= form.text_field :version, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

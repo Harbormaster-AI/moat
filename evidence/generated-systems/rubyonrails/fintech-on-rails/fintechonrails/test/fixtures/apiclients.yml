@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of aPIClient found in  fintechonrails/test/controllers
+
+one:
+  name: test string for name
+  clientId: test string for clientId
+  redirectUri: test string for redirectUri
+  ClientType: 0
+
+two:
+  name: test string for name
+  clientId: test string for clientId
+  redirectUri: test string for redirectUri
+  ClientType: 0
+
+

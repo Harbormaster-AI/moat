@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of inventoryThresholdAlert found in  inventoryonrails/test/controllers
+
+one:
+  alertNumber: test string for alertNumber
+  detectedAt: 2020-10-15
+  message: test string for message
+  AlertType: 0
+  Status: 0
+
+two:
+  alertNumber: test string for alertNumber
+  detectedAt: 2020-10-15
+  message: test string for message
+  AlertType: 0
+  Status: 0
+
+

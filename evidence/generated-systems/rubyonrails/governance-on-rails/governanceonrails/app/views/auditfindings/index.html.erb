@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of AuditFindings
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">dueDate</th>
+			<th style="text-align:center">Severity</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @auditFindings.each do |auditFinding| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= auditFinding.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= auditFinding.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= auditFinding.dueDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= auditFinding.Severity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= auditFinding.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_auditFinding_path(auditFinding), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', auditFinding_path(auditFinding), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New AuditFinding', new_auditFinding_path, :method => :get, :class => "btn btn-success btn-sm" %>

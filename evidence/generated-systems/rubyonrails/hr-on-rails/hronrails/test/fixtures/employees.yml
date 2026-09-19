@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of employee found in  hronrails/test/controllers
+
+one:
+  employeeNumber: test string for employeeNumber
+  name: "test value"
+  workEmail: "test value"
+  workPhone: "test value"
+  dateOfHire: 2020-10-15
+  nationalId: "test value"
+  Status: 0
+
+two:
+  employeeNumber: test string for employeeNumber
+  name: "test value"
+  workEmail: "test value"
+  workPhone: "test value"
+  dateOfHire: 2020-10-15
+  nationalId: "test value"
+  Status: 0
+
+

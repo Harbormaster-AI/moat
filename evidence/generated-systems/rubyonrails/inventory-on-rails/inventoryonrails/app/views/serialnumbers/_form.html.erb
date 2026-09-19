@@ -1,0 +1,44 @@
+<%= form_with model: @serialNumber, local: true do |form| %>
+ 
+  <% if @serialNumber.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@serialNumber.errors.count, "error") %> prohibited
+        this serialNumber from being saved:
+      </h2>
+      <ul>
+        <% @serialNumber.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :serial, { class: 'form-label'} %><br>
+	<%= form.text_field :serial, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :activationDate, { class: 'form-label'} %><br>
+    <%= form.date_field :activationDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, SerialNumber.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

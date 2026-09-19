@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of activity found in  crmonrails/test/controllers
+
+one:
+  subject: test string for subject
+  dueDate: 2020-10-15
+  startAt: 2020-10-15
+  endAt: 2020-10-15
+  location: test string for location
+  ActivityType: 0
+  Status: 0
+  Priority: 0
+
+two:
+  subject: test string for subject
+  dueDate: 2020-10-15
+  startAt: 2020-10-15
+  endAt: 2020-10-15
+  location: test string for location
+  ActivityType: 0
+  Status: 0
+  Priority: 0
+
+

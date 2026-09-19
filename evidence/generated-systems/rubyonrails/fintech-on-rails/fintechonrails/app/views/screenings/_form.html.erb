@@ -1,0 +1,46 @@
+<%= form_with model: @screening, local: true do |form| %>
+ 
+  <% if @screening.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@screening.errors.count, "error") %> prohibited
+        this screening from being saved:
+      </h2>
+      <ul>
+        <% @screening.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :score, { class: 'form-label'} %><br>
+	<%= form.text_field :score, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :screenedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :screenedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ScreeningType, { class: 'form-label'} %><br>
+   <%= form.select :ScreeningType, Screening.ScreeningTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Screening.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

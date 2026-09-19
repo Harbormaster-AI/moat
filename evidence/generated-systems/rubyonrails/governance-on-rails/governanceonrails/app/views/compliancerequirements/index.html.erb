@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of ComplianceRequirements
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">source</th>
+			<th style="text-align:center">citation</th>
+			<th style="text-align:center">Applicability</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @complianceRequirements.each do |complianceRequirement| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= complianceRequirement.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= complianceRequirement.source %>
+			</td>
+			<td style="text-align:center">
+	  			<%= complianceRequirement.citation %>
+			</td>
+			<td style="text-align:center">
+	  			<%= complianceRequirement.Applicability %>
+			</td>
+			<td style="text-align:center">
+	  			<%= complianceRequirement.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_complianceRequirement_path(complianceRequirement), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', complianceRequirement_path(complianceRequirement), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ComplianceRequirement', new_complianceRequirement_path, :method => :get, :class => "btn btn-success btn-sm" %>

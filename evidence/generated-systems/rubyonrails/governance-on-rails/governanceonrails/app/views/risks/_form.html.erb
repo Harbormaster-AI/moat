@@ -1,0 +1,68 @@
+<%= form_with model: @risk, local: true do |form| %>
+ 
+  <% if @risk.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@risk.errors.count, "error") %> prohibited
+        this risk from being saved:
+      </h2>
+      <ul>
+        <% @risk.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :inherentRiskScore, { class: 'form-label'} %><br>
+	<%= form.text_field :inherentRiskScore, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :residualRiskScore, { class: 'form-label'} %><br>
+	<%= form.text_field :residualRiskScore, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Category, { class: 'form-label'} %><br>
+   <%= form.select :Category, Risk.Categorys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Impact, { class: 'form-label'} %><br>
+   <%= form.select :Impact, Risk.Impacts.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Likelihood, { class: 'form-label'} %><br>
+   <%= form.select :Likelihood, Risk.Likelihoods.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Risk.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

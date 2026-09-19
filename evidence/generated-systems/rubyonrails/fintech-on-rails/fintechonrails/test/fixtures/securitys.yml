@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of security found in  fintechonrails/test/controllers
+
+one:
+  symbol: test string for symbol
+  isin: test string for isin
+  cusip: test string for cusip
+  currency: test string for currency
+  SecurityType: 0
+
+two:
+  symbol: test string for symbol
+  isin: test string for isin
+  cusip: test string for cusip
+  currency: test string for currency
+  SecurityType: 0
+
+

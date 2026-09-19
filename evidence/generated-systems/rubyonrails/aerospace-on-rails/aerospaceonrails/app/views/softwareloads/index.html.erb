@@ -1,0 +1,31 @@
+<div class="title text-center">
+  List of SoftwareLoads
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">version</th>
+			<th style="text-align:center">LoadType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @softwareLoads.each do |softwareLoad| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= softwareLoad.version %>
+			</td>
+			<td style="text-align:center">
+	  			<%= softwareLoad.LoadType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_softwareLoad_path(softwareLoad), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', softwareLoad_path(softwareLoad), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New SoftwareLoad', new_softwareLoad_path, :method => :get, :class => "btn btn-success btn-sm" %>

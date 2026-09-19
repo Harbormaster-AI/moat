@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of MedicationOrders
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">medicationCode</th>
+			<th style="text-align:center">dose</th>
+			<th style="text-align:center">frequency</th>
+			<th style="text-align:center">duration</th>
+			<th style="text-align:center">Route</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @medicationOrders.each do |medicationOrder| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= medicationOrder.medicationCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationOrder.dose %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationOrder.frequency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationOrder.duration %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicationOrder.Route %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_medicationOrder_path(medicationOrder), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', medicationOrder_path(medicationOrder), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New MedicationOrder', new_medicationOrder_path, :method => :get, :class => "btn btn-success btn-sm" %>

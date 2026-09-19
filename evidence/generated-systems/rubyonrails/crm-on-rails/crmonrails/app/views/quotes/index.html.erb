@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of Quotes
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">quoteNumber</th>
+			<th style="text-align:center">validityStart</th>
+			<th style="text-align:center">validityEnd</th>
+			<th style="text-align:center">totalAmount</th>
+			<th style="text-align:center">discountPercent</th>
+			<th style="text-align:center">taxAmount</th>
+			<th style="text-align:center">shippingAmount</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @quotes.each do |quote| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= quote.quoteNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.validityStart %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.validityEnd %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.totalAmount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.discountPercent %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.taxAmount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.shippingAmount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quote.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_quote_path(quote), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', quote_path(quote), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Quote', new_quote_path, :method => :get, :class => "btn btn-success btn-sm" %>

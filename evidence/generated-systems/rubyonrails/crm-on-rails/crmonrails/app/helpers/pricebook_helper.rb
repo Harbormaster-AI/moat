@@ -1,0 +1,2 @@
+module PriceBookHelper
+end

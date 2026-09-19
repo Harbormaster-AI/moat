@@ -1,0 +1,54 @@
+<%= form_with model: @observation, local: true do |form| %>
+ 
+  <% if @observation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@observation.errors.count, "error") %> prohibited
+        this observation from being saved:
+      </h2>
+      <ul>
+        <% @observation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :value, { class: 'form-label'} %><br>
+	<%= form.text_field :value, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :unit, { class: 'form-label'} %><br>
+	<%= form.text_field :unit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveDateTime, { class: 'form-label'} %><br>
+    <%= form.time_field :effectiveDateTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Interpretation, { class: 'form-label'} %><br>
+   <%= form.select :Interpretation, Observation.Interpretations.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

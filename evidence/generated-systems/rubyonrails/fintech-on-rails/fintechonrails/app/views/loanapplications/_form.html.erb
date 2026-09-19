@@ -1,0 +1,60 @@
+<%= form_with model: @loanApplication, local: true do |form| %>
+ 
+  <% if @loanApplication.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@loanApplication.errors.count, "error") %> prohibited
+        this loanApplication from being saved:
+      </h2>
+      <ul>
+        <% @loanApplication.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :applicationNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :applicationNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amountRequested, { class: 'form-label'} %><br>
+	<%= form.text_field :amountRequested, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :termMonths, { class: 'form-label'} %><br>
+	<%= form.text_field :termMonths, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :submittedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :submittedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Product, { class: 'form-label'} %><br>
+   <%= form.select :Product, LoanApplication.Products.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Purpose, { class: 'form-label'} %><br>
+   <%= form.select :Purpose, LoanApplication.Purposes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, LoanApplication.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

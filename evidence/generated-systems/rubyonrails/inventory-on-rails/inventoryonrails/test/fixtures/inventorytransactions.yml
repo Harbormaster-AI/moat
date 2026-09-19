@@ -1,0 +1,24 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of inventoryTransaction found in  inventoryonrails/test/controllers
+
+one:
+  transactionNumber: test string for transactionNumber
+  quantity: "test value"
+  unitCost: "test value"
+  transactionDate: 2020-10-15
+  reasonCode: test string for reasonCode
+  TransactionType: 0
+  UnitOfMeasure: 0
+  Status: 0
+
+two:
+  transactionNumber: test string for transactionNumber
+  quantity: "test value"
+  unitCost: "test value"
+  transactionDate: 2020-10-15
+  reasonCode: test string for reasonCode
+  TransactionType: 0
+  UnitOfMeasure: 0
+  Status: 0
+
+

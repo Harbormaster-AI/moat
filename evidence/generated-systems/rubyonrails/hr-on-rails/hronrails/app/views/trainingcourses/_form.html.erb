@@ -1,0 +1,48 @@
+<%= form_with model: @trainingCourse, local: true do |form| %>
+ 
+  <% if @trainingCourse.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@trainingCourse.errors.count, "error") %> prohibited
+        this trainingCourse from being saved:
+      </h2>
+      <ul>
+        <% @trainingCourse.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :durationHours, { class: 'form-label'} %><br>
+	<%= form.text_field :durationHours, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :DeliveryMethod, { class: 'form-label'} %><br>
+   <%= form.select :DeliveryMethod, TrainingCourse.DeliveryMethods.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

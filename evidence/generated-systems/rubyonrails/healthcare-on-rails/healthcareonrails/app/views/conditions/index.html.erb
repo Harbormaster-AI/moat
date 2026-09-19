@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Conditions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">code</th>
+			<th style="text-align:center">onsetDate</th>
+			<th style="text-align:center">abatementDate</th>
+			<th style="text-align:center">ClinicalStatus</th>
+			<th style="text-align:center">VerificationStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @conditions.each do |condition| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= condition.code %>
+			</td>
+			<td style="text-align:center">
+	  			<%= condition.onsetDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= condition.abatementDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= condition.ClinicalStatus %>
+			</td>
+			<td style="text-align:center">
+	  			<%= condition.VerificationStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_condition_path(condition), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', condition_path(condition), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Condition', new_condition_path, :method => :get, :class => "btn btn-success btn-sm" %>

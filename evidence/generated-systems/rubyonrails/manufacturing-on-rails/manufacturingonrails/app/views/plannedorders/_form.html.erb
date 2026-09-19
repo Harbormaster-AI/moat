@@ -1,0 +1,52 @@
+<%= form_with model: @plannedOrder, local: true do |form| %>
+ 
+  <% if @plannedOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@plannedOrder.errors.count, "error") %> prohibited
+        this plannedOrder from being saved:
+      </h2>
+      <ul>
+        <% @plannedOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :plannedOrderNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :plannedOrderNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dueDate, { class: 'form-label'} %><br>
+    <%= form.date_field :dueDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :OrderType, { class: 'form-label'} %><br>
+   <%= form.select :OrderType, PlannedOrder.OrderTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PlannedOrder.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

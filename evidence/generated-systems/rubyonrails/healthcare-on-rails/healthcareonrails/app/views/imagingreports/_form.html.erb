@@ -1,0 +1,50 @@
+<%= form_with model: @imagingReport, local: true do |form| %>
+ 
+  <% if @imagingReport.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@imagingReport.errors.count, "error") %> prohibited
+        this imagingReport from being saved:
+      </h2>
+      <ul>
+        <% @imagingReport.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :reportNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :reportNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :impression, { class: 'form-label'} %><br>
+	<%= form.text_field :impression, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reportedDate, { class: 'form-label'} %><br>
+    <%= form.time_field :reportedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, ImagingReport.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

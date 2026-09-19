@@ -1,0 +1,2 @@
+module SalaryComponentHelper
+end

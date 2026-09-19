@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of salesOrder found in  manufacturingonrails/test/controllers
+
+one:
+  orderNumber: test string for orderNumber
+  orderDate: 2020-10-15
+  totalAmount: "test value"
+  Status: 0
+
+two:
+  orderNumber: test string for orderNumber
+  orderDate: 2020-10-15
+  totalAmount: "test value"
+  Status: 0
+
+

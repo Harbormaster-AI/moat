@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of AircraftVariants
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">variantCode</th>
+			<th style="text-align:center">rangeNm</th>
+			<th style="text-align:center">maxTakeoffWeightKg</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @aircraftVariants.each do |aircraftVariant| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= aircraftVariant.variantCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= aircraftVariant.rangeNm %>
+			</td>
+			<td style="text-align:center">
+	  			<%= aircraftVariant.maxTakeoffWeightKg %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_aircraftVariant_path(aircraftVariant), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', aircraftVariant_path(aircraftVariant), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New AircraftVariant', new_aircraftVariant_path, :method => :get, :class => "btn btn-success btn-sm" %>

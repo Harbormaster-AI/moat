@@ -1,0 +1,2 @@
+module VerifiedAddressHelper
+end

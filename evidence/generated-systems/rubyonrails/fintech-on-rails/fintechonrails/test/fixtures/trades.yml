@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of trade found in  fintechonrails/test/controllers
+
+one:
+  executedAt: 2020-10-15
+  quantity: "test value"
+  price: "test value"
+  fees: "test value"
+  settlementDate: 2020-10-15
+
+two:
+  executedAt: 2020-10-15
+  quantity: "test value"
+  price: "test value"
+  fees: "test value"
+  settlementDate: 2020-10-15
+
+

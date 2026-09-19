@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Offers
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">offerNumber</th>
+			<th style="text-align:center">proposedStartDate</th>
+			<th style="text-align:center">baseSalary</th>
+			<th style="text-align:center">signOnBonus</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @offers.each do |offer| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= offer.offerNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= offer.proposedStartDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= offer.baseSalary %>
+			</td>
+			<td style="text-align:center">
+	  			<%= offer.signOnBonus %>
+			</td>
+			<td style="text-align:center">
+	  			<%= offer.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_offer_path(offer), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', offer_path(offer), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Offer', new_offer_path, :method => :get, :class => "btn btn-success btn-sm" %>

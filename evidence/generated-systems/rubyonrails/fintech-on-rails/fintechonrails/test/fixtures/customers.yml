@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of customer found in  fintechonrails/test/controllers
+
+one:
+  firstName: test string for firstName
+  lastName: test string for lastName
+  dateOfBirth: 2020-10-15
+  email: "test value"
+  phone: "test value"
+  address: "test value"
+  taxId: "test value"
+  riskScore: "test value"
+  CustomerType: 0
+
+two:
+  firstName: test string for firstName
+  lastName: test string for lastName
+  dateOfBirth: 2020-10-15
+  email: "test value"
+  phone: "test value"
+  address: "test value"
+  taxId: "test value"
+  riskScore: "test value"
+  CustomerType: 0
+
+

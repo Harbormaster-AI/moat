@@ -1,0 +1,64 @@
+<%= form_with model: @control, local: true do |form| %>
+ 
+  <% if @control.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@control.errors.count, "error") %> prohibited
+        this control from being saved:
+      </h2>
+      <ul>
+        <% @control.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :objective, { class: 'form-label'} %><br>
+	<%= form.text_field :objective, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :ownerDepartment, { class: 'form-label'} %><br>
+	<%= form.text_field :ownerDepartment, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ControlType, { class: 'form-label'} %><br>
+   <%= form.select :ControlType, Control.ControlTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Frequency, { class: 'form-label'} %><br>
+   <%= form.select :Frequency, Control.Frequencys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Control.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

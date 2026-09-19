@@ -1,0 +1,36 @@
+<%= form_with model: @shiftAssignment, local: true do |form| %>
+ 
+  <% if @shiftAssignment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@shiftAssignment.errors.count, "error") %> prohibited
+        this shiftAssignment from being saved:
+      </h2>
+      <ul>
+        <% @shiftAssignment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :assignmentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :assignmentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

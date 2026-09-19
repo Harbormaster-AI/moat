@@ -1,0 +1,46 @@
+<%= form_with model: @shift, local: true do |form| %>
+ 
+  <% if @shift.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@shift.errors.count, "error") %> prohibited
+        this shift from being saved:
+      </h2>
+      <ul>
+        <% @shift.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :shiftName, { class: 'form-label'} %><br>
+	<%= form.text_field :shiftName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startTime, { class: 'form-label'} %><br>
+	<%= form.text_field :startTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endTime, { class: 'form-label'} %><br>
+	<%= form.text_field :endTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ShiftType, { class: 'form-label'} %><br>
+   <%= form.select :ShiftType, Shift.ShiftTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

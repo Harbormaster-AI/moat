@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of inspectionResult found in  manufacturingonrails/test/controllers
+
+one:
+  resultValue: "test value"
+  recordedOn: 2020-10-15
+  notes: test string for notes
+  ResultStatus: 0
+
+two:
+  resultValue: "test value"
+  recordedOn: 2020-10-15
+  notes: test string for notes
+  ResultStatus: 0
+
+

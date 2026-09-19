@@ -1,0 +1,2 @@
+module TaxRuleHelper
+end

@@ -1,0 +1,44 @@
+<%= form_with model: @allergy, local: true do |form| %>
+ 
+  <% if @allergy.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@allergy.errors.count, "error") %> prohibited
+        this allergy from being saved:
+      </h2>
+      <ul>
+        <% @allergy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :substance, { class: 'form-label'} %><br>
+	<%= form.text_field :substance, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reaction, { class: 'form-label'} %><br>
+	<%= form.text_field :reaction, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Severity, { class: 'form-label'} %><br>
+   <%= form.select :Severity, Allergy.Severitys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Allergy.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

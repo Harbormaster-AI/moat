@@ -1,0 +1,78 @@
+<%= form_with model: @campaign, local: true do |form| %>
+ 
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@campaign.errors.count, "error") %> prohibited
+        this campaign from being saved:
+      </h2>
+      <ul>
+        <% @campaign.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDate, { class: 'form-label'} %><br>
+    <%= form.date_field :endDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :budget, { class: 'form-label'} %><br>
+	<%= form.text_field :budget, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :actualCost, { class: 'form-label'} %><br>
+	<%= form.text_field :actualCost, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expectedRevenue, { class: 'form-label'} %><br>
+	<%= form.text_field :expectedRevenue, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Campaign.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Type, { class: 'form-label'} %><br>
+   <%= form.select :Type, Campaign.Types.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

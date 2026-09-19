@@ -1,0 +1,2 @@
+module DirectDebitMandateHelper
+end

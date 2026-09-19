@@ -1,0 +1,76 @@
+<%= form_with model: @stockKeepingUnit, local: true do |form| %>
+ 
+  <% if @stockKeepingUnit.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@stockKeepingUnit.errors.count, "error") %> prohibited
+        this stockKeepingUnit from being saved:
+      </h2>
+      <ul>
+        <% @stockKeepingUnit.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :skuCode, { class: 'form-label'} %><br>
+	<%= form.text_field :skuCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :weight, { class: 'form-label'} %><br>
+	<%= form.text_field :weight, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :weightUnit, { class: 'form-label'} %><br>
+	<%= form.text_field :weightUnit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :volume, { class: 'form-label'} %><br>
+	<%= form.text_field :volume, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :volumeUnit, { class: 'form-label'} %><br>
+	<%= form.text_field :volumeUnit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :shelfLifeDays, { class: 'form-label'} %><br>
+	<%= form.text_field :shelfLifeDays, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :hazardousMaterial, {class: "form-check-input"} %>
+    <%= form.label :hazardousMaterial, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ItemType, { class: 'form-label'} %><br>
+   <%= form.select :ItemType, StockKeepingUnit.ItemTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :UnitOfMeasure, { class: 'form-label'} %><br>
+   <%= form.select :UnitOfMeasure, StockKeepingUnit.UnitOfMeasures.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

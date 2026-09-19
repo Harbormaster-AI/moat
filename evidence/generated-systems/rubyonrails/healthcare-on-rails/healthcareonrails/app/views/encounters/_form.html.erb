@@ -1,0 +1,66 @@
+<%= form_with model: @encounter, local: true do |form| %>
+ 
+  <% if @encounter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@encounter.errors.count, "error") %> prohibited
+        this encounter from being saved:
+      </h2>
+      <ul>
+        <% @encounter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :encounterNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :encounterNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDateTime, { class: 'form-label'} %><br>
+    <%= form.time_field :startDateTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDateTime, { class: 'form-label'} %><br>
+    <%= form.time_field :endDateTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Encounter.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :EncounterType, { class: 'form-label'} %><br>
+   <%= form.select :EncounterType, Encounter.EncounterTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,54 @@
+<%= form_with model: @storageLocation, local: true do |form| %>
+ 
+  <% if @storageLocation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@storageLocation.errors.count, "error") %> prohibited
+        this storageLocation from being saved:
+      </h2>
+      <ul>
+        <% @storageLocation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :temperatureControlled, {class: "form-check-input"} %>
+    <%= form.label :temperatureControlled, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+    <%= form.label :capacity, { class: 'form-label'} %><br>
+	<%= form.text_field :capacity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :capacityUnit, { class: 'form-label'} %><br>
+	<%= form.text_field :capacityUnit, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :LocationType, { class: 'form-label'} %><br>
+   <%= form.select :LocationType, StorageLocation.LocationTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

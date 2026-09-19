@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of customerAddress found in  ecommerceonrails/test/controllers
+
+one:
+  label: test string for label
+  address: "test value"
+  asDefaultShipping: true
+  asDefaultBilling: true
+
+two:
+  label: test string for label
+  address: "test value"
+  asDefaultShipping: true
+  asDefaultBilling: true
+
+

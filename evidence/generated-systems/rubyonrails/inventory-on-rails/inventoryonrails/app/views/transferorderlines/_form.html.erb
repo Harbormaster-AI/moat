@@ -1,0 +1,54 @@
+<%= form_with model: @transferOrderLine, local: true do |form| %>
+ 
+  <% if @transferOrderLine.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@transferOrderLine.errors.count, "error") %> prohibited
+        this transferOrderLine from being saved:
+      </h2>
+      <ul>
+        <% @transferOrderLine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :lineNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :lineNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :UnitOfMeasure, { class: 'form-label'} %><br>
+   <%= form.select :UnitOfMeasure, TransferOrderLine.UnitOfMeasures.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :StockStatus, { class: 'form-label'} %><br>
+   <%= form.select :StockStatus, TransferOrderLine.StockStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

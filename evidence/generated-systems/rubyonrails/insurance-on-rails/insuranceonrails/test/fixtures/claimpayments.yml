@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of claimPayment found in  insuranceonrails/test/controllers
+
+one:
+  paymentNumber: test string for paymentNumber
+  amount: "test value"
+  paymentDate: 2020-10-15
+  PayeeType: 0
+  Method: 0
+  Status: 0
+
+two:
+  paymentNumber: test string for paymentNumber
+  amount: "test value"
+  paymentDate: 2020-10-15
+  PayeeType: 0
+  Method: 0
+  Status: 0
+
+

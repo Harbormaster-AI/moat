@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of onboardingTask found in  hronrails/test/controllers
+
+one:
+  taskNumber: test string for taskNumber
+  name: test string for name
+  dueDate: 2020-10-15
+  Status: 0
+
+two:
+  taskNumber: test string for taskNumber
+  name: test string for name
+  dueDate: 2020-10-15
+  Status: 0
+
+

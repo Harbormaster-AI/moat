@@ -1,0 +1,46 @@
+<%= form_with model: @policy, local: true do |form| %>
+ 
+  <% if @policy.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@policy.errors.count, "error") %> prohibited
+        this policy from being saved:
+      </h2>
+      <ul>
+        <% @policy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :policyNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :policyNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveDate, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

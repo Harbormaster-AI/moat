@@ -1,0 +1,46 @@
+<%= form_with model: @underwriter, local: true do |form| %>
+ 
+  <% if @underwriter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@underwriter.errors.count, "error") %> prohibited
+        this underwriter from being saved:
+      </h2>
+      <ul>
+        <% @underwriter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :employeeId, { class: 'form-label'} %><br>
+	<%= form.text_field :employeeId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :authorityLimit, { class: 'form-label'} %><br>
+	<%= form.text_field :authorityLimit, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

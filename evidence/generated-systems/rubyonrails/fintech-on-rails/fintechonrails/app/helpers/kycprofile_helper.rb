@@ -1,0 +1,2 @@
+module KYCProfileHelper
+end

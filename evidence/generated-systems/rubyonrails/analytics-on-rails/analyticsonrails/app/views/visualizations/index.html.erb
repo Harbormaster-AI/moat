@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Visualizations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">options</th>
+			<th style="text-align:center">ChartType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @visualizations.each do |visualization| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= visualization.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= visualization.options %>
+			</td>
+			<td style="text-align:center">
+	  			<%= visualization.ChartType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_visualization_path(visualization), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', visualization_path(visualization), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Visualization', new_visualization_path, :method => :get, :class => "btn btn-success btn-sm" %>

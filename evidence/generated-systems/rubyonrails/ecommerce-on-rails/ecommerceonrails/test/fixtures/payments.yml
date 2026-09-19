@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of payment found in  ecommerceonrails/test/controllers
+
+one:
+  paymentNumber: test string for paymentNumber
+  amount: "test value"
+  transactionId: test string for transactionId
+  authorizedAt: 2020-10-15
+  capturedAt: 2020-10-15
+  Status: 0
+  PaymentMethod: 0
+
+two:
+  paymentNumber: test string for paymentNumber
+  amount: "test value"
+  transactionId: test string for transactionId
+  authorizedAt: 2020-10-15
+  capturedAt: 2020-10-15
+  Status: 0
+  PaymentMethod: 0
+
+

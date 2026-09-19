@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of ExpirationPolicys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">rejectIfDaysToExpireLessThan</th>
+			<th style="text-align:center">autoQuarantineDaysToExpire</th>
+			<th style="text-align:center">RotationMethod</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @expirationPolicys.each do |expirationPolicy| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= expirationPolicy.rejectIfDaysToExpireLessThan %>
+			</td>
+			<td style="text-align:center">
+	  			<%= expirationPolicy.autoQuarantineDaysToExpire %>
+			</td>
+			<td style="text-align:center">
+	  			<%= expirationPolicy.RotationMethod %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_expirationPolicy_path(expirationPolicy), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', expirationPolicy_path(expirationPolicy), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ExpirationPolicy', new_expirationPolicy_path, :method => :get, :class => "btn btn-success btn-sm" %>

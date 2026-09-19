@@ -1,0 +1,72 @@
+<%= form_with model: @user, local: true do |form| %>
+ 
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :username, { class: 'form-label'} %><br>
+	<%= form.text_field :username, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :fullName, { class: 'form-label'} %><br>
+	<%= form.text_field :fullName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :email, { class: 'form-label'} %><br>
+	<%= form.text_field :email, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :locale, { class: 'form-label'} %><br>
+	<%= form.text_field :locale, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Role, { class: 'form-label'} %><br>
+   <%= form.select :Role, User.Roles.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, User.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

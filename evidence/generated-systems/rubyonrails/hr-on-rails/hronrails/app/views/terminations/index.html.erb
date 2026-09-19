@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Terminations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">terminationNumber</th>
+			<th style="text-align:center">terminationDate</th>
+			<th style="text-align:center">notes</th>
+			<th style="text-align:center">eligibleForRehire</th>
+			<th style="text-align:center">Reason</th>
+			<th style="text-align:center">Type</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @terminations.each do |termination| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= termination.terminationNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= termination.terminationDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= termination.notes %>
+			</td>
+			<td style="text-align:center">
+	  			<%= termination.eligibleForRehire %>
+			</td>
+			<td style="text-align:center">
+	  			<%= termination.Reason %>
+			</td>
+			<td style="text-align:center">
+	  			<%= termination.Type %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_termination_path(termination), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', termination_path(termination), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Termination', new_termination_path, :method => :get, :class => "btn btn-success btn-sm" %>

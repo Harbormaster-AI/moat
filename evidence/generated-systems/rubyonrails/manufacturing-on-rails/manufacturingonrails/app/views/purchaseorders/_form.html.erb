@@ -1,0 +1,50 @@
+<%= form_with model: @purchaseOrder, local: true do |form| %>
+ 
+  <% if @purchaseOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@purchaseOrder.errors.count, "error") %> prohibited
+        this purchaseOrder from being saved:
+      </h2>
+      <ul>
+        <% @purchaseOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :poNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :poNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :orderDate, { class: 'form-label'} %><br>
+    <%= form.date_field :orderDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :totalAmount, { class: 'form-label'} %><br>
+	<%= form.text_field :totalAmount, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PurchaseOrder.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of MaintenancePlans
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">planNumber</th>
+			<th style="text-align:center">interval</th>
+			<th style="text-align:center">lastServiceDate</th>
+			<th style="text-align:center">Strategy</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @maintenancePlans.each do |maintenancePlan| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= maintenancePlan.planNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= maintenancePlan.interval %>
+			</td>
+			<td style="text-align:center">
+	  			<%= maintenancePlan.lastServiceDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= maintenancePlan.Strategy %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_maintenancePlan_path(maintenancePlan), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', maintenancePlan_path(maintenancePlan), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New MaintenancePlan', new_maintenancePlan_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,2 @@
+module InboundShipmentLineHelper
+end

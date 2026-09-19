@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of ScheduleExceptions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">date</th>
+			<th style="text-align:center">reason</th>
+			<th style="text-align:center">hours</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @scheduleExceptions.each do |scheduleException| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= scheduleException.date %>
+			</td>
+			<td style="text-align:center">
+	  			<%= scheduleException.reason %>
+			</td>
+			<td style="text-align:center">
+	  			<%= scheduleException.hours %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_scheduleException_path(scheduleException), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', scheduleException_path(scheduleException), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ScheduleException', new_scheduleException_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of correctiveAction found in  governanceonrails/test/controllers
+
+one:
+  actionTitle: test string for actionTitle
+  owner: test string for owner
+  targetDate: 2020-10-15
+  Status: 0
+
+two:
+  actionTitle: test string for actionTitle
+  owner: test string for owner
+  targetDate: 2020-10-15
+  Status: 0
+
+

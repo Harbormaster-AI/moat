@@ -1,0 +1,52 @@
+<%= form_with model: @maintenanceOrder, local: true do |form| %>
+ 
+  <% if @maintenanceOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@maintenanceOrder.errors.count, "error") %> prohibited
+        this maintenanceOrder from being saved:
+      </h2>
+      <ul>
+        <% @maintenanceOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :orderNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :orderNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :priority, { class: 'form-label'} %><br>
+	<%= form.text_field :priority, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :requestedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :requestedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :completionDate, { class: 'form-label'} %><br>
+    <%= form.date_field :completionDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, MaintenanceOrder.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

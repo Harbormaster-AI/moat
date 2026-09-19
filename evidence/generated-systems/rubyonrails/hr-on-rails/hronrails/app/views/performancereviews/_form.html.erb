@@ -1,0 +1,56 @@
+<%= form_with model: @performanceReview, local: true do |form| %>
+ 
+  <% if @performanceReview.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@performanceReview.errors.count, "error") %> prohibited
+        this performanceReview from being saved:
+      </h2>
+      <ul>
+        <% @performanceReview.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :reviewNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :reviewNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reviewDate, { class: 'form-label'} %><br>
+    <%= form.date_field :reviewDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reviewerComments, { class: 'form-label'} %><br>
+	<%= form.text_field :reviewerComments, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Rating, { class: 'form-label'} %><br>
+   <%= form.select :Rating, PerformanceReview.Ratings.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PerformanceReview.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of returnRequest found in  ecommerceonrails/test/controllers
+
+one:
+  returnNumber: test string for returnNumber
+  createdAt: 2020-10-15
+  refundAmount: "test value"
+  Status: 0
+
+two:
+  returnNumber: test string for returnNumber
+  createdAt: 2020-10-15
+  refundAmount: "test value"
+  Status: 0
+
+

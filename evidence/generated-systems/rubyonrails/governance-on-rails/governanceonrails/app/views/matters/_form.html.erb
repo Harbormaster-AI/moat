@@ -1,0 +1,50 @@
+<%= form_with model: @matter, local: true do |form| %>
+ 
+  <% if @matter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@matter.errors.count, "error") %> prohibited
+        this matter from being saved:
+      </h2>
+      <ul>
+        <% @matter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :matterName, { class: 'form-label'} %><br>
+	<%= form.text_field :matterName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :leadCounsel, { class: 'form-label'} %><br>
+	<%= form.text_field :leadCounsel, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :MatterType, { class: 'form-label'} %><br>
+   <%= form.select :MatterType, Matter.MatterTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Matter.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,58 @@
+<%= form_with model: @fXDeal, local: true do |form| %>
+ 
+  <% if @fXDeal.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@fXDeal.errors.count, "error") %> prohibited
+        this fXDeal from being saved:
+      </h2>
+      <ul>
+        <% @fXDeal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :dealReference, { class: 'form-label'} %><br>
+	<%= form.text_field :dealReference, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :baseCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :baseCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quoteCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :quoteCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :rate, { class: 'form-label'} %><br>
+	<%= form.text_field :rate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :settlementDate, { class: 'form-label'} %><br>
+    <%= form.date_field :settlementDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, FXDeal.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

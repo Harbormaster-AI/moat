@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Applications
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">applicationNumber</th>
+			<th style="text-align:center">submissionDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @applications.each do |application| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= application.applicationNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= application.submissionDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= application.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_application_path(application), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', application_path(application), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Application', new_application_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,42 @@
+<%= form_with model: @expirationPolicy, local: true do |form| %>
+ 
+  <% if @expirationPolicy.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@expirationPolicy.errors.count, "error") %> prohibited
+        this expirationPolicy from being saved:
+      </h2>
+      <ul>
+        <% @expirationPolicy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :rejectIfDaysToExpireLessThan, { class: 'form-label'} %><br>
+	<%= form.text_field :rejectIfDaysToExpireLessThan, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :autoQuarantineDaysToExpire, { class: 'form-label'} %><br>
+	<%= form.text_field :autoQuarantineDaysToExpire, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :RotationMethod, { class: 'form-label'} %><br>
+   <%= form.select :RotationMethod, ExpirationPolicy.RotationMethods.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

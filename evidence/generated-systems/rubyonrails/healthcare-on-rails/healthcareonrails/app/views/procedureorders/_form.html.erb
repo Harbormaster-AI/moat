@@ -1,0 +1,44 @@
+<%= form_with model: @procedureOrder, local: true do |form| %>
+ 
+  <% if @procedureOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@procedureOrder.errors.count, "error") %> prohibited
+        this procedureOrder from being saved:
+      </h2>
+      <ul>
+        <% @procedureOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :procedureCode, { class: 'form-label'} %><br>
+	<%= form.text_field :procedureCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :consentObtained, {class: "form-check-input"} %>
+    <%= form.label :consentObtained, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AnesthesiaType, { class: 'form-label'} %><br>
+   <%= form.select :AnesthesiaType, ProcedureOrder.AnesthesiaTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

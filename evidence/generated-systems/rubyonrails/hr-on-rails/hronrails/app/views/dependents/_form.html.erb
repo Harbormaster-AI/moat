@@ -1,0 +1,46 @@
+<%= form_with model: @dependent, local: true do |form| %>
+ 
+  <% if @dependent.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@dependent.errors.count, "error") %> prohibited
+        this dependent from being saved:
+      </h2>
+      <ul>
+        <% @dependent.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :birthDate, { class: 'form-label'} %><br>
+    <%= form.date_field :birthDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Relationship, { class: 'form-label'} %><br>
+   <%= form.select :Relationship, Dependent.Relationships.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

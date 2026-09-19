@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of invoice found in  fintechonrails/test/controllers
+
+one:
+  invoiceNumber: test string for invoiceNumber
+  issueDate: 2020-10-15
+  dueDate: 2020-10-15
+  total: "test value"
+  currency: test string for currency
+  Status: 0
+
+two:
+  invoiceNumber: test string for invoiceNumber
+  issueDate: 2020-10-15
+  dueDate: 2020-10-15
+  total: "test value"
+  currency: test string for currency
+  Status: 0
+
+

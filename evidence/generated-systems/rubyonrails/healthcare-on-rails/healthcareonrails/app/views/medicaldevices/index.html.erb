@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of MedicalDevices
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">udi</th>
+			<th style="text-align:center">manufacturer</th>
+			<th style="text-align:center">DeviceType</th>
+			<th style="text-align:center">ConnectivityStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @medicalDevices.each do |medicalDevice| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= medicalDevice.udi %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicalDevice.manufacturer %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicalDevice.DeviceType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= medicalDevice.ConnectivityStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_medicalDevice_path(medicalDevice), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', medicalDevice_path(medicalDevice), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New MedicalDevice', new_medicalDevice_path, :method => :get, :class => "btn btn-success btn-sm" %>

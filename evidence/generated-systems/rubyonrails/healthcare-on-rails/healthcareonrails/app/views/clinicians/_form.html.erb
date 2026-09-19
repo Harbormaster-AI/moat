@@ -1,0 +1,56 @@
+<%= form_with model: @clinician, local: true do |form| %>
+ 
+  <% if @clinician.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@clinician.errors.count, "error") %> prohibited
+        this clinician from being saved:
+      </h2>
+      <ul>
+        <% @clinician.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :licenseNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :licenseNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ClinicianType, { class: 'form-label'} %><br>
+   <%= form.select :ClinicianType, Clinician.ClinicianTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Specialty, { class: 'form-label'} %><br>
+   <%= form.select :Specialty, Clinician.Specialtys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>governanceonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>governanceonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'Organizations', organizations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'GovernanceBodys', governanceBodys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Persons', persons_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Roles', roles_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'RoleAssignments', roleAssignments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Policys', policys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Procedures', procedures_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Regulations', regulations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Obligations', obligations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Controls', controls_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ControlTest_s', controlTest_s_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Evidences', evidences_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Risks', risks_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'RiskAssessments', riskAssessments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CompliancePrograms', compliancePrograms_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ComplianceRequirements', complianceRequirements_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Attestations', attestations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'AuditPrograms', auditPrograms_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'AuditEngagements', auditEngagements_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'AuditWorkpapers', auditWorkpapers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'AuditFindings', auditFindings_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CorrectiveActions', correctiveActions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Issues', issues_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'BusinessUnits', businessUnits_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'DataProcessingActivitys', dataProcessingActivitys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'DataCategorys', dataCategorys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'System_s', system_s_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PrivacyNotices', privacyNotices_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'DataSubjectRequests', dataSubjectRequests_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'RecordsRepositorys', recordsRepositorys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Record_s', record_s_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'RetentionSchedules', retentionSchedules_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'DispositionReviews', dispositionReviews_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'LegalHolds', legalHolds_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Matters', matters_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ThirdPartys', thirdPartys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ThirdPartyAssessments', thirdPartyAssessments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Contracts', contracts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Exception_s', exception_s_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Consents', consents_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'DataBreachs', dataBreachs_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

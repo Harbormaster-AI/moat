@@ -1,0 +1,80 @@
+<%= form_with model: @employee, local: true do |form| %>
+ 
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@employee.errors.count, "error") %> prohibited
+        this employee from being saved:
+      </h2>
+      <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :employeeNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :employeeNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :workEmail, { class: 'form-label'} %><br>
+	<%= form.text_field :workEmail, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :workPhone, { class: 'form-label'} %><br>
+	<%= form.text_field :workPhone, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dateOfHire, { class: 'form-label'} %><br>
+    <%= form.date_field :dateOfHire, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :nationalId, { class: 'form-label'} %><br>
+	<%= form.text_field :nationalId, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Employee.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

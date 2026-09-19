@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of quoteLineItem found in  crmonrails/test/controllers
+
+one:
+  quantity: "test value"
+  unitPrice: "test value"
+  discountAmount: "test value"
+  taxAmount: "test value"
+  totalAmount: "test value"
+
+two:
+  quantity: "test value"
+  unitPrice: "test value"
+  discountAmount: "test value"
+  taxAmount: "test value"
+  totalAmount: "test value"
+
+

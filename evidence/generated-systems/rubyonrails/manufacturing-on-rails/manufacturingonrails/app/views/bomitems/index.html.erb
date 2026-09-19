@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of BOMItems
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">lineNumber</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">scrapPercent</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @bOMItems.each do |bOMItem| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= bOMItem.lineNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bOMItem.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bOMItem.scrapPercent %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_bOMItem_path(bOMItem), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', bOMItem_path(bOMItem), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New BOMItem', new_bOMItem_path, :method => :get, :class => "btn btn-success btn-sm" %>

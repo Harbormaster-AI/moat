@@ -1,0 +1,44 @@
+<%= form_with model: @campaignMember, local: true do |form| %>
+ 
+  <% if @campaignMember.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@campaignMember.errors.count, "error") %> prohibited
+        this campaignMember from being saved:
+      </h2>
+      <ul>
+        <% @campaignMember.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.check_box :responded, {class: "form-check-input"} %>
+    <%= form.label :responded, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, CampaignMember.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :MemberType, { class: 'form-label'} %><br>
+   <%= form.select :MemberType, CampaignMember.MemberTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

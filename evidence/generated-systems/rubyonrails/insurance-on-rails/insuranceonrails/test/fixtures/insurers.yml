@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of insurer found in  insuranceonrails/test/controllers
+
+one:
+  name: test string for name
+  legalName: test string for legalName
+  domicileCountry: test string for domicileCountry
+  naicNumber: test string for naicNumber
+  website: test string for website
+
+two:
+  name: test string for name
+  legalName: test string for legalName
+  domicileCountry: test string for domicileCountry
+  naicNumber: test string for naicNumber
+  website: test string for website
+
+

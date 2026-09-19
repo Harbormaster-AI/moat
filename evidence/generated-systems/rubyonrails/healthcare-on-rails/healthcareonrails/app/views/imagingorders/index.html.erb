@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of ImagingOrders
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">bodySite</th>
+			<th style="text-align:center">contrast</th>
+			<th style="text-align:center">Modality</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @imagingOrders.each do |imagingOrder| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= imagingOrder.bodySite %>
+			</td>
+			<td style="text-align:center">
+	  			<%= imagingOrder.contrast %>
+			</td>
+			<td style="text-align:center">
+	  			<%= imagingOrder.Modality %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_imagingOrder_path(imagingOrder), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', imagingOrder_path(imagingOrder), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ImagingOrder', new_imagingOrder_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,2 @@
+module InboundShipmentHelper
+end

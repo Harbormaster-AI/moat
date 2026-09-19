@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of ClaimPayments
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">paymentNumber</th>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">paymentDate</th>
+			<th style="text-align:center">PayeeType</th>
+			<th style="text-align:center">Method</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @claimPayments.each do |claimPayment| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= claimPayment.paymentNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimPayment.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimPayment.paymentDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimPayment.PayeeType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimPayment.Method %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimPayment.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_claimPayment_path(claimPayment), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', claimPayment_path(claimPayment), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ClaimPayment', new_claimPayment_path, :method => :get, :class => "btn btn-success btn-sm" %>

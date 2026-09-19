@@ -1,0 +1,52 @@
+<%= form_with model: @stockAdjustment, local: true do |form| %>
+ 
+  <% if @stockAdjustment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@stockAdjustment.errors.count, "error") %> prohibited
+        this stockAdjustment from being saved:
+      </h2>
+      <ul>
+        <% @stockAdjustment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :adjustmentNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :adjustmentNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reason, { class: 'form-label'} %><br>
+	<%= form.text_field :reason, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :adjustmentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :adjustmentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AdjustmentType, { class: 'form-label'} %><br>
+   <%= form.select :AdjustmentType, StockAdjustment.AdjustmentTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, StockAdjustment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

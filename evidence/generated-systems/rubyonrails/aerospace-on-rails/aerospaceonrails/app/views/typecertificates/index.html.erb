@@ -1,0 +1,31 @@
+<div class="title text-center">
+  List of TypeCertificates
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">certificateNumber</th>
+			<th style="text-align:center">authority</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @typeCertificates.each do |typeCertificate| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= typeCertificate.certificateNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= typeCertificate.authority %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_typeCertificate_path(typeCertificate), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', typeCertificate_path(typeCertificate), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New TypeCertificate', new_typeCertificate_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of Contacts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">firstName</th>
+			<th style="text-align:center">lastName</th>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">email</th>
+			<th style="text-align:center">phone</th>
+			<th style="text-align:center">mobile</th>
+			<th style="text-align:center">mailingAddress</th>
+			<th style="text-align:center">PreferredContactMethod</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @contacts.each do |contact| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= contact.firstName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.lastName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.email %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.phone %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.mobile %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.mailingAddress %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contact.PreferredContactMethod %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_contact_path(contact), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', contact_path(contact), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Contact', new_contact_path, :method => :get, :class => "btn btn-success btn-sm" %>

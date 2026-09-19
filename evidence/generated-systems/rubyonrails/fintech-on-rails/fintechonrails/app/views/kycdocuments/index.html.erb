@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of KYCDocuments
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">reference</th>
+			<th style="text-align:center">issuedCountry</th>
+			<th style="text-align:center">expirationDate</th>
+			<th style="text-align:center">DocumentType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @kYCDocuments.each do |kYCDocument| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= kYCDocument.reference %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCDocument.issuedCountry %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCDocument.expirationDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCDocument.DocumentType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= kYCDocument.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_kYCDocument_path(kYCDocument), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', kYCDocument_path(kYCDocument), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New KYCDocument', new_kYCDocument_path, :method => :get, :class => "btn btn-success btn-sm" %>

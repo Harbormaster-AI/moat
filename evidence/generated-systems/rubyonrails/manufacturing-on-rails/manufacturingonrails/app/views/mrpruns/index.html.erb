@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of MRPRuns
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">runNumber</th>
+			<th style="text-align:center">runDateTime</th>
+			<th style="text-align:center">planningHorizonDays</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @mRPRuns.each do |mRPRun| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= mRPRun.runNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= mRPRun.runDateTime %>
+			</td>
+			<td style="text-align:center">
+	  			<%= mRPRun.planningHorizonDays %>
+			</td>
+			<td style="text-align:center">
+	  			<%= mRPRun.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_mRPRun_path(mRPRun), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', mRPRun_path(mRPRun), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New MRPRun', new_mRPRun_path, :method => :get, :class => "btn btn-success btn-sm" %>

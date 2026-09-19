@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Notes
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">content</th>
+			<th style="text-align:center">createdAt</th>
+			<th style="text-align:center">updatedAt</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @notes.each do |note| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= note.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= note.content %>
+			</td>
+			<td style="text-align:center">
+	  			<%= note.createdAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= note.updatedAt %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_note_path(note), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', note_path(note), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Note', new_note_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,56 @@
+<%= form_with model: @privacyNotice, local: true do |form| %>
+ 
+  <% if @privacyNotice.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@privacyNotice.errors.count, "error") %> prohibited
+        this privacyNotice from being saved:
+      </h2>
+      <ul>
+        <% @privacyNotice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :audience, { class: 'form-label'} %><br>
+	<%= form.text_field :audience, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :versionLabel, { class: 'form-label'} %><br>
+	<%= form.text_field :versionLabel, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :publicationDate, { class: 'form-label'} %><br>
+    <%= form.date_field :publicationDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :publicationUrl, { class: 'form-label'} %><br>
+	<%= form.text_field :publicationUrl, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PrivacyNotice.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

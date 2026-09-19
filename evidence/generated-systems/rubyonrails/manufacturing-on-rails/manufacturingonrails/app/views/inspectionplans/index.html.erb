@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of InspectionPlans
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">planNumber</th>
+			<th style="text-align:center">revision</th>
+			<th style="text-align:center">SamplingPlan</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @inspectionPlans.each do |inspectionPlan| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= inspectionPlan.planNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionPlan.revision %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionPlan.SamplingPlan %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inspectionPlan.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_inspectionPlan_path(inspectionPlan), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', inspectionPlan_path(inspectionPlan), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New InspectionPlan', new_inspectionPlan_path, :method => :get, :class => "btn btn-success btn-sm" %>

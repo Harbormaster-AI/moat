@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of maintenanceOrder found in  manufacturingonrails/test/controllers
+
+one:
+  orderNumber: test string for orderNumber
+  priority: 100
+  requestedDate: 2020-10-15
+  completionDate: 2020-10-15
+  Status: 0
+
+two:
+  orderNumber: test string for orderNumber
+  priority: 100
+  requestedDate: 2020-10-15
+  completionDate: 2020-10-15
+  Status: 0
+
+

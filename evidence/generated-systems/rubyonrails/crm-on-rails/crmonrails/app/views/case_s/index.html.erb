@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of Case_s
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">caseNumber</th>
+			<th style="text-align:center">subject</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">slaDue</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">Priority</th>
+			<th style="text-align:center">Origin</th>
+			<th style="text-align:center">Severity</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @case_s.each do |case_| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= case_.caseNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.subject %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.slaDue %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.Priority %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.Origin %>
+			</td>
+			<td style="text-align:center">
+	  			<%= case_.Severity %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_case__path(case_), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', case__path(case_), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Case_', new_case__path, :method => :get, :class => "btn btn-success btn-sm" %>

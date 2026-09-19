@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of promotion found in  ecommerceonrails/test/controllers
+
+one:
+  name: test string for name
+  code: test string for code
+  value: "test value"
+  startDate: 2020-10-15
+  endDate: 2020-10-15
+  asStackable: true
+  maxRedemptions: 100
+  PromotionType: 0
+  DiscountType: 0
+
+two:
+  name: test string for name
+  code: test string for code
+  value: "test value"
+  startDate: 2020-10-15
+  endDate: 2020-10-15
+  asStackable: true
+  maxRedemptions: 100
+  PromotionType: 0
+  DiscountType: 0
+
+

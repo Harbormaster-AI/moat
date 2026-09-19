@@ -1,0 +1,51 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  Merchant.create( name:"test string for name", legalName:"test string for legalName", website:"test string for website", defaultCurrency:"test string for defaultCurrency", defaultLocale:"test string for defaultLocale", supportEmail:"test string for supportEmail" )
+  Channel.create( name:"test string for name", channelCode:"test string for channelCode", locale:"test string for locale", domain:"test string for domain", asActive:true, defaultCurrency:"test string for defaultCurrency", ChannelType:0 )
+  Brand.create( name:"test string for name", description:"test string for description", website:"test string for website" )
+  Catalog.create( name:"test string for name", catalogCode:"test string for catalogCode", asActive:true )
+  Category.create( name:"test string for name", slug:"test string for slug", position:100, asActive:true )
+  Product.create( name:"test string for name", slug:"test string for slug", asActive:true, ProductType:0, DefaultTaxClass:0 )
+  ProductVariant.create( sku:"test value", barcode:"test string for barcode", title:"test string for title", weight:"test value", requiresShipping:true, WeightUnit:0 )
+  ProductPricing.create( listPrice:"test value", salePrice:"test value", validFrom:1.week.ago, validTo:1.week.ago )
+  MediaAsset.create( url:"test string for url", altText:"test string for altText", position:100, MediaType:0 )
+  FulfillmentCenter.create( name:"test string for name", centerCode:"test string for centerCode", address:"test value", timezone:"test string for timezone", asActive:true )
+  InventoryItem.create( quantityOnHand:100, quantityReserved:100, safetyStock:100, Status:0 )
+  Supplier.create( name:"test string for name", contactEmail:"test string for contactEmail", website:"test string for website", Status:0 )
+  Seller.create( name:"test string for name", sellerCode:"test string for sellerCode", contactEmail:"test string for contactEmail", Status:0 )
+  Customer.create( firstName:"test string for firstName", lastName:"test string for lastName", email:"test string for email", phone:"test string for phone", marketingOptIn:true, CustomerGroup:0 )
+  CustomerAddress.create( label:"test string for label", address:"test value", asDefaultShipping:true, asDefaultBilling:true )
+  Wishlist.create( name:"test string for name", asPublic:true, createdAt:1.week.ago )
+  WishlistItem.create( addedDate:1.week.ago )
+  Cart.create( cartNumber:"test string for cartNumber", createdAt:1.week.ago, currency:"test string for currency", shippingAddress:"test value", billingAddress:"test value", Status:0 )
+  CartItem.create( quantity:100, unitPrice:"test value", totalPrice:"test value" )
+  Order.create( orderNumber:"test string for orderNumber", placedDate:1.week.ago, subtotal:"test value", discountTotal:"test value", shippingTotal:"test value", taxTotal:"test value", grandTotal:"test value", shippingAddress:"test value", billingAddress:"test value", Status:0 )
+  OrderLine.create( quantity:100, unitPrice:"test value", totalPrice:"test value", taxRate:"test value", LineStatus:0 )
+  Payment.create( paymentNumber:"test string for paymentNumber", amount:"test value", transactionId:"test string for transactionId", authorizedAt:1.week.ago, capturedAt:1.week.ago, Status:0, PaymentMethod:0 )
+  Refund.create( refundNumber:"test string for refundNumber", amount:"test value", reason:"test string for reason", createdAt:1.week.ago, Status:0 )
+  Shipment.create( shipmentNumber:"test string for shipmentNumber", shippedDate:1.week.ago, deliveredDate:1.week.ago, trackingNumber:"test string for trackingNumber", shippingAddress:"test value", Status:0, Carrier:0 )
+  ShipmentItem.create( quantity:100 )
+  ReturnRequest.create( returnNumber:"test string for returnNumber", createdAt:1.week.ago, refundAmount:"test value", Status:0 )
+  ReturnItem.create( quantity:100, Reason:0, Condition:0 )
+  Promotion.create( name:"test string for name", code:"test string for code", value:"test value", startDate:1.week.ago, endDate:1.week.ago, asStackable:true, maxRedemptions:100, PromotionType:0, DiscountType:0 )
+  Coupon.create( code:"test string for code", usageLimit:100, perCustomerLimit:100, expirationDate:1.week.ago, Status:0 )
+  CouponRedemption.create( redeemedAt:1.week.ago )
+  TaxRule.create( name:"test string for name", country:"test string for country", region:"test string for region", rate:"test value", taxInclusive:true, TaxClass:0 )
+  ShippingMethod.create( name:"test string for name", flatRate:"test value", estimatedDays:100, asActive:true, MethodType:0 )
+  CarrierService.create( name:"test string for name", code:"test string for code", Carrier:0, ServiceLevel:0 )
+  Review.create( rating:100, title:"test string for title", content:"test string for content", createdAt:1.week.ago, Status:0 )
+  Subscription.create( subscriptionNumber:"test string for subscriptionNumber", nextBillingDate:1.week.ago, startDate:1.week.ago, endDate:1.week.ago, Status:0, Interval:0 )
+  PaymentProvider.create( name:"test string for name", enabled:true, merchantAccountId:"test string for merchantAccountId", ProviderType:0 )
+  Invoice.create( invoiceNumber:"test string for invoiceNumber", issuedDate:1.week.ago, dueDate:1.week.ago, total:"test value", Status:0 )
+  GiftCard.create( code:"test string for code", balance:"test value", expirationDate:1.week.ago, Status:0 )
+  GiftCardRedemption.create( redeemedAt:1.week.ago, amount:"test value" )
+  Payout.create( payoutNumber:"test string for payoutNumber", amount:"test value", scheduledDate:1.week.ago, paidDate:1.week.ago, Status:0 )
+end

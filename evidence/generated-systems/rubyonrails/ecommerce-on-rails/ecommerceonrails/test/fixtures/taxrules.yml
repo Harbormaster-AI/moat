@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of taxRule found in  ecommerceonrails/test/controllers
+
+one:
+  name: test string for name
+  country: test string for country
+  region: test string for region
+  rate: "test value"
+  taxInclusive: true
+  TaxClass: 0
+
+two:
+  name: test string for name
+  country: test string for country
+  region: test string for region
+  rate: "test value"
+  taxInclusive: true
+  TaxClass: 0
+
+

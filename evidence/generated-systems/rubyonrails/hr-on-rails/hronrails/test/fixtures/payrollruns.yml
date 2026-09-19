@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of payrollRun found in  hronrails/test/controllers
+
+one:
+  runNumber: test string for runNumber
+  periodStart: 2020-10-15
+  periodEnd: 2020-10-15
+  paymentDate: 2020-10-15
+  Status: 0
+
+two:
+  runNumber: test string for runNumber
+  periodStart: 2020-10-15
+  periodEnd: 2020-10-15
+  paymentDate: 2020-10-15
+  Status: 0
+
+

@@ -1,0 +1,44 @@
+<%= form_with model: @payrollCalendar, local: true do |form| %>
+ 
+  <% if @payrollCalendar.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@payrollCalendar.errors.count, "error") %> prohibited
+        this payrollCalendar from being saved:
+      </h2>
+      <ul>
+        <% @payrollCalendar.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :country, { class: 'form-label'} %><br>
+	<%= form.text_field :country, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PayFrequency, { class: 'form-label'} %><br>
+   <%= form.select :PayFrequency, PayrollCalendar.PayFrequencys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

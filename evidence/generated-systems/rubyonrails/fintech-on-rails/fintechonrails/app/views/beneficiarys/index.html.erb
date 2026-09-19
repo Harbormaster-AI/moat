@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Beneficiarys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">accountIdentifier</th>
+			<th style="text-align:center">iban</th>
+			<th style="text-align:center">bic</th>
+			<th style="text-align:center">address</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @beneficiarys.each do |beneficiary| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= beneficiary.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= beneficiary.accountIdentifier %>
+			</td>
+			<td style="text-align:center">
+	  			<%= beneficiary.iban %>
+			</td>
+			<td style="text-align:center">
+	  			<%= beneficiary.bic %>
+			</td>
+			<td style="text-align:center">
+	  			<%= beneficiary.address %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_beneficiary_path(beneficiary), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', beneficiary_path(beneficiary), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Beneficiary', new_beneficiary_path, :method => :get, :class => "btn btn-success btn-sm" %>

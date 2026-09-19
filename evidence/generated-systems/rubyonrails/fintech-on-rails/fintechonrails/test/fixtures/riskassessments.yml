@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of riskAssessment found in  fintechonrails/test/controllers
+
+one:
+  score: "test value"
+  assessedAt: 2020-10-15
+  modelVersion: test string for modelVersion
+  notes: test string for notes
+  Decision: 0
+
+two:
+  score: "test value"
+  assessedAt: 2020-10-15
+  modelVersion: test string for modelVersion
+  notes: test string for notes
+  Decision: 0
+
+

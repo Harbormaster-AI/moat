@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of priceBookEntry found in  crmonrails/test/controllers
+
+one:
+  unitPrice: "test value"
+  effectiveDate: 2020-10-15
+  expirationDate: 2020-10-15
+  asActive: true
+
+two:
+  unitPrice: "test value"
+  effectiveDate: 2020-10-15
+  expirationDate: 2020-10-15
+  asActive: true
+
+

@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Nonconformances
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">ncNumber</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">containmentAction</th>
+			<th style="text-align:center">NcType</th>
+			<th style="text-align:center">Severity</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @nonconformances.each do |nonconformance| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= nonconformance.ncNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= nonconformance.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= nonconformance.containmentAction %>
+			</td>
+			<td style="text-align:center">
+	  			<%= nonconformance.NcType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= nonconformance.Severity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= nonconformance.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_nonconformance_path(nonconformance), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', nonconformance_path(nonconformance), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Nonconformance', new_nonconformance_path, :method => :get, :class => "btn btn-success btn-sm" %>

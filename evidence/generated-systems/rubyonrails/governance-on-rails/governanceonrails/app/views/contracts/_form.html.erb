@@ -1,0 +1,54 @@
+<%= form_with model: @contract, local: true do |form| %>
+ 
+  <% if @contract.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@contract.errors.count, "error") %> prohibited
+        this contract from being saved:
+      </h2>
+      <ul>
+        <% @contract.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveDate, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expiryDate, { class: 'form-label'} %><br>
+    <%= form.date_field :expiryDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :repositoryUrl, { class: 'form-label'} %><br>
+	<%= form.text_field :repositoryUrl, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Contract.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

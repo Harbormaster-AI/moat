@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of issue found in  governanceonrails/test/controllers
+
+one:
+  title: test string for title
+  openedDate: 2020-10-15
+  closedDate: 2020-10-15
+  IssueType: 0
+  Priority: 0
+  Status: 0
+
+two:
+  title: test string for title
+  openedDate: 2020-10-15
+  closedDate: 2020-10-15
+  IssueType: 0
+  Priority: 0
+  Status: 0
+
+

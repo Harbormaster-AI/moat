@@ -1,0 +1,68 @@
+<%= form_with model: @claim, local: true do |form| %>
+ 
+  <% if @claim.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@claim.errors.count, "error") %> prohibited
+        this claim from being saved:
+      </h2>
+      <ul>
+        <% @claim.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :claimNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :claimNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :noticeDate, { class: 'form-label'} %><br>
+    <%= form.date_field :noticeDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lossDate, { class: 'form-label'} %><br>
+    <%= form.date_field :lossDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reportedBy, { class: 'form-label'} %><br>
+	<%= form.text_field :reportedBy, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Claim.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :LossCause, { class: 'form-label'} %><br>
+   <%= form.select :LossCause, Claim.LossCauses.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

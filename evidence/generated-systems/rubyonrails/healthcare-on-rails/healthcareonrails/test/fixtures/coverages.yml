@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of coverage found in  healthcareonrails/test/controllers
+
+one:
+  memberId: test string for memberId
+  groupNumber: test string for groupNumber
+  effectiveDate: 2020-10-15
+  endDate: 2020-10-15
+  CoverageType: 0
+
+two:
+  memberId: test string for memberId
+  groupNumber: test string for groupNumber
+  effectiveDate: 2020-10-15
+  endDate: 2020-10-15
+  CoverageType: 0
+
+

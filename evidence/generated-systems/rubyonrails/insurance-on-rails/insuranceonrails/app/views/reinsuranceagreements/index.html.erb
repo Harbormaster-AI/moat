@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of ReinsuranceAgreements
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">agreementNumber</th>
+			<th style="text-align:center">effectivePeriod</th>
+			<th style="text-align:center">retention</th>
+			<th style="text-align:center">limit</th>
+			<th style="text-align:center">cessionPercentage</th>
+			<th style="text-align:center">ReinsuranceType</th>
+			<th style="text-align:center">TreatyType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @reinsuranceAgreements.each do |reinsuranceAgreement| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.agreementNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.effectivePeriod %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.retention %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.limit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.cessionPercentage %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.ReinsuranceType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= reinsuranceAgreement.TreatyType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_reinsuranceAgreement_path(reinsuranceAgreement), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', reinsuranceAgreement_path(reinsuranceAgreement), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ReinsuranceAgreement', new_reinsuranceAgreement_path, :method => :get, :class => "btn btn-success btn-sm" %>

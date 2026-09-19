@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of inventoryItem found in  inventoryonrails/test/controllers
+
+one:
+  quantityOnHand: "test value"
+  quantityAvailable: "test value"
+  quantityReserved: "test value"
+  unitCost: "test value"
+  lastUpdated: 2020-10-15
+  StockStatus: 0
+
+two:
+  quantityOnHand: "test value"
+  quantityAvailable: "test value"
+  quantityReserved: "test value"
+  unitCost: "test value"
+  lastUpdated: 2020-10-15
+  StockStatus: 0
+
+

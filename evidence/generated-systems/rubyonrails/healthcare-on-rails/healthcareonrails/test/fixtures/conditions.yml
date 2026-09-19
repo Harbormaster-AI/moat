@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of condition found in  healthcareonrails/test/controllers
+
+one:
+  code: test string for code
+  onsetDate: 2020-10-15
+  abatementDate: 2020-10-15
+  ClinicalStatus: 0
+  VerificationStatus: 0
+
+two:
+  code: test string for code
+  onsetDate: 2020-10-15
+  abatementDate: 2020-10-15
+  ClinicalStatus: 0
+  VerificationStatus: 0
+
+

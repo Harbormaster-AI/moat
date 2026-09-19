@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>inventoryonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>inventoryonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'StockKeepingUnits', stockKeepingUnits_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Warehouses', warehouses_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'StorageLocations', storageLocations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryItems', inventoryItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Lots', lots_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'SerialNumbers', serialNumbers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Reservations', reservations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'DemandSignals', demandSignals_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryTransactions', inventoryTransactions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TransferOrders', transferOrders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'TransferOrderLines', transferOrderLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'StockAdjustments', stockAdjustments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'StockAdjustmentLines', stockAdjustmentLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CycleCounts', cycleCounts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CycleCountEntrys', cycleCountEntrys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ReplenishmentPolicys', replenishmentPolicys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'UoMConversions', uoMConversions_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InventoryThresholdAlerts', inventoryThresholdAlerts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Quarantines', quarantines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'ExpirationPolicys', expirationPolicys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InboundShipments', inboundShipments_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'InboundShipmentLines', inboundShipmentLines_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'OutboundAllocations', outboundAllocations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

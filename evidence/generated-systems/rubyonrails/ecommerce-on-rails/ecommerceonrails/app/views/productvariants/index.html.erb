@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of ProductVariants
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">sku</th>
+			<th style="text-align:center">barcode</th>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">weight</th>
+			<th style="text-align:center">requiresShipping</th>
+			<th style="text-align:center">WeightUnit</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @productVariants.each do |productVariant| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= productVariant.sku %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productVariant.barcode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productVariant.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productVariant.weight %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productVariant.requiresShipping %>
+			</td>
+			<td style="text-align:center">
+	  			<%= productVariant.WeightUnit %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_productVariant_path(productVariant), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', productVariant_path(productVariant), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ProductVariant', new_productVariant_path, :method => :get, :class => "btn btn-success btn-sm" %>

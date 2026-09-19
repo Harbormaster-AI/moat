@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Regulations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">citation</th>
+			<th style="text-align:center">jurisdiction</th>
+			<th style="text-align:center">publicationUrl</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @regulations.each do |regulation| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= regulation.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= regulation.citation %>
+			</td>
+			<td style="text-align:center">
+	  			<%= regulation.jurisdiction %>
+			</td>
+			<td style="text-align:center">
+	  			<%= regulation.publicationUrl %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_regulation_path(regulation), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', regulation_path(regulation), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Regulation', new_regulation_path, :method => :get, :class => "btn btn-success btn-sm" %>

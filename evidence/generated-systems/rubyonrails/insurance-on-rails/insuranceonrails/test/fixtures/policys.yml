@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of policy found in  insuranceonrails/test/controllers
+
+one:
+  policyNumber: "test value"
+  effectivePeriod: 2020-10-15
+  totalPremium: "test value"
+  Status: 0
+  PaymentPlan: 0
+
+two:
+  policyNumber: "test value"
+  effectivePeriod: 2020-10-15
+  totalPremium: "test value"
+  Status: 0
+  PaymentPlan: 0
+
+

@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Routings
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">routingNumber</th>
+			<th style="text-align:center">revision</th>
+			<th style="text-align:center">effectivityStart</th>
+			<th style="text-align:center">effectivityEnd</th>
+			<th style="text-align:center">RoutingType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @routings.each do |routing| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= routing.routingNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= routing.revision %>
+			</td>
+			<td style="text-align:center">
+	  			<%= routing.effectivityStart %>
+			</td>
+			<td style="text-align:center">
+	  			<%= routing.effectivityEnd %>
+			</td>
+			<td style="text-align:center">
+	  			<%= routing.RoutingType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= routing.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_routing_path(routing), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', routing_path(routing), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Routing', new_routing_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Shifts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">shiftName</th>
+			<th style="text-align:center">startTime</th>
+			<th style="text-align:center">endTime</th>
+			<th style="text-align:center">ShiftType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @shifts.each do |shift| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= shift.shiftName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shift.startTime %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shift.endTime %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shift.ShiftType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_shift_path(shift), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', shift_path(shift), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Shift', new_shift_path, :method => :get, :class => "btn btn-success btn-sm" %>

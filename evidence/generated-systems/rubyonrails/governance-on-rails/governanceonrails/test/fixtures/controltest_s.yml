@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of controlTest_ found in  governanceonrails/test/controllers
+
+one:
+  name: test string for name
+  testPeriodStart: 2020-10-15
+  testPeriodEnd: 2020-10-15
+  sampleSize: 100
+  TestType: 0
+  Effectiveness: 0
+  Status: 0
+
+two:
+  name: test string for name
+  testPeriodStart: 2020-10-15
+  testPeriodEnd: 2020-10-15
+  sampleSize: 100
+  TestType: 0
+  Effectiveness: 0
+  Status: 0
+
+

@@ -1,0 +1,56 @@
+<%= form_with model: @leaveRequest, local: true do |form| %>
+ 
+  <% if @leaveRequest.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@leaveRequest.errors.count, "error") %> prohibited
+        this leaveRequest from being saved:
+      </h2>
+      <ul>
+        <% @leaveRequest.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :requestNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :requestNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDate, { class: 'form-label'} %><br>
+    <%= form.date_field :endDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reason, { class: 'form-label'} %><br>
+	<%= form.text_field :reason, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :hours, { class: 'form-label'} %><br>
+	<%= form.text_field :hours, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, LeaveRequest.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

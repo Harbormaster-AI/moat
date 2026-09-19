@@ -1,0 +1,50 @@
+<%= form_with model: @quarantine, local: true do |form| %>
+ 
+  <% if @quarantine.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@quarantine.errors.count, "error") %> prohibited
+        this quarantine from being saved:
+      </h2>
+      <ul>
+        <% @quarantine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :reason, { class: 'form-label'} %><br>
+	<%= form.text_field :reason, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :startedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :releasedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :releasedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Disposition, { class: 'form-label'} %><br>
+   <%= form.select :Disposition, Quarantine.Dispositions.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

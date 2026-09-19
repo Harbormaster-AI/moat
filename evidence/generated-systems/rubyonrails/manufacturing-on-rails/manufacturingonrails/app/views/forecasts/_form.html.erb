@@ -1,0 +1,44 @@
+<%= form_with model: @forecast, local: true do |form| %>
+ 
+  <% if @forecast.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@forecast.errors.count, "error") %> prohibited
+        this forecast from being saved:
+      </h2>
+      <ul>
+        <% @forecast.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :forecastNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :forecastNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :forecastHorizonStart, { class: 'form-label'} %><br>
+    <%= form.date_field :forecastHorizonStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :forecastHorizonEnd, { class: 'form-label'} %><br>
+    <%= form.date_field :forecastHorizonEnd, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Method, { class: 'form-label'} %><br>
+   <%= form.select :Method, Forecast.Methods.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

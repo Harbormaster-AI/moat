@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of asset found in  manufacturingonrails/test/controllers
+
+one:
+  assetTag: test string for assetTag
+  assetName: test string for assetName
+  commissioningDate: 2020-10-15
+  AssetStatus: 0
+
+two:
+  assetTag: test string for assetTag
+  assetName: test string for assetName
+  commissioningDate: 2020-10-15
+  AssetStatus: 0
+
+

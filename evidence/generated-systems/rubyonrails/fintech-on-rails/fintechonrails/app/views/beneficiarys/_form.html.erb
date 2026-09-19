@@ -1,0 +1,48 @@
+<%= form_with model: @beneficiary, local: true do |form| %>
+ 
+  <% if @beneficiary.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@beneficiary.errors.count, "error") %> prohibited
+        this beneficiary from being saved:
+      </h2>
+      <ul>
+        <% @beneficiary.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :accountIdentifier, { class: 'form-label'} %><br>
+	<%= form.text_field :accountIdentifier, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :iban, { class: 'form-label'} %><br>
+	<%= form.text_field :iban, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :bic, { class: 'form-label'} %><br>
+	<%= form.text_field :bic, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :address, { class: 'form-label'} %><br>
+	<%= form.text_field :address, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

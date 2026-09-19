@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of roleAssignment found in  governanceonrails/test/controllers
+
+one:
+  effectiveFrom: 2020-10-15
+  effectiveTo: 2020-10-15
+
+two:
+  effectiveFrom: 2020-10-15
+  effectiveTo: 2020-10-15
+
+

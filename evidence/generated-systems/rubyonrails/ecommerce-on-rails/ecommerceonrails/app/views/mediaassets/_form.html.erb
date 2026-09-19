@@ -1,0 +1,46 @@
+<%= form_with model: @mediaAsset, local: true do |form| %>
+ 
+  <% if @mediaAsset.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@mediaAsset.errors.count, "error") %> prohibited
+        this mediaAsset from being saved:
+      </h2>
+      <ul>
+        <% @mediaAsset.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :url, { class: 'form-label'} %><br>
+	<%= form.text_field :url, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :altText, { class: 'form-label'} %><br>
+	<%= form.text_field :altText, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :position, { class: 'form-label'} %><br>
+	<%= form.text_field :position, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :MediaType, { class: 'form-label'} %><br>
+   <%= form.select :MediaType, MediaAsset.MediaTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

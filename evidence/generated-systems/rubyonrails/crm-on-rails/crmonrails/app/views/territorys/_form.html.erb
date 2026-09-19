@@ -1,0 +1,44 @@
+<%= form_with model: @territory, local: true do |form| %>
+ 
+  <% if @territory.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@territory.errors.count, "error") %> prohibited
+        this territory from being saved:
+      </h2>
+      <ul>
+        <% @territory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :region, { class: 'form-label'} %><br>
+	<%= form.text_field :region, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :TerritoryType, { class: 'form-label'} %><br>
+   <%= form.select :TerritoryType, Territory.TerritoryTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,50 @@
+<%= form_with model: @bankAccount, local: true do |form| %>
+ 
+  <% if @bankAccount.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@bankAccount.errors.count, "error") %> prohibited
+        this bankAccount from being saved:
+      </h2>
+      <ul>
+        <% @bankAccount.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :accountHolder, { class: 'form-label'} %><br>
+	<%= form.text_field :accountHolder, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :bankName, { class: 'form-label'} %><br>
+	<%= form.text_field :bankName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :iban, { class: 'form-label'} %><br>
+	<%= form.text_field :iban, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :bic, { class: 'form-label'} %><br>
+	<%= form.text_field :bic, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :accountNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :accountNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :routingNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :routingNumber, { class: 'form-label'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Endorsements
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">endorsementNumber</th>
+			<th style="text-align:center">effectiveDate</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @endorsements.each do |endorsement| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= endorsement.endorsementNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= endorsement.effectiveDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= endorsement.description %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_endorsement_path(endorsement), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', endorsement_path(endorsement), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Endorsement', new_endorsement_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of stockAdjustmentLine found in  inventoryonrails/test/controllers
+
+one:
+  lineNumber: 100
+  quantity: "test value"
+  UnitOfMeasure: 0
+  StockStatus: 0
+
+two:
+  lineNumber: 100
+  quantity: "test value"
+  UnitOfMeasure: 0
+  StockStatus: 0
+
+

@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of JobRequisitions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">requisitionNumber</th>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">openings</th>
+			<th style="text-align:center">targetStartDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">Priority</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @jobRequisitions.each do |jobRequisition| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= jobRequisition.requisitionNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobRequisition.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobRequisition.openings %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobRequisition.targetStartDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobRequisition.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= jobRequisition.Priority %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_jobRequisition_path(jobRequisition), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', jobRequisition_path(jobRequisition), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New JobRequisition', new_jobRequisition_path, :method => :get, :class => "btn btn-success btn-sm" %>

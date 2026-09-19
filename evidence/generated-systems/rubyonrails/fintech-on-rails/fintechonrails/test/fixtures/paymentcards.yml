@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of paymentCard found in  fintechonrails/test/controllers
+
+one:
+  cardToken: "test value"
+  maskedPan: test string for maskedPan
+  expiryMonth: 100
+  expiryYear: 100
+  cardholderName: test string for cardholderName
+  Scheme: 0
+  Status: 0
+
+two:
+  cardToken: "test value"
+  maskedPan: test string for maskedPan
+  expiryMonth: 100
+  expiryYear: 100
+  cardholderName: test string for cardholderName
+  Scheme: 0
+  Status: 0
+
+

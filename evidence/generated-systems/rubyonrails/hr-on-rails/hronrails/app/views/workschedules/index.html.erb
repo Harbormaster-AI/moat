@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of WorkSchedules
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">standardHoursPerWeek</th>
+			<th style="text-align:center">ScheduleType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @workSchedules.each do |workSchedule| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= workSchedule.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= workSchedule.standardHoursPerWeek %>
+			</td>
+			<td style="text-align:center">
+	  			<%= workSchedule.ScheduleType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_workSchedule_path(workSchedule), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', workSchedule_path(workSchedule), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New WorkSchedule', new_workSchedule_path, :method => :get, :class => "btn btn-success btn-sm" %>

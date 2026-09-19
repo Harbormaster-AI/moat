@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of thirdPartyAssessment found in  governanceonrails/test/controllers
+
+one:
+  assessmentDate: 2020-10-15
+  assessor: test string for assessor
+  AssessmentType: 0
+  Result: 0
+
+two:
+  assessmentDate: 2020-10-15
+  assessor: test string for assessor
+  AssessmentType: 0
+  Result: 0
+
+

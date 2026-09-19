@@ -1,0 +1,2 @@
+module ScheduleExceptionHelper
+end

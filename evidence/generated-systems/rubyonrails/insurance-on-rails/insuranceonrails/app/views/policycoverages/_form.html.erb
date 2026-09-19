@@ -1,0 +1,46 @@
+<%= form_with model: @policyCoverage, local: true do |form| %>
+ 
+  <% if @policyCoverage.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@policyCoverage.errors.count, "error") %> prohibited
+        this policyCoverage from being saved:
+      </h2>
+      <ul>
+        <% @policyCoverage.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :limit, { class: 'form-label'} %><br>
+	<%= form.text_field :limit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :deductible, { class: 'form-label'} %><br>
+	<%= form.text_field :deductible, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :premium, { class: 'form-label'} %><br>
+	<%= form.text_field :premium, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :CoverageType, { class: 'form-label'} %><br>
+   <%= form.select :CoverageType, PolicyCoverage.CoverageTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

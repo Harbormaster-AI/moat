@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Refunds
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">refundNumber</th>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">reason</th>
+			<th style="text-align:center">createdAt</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @refunds.each do |refund| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= refund.refundNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= refund.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= refund.reason %>
+			</td>
+			<td style="text-align:center">
+	  			<%= refund.createdAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= refund.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_refund_path(refund), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', refund_path(refund), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Refund', new_refund_path, :method => :get, :class => "btn btn-success btn-sm" %>

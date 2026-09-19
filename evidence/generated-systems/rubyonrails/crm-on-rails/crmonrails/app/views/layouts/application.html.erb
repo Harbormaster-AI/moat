@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+    	<title>crmonrails</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	    <%= csrf_meta_tags %>
+    	<%= csp_meta_tag %>
+	
+	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  	</head>
+
+	<body>
+	
+	  	<div class="jumbotron text-center">
+			<h1>crmonrails</h1>
+  		</div>
+ 
+    	<div class="container">
+	   	
+	   		<div class="row">
+	    
+	     		<div class="col-lg-2">
+		   			<%= button_to 'Organizations', organizations_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Users', users_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Teams', teams_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Territorys', territorys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Accounts', accounts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Contacts', contacts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Leads', leads_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Opportunitys', opportunitys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'OpportunityLineItems', opportunityLineItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'OpportunityStageHistorys', opportunityStageHistorys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Products', products_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PriceBooks', priceBooks_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'PriceBookEntrys', priceBookEntrys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Quotes', quotes_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'QuoteLineItems', quoteLineItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Orders', orders_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'OrderItems', orderItems_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Contracts', contracts_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Case_s', case_s_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Activitys', activitys_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Campaigns', campaigns_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'CampaignMembers', campaignMembers_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'Notes', notes_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+		   			<%= button_to 'EmailMessages', emailMessages_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+	     		</div>
+
+        		<!-- Page Content -->
+        		<div class="col-lg-10">
+					<%= yield %>
+        		</div>
+
+      		</div>   
+		
+		</div>
+		
+  </body>
+
+</html>

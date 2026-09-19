@@ -1,0 +1,59 @@
+<div class="title text-center">
+  List of Items
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">itemNumber</th>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">standardCost</th>
+			<th style="text-align:center">weight</th>
+			<th style="text-align:center">asSerialControlled</th>
+			<th style="text-align:center">ItemType</th>
+			<th style="text-align:center">ProcurementType</th>
+			<th style="text-align:center">UnitOfMeasure</th>
+			<th style="text-align:center">LifecycleStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @items.each do |item| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= item.itemNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.standardCost %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.weight %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.asSerialControlled %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.ItemType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.ProcurementType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.UnitOfMeasure %>
+			</td>
+			<td style="text-align:center">
+	  			<%= item.LifecycleStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_item_path(item), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', item_path(item), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Item', new_item_path, :method => :get, :class => "btn btn-success btn-sm" %>

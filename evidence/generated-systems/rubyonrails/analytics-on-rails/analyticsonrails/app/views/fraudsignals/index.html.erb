@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of FraudSignals
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">ruleLogic</th>
+			<th style="text-align:center">SignalType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @fraudSignals.each do |fraudSignal| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= fraudSignal.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fraudSignal.ruleLogic %>
+			</td>
+			<td style="text-align:center">
+	  			<%= fraudSignal.SignalType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_fraudSignal_path(fraudSignal), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', fraudSignal_path(fraudSignal), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New FraudSignal', new_fraudSignal_path, :method => :get, :class => "btn btn-success btn-sm" %>

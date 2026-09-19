@@ -1,0 +1,44 @@
+<%= form_with model: @equityGrant, local: true do |form| %>
+ 
+  <% if @equityGrant.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@equityGrant.errors.count, "error") %> prohibited
+        this equityGrant from being saved:
+      </h2>
+      <ul>
+        <% @equityGrant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :grantId, { class: 'form-label'} %><br>
+	<%= form.text_field :grantId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :grantedUnits, { class: 'form-label'} %><br>
+	<%= form.text_field :grantedUnits, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :vestingStart, { class: 'form-label'} %><br>
+    <%= form.date_field :vestingStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :GrantType, { class: 'form-label'} %><br>
+   <%= form.select :GrantType, EquityGrant.GrantTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

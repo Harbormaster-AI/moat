@@ -1,0 +1,64 @@
+<%= form_with model: @channel, local: true do |form| %>
+ 
+  <% if @channel.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@channel.errors.count, "error") %> prohibited
+        this channel from being saved:
+      </h2>
+      <ul>
+        <% @channel.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :channelCode, { class: 'form-label'} %><br>
+	<%= form.text_field :channelCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :locale, { class: 'form-label'} %><br>
+	<%= form.text_field :locale, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :domain, { class: 'form-label'} %><br>
+	<%= form.text_field :domain, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asActive, {class: "form-check-input"} %>
+    <%= form.label :asActive, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+    <%= form.label :defaultCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :defaultCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ChannelType, { class: 'form-label'} %><br>
+   <%= form.select :ChannelType, Channel.ChannelTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

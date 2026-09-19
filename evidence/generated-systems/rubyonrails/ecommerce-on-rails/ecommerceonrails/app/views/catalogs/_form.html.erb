@@ -1,0 +1,42 @@
+<%= form_with model: @catalog, local: true do |form| %>
+ 
+  <% if @catalog.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@catalog.errors.count, "error") %> prohibited
+        this catalog from being saved:
+      </h2>
+      <ul>
+        <% @catalog.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :catalogCode, { class: 'form-label'} %><br>
+	<%= form.text_field :catalogCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asActive, {class: "form-check-input"} %>
+    <%= form.label :asActive, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

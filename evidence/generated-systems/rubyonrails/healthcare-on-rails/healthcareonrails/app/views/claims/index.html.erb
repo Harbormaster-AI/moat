@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of Claims
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">claimNumber</th>
+			<th style="text-align:center">totalAmount</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @claims.each do |claim| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= claim.claimNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claim.totalAmount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claim.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_claim_path(claim), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', claim_path(claim), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Claim', new_claim_path, :method => :get, :class => "btn btn-success btn-sm" %>

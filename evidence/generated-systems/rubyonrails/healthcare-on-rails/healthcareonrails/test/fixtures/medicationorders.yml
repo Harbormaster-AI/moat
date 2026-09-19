@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of medicationOrder found in  healthcareonrails/test/controllers
+
+one:
+  medicationCode: test string for medicationCode
+  dose: "test value"
+  frequency: test string for frequency
+  duration: test string for duration
+  Route: 0
+
+two:
+  medicationCode: test string for medicationCode
+  dose: "test value"
+  frequency: test string for frequency
+  duration: test string for duration
+  Route: 0
+
+

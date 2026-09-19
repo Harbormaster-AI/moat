@@ -1,0 +1,46 @@
+<%= form_with model: @inventoryItem, local: true do |form| %>
+ 
+  <% if @inventoryItem.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inventoryItem.errors.count, "error") %> prohibited
+        this inventoryItem from being saved:
+      </h2>
+      <ul>
+        <% @inventoryItem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :quantityOnHand, { class: 'form-label'} %><br>
+	<%= form.text_field :quantityOnHand, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :quantityReserved, { class: 'form-label'} %><br>
+	<%= form.text_field :quantityReserved, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :safetyStock, { class: 'form-label'} %><br>
+	<%= form.text_field :safetyStock, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InventoryItem.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

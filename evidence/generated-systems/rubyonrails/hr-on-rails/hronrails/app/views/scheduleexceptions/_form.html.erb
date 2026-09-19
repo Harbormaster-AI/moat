@@ -1,0 +1,42 @@
+<%= form_with model: @scheduleException, local: true do |form| %>
+ 
+  <% if @scheduleException.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@scheduleException.errors.count, "error") %> prohibited
+        this scheduleException from being saved:
+      </h2>
+      <ul>
+        <% @scheduleException.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :date, { class: 'form-label'} %><br>
+    <%= form.date_field :date, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reason, { class: 'form-label'} %><br>
+	<%= form.text_field :reason, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :hours, { class: 'form-label'} %><br>
+	<%= form.text_field :hours, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

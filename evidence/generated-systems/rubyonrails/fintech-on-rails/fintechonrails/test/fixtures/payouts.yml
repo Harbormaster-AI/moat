@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of payout found in  fintechonrails/test/controllers
+
+one:
+  payoutReference: test string for payoutReference
+  amount: "test value"
+  currency: test string for currency
+  scheduledDate: 2020-10-15
+  paidDate: 2020-10-15
+  Status: 0
+
+two:
+  payoutReference: test string for payoutReference
+  amount: "test value"
+  currency: test string for currency
+  scheduledDate: 2020-10-15
+  paidDate: 2020-10-15
+  Status: 0
+
+

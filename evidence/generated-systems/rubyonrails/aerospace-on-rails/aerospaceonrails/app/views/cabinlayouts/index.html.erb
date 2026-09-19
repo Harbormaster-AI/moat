@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of CabinLayouts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">layoutCode</th>
+			<th style="text-align:center">totalSeats</th>
+			<th style="text-align:center">classLayout</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @cabinLayouts.each do |cabinLayout| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= cabinLayout.layoutCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cabinLayout.totalSeats %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cabinLayout.classLayout %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_cabinLayout_path(cabinLayout), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', cabinLayout_path(cabinLayout), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New CabinLayout', new_cabinLayout_path, :method => :get, :class => "btn btn-success btn-sm" %>

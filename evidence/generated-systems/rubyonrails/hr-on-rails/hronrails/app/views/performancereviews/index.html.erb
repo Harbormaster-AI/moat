@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of PerformanceReviews
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">reviewNumber</th>
+			<th style="text-align:center">reviewDate</th>
+			<th style="text-align:center">reviewerComments</th>
+			<th style="text-align:center">Rating</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @performanceReviews.each do |performanceReview| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= performanceReview.reviewNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceReview.reviewDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceReview.reviewerComments %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceReview.Rating %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceReview.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_performanceReview_path(performanceReview), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', performanceReview_path(performanceReview), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New PerformanceReview', new_performanceReview_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,58 @@
+<%= form_with model: @cart, local: true do |form| %>
+ 
+  <% if @cart.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cart.errors.count, "error") %> prohibited
+        this cart from being saved:
+      </h2>
+      <ul>
+        <% @cart.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :cartNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :cartNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.date_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :currency, { class: 'form-label'} %><br>
+	<%= form.text_field :currency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :shippingAddress, { class: 'form-label'} %><br>
+	<%= form.text_field :shippingAddress, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :billingAddress, { class: 'form-label'} %><br>
+	<%= form.text_field :billingAddress, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Cart.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

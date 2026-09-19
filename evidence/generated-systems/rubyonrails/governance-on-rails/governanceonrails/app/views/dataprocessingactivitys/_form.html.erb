@@ -1,0 +1,60 @@
+<%= form_with model: @dataProcessingActivity, local: true do |form| %>
+ 
+  <% if @dataProcessingActivity.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@dataProcessingActivity.errors.count, "error") %> prohibited
+        this dataProcessingActivity from being saved:
+      </h2>
+      <ul>
+        <% @dataProcessingActivity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :purpose, { class: 'form-label'} %><br>
+	<%= form.text_field :purpose, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :LawfulBasis, { class: 'form-label'} %><br>
+   <%= form.select :LawfulBasis, DataProcessingActivity.LawfulBasiss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

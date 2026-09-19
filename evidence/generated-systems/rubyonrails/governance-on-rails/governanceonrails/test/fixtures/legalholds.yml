@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of legalHold found in  governanceonrails/test/controllers
+
+one:
+  name: test string for name
+  reason: test string for reason
+  issuedDate: 2020-10-15
+  releaseDate: 2020-10-15
+  HoldStatus: 0
+
+two:
+  name: test string for name
+  reason: test string for reason
+  issuedDate: 2020-10-15
+  releaseDate: 2020-10-15
+  HoldStatus: 0
+
+

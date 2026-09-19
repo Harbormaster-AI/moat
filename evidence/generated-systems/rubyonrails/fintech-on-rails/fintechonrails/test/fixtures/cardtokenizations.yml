@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of cardTokenization found in  fintechonrails/test/controllers
+
+one:
+  tokenReference: test string for tokenReference
+  createdAt: 2020-10-15
+  WalletProvider: 0
+  Status: 0
+
+two:
+  tokenReference: test string for tokenReference
+  createdAt: 2020-10-15
+  WalletProvider: 0
+  Status: 0
+
+

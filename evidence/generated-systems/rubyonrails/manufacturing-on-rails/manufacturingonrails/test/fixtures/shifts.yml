@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of shift found in  manufacturingonrails/test/controllers
+
+one:
+  shiftName: test string for shiftName
+  startTime: test string for startTime
+  endTime: test string for endTime
+  ShiftType: 0
+
+two:
+  shiftName: test string for shiftName
+  startTime: test string for startTime
+  endTime: test string for endTime
+  ShiftType: 0
+
+

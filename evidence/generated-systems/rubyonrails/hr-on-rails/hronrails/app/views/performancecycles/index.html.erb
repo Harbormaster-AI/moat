@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of PerformanceCycles
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">startDate</th>
+			<th style="text-align:center">endDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @performanceCycles.each do |performanceCycle| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= performanceCycle.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceCycle.startDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceCycle.endDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= performanceCycle.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_performanceCycle_path(performanceCycle), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', performanceCycle_path(performanceCycle), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New PerformanceCycle', new_performanceCycle_path, :method => :get, :class => "btn btn-success btn-sm" %>

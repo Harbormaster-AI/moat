@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of note found in  crmonrails/test/controllers
+
+one:
+  title: test string for title
+  content: test string for content
+  createdAt: 2020-10-15
+  updatedAt: 2020-10-15
+
+two:
+  title: test string for title
+  content: test string for content
+  createdAt: 2020-10-15
+  updatedAt: 2020-10-15
+
+

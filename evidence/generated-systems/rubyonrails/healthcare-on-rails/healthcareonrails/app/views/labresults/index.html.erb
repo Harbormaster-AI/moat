@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of LabResults
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">resultCode</th>
+			<th style="text-align:center">issuedDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @labResults.each do |labResult| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= labResult.resultCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= labResult.issuedDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= labResult.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_labResult_path(labResult), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', labResult_path(labResult), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New LabResult', new_labResult_path, :method => :get, :class => "btn btn-success btn-sm" %>

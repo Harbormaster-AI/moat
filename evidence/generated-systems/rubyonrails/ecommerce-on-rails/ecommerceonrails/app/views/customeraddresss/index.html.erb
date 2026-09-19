@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of CustomerAddresss
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">label</th>
+			<th style="text-align:center">address</th>
+			<th style="text-align:center">asDefaultShipping</th>
+			<th style="text-align:center">asDefaultBilling</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @customerAddresss.each do |customerAddress| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= customerAddress.label %>
+			</td>
+			<td style="text-align:center">
+	  			<%= customerAddress.address %>
+			</td>
+			<td style="text-align:center">
+	  			<%= customerAddress.asDefaultShipping %>
+			</td>
+			<td style="text-align:center">
+	  			<%= customerAddress.asDefaultBilling %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_customerAddress_path(customerAddress), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', customerAddress_path(customerAddress), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New CustomerAddress', new_customerAddress_path, :method => :get, :class => "btn btn-success btn-sm" %>

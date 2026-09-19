@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Matters
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">matterName</th>
+			<th style="text-align:center">leadCounsel</th>
+			<th style="text-align:center">MatterType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @matters.each do |matter| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= matter.matterName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= matter.leadCounsel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= matter.MatterType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= matter.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_matter_path(matter), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', matter_path(matter), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Matter', new_matter_path, :method => :get, :class => "btn btn-success btn-sm" %>

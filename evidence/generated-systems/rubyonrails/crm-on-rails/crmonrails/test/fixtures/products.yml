@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of product found in  crmonrails/test/controllers
+
+one:
+  sku: test string for sku
+  name: test string for name
+  asActive: true
+  standardPrice: "test value"
+  description: test string for description
+  ProductType: 0
+  Uom: 0
+
+two:
+  sku: test string for sku
+  name: test string for name
+  asActive: true
+  standardPrice: "test value"
+  description: test string for description
+  ProductType: 0
+  Uom: 0
+
+

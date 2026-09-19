@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of StorageLocations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">code</th>
+			<th style="text-align:center">temperatureControlled</th>
+			<th style="text-align:center">capacity</th>
+			<th style="text-align:center">capacityUnit</th>
+			<th style="text-align:center">LocationType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @storageLocations.each do |storageLocation| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= storageLocation.code %>
+			</td>
+			<td style="text-align:center">
+	  			<%= storageLocation.temperatureControlled %>
+			</td>
+			<td style="text-align:center">
+	  			<%= storageLocation.capacity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= storageLocation.capacityUnit %>
+			</td>
+			<td style="text-align:center">
+	  			<%= storageLocation.LocationType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_storageLocation_path(storageLocation), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', storageLocation_path(storageLocation), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New StorageLocation', new_storageLocation_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of wishlist found in  ecommerceonrails/test/controllers
+
+one:
+  name: test string for name
+  asPublic: true
+  createdAt: 2020-10-15
+
+two:
+  name: test string for name
+  asPublic: true
+  createdAt: 2020-10-15
+
+

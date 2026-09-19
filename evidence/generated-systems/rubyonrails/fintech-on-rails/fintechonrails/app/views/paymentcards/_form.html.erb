@@ -1,0 +1,62 @@
+<%= form_with model: @paymentCard, local: true do |form| %>
+ 
+  <% if @paymentCard.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@paymentCard.errors.count, "error") %> prohibited
+        this paymentCard from being saved:
+      </h2>
+      <ul>
+        <% @paymentCard.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :cardToken, { class: 'form-label'} %><br>
+	<%= form.text_field :cardToken, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :maskedPan, { class: 'form-label'} %><br>
+	<%= form.text_field :maskedPan, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expiryMonth, { class: 'form-label'} %><br>
+	<%= form.text_field :expiryMonth, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expiryYear, { class: 'form-label'} %><br>
+	<%= form.text_field :expiryYear, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :cardholderName, { class: 'form-label'} %><br>
+	<%= form.text_field :cardholderName, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Scheme, { class: 'form-label'} %><br>
+   <%= form.select :Scheme, PaymentCard.Schemes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PaymentCard.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

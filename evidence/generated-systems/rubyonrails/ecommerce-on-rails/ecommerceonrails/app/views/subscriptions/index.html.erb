@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Subscriptions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">subscriptionNumber</th>
+			<th style="text-align:center">nextBillingDate</th>
+			<th style="text-align:center">startDate</th>
+			<th style="text-align:center">endDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">Interval</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @subscriptions.each do |subscription| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= subscription.subscriptionNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= subscription.nextBillingDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= subscription.startDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= subscription.endDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= subscription.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= subscription.Interval %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_subscription_path(subscription), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', subscription_path(subscription), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Subscription', new_subscription_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of transferOrder found in  inventoryonrails/test/controllers
+
+one:
+  orderNumber: test string for orderNumber
+  requestedShipDate: 2020-10-15
+  requestedReceiveDate: 2020-10-15
+  shippedDate: 2020-10-15
+  receivedDate: 2020-10-15
+  Status: 0
+
+two:
+  orderNumber: test string for orderNumber
+  requestedShipDate: 2020-10-15
+  requestedReceiveDate: 2020-10-15
+  shippedDate: 2020-10-15
+  receivedDate: 2020-10-15
+  Status: 0
+
+

@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of VerifiedAddresss
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">address</th>
+			<th style="text-align:center">verifiedAt</th>
+			<th style="text-align:center">VerificationStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @verifiedAddresss.each do |verifiedAddress| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= verifiedAddress.address %>
+			</td>
+			<td style="text-align:center">
+	  			<%= verifiedAddress.verifiedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= verifiedAddress.VerificationStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_verifiedAddress_path(verifiedAddress), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', verifiedAddress_path(verifiedAddress), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New VerifiedAddress', new_verifiedAddress_path, :method => :get, :class => "btn btn-success btn-sm" %>

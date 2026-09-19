@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of BankAccounts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">accountHolder</th>
+			<th style="text-align:center">bankName</th>
+			<th style="text-align:center">iban</th>
+			<th style="text-align:center">bic</th>
+			<th style="text-align:center">accountNumber</th>
+			<th style="text-align:center">routingNumber</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @bankAccounts.each do |bankAccount| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= bankAccount.accountHolder %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bankAccount.bankName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bankAccount.iban %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bankAccount.bic %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bankAccount.accountNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= bankAccount.routingNumber %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_bankAccount_path(bankAccount), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', bankAccount_path(bankAccount), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New BankAccount', new_bankAccount_path, :method => :get, :class => "btn btn-success btn-sm" %>

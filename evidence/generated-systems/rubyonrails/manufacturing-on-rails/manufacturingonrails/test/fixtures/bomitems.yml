@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of bOMItem found in  manufacturingonrails/test/controllers
+
+one:
+  lineNumber: 100
+  quantity: "test value"
+  scrapPercent: "test value"
+
+two:
+  lineNumber: 100
+  quantity: "test value"
+  scrapPercent: "test value"
+
+

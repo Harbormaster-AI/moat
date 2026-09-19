@@ -1,0 +1,60 @@
+<%= form_with model: @cycleCountEntry, local: true do |form| %>
+ 
+  <% if @cycleCountEntry.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cycleCountEntry.errors.count, "error") %> prohibited
+        this cycleCountEntry from being saved:
+      </h2>
+      <ul>
+        <% @cycleCountEntry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :lineNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :lineNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :systemQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :systemQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :countedQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :countedQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :varianceQuantity, { class: 'form-label'} %><br>
+	<%= form.text_field :varianceQuantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :recountRequired, {class: "form-check-input"} %>
+    <%= form.label :recountRequired, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :StockStatus, { class: 'form-label'} %><br>
+   <%= form.select :StockStatus, CycleCountEntry.StockStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

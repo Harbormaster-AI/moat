@@ -1,0 +1,27 @@
+<div class="title text-center">
+  List of ShipmentItems
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @shipmentItems.each do |shipmentItem| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= shipmentItem.quantity %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_shipmentItem_path(shipmentItem), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', shipmentItem_path(shipmentItem), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ShipmentItem', new_shipmentItem_path, :method => :get, :class => "btn btn-success btn-sm" %>

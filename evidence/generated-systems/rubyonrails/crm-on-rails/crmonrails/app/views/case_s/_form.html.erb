@@ -1,0 +1,76 @@
+<%= form_with model: @case_, local: true do |form| %>
+ 
+  <% if @case_.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@case_.errors.count, "error") %> prohibited
+        this case_ from being saved:
+      </h2>
+      <ul>
+        <% @case_.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :caseNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :caseNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :subject, { class: 'form-label'} %><br>
+	<%= form.text_field :subject, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :slaDue, { class: 'form-label'} %><br>
+    <%= form.time_field :slaDue, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Case_.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Priority, { class: 'form-label'} %><br>
+   <%= form.select :Priority, Case_.Prioritys.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Origin, { class: 'form-label'} %><br>
+   <%= form.select :Origin, Case_.Origins.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Severity, { class: 'form-label'} %><br>
+   <%= form.select :Severity, Case_.Severitys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,2 @@
+module AuditFindingHelper
+end

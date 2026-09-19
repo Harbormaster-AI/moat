@@ -1,0 +1,68 @@
+<%= form_with model: @customer, local: true do |form| %>
+ 
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@customer.errors.count, "error") %> prohibited
+        this customer from being saved:
+      </h2>
+      <ul>
+        <% @customer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :email, { class: 'form-label'} %><br>
+	<%= form.text_field :email, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :phone, { class: 'form-label'} %><br>
+	<%= form.text_field :phone, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :marketingOptIn, {class: "form-check-input"} %>
+    <%= form.label :marketingOptIn, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :CustomerGroup, { class: 'form-label'} %><br>
+   <%= form.select :CustomerGroup, Customer.CustomerGroups.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,46 @@
+<%= form_with model: @insuredObject, local: true do |form| %>
+ 
+  <% if @insuredObject.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@insuredObject.errors.count, "error") %> prohibited
+        this insuredObject from being saved:
+      </h2>
+      <ul>
+        <% @insuredObject.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :serialOrId, { class: 'form-label'} %><br>
+	<%= form.text_field :serialOrId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :primaryAddress, { class: 'form-label'} %><br>
+	<%= form.text_field :primaryAddress, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ObjectType, { class: 'form-label'} %><br>
+   <%= form.select :ObjectType, InsuredObject.ObjectTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

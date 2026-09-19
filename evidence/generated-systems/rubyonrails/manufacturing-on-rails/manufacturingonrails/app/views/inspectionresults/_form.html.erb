@@ -1,0 +1,46 @@
+<%= form_with model: @inspectionResult, local: true do |form| %>
+ 
+  <% if @inspectionResult.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inspectionResult.errors.count, "error") %> prohibited
+        this inspectionResult from being saved:
+      </h2>
+      <ul>
+        <% @inspectionResult.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :resultValue, { class: 'form-label'} %><br>
+	<%= form.text_field :resultValue, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :recordedOn, { class: 'form-label'} %><br>
+    <%= form.time_field :recordedOn, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :notes, { class: 'form-label'} %><br>
+	<%= form.text_field :notes, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ResultStatus, { class: 'form-label'} %><br>
+   <%= form.select :ResultStatus, InspectionResult.ResultStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

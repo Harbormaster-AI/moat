@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of settlementBatch found in  fintechonrails/test/controllers
+
+one:
+  batchId: test string for batchId
+  periodStart: 2020-10-15
+  periodEnd: 2020-10-15
+  totalVolume: "test value"
+  totalCount: 100
+  Status: 0
+
+two:
+  batchId: test string for batchId
+  periodStart: 2020-10-15
+  periodEnd: 2020-10-15
+  totalVolume: "test value"
+  totalCount: 100
+  Status: 0
+
+

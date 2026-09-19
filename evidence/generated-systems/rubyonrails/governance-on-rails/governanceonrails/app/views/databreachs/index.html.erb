@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of DataBreachs
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">incidentDate</th>
+			<th style="text-align:center">description</th>
+			<th style="text-align:center">recordsAffected</th>
+			<th style="text-align:center">notificationRequired</th>
+			<th style="text-align:center">Severity</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @dataBreachs.each do |dataBreach| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= dataBreach.incidentDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= dataBreach.description %>
+			</td>
+			<td style="text-align:center">
+	  			<%= dataBreach.recordsAffected %>
+			</td>
+			<td style="text-align:center">
+	  			<%= dataBreach.notificationRequired %>
+			</td>
+			<td style="text-align:center">
+	  			<%= dataBreach.Severity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= dataBreach.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_dataBreach_path(dataBreach), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', dataBreach_path(dataBreach), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New DataBreach', new_dataBreach_path, :method => :get, :class => "btn btn-success btn-sm" %>

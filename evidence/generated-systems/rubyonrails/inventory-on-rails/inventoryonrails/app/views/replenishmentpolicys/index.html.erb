@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of ReplenishmentPolicys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">minLevel</th>
+			<th style="text-align:center">maxLevel</th>
+			<th style="text-align:center">reorderPoint</th>
+			<th style="text-align:center">reorderQuantity</th>
+			<th style="text-align:center">leadTimeDays</th>
+			<th style="text-align:center">reviewPeriodDays</th>
+			<th style="text-align:center">PolicyType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @replenishmentPolicys.each do |replenishmentPolicy| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.minLevel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.maxLevel %>
+			</td>
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.reorderPoint %>
+			</td>
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.reorderQuantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.leadTimeDays %>
+			</td>
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.reviewPeriodDays %>
+			</td>
+			<td style="text-align:center">
+	  			<%= replenishmentPolicy.PolicyType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_replenishmentPolicy_path(replenishmentPolicy), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', replenishmentPolicy_path(replenishmentPolicy), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ReplenishmentPolicy', new_replenishmentPolicy_path, :method => :get, :class => "btn btn-success btn-sm" %>

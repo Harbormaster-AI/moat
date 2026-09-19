@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of exposure found in  insuranceonrails/test/controllers
+
+one:
+  ExposureType: 0
+  Status: 0
+
+two:
+  ExposureType: 0
+  Status: 0
+
+

@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of claim found in  healthcareonrails/test/controllers
+
+one:
+  claimNumber: test string for claimNumber
+  totalAmount: "test value"
+  Status: 0
+
+two:
+  claimNumber: test string for claimNumber
+  totalAmount: "test value"
+  Status: 0
+
+

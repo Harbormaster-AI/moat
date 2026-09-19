@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of paymentMethod found in  hronrails/test/controllers
+
+one:
+  preferred: true
+  MethodType: 0
+
+two:
+  preferred: true
+  MethodType: 0
+
+

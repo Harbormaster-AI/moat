@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Securitys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">symbol</th>
+			<th style="text-align:center">isin</th>
+			<th style="text-align:center">cusip</th>
+			<th style="text-align:center">currency</th>
+			<th style="text-align:center">SecurityType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @securitys.each do |security| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= security.symbol %>
+			</td>
+			<td style="text-align:center">
+	  			<%= security.isin %>
+			</td>
+			<td style="text-align:center">
+	  			<%= security.cusip %>
+			</td>
+			<td style="text-align:center">
+	  			<%= security.currency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= security.SecurityType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_security_path(security), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', security_path(security), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Security', new_security_path, :method => :get, :class => "btn btn-success btn-sm" %>

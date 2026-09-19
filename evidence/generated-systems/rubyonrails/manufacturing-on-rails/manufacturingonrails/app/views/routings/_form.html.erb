@@ -1,0 +1,54 @@
+<%= form_with model: @routing, local: true do |form| %>
+ 
+  <% if @routing.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@routing.errors.count, "error") %> prohibited
+        this routing from being saved:
+      </h2>
+      <ul>
+        <% @routing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :routingNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :routingNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :revision, { class: 'form-label'} %><br>
+	<%= form.text_field :revision, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectivityStart, { class: 'form-label'} %><br>
+    <%= form.date_field :effectivityStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectivityEnd, { class: 'form-label'} %><br>
+    <%= form.date_field :effectivityEnd, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :RoutingType, { class: 'form-label'} %><br>
+   <%= form.select :RoutingType, Routing.RoutingTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Routing.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

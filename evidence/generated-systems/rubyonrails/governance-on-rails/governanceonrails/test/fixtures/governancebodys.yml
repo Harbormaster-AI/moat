@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of governanceBody found in  governanceonrails/test/controllers
+
+one:
+  name: test string for name
+  charterUrl: "test value"
+  chair: test string for chair
+  BodyType: 0
+
+two:
+  name: test string for name
+  charterUrl: "test value"
+  chair: test string for chair
+  BodyType: 0
+
+

@@ -1,0 +1,52 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  Organization.create( name:"test string for name", legalName:"test string for legalName", jurisdiction:"test string for jurisdiction", industrySector:"test string for industrySector" )
+  GovernanceBody.create( name:"test string for name", charterUrl:"test value", chair:"test string for chair", BodyType:0 )
+  Person.create( firstName:"test string for firstName", lastName:"test string for lastName", email:"test value", department:"test string for department" )
+  Role.create( name:"test string for name", responsibility:"test string for responsibility" )
+  RoleAssignment.create( effectiveFrom:1.week.ago, effectiveTo:1.week.ago )
+  Policy.create( title:"test string for title", versionLabel:"test string for versionLabel", approvalDate:1.week.ago, nextReviewDate:1.week.ago, documentUrl:"test value", PolicyType:0, Status:0 )
+  Procedure.create( title:"test string for title", versionLabel:"test string for versionLabel", Status:0 )
+  Regulation.create( name:"test string for name", citation:"test string for citation", jurisdiction:"test string for jurisdiction", publicationUrl:"test value" )
+  Obligation.create( referenceNumber:"test string for referenceNumber", descriptionText:"test string for descriptionText", ObligationType:0, ReviewFrequency:0 )
+  Control.create( name:"test string for name", objective:"test string for objective", ownerDepartment:"test string for ownerDepartment", ControlType:0, Frequency:0, Status:0 )
+  ControlTest_.create( name:"test string for name", testPeriodStart:1.week.ago, testPeriodEnd:1.week.ago, sampleSize:100, TestType:0, Effectiveness:0, Status:0 )
+  Evidence.create( title:"test string for title", locationUrl:"test value", receivedDate:1.week.ago, EvidenceType:0 )
+  Risk.create( name:"test string for name", description:"test string for description", inherentRiskScore:100, residualRiskScore:100, Category:0, Impact:0, Likelihood:0, Status:0 )
+  RiskAssessment.create( assessmentDate:1.week.ago, assessor:"test string for assessor", summary:"test string for summary", AssessmentType:0 )
+  ComplianceProgram.create( name:"test string for name", framework:"test string for framework", Status:0 )
+  ComplianceRequirement.create( name:"test string for name", source:"test string for source", citation:"test string for citation", Applicability:0, Status:0 )
+  Attestation.create( statement:"test string for statement", attestor:"test string for attestor", dateSigned:1.week.ago, Result:0 )
+  AuditProgram.create( name:"test string for name", scope:"test string for scope", Cycle:0, Status:0 )
+  AuditEngagement.create( title:"test string for title", startDate:1.week.ago, endDate:1.week.ago, Status:0 )
+  AuditWorkpaper.create( workpaperRef:"test string for workpaperRef", subject:"test string for subject", workpaperUrl:"test value" )
+  AuditFinding.create( title:"test string for title", description:"test string for description", dueDate:1.week.ago, Severity:0, Status:0 )
+  CorrectiveAction.create( actionTitle:"test string for actionTitle", owner:"test string for owner", targetDate:1.week.ago, Status:0 )
+  Issue.create( title:"test string for title", openedDate:1.week.ago, closedDate:1.week.ago, IssueType:0, Priority:0, Status:0 )
+  BusinessUnit.create( name:"test string for name", leader:"test string for leader" )
+  DataProcessingActivity.create( name:"test string for name", purpose:"test string for purpose", startDate:1.week.ago, LawfulBasis:0 )
+  DataCategory.create( name:"test string for name", description:"test string for description", Classification:0 )
+  System_.create( name:"test string for name", ownerDepartment:"test string for ownerDepartment", SystemType:0 )
+  PrivacyNotice.create( title:"test string for title", audience:"test string for audience", versionLabel:"test string for versionLabel", publicationDate:1.week.ago, publicationUrl:"test value", Status:0 )
+  DataSubjectRequest.create( receivedDate:1.week.ago, dueDate:1.week.ago, requesterCountry:"test string for requesterCountry", RequestType:0, Status:0 )
+  RecordsRepository.create( name:"test string for name", location:"test string for location", ownerDepartment:"test string for ownerDepartment", RepositoryType:0 )
+  Record_.create( title:"test string for title", creationDate:1.week.ago, RecordType:0, Classification:0, Status:0 )
+  RetentionSchedule.create( name:"test string for name", retentionPeriodMonths:100, RetentionTrigger:0, DispositionAction:0, Status:0 )
+  DispositionReview.create( reviewDate:1.week.ago, reviewer:"test string for reviewer", notes:"test string for notes", Outcome:0 )
+  LegalHold.create( name:"test string for name", reason:"test string for reason", issuedDate:1.week.ago, releaseDate:1.week.ago, HoldStatus:0 )
+  Matter.create( matterName:"test string for matterName", leadCounsel:"test string for leadCounsel", MatterType:0, Status:0 )
+  ThirdParty.create( name:"test string for name", country:"test string for country", contactEmail:"test value", ThirdPartyType:0, Criticality:0 )
+  ThirdPartyAssessment.create( assessmentDate:1.week.ago, assessor:"test string for assessor", AssessmentType:0, Result:0 )
+  Contract.create( title:"test string for title", effectiveDate:1.week.ago, expiryDate:1.week.ago, repositoryUrl:"test value", Status:0 )
+  Exception_.create( title:"test string for title", justification:"test string for justification", startDate:1.week.ago, endDate:1.week.ago, ExceptionType:0, Status:0 )
+  Consent.create( subjectIdentifier:"test string for subjectIdentifier", captureDate:1.week.ago, expiryDate:1.week.ago, ConsentType:0, Status:0 )
+  DataBreach.create( incidentDate:1.week.ago, description:"test string for description", recordsAffected:100, notificationRequired:true, Severity:0, Status:0 )
+end

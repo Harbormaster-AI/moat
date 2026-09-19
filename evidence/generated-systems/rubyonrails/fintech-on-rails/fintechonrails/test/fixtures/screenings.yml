@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of screening found in  fintechonrails/test/controllers
+
+one:
+  score: "test value"
+  screenedAt: 2020-10-15
+  ScreeningType: 0
+  Status: 0
+
+two:
+  score: "test value"
+  screenedAt: 2020-10-15
+  ScreeningType: 0
+  Status: 0
+
+

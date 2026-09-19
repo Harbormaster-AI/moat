@@ -1,0 +1,44 @@
+<%= form_with model: @imagingOrder, local: true do |form| %>
+ 
+  <% if @imagingOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@imagingOrder.errors.count, "error") %> prohibited
+        this imagingOrder from being saved:
+      </h2>
+      <ul>
+        <% @imagingOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :bodySite, { class: 'form-label'} %><br>
+	<%= form.text_field :bodySite, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :contrast, {class: "form-check-input"} %>
+    <%= form.label :contrast, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Modality, { class: 'form-label'} %><br>
+   <%= form.select :Modality, ImagingOrder.Modalitys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

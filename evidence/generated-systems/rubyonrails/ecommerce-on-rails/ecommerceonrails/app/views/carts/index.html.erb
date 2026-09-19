@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of Carts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">cartNumber</th>
+			<th style="text-align:center">createdAt</th>
+			<th style="text-align:center">currency</th>
+			<th style="text-align:center">shippingAddress</th>
+			<th style="text-align:center">billingAddress</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @carts.each do |cart| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= cart.cartNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cart.createdAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cart.currency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cart.shippingAddress %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cart.billingAddress %>
+			</td>
+			<td style="text-align:center">
+	  			<%= cart.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_cart_path(cart), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', cart_path(cart), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Cart', new_cart_path, :method => :get, :class => "btn btn-success btn-sm" %>

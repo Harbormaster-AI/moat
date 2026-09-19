@@ -1,0 +1,28 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of stockKeepingUnit found in  inventoryonrails/test/controllers
+
+one:
+  skuCode: "test value"
+  name: test string for name
+  weight: "test value"
+  weightUnit: test string for weightUnit
+  volume: "test value"
+  volumeUnit: test string for volumeUnit
+  shelfLifeDays: 100
+  hazardousMaterial: true
+  ItemType: 0
+  UnitOfMeasure: 0
+
+two:
+  skuCode: "test value"
+  name: test string for name
+  weight: "test value"
+  weightUnit: test string for weightUnit
+  volume: "test value"
+  volumeUnit: test string for volumeUnit
+  shelfLifeDays: 100
+  hazardousMaterial: true
+  ItemType: 0
+  UnitOfMeasure: 0
+
+

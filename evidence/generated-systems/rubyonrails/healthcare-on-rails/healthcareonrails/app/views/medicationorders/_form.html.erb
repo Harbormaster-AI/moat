@@ -1,0 +1,52 @@
+<%= form_with model: @medicationOrder, local: true do |form| %>
+ 
+  <% if @medicationOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@medicationOrder.errors.count, "error") %> prohibited
+        this medicationOrder from being saved:
+      </h2>
+      <ul>
+        <% @medicationOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :medicationCode, { class: 'form-label'} %><br>
+	<%= form.text_field :medicationCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dose, { class: 'form-label'} %><br>
+	<%= form.text_field :dose, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :frequency, { class: 'form-label'} %><br>
+	<%= form.text_field :frequency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :duration, { class: 'form-label'} %><br>
+	<%= form.text_field :duration, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Route, { class: 'form-label'} %><br>
+   <%= form.select :Route, MedicationOrder.Routes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

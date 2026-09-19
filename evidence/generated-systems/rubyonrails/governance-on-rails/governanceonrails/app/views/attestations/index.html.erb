@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Attestations
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">statement</th>
+			<th style="text-align:center">attestor</th>
+			<th style="text-align:center">dateSigned</th>
+			<th style="text-align:center">Result</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @attestations.each do |attestation| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= attestation.statement %>
+			</td>
+			<td style="text-align:center">
+	  			<%= attestation.attestor %>
+			</td>
+			<td style="text-align:center">
+	  			<%= attestation.dateSigned %>
+			</td>
+			<td style="text-align:center">
+	  			<%= attestation.Result %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_attestation_path(attestation), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', attestation_path(attestation), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Attestation', new_attestation_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Contracts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">effectiveDate</th>
+			<th style="text-align:center">expiryDate</th>
+			<th style="text-align:center">repositoryUrl</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @contracts.each do |contract| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= contract.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contract.effectiveDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contract.expiryDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contract.repositoryUrl %>
+			</td>
+			<td style="text-align:center">
+	  			<%= contract.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_contract_path(contract), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', contract_path(contract), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Contract', new_contract_path, :method => :get, :class => "btn btn-success btn-sm" %>

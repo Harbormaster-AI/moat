@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of StockAdjustments
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">adjustmentNumber</th>
+			<th style="text-align:center">reason</th>
+			<th style="text-align:center">adjustmentDate</th>
+			<th style="text-align:center">AdjustmentType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @stockAdjustments.each do |stockAdjustment| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= stockAdjustment.adjustmentNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustment.reason %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustment.adjustmentDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustment.AdjustmentType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= stockAdjustment.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_stockAdjustment_path(stockAdjustment), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', stockAdjustment_path(stockAdjustment), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New StockAdjustment', new_stockAdjustment_path, :method => :get, :class => "btn btn-success btn-sm" %>

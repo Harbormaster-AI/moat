@@ -1,0 +1,48 @@
+<%= form_with model: @careTask, local: true do |form| %>
+ 
+  <% if @careTask.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@careTask.errors.count, "error") %> prohibited
+        this careTask from being saved:
+      </h2>
+      <ul>
+        <% @careTask.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :description, { class: 'form-label'} %><br>
+	<%= form.text_field :description, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dueDate, { class: 'form-label'} %><br>
+    <%= form.date_field :dueDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, CareTask.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Priority, { class: 'form-label'} %><br>
+   <%= form.select :Priority, CareTask.Prioritys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

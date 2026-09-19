@@ -1,0 +1,64 @@
+<%= form_with model: @merchant, local: true do |form| %>
+ 
+  <% if @merchant.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@merchant.errors.count, "error") %> prohibited
+        this merchant from being saved:
+      </h2>
+      <ul>
+        <% @merchant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :legalName, { class: 'form-label'} %><br>
+	<%= form.text_field :legalName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :website, { class: 'form-label'} %><br>
+	<%= form.text_field :website, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :defaultCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :defaultCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :defaultLocale, { class: 'form-label'} %><br>
+	<%= form.text_field :defaultLocale, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :supportEmail, { class: 'form-label'} %><br>
+	<%= form.text_field :supportEmail, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

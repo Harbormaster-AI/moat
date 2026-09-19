@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Quarantines
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">reason</th>
+			<th style="text-align:center">startedAt</th>
+			<th style="text-align:center">releasedAt</th>
+			<th style="text-align:center">Disposition</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @quarantines.each do |quarantine| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= quarantine.reason %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quarantine.startedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quarantine.releasedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= quarantine.Disposition %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_quarantine_path(quarantine), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', quarantine_path(quarantine), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Quarantine', new_quarantine_path, :method => :get, :class => "btn btn-success btn-sm" %>

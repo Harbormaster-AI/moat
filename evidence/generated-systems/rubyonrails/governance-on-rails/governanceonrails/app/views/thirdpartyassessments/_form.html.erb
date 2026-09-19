@@ -1,0 +1,46 @@
+<%= form_with model: @thirdPartyAssessment, local: true do |form| %>
+ 
+  <% if @thirdPartyAssessment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@thirdPartyAssessment.errors.count, "error") %> prohibited
+        this thirdPartyAssessment from being saved:
+      </h2>
+      <ul>
+        <% @thirdPartyAssessment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :assessmentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :assessmentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :assessor, { class: 'form-label'} %><br>
+	<%= form.text_field :assessor, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AssessmentType, { class: 'form-label'} %><br>
+   <%= form.select :AssessmentType, ThirdPartyAssessment.AssessmentTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Result, { class: 'form-label'} %><br>
+   <%= form.select :Result, ThirdPartyAssessment.Results.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

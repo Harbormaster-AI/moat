@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of CampaignMembers
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">responded</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">MemberType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @campaignMembers.each do |campaignMember| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= campaignMember.responded %>
+			</td>
+			<td style="text-align:center">
+	  			<%= campaignMember.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= campaignMember.MemberType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_campaignMember_path(campaignMember), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', campaignMember_path(campaignMember), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New CampaignMember', new_campaignMember_path, :method => :get, :class => "btn btn-success btn-sm" %>

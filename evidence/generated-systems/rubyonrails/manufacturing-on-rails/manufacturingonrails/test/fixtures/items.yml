@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of item found in  manufacturingonrails/test/controllers
+
+one:
+  itemNumber: test string for itemNumber
+  name: test string for name
+  standardCost: "test value"
+  weight: "test value"
+  asSerialControlled: true
+  ItemType: 0
+  ProcurementType: 0
+  UnitOfMeasure: 0
+  LifecycleStatus: 0
+
+two:
+  itemNumber: test string for itemNumber
+  name: test string for name
+  standardCost: "test value"
+  weight: "test value"
+  asSerialControlled: true
+  ItemType: 0
+  ProcurementType: 0
+  UnitOfMeasure: 0
+  LifecycleStatus: 0
+
+

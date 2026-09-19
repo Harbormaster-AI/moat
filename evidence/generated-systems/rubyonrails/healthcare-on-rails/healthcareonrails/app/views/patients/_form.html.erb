@@ -1,0 +1,82 @@
+<%= form_with model: @patient, local: true do |form| %>
+ 
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@patient.errors.count, "error") %> prohibited
+        this patient from being saved:
+      </h2>
+      <ul>
+        <% @patient.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :firstName, { class: 'form-label'} %><br>
+	<%= form.text_field :firstName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :lastName, { class: 'form-label'} %><br>
+	<%= form.text_field :lastName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :mrn, { class: 'form-label'} %><br>
+	<%= form.text_field :mrn, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :dateOfBirth, { class: 'form-label'} %><br>
+    <%= form.date_field :dateOfBirth, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :address, { class: 'form-label'} %><br>
+	<%= form.text_field :address, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :primaryLanguage, { class: 'form-label'} %><br>
+	<%= form.text_field :primaryLanguage, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :SexAtBirth, { class: 'form-label'} %><br>
+   <%= form.select :SexAtBirth, Patient.SexAtBirths.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :BloodType, { class: 'form-label'} %><br>
+   <%= form.select :BloodType, Patient.BloodTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

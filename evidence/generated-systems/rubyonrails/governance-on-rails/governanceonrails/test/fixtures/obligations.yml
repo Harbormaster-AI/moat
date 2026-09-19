@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of obligation found in  governanceonrails/test/controllers
+
+one:
+  referenceNumber: test string for referenceNumber
+  descriptionText: test string for descriptionText
+  ObligationType: 0
+  ReviewFrequency: 0
+
+two:
+  referenceNumber: test string for referenceNumber
+  descriptionText: test string for descriptionText
+  ObligationType: 0
+  ReviewFrequency: 0
+
+

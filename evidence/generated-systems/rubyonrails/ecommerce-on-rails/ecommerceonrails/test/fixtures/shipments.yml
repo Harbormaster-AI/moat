@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of shipment found in  ecommerceonrails/test/controllers
+
+one:
+  shipmentNumber: test string for shipmentNumber
+  shippedDate: 2020-10-15
+  deliveredDate: 2020-10-15
+  trackingNumber: test string for trackingNumber
+  shippingAddress: "test value"
+  Status: 0
+  Carrier: 0
+
+two:
+  shipmentNumber: test string for shipmentNumber
+  shippedDate: 2020-10-15
+  deliveredDate: 2020-10-15
+  trackingNumber: test string for trackingNumber
+  shippingAddress: "test value"
+  Status: 0
+  Carrier: 0
+
+

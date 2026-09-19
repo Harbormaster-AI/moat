@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of ModelVersions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">version</th>
+			<th style="text-align:center">Lifecycle</th>
+			<th style="text-align:center">TrainingStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @modelVersions.each do |modelVersion| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= modelVersion.version %>
+			</td>
+			<td style="text-align:center">
+	  			<%= modelVersion.Lifecycle %>
+			</td>
+			<td style="text-align:center">
+	  			<%= modelVersion.TrainingStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_modelVersion_path(modelVersion), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', modelVersion_path(modelVersion), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ModelVersion', new_modelVersion_path, :method => :get, :class => "btn btn-success btn-sm" %>

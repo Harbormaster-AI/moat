@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of ClaimReserves
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">setDate</th>
+			<th style="text-align:center">ReserveType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @claimReserves.each do |claimReserve| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= claimReserve.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimReserve.setDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimReserve.ReserveType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= claimReserve.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_claimReserve_path(claimReserve), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', claimReserve_path(claimReserve), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New ClaimReserve', new_claimReserve_path, :method => :get, :class => "btn btn-success btn-sm" %>

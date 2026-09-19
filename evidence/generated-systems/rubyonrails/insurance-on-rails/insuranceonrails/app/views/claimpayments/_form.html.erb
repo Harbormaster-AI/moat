@@ -1,0 +1,60 @@
+<%= form_with model: @claimPayment, local: true do |form| %>
+ 
+  <% if @claimPayment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@claimPayment.errors.count, "error") %> prohibited
+        this claimPayment from being saved:
+      </h2>
+      <ul>
+        <% @claimPayment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :paymentNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :paymentNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :paymentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :paymentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PayeeType, { class: 'form-label'} %><br>
+   <%= form.select :PayeeType, ClaimPayment.PayeeTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Method, { class: 'form-label'} %><br>
+   <%= form.select :Method, ClaimPayment.Methods.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, ClaimPayment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

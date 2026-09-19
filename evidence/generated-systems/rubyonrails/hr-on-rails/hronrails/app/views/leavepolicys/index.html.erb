@@ -1,0 +1,47 @@
+<div class="title text-center">
+  List of LeavePolicys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">accrualRate</th>
+			<th style="text-align:center">carryoverAllowed</th>
+			<th style="text-align:center">maxBalance</th>
+			<th style="text-align:center">LeaveCategory</th>
+			<th style="text-align:center">AccrualUnit</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @leavePolicys.each do |leavePolicy| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= leavePolicy.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= leavePolicy.accrualRate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= leavePolicy.carryoverAllowed %>
+			</td>
+			<td style="text-align:center">
+	  			<%= leavePolicy.maxBalance %>
+			</td>
+			<td style="text-align:center">
+	  			<%= leavePolicy.LeaveCategory %>
+			</td>
+			<td style="text-align:center">
+	  			<%= leavePolicy.AccrualUnit %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_leavePolicy_path(leavePolicy), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', leavePolicy_path(leavePolicy), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New LeavePolicy', new_leavePolicy_path, :method => :get, :class => "btn btn-success btn-sm" %>

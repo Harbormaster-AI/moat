@@ -1,0 +1,50 @@
+<%= form_with model: @coupon, local: true do |form| %>
+ 
+  <% if @coupon.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@coupon.errors.count, "error") %> prohibited
+        this coupon from being saved:
+      </h2>
+      <ul>
+        <% @coupon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :usageLimit, { class: 'form-label'} %><br>
+	<%= form.text_field :usageLimit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :perCustomerLimit, { class: 'form-label'} %><br>
+	<%= form.text_field :perCustomerLimit, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :expirationDate, { class: 'form-label'} %><br>
+    <%= form.date_field :expirationDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Coupon.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

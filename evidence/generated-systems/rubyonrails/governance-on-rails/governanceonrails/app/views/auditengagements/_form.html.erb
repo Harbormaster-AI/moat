@@ -1,0 +1,52 @@
+<%= form_with model: @auditEngagement, local: true do |form| %>
+ 
+  <% if @auditEngagement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@auditEngagement.errors.count, "error") %> prohibited
+        this auditEngagement from being saved:
+      </h2>
+      <ul>
+        <% @auditEngagement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDate, { class: 'form-label'} %><br>
+    <%= form.date_field :endDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, AuditEngagement.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

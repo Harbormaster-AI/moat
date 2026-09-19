@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of beneficiary found in  fintechonrails/test/controllers
+
+one:
+  name: test string for name
+  accountIdentifier: "test value"
+  iban: "test value"
+  bic: "test value"
+  address: "test value"
+
+two:
+  name: test string for name
+  accountIdentifier: "test value"
+  iban: "test value"
+  bic: "test value"
+  address: "test value"
+
+

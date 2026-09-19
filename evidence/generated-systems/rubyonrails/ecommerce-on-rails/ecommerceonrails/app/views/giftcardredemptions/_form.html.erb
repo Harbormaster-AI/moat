@@ -1,0 +1,38 @@
+<%= form_with model: @giftCardRedemption, local: true do |form| %>
+ 
+  <% if @giftCardRedemption.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@giftCardRedemption.errors.count, "error") %> prohibited
+        this giftCardRedemption from being saved:
+      </h2>
+      <ul>
+        <% @giftCardRedemption.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :redeemedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :redeemedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

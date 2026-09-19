@@ -1,0 +1,2 @@
+module ForecastLineHelper
+end

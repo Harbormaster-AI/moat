@@ -1,0 +1,2 @@
+module LegalHoldHelper
+end

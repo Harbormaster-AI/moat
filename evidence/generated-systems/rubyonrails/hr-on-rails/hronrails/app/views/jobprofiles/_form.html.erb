@@ -1,0 +1,50 @@
+<%= form_with model: @jobProfile, local: true do |form| %>
+ 
+  <% if @jobProfile.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@jobProfile.errors.count, "error") %> prohibited
+        this jobProfile from being saved:
+      </h2>
+      <ul>
+        <% @jobProfile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :jobCode, { class: 'form-label'} %><br>
+	<%= form.text_field :jobCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :JobLevel, { class: 'form-label'} %><br>
+   <%= form.select :JobLevel, JobProfile.JobLevels.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :ExemptStatus, { class: 'form-label'} %><br>
+   <%= form.select :ExemptStatus, JobProfile.ExemptStatuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of jobApplication found in  hronrails/test/controllers
+
+one:
+  applicationNumber: test string for applicationNumber
+  appliedDate: 2020-10-15
+  resumeUrl: test string for resumeUrl
+  Status: 0
+
+two:
+  applicationNumber: test string for applicationNumber
+  appliedDate: 2020-10-15
+  resumeUrl: test string for resumeUrl
+  Status: 0
+
+

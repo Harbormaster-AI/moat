@@ -1,0 +1,42 @@
+<%= form_with model: @wishlist, local: true do |form| %>
+ 
+  <% if @wishlist.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@wishlist.errors.count, "error") %> prohibited
+        this wishlist from being saved:
+      </h2>
+      <ul>
+        <% @wishlist.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asPublic, {class: "form-check-input"} %>
+    <%= form.label :asPublic, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.date_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

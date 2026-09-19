@@ -1,0 +1,72 @@
+<%= form_with model: @promotion, local: true do |form| %>
+ 
+  <% if @promotion.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@promotion.errors.count, "error") %> prohibited
+        this promotion from being saved:
+      </h2>
+      <ul>
+        <% @promotion.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :value, { class: 'form-label'} %><br>
+	<%= form.text_field :value, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDate, { class: 'form-label'} %><br>
+    <%= form.date_field :startDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDate, { class: 'form-label'} %><br>
+    <%= form.date_field :endDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asStackable, {class: "form-check-input"} %>
+    <%= form.label :asStackable, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+    <%= form.label :maxRedemptions, { class: 'form-label'} %><br>
+	<%= form.text_field :maxRedemptions, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :PromotionType, { class: 'form-label'} %><br>
+   <%= form.select :PromotionType, Promotion.PromotionTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :DiscountType, { class: 'form-label'} %><br>
+   <%= form.select :DiscountType, Promotion.DiscountTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

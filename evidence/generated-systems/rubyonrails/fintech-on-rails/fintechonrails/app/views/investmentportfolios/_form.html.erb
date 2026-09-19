@@ -1,0 +1,50 @@
+<%= form_with model: @investmentPortfolio, local: true do |form| %>
+ 
+  <% if @investmentPortfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@investmentPortfolio.errors.count, "error") %> prohibited
+        this investmentPortfolio from being saved:
+      </h2>
+      <ul>
+        <% @investmentPortfolio.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :portfolioCode, { class: 'form-label'} %><br>
+	<%= form.text_field :portfolioCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :baseCurrency, { class: 'form-label'} %><br>
+	<%= form.text_field :baseCurrency, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.time_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InvestmentPortfolio.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

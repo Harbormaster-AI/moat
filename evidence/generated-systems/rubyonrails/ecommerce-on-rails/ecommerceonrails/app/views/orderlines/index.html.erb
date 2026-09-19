@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of OrderLines
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">unitPrice</th>
+			<th style="text-align:center">totalPrice</th>
+			<th style="text-align:center">taxRate</th>
+			<th style="text-align:center">LineStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @orderLines.each do |orderLine| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= orderLine.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= orderLine.unitPrice %>
+			</td>
+			<td style="text-align:center">
+	  			<%= orderLine.totalPrice %>
+			</td>
+			<td style="text-align:center">
+	  			<%= orderLine.taxRate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= orderLine.LineStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_orderLine_path(orderLine), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', orderLine_path(orderLine), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New OrderLine', new_orderLine_path, :method => :get, :class => "btn btn-success btn-sm" %>

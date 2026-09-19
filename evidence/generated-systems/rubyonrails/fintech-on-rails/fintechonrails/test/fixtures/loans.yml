@@ -1,0 +1,22 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of loan found in  fintechonrails/test/controllers
+
+one:
+  loanNumber: test string for loanNumber
+  principal: "test value"
+  interestRate: "test value"
+  originationDate: 2020-10-15
+  maturityDate: 2020-10-15
+  RateType: 0
+  Status: 0
+
+two:
+  loanNumber: test string for loanNumber
+  principal: "test value"
+  interestRate: "test value"
+  originationDate: 2020-10-15
+  maturityDate: 2020-10-15
+  RateType: 0
+  Status: 0
+
+

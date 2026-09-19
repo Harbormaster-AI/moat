@@ -1,0 +1,42 @@
+<%= form_with model: @returnItem, local: true do |form| %>
+ 
+  <% if @returnItem.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@returnItem.errors.count, "error") %> prohibited
+        this returnItem from being saved:
+      </h2>
+      <ul>
+        <% @returnItem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :quantity, { class: 'form-label'} %><br>
+	<%= form.text_field :quantity, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Reason, { class: 'form-label'} %><br>
+   <%= form.select :Reason, ReturnItem.Reasons.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Condition, { class: 'form-label'} %><br>
+   <%= form.select :Condition, ReturnItem.Conditions.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of TrainingCourses
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">code</th>
+			<th style="text-align:center">title</th>
+			<th style="text-align:center">durationHours</th>
+			<th style="text-align:center">DeliveryMethod</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @trainingCourses.each do |trainingCourse| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= trainingCourse.code %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trainingCourse.title %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trainingCourse.durationHours %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trainingCourse.DeliveryMethod %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_trainingCourse_path(trainingCourse), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', trainingCourse_path(trainingCourse), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New TrainingCourse', new_trainingCourse_path, :method => :get, :class => "btn btn-success btn-sm" %>

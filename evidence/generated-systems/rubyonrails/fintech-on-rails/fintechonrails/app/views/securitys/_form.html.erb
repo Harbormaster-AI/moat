@@ -1,0 +1,52 @@
+<%= form_with model: @security, local: true do |form| %>
+ 
+  <% if @security.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@security.errors.count, "error") %> prohibited
+        this security from being saved:
+      </h2>
+      <ul>
+        <% @security.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :symbol, { class: 'form-label'} %><br>
+	<%= form.text_field :symbol, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :isin, { class: 'form-label'} %><br>
+	<%= form.text_field :isin, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :cusip, { class: 'form-label'} %><br>
+	<%= form.text_field :cusip, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :currency, { class: 'form-label'} %><br>
+	<%= form.text_field :currency, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :SecurityType, { class: 'form-label'} %><br>
+   <%= form.select :SecurityType, Security.SecurityTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

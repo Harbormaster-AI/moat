@@ -1,0 +1,46 @@
+<%= form_with model: @claimReserve, local: true do |form| %>
+ 
+  <% if @claimReserve.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@claimReserve.errors.count, "error") %> prohibited
+        this claimReserve from being saved:
+      </h2>
+      <ul>
+        <% @claimReserve.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :setDate, { class: 'form-label'} %><br>
+    <%= form.date_field :setDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ReserveType, { class: 'form-label'} %><br>
+   <%= form.select :ReserveType, ClaimReserve.ReserveTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, ClaimReserve.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

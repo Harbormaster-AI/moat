@@ -1,0 +1,48 @@
+<%= form_with model: @subrogationRecovery, local: true do |form| %>
+ 
+  <% if @subrogationRecovery.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@subrogationRecovery.errors.count, "error") %> prohibited
+        this subrogationRecovery from being saved:
+      </h2>
+      <ul>
+        <% @subrogationRecovery.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :recoveryReference, { class: 'form-label'} %><br>
+	<%= form.text_field :recoveryReference, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :amount, { class: 'form-label'} %><br>
+	<%= form.text_field :amount, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :recoveryDate, { class: 'form-label'} %><br>
+    <%= form.date_field :recoveryDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, SubrogationRecovery.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

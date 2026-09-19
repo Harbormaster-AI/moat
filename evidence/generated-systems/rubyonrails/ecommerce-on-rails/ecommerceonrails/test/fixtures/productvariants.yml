@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of productVariant found in  ecommerceonrails/test/controllers
+
+one:
+  sku: "test value"
+  barcode: test string for barcode
+  title: test string for title
+  weight: "test value"
+  requiresShipping: true
+  WeightUnit: 0
+
+two:
+  sku: "test value"
+  barcode: test string for barcode
+  title: test string for title
+  weight: "test value"
+  requiresShipping: true
+  WeightUnit: 0
+
+

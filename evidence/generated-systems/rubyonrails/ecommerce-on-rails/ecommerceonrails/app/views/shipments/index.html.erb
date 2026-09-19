@@ -1,0 +1,51 @@
+<div class="title text-center">
+  List of Shipments
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">shipmentNumber</th>
+			<th style="text-align:center">shippedDate</th>
+			<th style="text-align:center">deliveredDate</th>
+			<th style="text-align:center">trackingNumber</th>
+			<th style="text-align:center">shippingAddress</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center">Carrier</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @shipments.each do |shipment| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= shipment.shipmentNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shipment.shippedDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shipment.deliveredDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shipment.trackingNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shipment.shippingAddress %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shipment.Status %>
+			</td>
+			<td style="text-align:center">
+	  			<%= shipment.Carrier %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_shipment_path(shipment), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', shipment_path(shipment), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Shipment', new_shipment_path, :method => :get, :class => "btn btn-success btn-sm" %>

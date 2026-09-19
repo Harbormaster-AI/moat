@@ -1,0 +1,48 @@
+<%= form_with model: @procedure, local: true do |form| %>
+ 
+  <% if @procedure.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@procedure.errors.count, "error") %> prohibited
+        this procedure from being saved:
+      </h2>
+      <ul>
+        <% @procedure.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :procedureCode, { class: 'form-label'} %><br>
+	<%= form.text_field :procedureCode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :startDateTime, { class: 'form-label'} %><br>
+    <%= form.time_field :startDateTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :endDateTime, { class: 'form-label'} %><br>
+    <%= form.time_field :endDateTime, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Procedure.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

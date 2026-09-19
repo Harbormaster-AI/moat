@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of Trades
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">executedAt</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">price</th>
+			<th style="text-align:center">fees</th>
+			<th style="text-align:center">settlementDate</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @trades.each do |trade| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= trade.executedAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trade.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trade.price %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trade.fees %>
+			</td>
+			<td style="text-align:center">
+	  			<%= trade.settlementDate %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_trade_path(trade), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', trade_path(trade), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Trade', new_trade_path, :method => :get, :class => "btn btn-success btn-sm" %>

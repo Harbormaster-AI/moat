@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of OnboardingTasks
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">taskNumber</th>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">dueDate</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @onboardingTasks.each do |onboardingTask| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= onboardingTask.taskNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= onboardingTask.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= onboardingTask.dueDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= onboardingTask.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_onboardingTask_path(onboardingTask), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', onboardingTask_path(onboardingTask), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New OnboardingTask', new_onboardingTask_path, :method => :get, :class => "btn btn-success btn-sm" %>

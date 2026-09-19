@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of performanceReview found in  hronrails/test/controllers
+
+one:
+  reviewNumber: test string for reviewNumber
+  reviewDate: 2020-10-15
+  reviewerComments: test string for reviewerComments
+  Rating: 0
+  Status: 0
+
+two:
+  reviewNumber: test string for reviewNumber
+  reviewDate: 2020-10-15
+  reviewerComments: test string for reviewerComments
+  Rating: 0
+  Status: 0
+
+

@@ -1,0 +1,38 @@
+<%= form_with model: @paymentMethod, local: true do |form| %>
+ 
+  <% if @paymentMethod.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@paymentMethod.errors.count, "error") %> prohibited
+        this paymentMethod from being saved:
+      </h2>
+      <ul>
+        <% @paymentMethod.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.check_box :preferred, {class: "form-check-input"} %>
+    <%= form.label :preferred, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :MethodType, { class: 'form-label'} %><br>
+   <%= form.select :MethodType, PaymentMethod.MethodTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

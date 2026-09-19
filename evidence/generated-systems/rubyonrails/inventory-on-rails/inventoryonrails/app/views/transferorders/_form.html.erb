@@ -1,0 +1,58 @@
+<%= form_with model: @transferOrder, local: true do |form| %>
+ 
+  <% if @transferOrder.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@transferOrder.errors.count, "error") %> prohibited
+        this transferOrder from being saved:
+      </h2>
+      <ul>
+        <% @transferOrder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :orderNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :orderNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :requestedShipDate, { class: 'form-label'} %><br>
+    <%= form.date_field :requestedShipDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :requestedReceiveDate, { class: 'form-label'} %><br>
+    <%= form.date_field :requestedReceiveDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :shippedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :shippedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :receivedDate, { class: 'form-label'} %><br>
+    <%= form.date_field :receivedDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, TransferOrder.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

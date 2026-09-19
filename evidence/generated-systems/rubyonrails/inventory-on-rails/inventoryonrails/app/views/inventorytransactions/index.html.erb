@@ -1,0 +1,55 @@
+<div class="title text-center">
+  List of InventoryTransactions
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">transactionNumber</th>
+			<th style="text-align:center">quantity</th>
+			<th style="text-align:center">unitCost</th>
+			<th style="text-align:center">transactionDate</th>
+			<th style="text-align:center">reasonCode</th>
+			<th style="text-align:center">TransactionType</th>
+			<th style="text-align:center">UnitOfMeasure</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @inventoryTransactions.each do |inventoryTransaction| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.transactionNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.quantity %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.unitCost %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.transactionDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.reasonCode %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.TransactionType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.UnitOfMeasure %>
+			</td>
+			<td style="text-align:center">
+	  			<%= inventoryTransaction.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_inventoryTransaction_path(inventoryTransaction), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', inventoryTransaction_path(inventoryTransaction), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New InventoryTransaction', new_inventoryTransaction_path, :method => :get, :class => "btn btn-success btn-sm" %>

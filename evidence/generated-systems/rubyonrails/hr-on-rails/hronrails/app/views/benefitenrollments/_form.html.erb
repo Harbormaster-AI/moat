@@ -1,0 +1,52 @@
+<%= form_with model: @benefitEnrollment, local: true do |form| %>
+ 
+  <% if @benefitEnrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@benefitEnrollment.errors.count, "error") %> prohibited
+        this benefitEnrollment from being saved:
+      </h2>
+      <ul>
+        <% @benefitEnrollment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :enrollmentId, { class: 'form-label'} %><br>
+	<%= form.text_field :enrollmentId, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveFrom, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveFrom, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :effectiveTo, { class: 'form-label'} %><br>
+    <%= form.date_field :effectiveTo, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, BenefitEnrollment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :CoverageLevel, { class: 'form-label'} %><br>
+   <%= form.select :CoverageLevel, BenefitEnrollment.CoverageLevels.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

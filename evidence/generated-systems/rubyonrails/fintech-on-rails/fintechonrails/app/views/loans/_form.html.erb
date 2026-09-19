@@ -1,0 +1,62 @@
+<%= form_with model: @loan, local: true do |form| %>
+ 
+  <% if @loan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@loan.errors.count, "error") %> prohibited
+        this loan from being saved:
+      </h2>
+      <ul>
+        <% @loan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :loanNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :loanNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :principal, { class: 'form-label'} %><br>
+	<%= form.text_field :principal, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :interestRate, { class: 'form-label'} %><br>
+	<%= form.text_field :interestRate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :originationDate, { class: 'form-label'} %><br>
+    <%= form.date_field :originationDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :maturityDate, { class: 'form-label'} %><br>
+    <%= form.date_field :maturityDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :RateType, { class: 'form-label'} %><br>
+   <%= form.select :RateType, Loan.RateTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Loan.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

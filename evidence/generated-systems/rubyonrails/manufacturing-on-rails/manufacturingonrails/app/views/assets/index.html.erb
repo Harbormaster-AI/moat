@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Assets
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">assetTag</th>
+			<th style="text-align:center">assetName</th>
+			<th style="text-align:center">commissioningDate</th>
+			<th style="text-align:center">AssetStatus</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @assets.each do |asset| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= asset.assetTag %>
+			</td>
+			<td style="text-align:center">
+	  			<%= asset.assetName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= asset.commissioningDate %>
+			</td>
+			<td style="text-align:center">
+	  			<%= asset.AssetStatus %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_asset_path(asset), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', asset_path(asset), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Asset', new_asset_path, :method => :get, :class => "btn btn-success btn-sm" %>

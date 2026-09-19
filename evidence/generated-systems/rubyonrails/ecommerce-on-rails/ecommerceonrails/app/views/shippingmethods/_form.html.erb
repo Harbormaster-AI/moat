@@ -1,0 +1,50 @@
+<%= form_with model: @shippingMethod, local: true do |form| %>
+ 
+  <% if @shippingMethod.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@shippingMethod.errors.count, "error") %> prohibited
+        this shippingMethod from being saved:
+      </h2>
+      <ul>
+        <% @shippingMethod.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :flatRate, { class: 'form-label'} %><br>
+	<%= form.text_field :flatRate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :estimatedDays, { class: 'form-label'} %><br>
+	<%= form.text_field :estimatedDays, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :asActive, {class: "form-check-input"} %>
+    <%= form.label :asActive, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :MethodType, { class: 'form-label'} %><br>
+   <%= form.select :MethodType, ShippingMethod.MethodTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

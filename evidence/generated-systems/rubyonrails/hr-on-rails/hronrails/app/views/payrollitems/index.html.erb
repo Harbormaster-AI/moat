@@ -1,0 +1,35 @@
+<div class="title text-center">
+  List of PayrollItems
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">amount</th>
+			<th style="text-align:center">taxable</th>
+			<th style="text-align:center">ItemType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @payrollItems.each do |payrollItem| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= payrollItem.amount %>
+			</td>
+			<td style="text-align:center">
+	  			<%= payrollItem.taxable %>
+			</td>
+			<td style="text-align:center">
+	  			<%= payrollItem.ItemType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_payrollItem_path(payrollItem), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', payrollItem_path(payrollItem), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New PayrollItem', new_payrollItem_path, :method => :get, :class => "btn btn-success btn-sm" %>

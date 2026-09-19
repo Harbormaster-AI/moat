@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Persons
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">firstName</th>
+			<th style="text-align:center">lastName</th>
+			<th style="text-align:center">email</th>
+			<th style="text-align:center">department</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @persons.each do |person| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= person.firstName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= person.lastName %>
+			</td>
+			<td style="text-align:center">
+	  			<%= person.email %>
+			</td>
+			<td style="text-align:center">
+	  			<%= person.department %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_person_path(person), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', person_path(person), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Person', new_person_path, :method => :get, :class => "btn btn-success btn-sm" %>

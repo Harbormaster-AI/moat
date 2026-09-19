@@ -1,0 +1,54 @@
+<%= form_with model: @inventoryThresholdAlert, local: true do |form| %>
+ 
+  <% if @inventoryThresholdAlert.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@inventoryThresholdAlert.errors.count, "error") %> prohibited
+        this inventoryThresholdAlert from being saved:
+      </h2>
+      <ul>
+        <% @inventoryThresholdAlert.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :alertNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :alertNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :detectedAt, { class: 'form-label'} %><br>
+    <%= form.date_field :detectedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :message, { class: 'form-label'} %><br>
+	<%= form.text_field :message, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :AlertType, { class: 'form-label'} %><br>
+   <%= form.select :AlertType, InventoryThresholdAlert.AlertTypes.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, InventoryThresholdAlert.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

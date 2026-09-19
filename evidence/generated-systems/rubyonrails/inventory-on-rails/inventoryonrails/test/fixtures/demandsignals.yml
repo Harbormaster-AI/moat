@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of demandSignal found in  inventoryonrails/test/controllers
+
+one:
+  externalReference: test string for externalReference
+  requestedDate: 2020-10-15
+  quantity: "test value"
+  DemandType: 0
+
+two:
+  externalReference: test string for externalReference
+  requestedDate: 2020-10-15
+  quantity: "test value"
+  DemandType: 0
+
+

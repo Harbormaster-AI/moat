@@ -1,0 +1,44 @@
+<%= form_with model: @workSchedule, local: true do |form| %>
+ 
+  <% if @workSchedule.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@workSchedule.errors.count, "error") %> prohibited
+        this workSchedule from being saved:
+      </h2>
+      <ul>
+        <% @workSchedule.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :standardHoursPerWeek, { class: 'form-label'} %><br>
+	<%= form.text_field :standardHoursPerWeek, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :ScheduleType, { class: 'form-label'} %><br>
+   <%= form.select :ScheduleType, WorkSchedule.ScheduleTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

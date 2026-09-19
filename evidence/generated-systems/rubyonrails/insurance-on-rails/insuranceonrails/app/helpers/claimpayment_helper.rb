@@ -1,0 +1,2 @@
+module ClaimPaymentHelper
+end

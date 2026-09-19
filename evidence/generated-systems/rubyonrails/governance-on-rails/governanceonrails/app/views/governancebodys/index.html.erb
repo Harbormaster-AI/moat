@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of GovernanceBodys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">name</th>
+			<th style="text-align:center">charterUrl</th>
+			<th style="text-align:center">chair</th>
+			<th style="text-align:center">BodyType</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @governanceBodys.each do |governanceBody| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= governanceBody.name %>
+			</td>
+			<td style="text-align:center">
+	  			<%= governanceBody.charterUrl %>
+			</td>
+			<td style="text-align:center">
+	  			<%= governanceBody.chair %>
+			</td>
+			<td style="text-align:center">
+	  			<%= governanceBody.BodyType %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_governanceBody_path(governanceBody), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', governanceBody_path(governanceBody), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New GovernanceBody', new_governanceBody_path, :method => :get, :class => "btn btn-success btn-sm" %>

@@ -1,0 +1,2 @@
+module CoverageDefinitionHelper
+end

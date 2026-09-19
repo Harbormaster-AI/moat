@@ -1,0 +1,42 @@
+<%= form_with model: @costCenter, local: true do |form| %>
+ 
+  <% if @costCenter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@costCenter.errors.count, "error") %> prohibited
+        this costCenter from being saved:
+      </h2>
+      <ul>
+        <% @costCenter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

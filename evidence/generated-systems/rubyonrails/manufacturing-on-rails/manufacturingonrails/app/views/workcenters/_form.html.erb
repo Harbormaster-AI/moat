@@ -1,0 +1,52 @@
+<%= form_with model: @workCenter, local: true do |form| %>
+ 
+  <% if @workCenter.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@workCenter.errors.count, "error") %> prohibited
+        this workCenter from being saved:
+      </h2>
+      <ul>
+        <% @workCenter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :code, { class: 'form-label'} %><br>
+	<%= form.text_field :code, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :capacityPerHour, { class: 'form-label'} %><br>
+	<%= form.text_field :capacityPerHour, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :oeeTarget, { class: 'form-label'} %><br>
+	<%= form.text_field :oeeTarget, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :WorkCenterType, { class: 'form-label'} %><br>
+   <%= form.select :WorkCenterType, WorkCenter.WorkCenterTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of forecast found in  manufacturingonrails/test/controllers
+
+one:
+  forecastNumber: test string for forecastNumber
+  forecastHorizonStart: 2020-10-15
+  forecastHorizonEnd: 2020-10-15
+  Method: 0
+
+two:
+  forecastNumber: test string for forecastNumber
+  forecastHorizonStart: 2020-10-15
+  forecastHorizonEnd: 2020-10-15
+  Method: 0
+
+

@@ -1,0 +1,39 @@
+<div class="title text-center">
+  List of Anomalys
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">occurredAt</th>
+			<th style="text-align:center">details</th>
+			<th style="text-align:center">AnomalyType</th>
+			<th style="text-align:center">Severity</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @anomalys.each do |anomaly| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= anomaly.occurredAt %>
+			</td>
+			<td style="text-align:center">
+	  			<%= anomaly.details %>
+			</td>
+			<td style="text-align:center">
+	  			<%= anomaly.AnomalyType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= anomaly.Severity %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_anomaly_path(anomaly), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', anomaly_path(anomaly), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New Anomaly', new_anomaly_path, :method => :get, :class => "btn btn-success btn-sm" %>

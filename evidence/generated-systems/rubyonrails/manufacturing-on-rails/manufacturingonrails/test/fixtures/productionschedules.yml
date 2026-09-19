@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of productionSchedule found in  manufacturingonrails/test/controllers
+
+one:
+  scheduleNumber: test string for scheduleNumber
+  horizonStart: 2020-10-15
+  horizonEnd: 2020-10-15
+  Status: 0
+
+two:
+  scheduleNumber: test string for scheduleNumber
+  horizonStart: 2020-10-15
+  horizonEnd: 2020-10-15
+  Status: 0
+
+

@@ -1,0 +1,66 @@
+<%= form_with model: @productVariant, local: true do |form| %>
+ 
+  <% if @productVariant.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@productVariant.errors.count, "error") %> prohibited
+        this productVariant from being saved:
+      </h2>
+      <ul>
+        <% @productVariant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :sku, { class: 'form-label'} %><br>
+	<%= form.text_field :sku, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :barcode, { class: 'form-label'} %><br>
+	<%= form.text_field :barcode, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :weight, { class: 'form-label'} %><br>
+	<%= form.text_field :weight, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.check_box :requiresShipping, {class: "form-check-input"} %>
+    <%= form.label :requiresShipping, { class: 'form-label'} %><br>	
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :WeightUnit, { class: 'form-label'} %><br>
+   <%= form.select :WeightUnit, ProductVariant.WeightUnits.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

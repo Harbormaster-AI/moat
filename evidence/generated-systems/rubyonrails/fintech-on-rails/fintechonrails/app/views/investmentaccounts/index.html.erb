@@ -1,0 +1,43 @@
+<div class="title text-center">
+  List of InvestmentAccounts
+</div>
+
+<table class="table table-sm table-hover table-striped"">
+	<thead class="table-dark">
+		<tr>
+			<th style="text-align:center">accountNumber</th>
+			<th style="text-align:center">baseCurrency</th>
+			<th style="text-align:center">balance</th>
+			<th style="text-align:center">AccountType</th>
+			<th style="text-align:center">Status</th>
+			<th style="text-align:center" colspan="2">Actions</th>
+	</thead>
+	<tbody>
+ 
+  <% @investmentAccounts.each do |investmentAccount| %>
+		<tr>   
+			<td style="text-align:center">
+	  			<%= investmentAccount.accountNumber %>
+			</td>
+			<td style="text-align:center">
+	  			<%= investmentAccount.baseCurrency %>
+			</td>
+			<td style="text-align:center">
+	  			<%= investmentAccount.balance %>
+			</td>
+			<td style="text-align:center">
+	  			<%= investmentAccount.AccountType %>
+			</td>
+			<td style="text-align:center">
+	  			<%= investmentAccount.Status %>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Change', edit_investmentAccount_path(investmentAccount), :method => :get, :class => "btn btn-secondary btn-sm"%>
+			</td>
+			<td style="vertical-align:middle;text-align:center">
+				<%= button_to 'Delete', investmentAccount_path(investmentAccount), :method => :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm"%>
+			</td>
+    	</tr>
+  <% end %>
+</table>
+<%= button_to 'New InvestmentAccount', new_investmentAccount_path, :method => :get, :class => "btn btn-success btn-sm" %>

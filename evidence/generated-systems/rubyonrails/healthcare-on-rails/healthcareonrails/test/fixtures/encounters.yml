@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# if you change the one: value, be sure to change its reference in the setup method of encounter found in  healthcareonrails/test/controllers
+
+one:
+  encounterNumber: test string for encounterNumber
+  startDateTime: 2020-10-15
+  endDateTime: 2020-10-15
+  Status: 0
+  EncounterType: 0
+
+two:
+  encounterNumber: test string for encounterNumber
+  startDateTime: 2020-10-15
+  endDateTime: 2020-10-15
+  Status: 0
+  EncounterType: 0
+
+

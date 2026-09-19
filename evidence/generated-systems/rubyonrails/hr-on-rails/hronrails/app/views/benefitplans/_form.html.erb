@@ -1,0 +1,54 @@
+<%= form_with model: @benefitPlan, local: true do |form| %>
+ 
+  <% if @benefitPlan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@benefitPlan.errors.count, "error") %> prohibited
+        this benefitPlan from being saved:
+      </h2>
+      <ul>
+        <% @benefitPlan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :name, { class: 'form-label'} %><br>
+	<%= form.text_field :name, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :providerName, { class: 'form-label'} %><br>
+	<%= form.text_field :providerName, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :employeeContributionRate, { class: 'form-label'} %><br>
+	<%= form.text_field :employeeContributionRate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :employerContributionRate, { class: 'form-label'} %><br>
+	<%= form.text_field :employerContributionRate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :eligibilityRules, { class: 'form-label'} %><br>
+	<%= form.text_field :eligibilityRules, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :BenefitType, { class: 'form-label'} %><br>
+   <%= form.select :BenefitType, BenefitPlan.BenefitTypes.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

@@ -1,0 +1,56 @@
+<%= form_with model: @note, local: true do |form| %>
+ 
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@note.errors.count, "error") %> prohibited
+        this note from being saved:
+      </h2>
+      <ul>
+        <% @note.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :title, { class: 'form-label'} %><br>
+	<%= form.text_field :title, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :content, { class: 'form-label'} %><br>
+	<%= form.text_field :content, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :createdAt, { class: 'form-label'} %><br>
+    <%= form.time_field :createdAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :updatedAt, { class: 'form-label'} %><br>
+    <%= form.time_field :updatedAt, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

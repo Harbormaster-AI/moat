@@ -1,0 +1,50 @@
+<%= form_with model: @payrollRun, local: true do |form| %>
+ 
+  <% if @payrollRun.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@payrollRun.errors.count, "error") %> prohibited
+        this payrollRun from being saved:
+      </h2>
+      <ul>
+        <% @payrollRun.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :runNumber, { class: 'form-label'} %><br>
+	<%= form.text_field :runNumber, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :periodStart, { class: 'form-label'} %><br>
+    <%= form.date_field :periodStart, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :periodEnd, { class: 'form-label'} %><br>
+    <%= form.date_field :periodEnd, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :paymentDate, { class: 'form-label'} %><br>
+    <%= form.date_field :paymentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, PayrollRun.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>

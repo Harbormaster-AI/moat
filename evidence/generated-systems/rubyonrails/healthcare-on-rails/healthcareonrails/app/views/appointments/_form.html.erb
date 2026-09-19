@@ -1,0 +1,50 @@
+<%= form_with model: @appointment, local: true do |form| %>
+ 
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@appointment.errors.count, "error") %> prohibited
+        this appointment from being saved:
+      </h2>
+      <ul>
+        <% @appointment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="card">
+    <div class="card-body">
+
+  <p>
+    <%= form.label :appointmentDate, { class: 'form-label'} %><br>
+    <%= form.time_field :appointmentDate, { class: 'form-label'} %>
+  </p>			
+  <p>
+    <%= form.label :reason, { class: 'form-label'} %><br>
+	<%= form.text_field :reason, { class: 'form-label'} %>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+  </p>			
+  <p>
+   <%= form.label :Status, { class: 'form-label'} %><br>
+   <%= form.select :Status, Appointment.Statuss.keys, { class: 'form-control'} %>
+  </p>			
+  <p>
+   <%= form.label :Priority, { class: 'form-label'} %><br>
+   <%= form.select :Priority, Appointment.Prioritys.keys, { class: 'form-control'} %>
+  </p>			
+
+      <%= form.submit %>
+    
+    </div>
+  
+  </div> 
+<% end %>
