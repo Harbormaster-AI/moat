@@ -1,6 +1,29 @@
 # Proof of Hypotheses
 The contents of this directory exists to serve as a proof to the hypotheses.
 
+## Overview
+
+### Blueprints
+Explore which blueprints were involved in the system compilation process.
+
+### Domain Models
+Explore the dozen blueprints (of over 240 available) using in the system compilation process.
+
+### Measurements
+Data compiled from the total system compilations and how new metrics they create.
+
+### Generated System
+Files output for each system compilation.
+
+### History
+The path to 
+
+### System-as-Code
+The declarative way in which these systems were defined to be compiled.
+
+### Taxonomy
+The languages and concepts further explained around the concept key to thesis.
+
 ## Overcoming Common Friction
 
 The following table are 5 points of friction to help demonstrate how each is overcome
@@ -13,18 +36,7 @@ The following table are 5 points of friction to help demonstrate how each is ove
 | **4** | **The cost of modernization**                  | Existing application requirements can be expressed through models/configuration and regenerated onto a modern blueprint. | A credible modernization example showing reduced production effort.                                          |
 | **5** | **Verification of generated systems**          | Generation isn't enough—the resulting system can be tested and verified as part of production.                           | Runtime tests, infrastructure validation and certification demonstrate that generated systems actually work. |
 
-<!--
-## Generated System Highlights
 
-| Blueprint       | Domain     | Generated | Builds | Tests | Runs | Deploys | Repeatable |
-| --------------- | ---------- | --------: | -----: | ----: | ---: | ------: | ---------: |
-| Spring Boot 3.5 | Banking    |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
-| Spring Boot 3.5 | Healthcare |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
-| Go              | Banking    |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
-| Rails           | Retail     |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
-| Django          | Insurance  |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
-| Angular         | Healthcare |         ✓ |      ✓ |     ✓ |    ✓ |       ✓ |          ✓ |
--->
 
 ## Points of Value
 

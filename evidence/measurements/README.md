@@ -1,6 +1,6 @@
 # Measurement Framework
 
-Of all the points of consideration when comparing this platform type to others in the space, a measurement framework is among the greatest differentiators.
+Of all the points of consideration when comparing this concept to others in the space, a measurement framework is among the greatest differentiators.
 
 A system creation platform has a measurement framework that establishes a hierarchy of evidence for understanding the transformation from human knowledge and assumptions into production-ready systems and, ultimately, operational and economic outcomes.
 
