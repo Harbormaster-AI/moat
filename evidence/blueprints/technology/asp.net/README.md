@@ -9,19 +9,19 @@ The blueprint uses the ASP.NET framework with an **MVC** design pattern, web pre
 ## Blueprint Information
 
 | Property               | Value             |
-| ---------------------- | ----------------- |
-| **Name**               | ASP.NET           |
-| **Short Name**         | `ASP.NET`         |
+| ---------------------- |-------------------|
+| **Name**               | ASP.NET-10        |
+| **Short Name**         | `ASP.NET10`       |
 | **Version**            | 1.4               |
 | **Type**               | Firstclass        |
 | **Application Type**   | Web Application   |
 | **Release Status**     | Production        |
 | **Technology Source**  | Commercial        |
-| **Published**          | No                |
-| **Docker Support**     | No                |
-| **Kubernetes Support** | No                |
+| **Published**          | Yes               |
+| **Docker Support**     | yes               |
+| **Kubernetes Support** | Yes               |
 | **Major Technology**   | ASPDotNet         |
-| **Derived From**       | common, hibernate |
+| **Derived From**       | common, |
 | **Category**           | Backend Framework |
 | **Primary Vendor**     | Microsoft         |
 | **Design Pattern**     | MVC               |
@@ -33,32 +33,29 @@ The blueprint is designed to generate core ASP.NET application capabilities, inc
 
 * ASP.NET web applications
 * MVC-based application structure
-* UI and presentation capabilities
 * Controllers
 * Domain and business logic
 * Persistence integration
 * ORM-based data access
-* Package management and builds
 * REST APIs
 * Enterprise application foundations
 
 ## Supported Languages
 
 | Language   | Version |
-| ---------- | ------- |
-| C#         | —       |
+| ---------- |---------|
+| C#         | 14      |
 | JavaScript | —       |
 | HTML5      | —       |
 | `.cshtml`  | —       |
 
 ## Technology Stack
 
-| Technology     | Layer        | Purpose              |
-| -------------- | ------------ | -------------------- |
-| **jQuery**     | Presentation | View                 |
-| **ASPDotNet**  | Business     | Model and controller |
-| **nHibernate** | Data         | ORM for persistence  |
-| **NuGet**      | Build        | Build and package    |
+| Technology    | Layer        | Purpose                                                 |
+|---------------| ------------ |---------------------------------------------------------|
+| **ASPDotNet** | Business     | Model and controller                                    |
+| **Database**  | Data         | ORM-like features with multiple RDBMS and NoSQL options |
+
 
 ## Architecture
 
@@ -72,17 +69,17 @@ The blueprint uses a **Layered** architecture with the **MVC** design pattern.
                        │
           ┌────────────┼────────────┐
           ▼            ▼            ▼
-       View          Model       Controller
+   View (Optional)   Model       Controller
           │            │            │
           │            └─────┬──────┘
           │                  ▼
-          │              nHibernate
+          │        Entity Framework Core
           │                  │
           │                  ▼
           │               Database
           │
           ▼
-       jQuery
+       Presentation Blueprint
           │
           ▼
        Web UI
@@ -134,19 +131,16 @@ Domain Model
 ASP.NET Blueprint
       │
       ├── MVC Structure
-      ├── Views
       ├── Models
-      ├── Controllers
+      ├── Services
       ├── Persistence
-      └── Build & Package
+      └── Docker
       │
       ▼
 Generated ASP.NET Application
 ```
 
 The model-independent nature of the blueprint allows the same production foundation to be applied across different application domains.
-
-Rather than manually recreating the framework structure, presentation layer, business components and persistence integration for every application, Harbormaster can use the blueprint as reusable production knowledge from which the system is generated.
 
 ## Blueprint Assets
 
