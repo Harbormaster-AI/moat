@@ -1,25 +1,40 @@
 # History
-The following represent proof points 2 major corporations, looking to adopt the system to create 
+Early when the platform was barely more than a concept, the following are offered as proof points of 3 major corporations, looking to adopt the platform to create 
 global leverage at scale.
 
-## Strategic Acquisition Consideration @ Fortune 20
+## 1. Strategic Acquisition Consideration @ Top 10 Global System Integrator
+__Event Intent__:  
+Technology Acquisition
+
+__Purpose__:  
+Provide automation technology to teams to execute client projects faster   
+
+__Overview__:  
+- Engaged Senior Manager via email  
+- Met with Sr.Technical Leadership to demo product.
+- 
+
+__Result__:  
+Met technology due diligence.  Looking for more proof points and metrics we were too early to provide.
+
+## 2. Strategic Acquisition Consideration @ Fortune 20
 __Event Intent__:  
 Strategic Acquisition
 
 __Purpose__:  
-Provide technology to lift enterprise application migration program  
+Provide technology to lift failing enterprise application cloud migration program
 
 __Overview__:  
-May 2017 - Engaged Senior Manager via email  
-May 2017 - Demonstrated platform to Senior Developer  
-May 2017 - Met with General Manager
-May-Sept 2017 - Multiple meetings and demonstrations  
-Sept 2017 - Technology acceptance with handover for business due diligence
+- Engaged Senior Manager via email  
+- Demonstrated platform to Senior Developer  
+- Met with General Manager
+- Multiple meetings and demonstrations  
+- Technology acceptance with handover for business due diligence
 
 __Result__:  
-Met technology due diligence.  However, the intended acquirer was unable to discover an enterprise engagement with their professional services.  Momentum and interest stalled. 
+Met technology due diligence.  However, the intended acquirer was unable to discover an enterprise engagement with their professional services.  Momentum and interest stalled.
 
-## Proof of Concept @ Fortune 50
+## 3. Proof of Concept @ Fortune 50
 __Event Intent__:  
 Leverage Automation to Execute a Global Microservice Strategy
 
