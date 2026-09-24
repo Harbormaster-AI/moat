@@ -1,4 +1,4 @@
-# Purpose
+## Purpose
 
 This content will serve to express who we built this platform for and the reasons why, along with proof (where possible) to support those reasons.
 
@@ -11,7 +11,7 @@ Instead of offering a deck with sales and marketing language, or an online demo,
 
 ---
 
-# Assumptions
+## Assumptions
 
 Harbormaster was preconceived based on a simple assumptions:
 
@@ -22,24 +22,24 @@ Harbormaster was preconceived based on a simple assumptions:
 
 ---
 
-# Quick Links
+## Quick Links
 
 
 ### Evidence
+[Platorm](./evidence/platform/README.MD)  - Realization of the Thesis  
 [Taxonomy](./evidence/taxonomy/README.md) - Important Terms and Statements   
 [History](./evidence/history/README.md) - 3 Events of Interest  
-[Measurement Framework](./evidence/measurements/README.md) - Creating new metrics for new insight  
+[Measurement Framework](./evidence/measurements/README.md) - Creating new metrics for new insights  
 [Generated Systems](./evidence/generated-systems/README.md) - System related files (source code, configuration, etc...)  
 
 ### Targets
-
 [Enterprise](./enterprise/README.md)  
 [Public Cloud Provider](./cloud-provider/README.md)  
 [GSI](./gsi/README.md)  
 [GSI with Cloud](./hybrid/README.md)  
 [Managed Service Provider](./msp/README.md)  
 
-# Audience
+## Audience
 
 This content is meant to inform and be shared with senior leadership.  If the platform is as transformational as the thesis and hypotheses will try to reveal, it should effortlessly align with a CIO's goals.
 
@@ -52,9 +52,9 @@ This content is meant to inform and be shared with senior leadership.  If the pl
 | 🖥️ Managed Service Provider             | Grow the managed estate by making more systems economically viable to create, modernize and operate. | Capture production and operational knowledge as reusable capability across managed workloads.                                      | Increase the number of applications that can be modernized, deployed and brought under ongoing management. | Identify a mechanism for expanding the addressable managed estate, increasing recurring revenue potential, and creating a compounding operational advantage. |
 ---
 
-# Thesis
+## Thesis
 
-## Software Is Still Produced One System at a Time
+### Software Is Still Produced One System at a Time
 
 Every organization that creates software systems repeatedly performs much of the same work:
 
@@ -82,7 +82,7 @@ The objective is not simply to generate code.
 
 ---
 
-# SMEs
+## SMEs
 
 Software SMEs traditionally create **static content**: 
 
@@ -104,7 +104,7 @@ Over time, this creates an organizational asset that is far more valuable than a
 
 ---
 
-# The Evolution of AI-Driven Software Production
+## The Evolution of AI-Driven Software Production
 
 ### AI Matures With the Blueprint Continuum
 
@@ -120,7 +120,7 @@ The long-term vision is not AI replacing the blueprint system. **The blueprint s
 
 ---
 
-# One Technology. 5 Economic Outcomes.
+## One Technology. 5 Economic Outcomes.
 <!-- ![](./assets/software.value.chain.png) -->
 
 The same transformation can create different forms of value depending on the organization applying it.
@@ -220,7 +220,7 @@ Explore the GIS/Private Cloud Managed Services Thesis For:
 
 ---
 
-# 🖥️ Managed Service Provider 
+## 🖥️ Managed Service Provider 
 ### Turn Managed Operations Into a Workload-Growth Engine
 
 A Managed Hybrid Cloud Provider will increase the number of applications that become economically viable to create, modernize and bring into its managed technology environment.
