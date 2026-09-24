@@ -1,5 +1,6 @@
-![](../assets/harbormaster.overview.png)
 # From Application Generation to System Compilation
+
+![](../assets/harbormaster.overview.png)
 
 Custom applications are an important source of business differentiation and, in many organizations, are critical to day-to-day operations and competitive advantage. Consequently, **how those systems are designed, constructed, delivered, and operated has become an important business consideration—not merely a technical one.**
 
