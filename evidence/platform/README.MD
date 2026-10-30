@@ -54,13 +54,16 @@ Instrumental to the platform are a set of concepts essential to support an under
 #### The act of bringing together the declared aspects of system in order to produce a system to be verified and deployed
 
 ## System Verification
-#### The external steps used to certify a system is well-formed, secure, and deployable.
+#### Steps used to certify a system is well-formed, secure, and deployable.
 
 ## Blueprint Certification
 #### The external critique of a blueprint for the purpose of scoring its completeness both statistically and dynamically.
 
 ## Architecture Metrics
 #### A new category of measurements a blueprint centric model driven system enables.
+
+## Observability
+#### A new class of observability to produce pre-compilation and post compilation data creating a better system lens.
 
 ## Big-picture 
 

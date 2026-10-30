@@ -1,0 +1,29 @@
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    // Corda Community platform artifacts
+    maven {
+        url 'https://download.corda.net/maven/corda-releases'
+    }
+
+    // Corda-compatible Quasar and other patched dependencies
+    maven {
+        url 'https://download.corda.net/maven/corda-dependencies'
+    }
+
+    // Additional libraries used by this project
+    maven {
+        url 'https://download.corda.net/maven/corda-lib'
+    }
+    maven {
+        url 'https://download.corda.net/maven/corda-lib-dev'
+    }
+    maven {
+        url 'https://jitpack.io'
+    }
+    maven {
+        url 'https://repo.gradle.org/gradle/libs-releases'
+    }
+}
